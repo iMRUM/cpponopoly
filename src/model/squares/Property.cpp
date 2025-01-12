@@ -4,16 +4,15 @@
 
 #include "Property.hpp"
 
-bool Property::purchase(const std::shared_ptr<Player> &buyer) {
-    if (buyer) {
-        setOwner(buyer);
+bool Property::purchase(const int buyer_id) {
+    if (buyer_id!=INT8_MAX) {
+        setOwnerId(buyer_id);
         return true;
     }
     return false;
 }
 
-void Property::transferTo(const std::shared_ptr<Player> &newOwner) {
-    owner.reset();
-    setOwner(newOwner);
+void Property::transferTo(const int new_owner_id) {
+    setOwnerId(new_owner_id);
 }
 
