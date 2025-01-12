@@ -1,0 +1,101 @@
+I'm building a Monopoly game in C++ with following architecture:
+
+Core Structure:
+- MVC pattern with Registry Pattern for relationship management
+- Board manages layout using IDs, actual objects managed by registries
+- No ECS, using traditional OOP with clean separation of concerns
+
+Key Classes:
+1. Registries (managed by GameController):
+- SquareRegistry: Manages all square objects
+- PropertyRegistry: Manages ownership relationships
+- ColorGroupRegistry: Manages property groups
+- BuildingRegistry: Tracks houses/hotels
+- ChanceCardRegistry: Manages special cards
+- JailRegistry: Tracks jail status
+
+2. Models:
+- Square (base class)
+- Property (derives Square)
+- Street, Railroad, Utility (derive Property)
+- Player
+- Board (stores IDs, layout)
+
+3. Controllers:
+- GameController (main controller, owns registries)
+- PlayerController
+- PropertyController
+
+4. Views (SFML-based):
+- BoardView
+- PlayerView
+- PropertyView
+
+Current core principles:
+- Using IDs for relationships instead of pointers
+- Strong ownership semantics
+- Clear separation of data and behavior
+- Registry pattern for relationship management
+
+The project requirements: [paste the requirements]
+
+[Optional: Add specific part you're working on or need help with]
+
+project requirements:
+Project: Monopoly Game Implementation
+Language: C++
+Players: 2-8 players on same computer
+
+Core Requirements:
+
+1. Board Structure:
+- 40 squares arranged in loop
+- Dynamic board enabling addition of new squares
+- Square types: Streets, Railroads, Utilities, Special squares
+
+2. Property Types:
+a) Streets:
+- Belong to color groups (8 colors)
+- Have name, price, rent, house cost
+- House building requires full color set
+- Rent increases with houses (base × 2^(houses-1))
+- Max 4 houses, then hotel possible
+
+b) Railroads:
+- 4 total, one per board side
+- Cost: 200 units
+- Rent based on number owned:
+  1: 50, 2: 100, 3: 150, 4: 200
+
+c) Utilities:
+- 2 squares (Electric, Water)
+- Cost: 150 units
+- Rent: 10 × dice roll
+
+3. Special Squares:
+- Chance: Random events/cards
+- Free Parking: End turn
+- Tax: Pay 100 units
+- Go to Jail
+- Jail mechanics (3 turns max, escape options)
+
+4. Gameplay:
+- Starting money: 1500 units
+- Roll 2 dice for movement
+- Actions based on landing square
+- Doubles: Extra roll (3 consecutive = jail)
+- Pass Go = +200 units
+- Bankruptcy rules:
+  * To player: Transfer assets
+  * To bank: Return properties
+
+5. Win Conditions:
+- All others bankrupt OR
+- Reach 4000 units
+
+6. Implementation Requirements:
+- GUI interface
+- Display board and players
+- Clear player interaction
+- Comprehensive testing
+- Detailed README
