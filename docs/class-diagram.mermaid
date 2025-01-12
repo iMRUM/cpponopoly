@@ -1,0 +1,175 @@
+classDiagram
+    %% Model Classes
+    class Game {
+        -static instance: Game*
+        -players: vector~Player~
+        -board: Board*
+        -currentPlayerIndex: int
+        -cardDeck: CardDeck*
+        -gameState: GameState
+        +getInstance(): Game*
+        +addPlayer(name: string)
+        +startGame()
+        +nextTurn()
+        +save(): GameMemento
+        +restore(memento: GameMemento)
+    }
+    
+    class GameState {
+        -currentPlayer: int
+        -turnPhase: Phase
+        -diceRolled: bool
+        +updateState()
+        +getCurrentPhase(): Phase
+    }
+    
+    class Board {
+        -squares: vector~Square~
+        -colorGroups: map~string,vector~Street*~~
+        +getSquare(position: int): Square*
+        +getColorGroup(color: string): vector~Street*~
+        +canBuildHouse(street: Street*): bool
+    }
+    
+    class Player {
+        -name: string
+        -money: int
+        -position: int
+        -properties: vector~Property~
+        -state: PlayerState*
+        -currentSquare: Square*
+        +addMoney(amount: int)
+        +deductMoney(amount: int): bool
+        +moveToPosition(position: int)
+        +addProperty(property: Property*)
+        +getColorGroupProperties(): map~string,int~
+    }
+    
+    class Square {
+        <<abstract>>
+        #name: string
+        #position: int
+        #board: Board*
+        +handleLanding(player: Player*)*
+        +getName(): string
+        +getPosition(): int
+    }
+    
+    class Property {
+        <<abstract>>
+        #price: int
+        #owner: Player*
+        #rentStrategy: RentStrategy*
+        +purchase(buyer: Player*): bool
+        +calculateRent(): int
+        +getOwner(): Player*
+    }
+    
+    class Street {
+        -colorGroup: string
+        -baseRent: int
+        -houseCount: int
+        -hasHotel: bool
+        -houseCost: int
+        -rentStrategy: StreetRentStrategy
+        +addHouse(): bool
+        +addHotel(): bool
+    }
+    
+    class SpecialSquare {
+        <<abstract>>
+        +handleSpecialAction(player: Player*)*
+    }
+    
+    class ChanceSquare {
+        +handleSpecialAction(player: Player*)
+    }
+    
+    class CardDeck {
+        -cards: vector~Card~
+        +drawCard(): Card*
+        +shuffle()
+    }
+    
+    %% Controller Classes
+    class GameController {
+        -game: Game&
+        -playerController: PlayerController*
+        -tradeController: TradeController*
+        -buildController: BuildController*
+        -commandQueue: queue~GameCommand~
+        +handlePlayerAction(action: PlayerAction)
+        +executeTurn()
+    }
+    
+    class PlayerController {
+        -player: Player&
+        -rentStrategy: RentStrategy*
+        +handleBuyProperty()
+        +handleBuildHouse()
+        +handlePayRent()
+    }
+    
+    class TradeController {
+        +initiateTrade(from: Player*, to: Player*)
+        +executeTrade(trade: Trade)
+    }
+    
+    class BuildController {
+        +canBuildHouse(street: Street*): bool
+        +buildHouse(street: Street*)
+        +buildHotel(street: Street*)
+    }
+    
+    %% View Classes
+    class GameView {
+        -window: RenderWindow
+        -boardView: BoardView*
+        -playerViews: vector~PlayerView~
+        -dialogManager: DialogManager*
+        +update(state: GameState)
+        +render()
+    }
+    
+    class DialogManager {
+        +showTradeDialog()
+        +showBuildDialog()
+        +showPropertyInfo()
+    }
+    
+    %% Factory Classes
+    class SquareFactory {
+        <<interface>>
+        +createSquare(type: string, config: json)*
+    }
+    
+    %% Strategy Classes
+    class RentStrategy {
+        <<interface>>
+        +calculateRent(property: Property*)*
+    }
+    
+    %% Relationships
+    Game *-- Board
+    Game *-- Player
+    Game *-- CardDeck
+    Game *-- GameState
+    Board *-- Square
+    Square <|-- Property
+    Square <|-- SpecialSquare
+    SpecialSquare <|-- ChanceSquare
+    Property <|-- Street
+    Property <|-- Railroad
+    Property <|-- Utility
+    Property --> RentStrategy
+    GameController --> Game
+    GameController *-- PlayerController
+    GameController *-- TradeController
+    GameController *-- BuildController
+    GameView --> GameController
+    GameView *-- DialogManager
+    GameView *-- BoardView
+    GameView --> GameState
+    Player --> Square
+    Player --> PlayerState
+    Player --> Property
