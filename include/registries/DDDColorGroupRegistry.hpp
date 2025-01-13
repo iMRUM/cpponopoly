@@ -26,7 +26,7 @@ namespace monopoly {
         [[nodiscard]] const Color& getColor() const { return color; }
     };
 
-    class ColorGroupRegistry : public Registry<ColorGroup, ColorGroupID> {
+    class DDDColorGroupRegistry : public Registry<ColorGroup, ColorGroupID> {
     public:
         bool isComplete(ColorGroupID groupId, PlayerID ownerId) const;
         std::vector<ColorGroupID> getCompleteGroups(PlayerID playerId) const;

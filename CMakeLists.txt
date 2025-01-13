@@ -22,6 +22,8 @@ add_executable(model_tests
         include/utils/Id.hpp
         include/registries/Registry.hpp
         include/registries/PropertyRegistry.hpp
-        include/registries/ColorGroupRegistry.hpp
+        include/registries/DDDColorGroupRegistry.hpp
         src/registries/PropertyRegistry.cpp
+        include/registries/PlayerRegistry.hpp
+        include/registries/BuildingRegistry.hpp
 )
