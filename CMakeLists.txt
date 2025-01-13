@@ -3,7 +3,7 @@
 cmake_minimum_required(VERSION 3.29)
 project(Monopoly)
 
-set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 include_directories(include)
@@ -19,4 +19,9 @@ add_executable(model_tests
         src/model/squares/Property.cpp
         src/model/squares/Property.hpp
         include/StrategyRentCalculator.hpp
+        include/utils/Id.hpp
+        include/registries/Registry.hpp
+        include/registries/PropertyRegistry.hpp
+        include/registries/ColorGroupRegistry.hpp
+        src/registries/PropertyRegistry.cpp
 )
