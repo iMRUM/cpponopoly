@@ -27,7 +27,7 @@ namespace monopoly {
         if (it != propertyOwners.end()) {
             PlayerID oldOwner = it->second;
             auto &properties = ownershipMap[oldOwner];
-            properties.erase(std::remove(properties.begin(), properties.end(), propertyId),properties.end());
+            properties.erase(std::remove(properties.begin(), properties.end(), propertyId), properties.end());
             if (properties.empty()) {
                 ownershipMap.erase(oldOwner);
             }
@@ -61,6 +61,7 @@ namespace monopoly {
         }
         return false;
     }
+
     void PropertyRegistry::assignToColorGroup(PropertyID propertyId, ColorGroupID groupId) {
         validateProperty(propertyId);
 
@@ -68,7 +69,7 @@ namespace monopoly {
         auto oldGroupIt = propertyToGroup.find(propertyId);
         if (oldGroupIt != propertyToGroup.end()) {
             ColorGroupID oldGroupId = oldGroupIt->second;
-            auto& properties = groupProperties[oldGroupId];
+            auto &properties = groupProperties[oldGroupId];
             properties.erase(
                 std::remove(properties.begin(), properties.end(), propertyId),
                 properties.end()
@@ -86,19 +87,19 @@ namespace monopoly {
     bool PropertyRegistry::isGroupComplete(ColorGroupID groupId, PlayerID playerId) const {
         auto it = groupProperties.find(groupId);
         if (it == groupProperties.end()) {
-            return false;  // Group doesn't exist
+            return false; // Group doesn't exist
         }
 
-        const auto& properties = it->second;
+        const auto &properties = it->second;
         if (properties.empty()) {
             return false;
         }
 
         // Check if all properties in the group belong to the player
         return std::all_of(properties.begin(), properties.end(),
-            [this, playerId](const PropertyID& propId) {
-                return hasOwner(propId) && getOwner(propId) == playerId;
-            });
+                           [this, playerId](const PropertyID &propId) {
+                               return hasOwner(propId) && getOwner(propId) == playerId;
+                           });
     }
 
     std::vector<PropertyID> PropertyRegistry::getPropertiesInGroup(ColorGroupID groupId) const {
@@ -119,6 +120,11 @@ namespace monopoly {
     bool PropertyRegistry::canBuildHouse(PropertyID propertyId) const {
         validateProperty(propertyId);
 
+        // Must be owned
+        if (!hasOwner(propertyId)) {
+            return false;
+        }
+
         // Get current building count
         auto countIt = houseCount.find(propertyId);
         int currentHouses = countIt != houseCount.end() ? countIt->second : 0;
@@ -128,34 +134,82 @@ namespace monopoly {
             return false;
         }
 
-        // Must own all properties in color group
-        ColorGroupID groupId = getPropertyGroup(propertyId);
         PlayerID owner = getOwner(propertyId);
-        if (!isGroupComplete(groupId, owner)) {
+        ColorGroupID groupId = getPropertyGroup(propertyId);
+
+        // Check color group ownership and building evenness
+        return ownsAllPropertiesInGroup(owner, groupId) &&
+               isEvenBuilding(propertyId, groupId, currentHouses);
+    }
+
+    bool PropertyRegistry::ownsAllPropertiesInGroup(PlayerID playerId, ColorGroupID groupId) const {
+        const auto &groupProperties = getPropertiesInGroup(groupId);
+        if (groupProperties.empty()) {
             return false;
         }
 
-        // Must maintain even building across color group
-        // All properties in group must have equal or one less house
-        const auto& groupProperties = getPropertiesInGroup(groupId);
+        // Check if all properties in the group belong to the player
         return std::all_of(groupProperties.begin(), groupProperties.end(),
-            [this, currentHouses, propertyId](const PropertyID& otherId) {
-                if (otherId == propertyId) return true;
-                auto it = houseCount.find(otherId);
-                int otherHouses = it != houseCount.end() ? it->second : 0;
-                return otherHouses >= (currentHouses - 1) && otherHouses <= currentHouses;
-            });
+                           [this, playerId](const PropertyID &propId) {
+                               return hasOwner(propId) && getOwner(propId) == playerId;
+                           });
+    }
+
+    bool PropertyRegistry::isEvenBuilding(PropertyID propertyId, ColorGroupID groupId, int currentHouses) const {
+        const auto &groupProperties = getPropertiesInGroup(groupId);
+
+        // Check each property in the group
+        return std::all_of(groupProperties.begin(), groupProperties.end(),
+                           [this, currentHouses, propertyId](const PropertyID &otherId) {
+                               if (otherId == propertyId) {
+                                   return true; // Skip the property we're building on
+                               }
+
+                               // Get house count for other property
+                               auto it = houseCount.find(otherId);
+                               int otherHouses = it != houseCount.end() ? it->second : 0;
+
+                               // Other properties must have equal or one less house
+                               return otherHouses >= (currentHouses - 1) &&
+                                      otherHouses <= currentHouses;
+                           });
     }
 
     void PropertyRegistry::addHouse(PropertyID propertyId) {
+        if (!canBuildHouse(propertyId)) {
+            throw std::runtime_error("Cannot build house on this property");
+        }
+
+        auto [it, inserted] = houseCount.try_emplace(propertyId, 0);
+        it->second++;
     }
 
     bool PropertyRegistry::upgradeToHotel(PropertyID propertyId) {
+        validateProperty(propertyId);
+
+        auto it = houseCount.find(propertyId);
+        if (it == houseCount.end() || it->second != 4) {
+            return false;  // Need exactly 4 houses to upgrade to hotel
+        }
+
+        it->second = 5;  // 5 represents a hotel
+        return true;
     }
 
     int PropertyRegistry::getHouseCount(PropertyID propertyId) const {
+        validateProperty(propertyId);
+
+        auto it = houseCount.find(propertyId);
+        if (it == houseCount.end()) {
+            return 0;
+        }
+        return it->second == 5 ? 0 : it->second;  // Don't count houses if there's a hotel
     }
 
     bool PropertyRegistry::hasHotel(PropertyID propertyId) const {
+        validateProperty(propertyId);
+
+        auto it = houseCount.find(propertyId);
+        return it != houseCount.end() && it->second == 5;
     }
 } // namespace monopoly

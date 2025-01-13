@@ -15,31 +15,47 @@ namespace monopoly {
         std::unordered_map<ColorGroupID, std::vector<PropertyID>, ColorGroupID::Hash> groupProperties;
 
         // Building tracking
-        std::unordered_map<PropertyID, int, PropertyID::Hash> houseCount;  // 0-4 houses, 5=hotel
+        std::unordered_map<PropertyID, int, PropertyID::Hash> houseCount; // 0-4 houses, 5=hotel
 
         void validateProperty(PropertyID propertyId) const;
+
         void validateOwnership(PropertyID propertyId) const;
-      //  void validateColorGroup(ColorGroupID groupId) const;
+
+        //  void validateColorGroup(ColorGroupID groupId) const;
+        bool ownsAllPropertiesInGroup(PlayerID playerId, ColorGroupID groupId) const;
+
+        bool isEvenBuilding(PropertyID propertyId, ColorGroupID groupId, int currentHouses) const;
 
     public:
         // Existing ownership methods
         void setOwner(PropertyID propertyId, PlayerID playerId);
+
         void removeOwner(PropertyID propertyId);
+
         PlayerID getOwner(PropertyID propertyId) const;
+
         std::vector<PropertyID> getProperties(PlayerID playerId) const;
+
         bool hasOwner(PropertyID propertyId) const;
 
         // Color group methods
         void assignToColorGroup(PropertyID propertyId, ColorGroupID groupId);
+
         bool isGroupComplete(ColorGroupID groupId, PlayerID playerId) const;
+
         std::vector<PropertyID> getPropertiesInGroup(ColorGroupID groupId) const;
+
         ColorGroupID getPropertyGroup(PropertyID propertyId) const;
 
         // Building methods
         bool canBuildHouse(PropertyID propertyId) const;
+
         void addHouse(PropertyID propertyId);
+
         bool upgradeToHotel(PropertyID propertyId);
+
         int getHouseCount(PropertyID propertyId) const;
+
         bool hasHotel(PropertyID propertyId) const;
 
         // Override base class remove to handle all cleanup
