@@ -41,23 +41,3 @@ bool Player::incrementJailTurns() {
     return false;
     //TO BE COMPLETED FOR FINE MANAGEMENT
 }
-
-
-void Player::addProperty(const std::shared_ptr<Property>& property) {
-    if (!property) {
-        throw std::invalid_argument("Cannot add null property");
-    }
-    properties.push_back(property);
-}
-
-void Player::removeProperty(const std::shared_ptr<Property>& property) {
-    auto it = std::find(properties.begin(), properties.end(), property);
-    if (it != properties.end()) {
-        //property->setOwner(nullptr); TO BE COMPLETED UPON PROPERTY CLASS
-        properties.erase(it);
-    }
-}
-
-bool Player::ownsProperty(const std::shared_ptr<Property> &property) const {
-    return std::find(properties.begin(), properties.end(), property) != properties.end();
-}

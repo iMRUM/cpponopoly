@@ -19,7 +19,6 @@ private:
     int jail_turns;
     bool in_jail = false;
     std::string name;
-    std::vector<std::shared_ptr<Property>> properties;
 
 public:
     explicit Player(const int id, std::string name)
@@ -40,9 +39,7 @@ public:
     bool incrementJailTurns();
     void resetJailTurns(){jail_turns = 0;}
     // ~Properties
-    void addProperty(const std::shared_ptr<Property>& property);
-    void removeProperty(const std::shared_ptr<Property>& property);
-    [[nodiscard]] bool ownsProperty(const std::shared_ptr<Property>& property) const;
+
 
     // Getters and Setters
     [[nodiscard]] int getId() const { return id; }
@@ -51,7 +48,7 @@ public:
     [[nodiscard]] int getJailTurns() const { return jail_turns; }
     [[nodiscard]] bool isInJail() const { return in_jail; }
     [[nodiscard]] const std::string& getName() const { return name; }
-    [[nodiscard]] const std::vector<std::shared_ptr<Property>>& getProperties() const { return properties; }
+
     void setPosition(const int new_position) {
         position = new_position;
     }
