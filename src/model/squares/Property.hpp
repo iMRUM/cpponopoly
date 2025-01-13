@@ -2,6 +2,10 @@
 #include "Square.hpp"
 #include "StrategyRentCalculator.hpp"
 
+namespace monopoly {
+    class PropertyRegistry;
+}
+
 class Property : public Square {
 protected:
     int price;
@@ -45,6 +49,8 @@ public:
 
     // Make onLanding pure virtual beacuse it depends on Property type
     void onLanding(const std::shared_ptr<Player> &player) override = 0;
+
+    virtual int getRent(const monopoly::PropertyRegistry& registry, std::optional<int> diceRoll = std::nullopt) const = 0;
 
     // Prevent copying/moving
     Property(const Property &) = delete;
