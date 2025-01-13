@@ -9,8 +9,6 @@
 #define BOARD_SIZE 40
 #define MAX_JAIL_TURNS 3
 
-class Property; // forward declaration
-
 class Player {
 private:
     int id;
@@ -38,7 +36,6 @@ public:
 
     bool incrementJailTurns();
     void resetJailTurns(){jail_turns = 0;}
-    // ~Properties
 
 
     // Getters and Setters
