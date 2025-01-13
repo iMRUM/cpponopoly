@@ -1,6 +1,7 @@
 #pragma once
 #include "Square.hpp"
 #include "StrategyRentCalculator.hpp"
+#include "../include/utils/Id.hpp"  // Add this include
 
 namespace monopoly {
     class PropertyRegistry;
@@ -8,15 +9,14 @@ namespace monopoly {
 
 class Property : public Square {
 protected:
+    monopoly::PropertyID id;  // Add this field
     int price;
     int base_rent;
-
-    // Each derived class must specify which calculator to use
     virtual const RentCalculator &getRentCalculator() const = 0;
 
 public:
-    Property(const std::string &name, const int position, const int price, const int baseRent)
-        : Square(name, position), price(price), base_rent(baseRent) {
+    Property(const std::string &name, const int position, const int price, const int baseRent, const monopoly::PropertyID propertyId)
+        : Square(name, position), id(propertyId), price(price), base_rent(baseRent) {
         if (price < 0) {
             throw std::invalid_argument("Price cannot be negative");
         }
@@ -25,7 +25,7 @@ public:
         }
     }
 
-
+    [[nodiscard]] monopoly::PropertyID getId() const { return id; }  // Add getter
 
     [[nodiscard]] int getPrice() const { return price; }
 
