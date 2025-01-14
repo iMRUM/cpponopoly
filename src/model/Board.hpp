@@ -1,12 +1,9 @@
-//
-// Created by imry on 1/12/25.
-//
-
 #ifndef BOARD_HPP
 #define BOARD_HPP
-#include "squares/Square.hpp"
 #include <vector>
+#include <memory>
 
+class Square;
 
 class Board {
     Board();
@@ -17,6 +14,12 @@ class Board {
 
 public:
     static Board * getInstance();
+    Square& getSquare(const int index) {
+        return *(instance->squares.at(index));
+    }
+    ~Board();
+    Board(const Board&) = delete;
+    Board& operator=(const Board&) = delete;
 };
 
 

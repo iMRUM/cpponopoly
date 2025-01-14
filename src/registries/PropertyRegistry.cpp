@@ -55,7 +55,7 @@ namespace monopoly {
     }
 
     bool PropertyRegistry::remove(PropertyID propertyId) {
-        if (Registry<Property, PropertyID>::remove(propertyId)) {
+        if (Registry::remove(propertyId)) {
             removeOwner(propertyId);
             return true;
         }
@@ -109,7 +109,6 @@ namespace monopoly {
 
     ColorGroupID PropertyRegistry::getPropertyGroup(PropertyID propertyId) const {
         validateProperty(propertyId);
-
         auto it = propertyToGroup.find(propertyId);
         if (it == propertyToGroup.end()) {
             throw std::runtime_error("Property is not assigned to any color group");

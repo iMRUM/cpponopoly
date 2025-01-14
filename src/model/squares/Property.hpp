@@ -1,22 +1,19 @@
 #pragma once
 #include "Square.hpp"
-#include "StrategyRentCalculator.hpp"
 #include "../include/utils/Id.hpp"  // Add this include
 
 namespace monopoly {
     class PropertyRegistry;
-}
-
 class Property : public Square {
 protected:
-    monopoly::PropertyID id;  // Add this field
+    PlayerID owner_id;
+    PropertyID property_id;  // Add this field
     int price;
     int base_rent;
-    virtual const RentCalculator &getRentCalculator() const = 0;
 
 public:
-    Property(const std::string &name, const int position, const int price, const int baseRent, const monopoly::PropertyID propertyId)
-        : Square(name, position), id(propertyId), price(price), base_rent(baseRent) {
+    Property(const std::string &name, const int position, const int price, const int baseRent, const PropertyID& propertyId)
+        : Square(name, position), property_id(propertyId), price(price), base_rent(baseRent) {
         if (price < 0) {
             throw std::invalid_argument("Price cannot be negative");
         }
@@ -25,7 +22,15 @@ public:
         }
     }
 
-    [[nodiscard]] monopoly::PropertyID getId() const { return id; }  // Add getter
+    [[nodiscard]] const PlayerID& getOwnerId() const {
+        return owner_id;
+    }
+
+    void setOwnerId(const PlayerID &owner_id) {
+        this->owner_id = owner_id;
+    }
+
+    [[nodiscard]] PropertyID getPropertyId() const { return property_id; }  // Add getter
 
     [[nodiscard]] int getPrice() const { return price; }
 
@@ -37,11 +42,6 @@ public:
     void setBaseRent(const int new_base_rent) { base_rent = new_base_rent; }
 
 
-    // Make onLanding pure virtual beacuse it depends on Property type
-    void onLanding(const std::shared_ptr<Player> &player) override = 0;
-
-    virtual int getRent(const monopoly::PropertyRegistry& registry, std::optional<int> diceRoll = std::nullopt) const = 0;
-
     // Prevent copying/moving
     Property(const Property &) = delete;
 
@@ -51,3 +51,4 @@ public:
 
     Property &operator=(Property &&) = delete;
 };
+}

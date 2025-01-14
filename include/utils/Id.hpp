@@ -25,7 +25,7 @@ namespace monopoly {
     };
 
     // ID type definitions
-    struct SquareTag {};
+    struct SquareTag{};
     struct PropertyTag {};
     struct PlayerTag {};
     struct ColorGroupTag {};

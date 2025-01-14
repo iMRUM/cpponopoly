@@ -22,10 +22,12 @@ add_executable(model_tests
         include/utils/Id.hpp
         include/registries/Registry.hpp
         include/registries/PropertyRegistry.hpp
-        include/registries/DDDColorGroupRegistry.hpp
         src/registries/PropertyRegistry.cpp
         include/registries/PlayerRegistry.hpp
-        include/registries/BuildingRegistry.hpp
         src/model/squares/Railroad.hpp
         src/model/squares/Utility.hpp
+        src/model/squares/Street.hpp
+        src/controller/GameController.hpp
+        src/controller/GameController.hpp
+        src/controller/GameController.cpp
 )

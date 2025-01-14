@@ -7,7 +7,9 @@
 Board::Board() {
     init();
 }
-
+Board::~Board() {
+    squares.clear();
+}
 void Board::addSquare(std::unique_ptr<Square> square) {
     squares.push_back(std::move(square));
 }

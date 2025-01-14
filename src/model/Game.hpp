@@ -3,12 +3,14 @@
 #include <memory>
 #include <random>
 #include <string>
+#include <unordered_map>
 #include <vector>
-
-class Board; // forward declaration
-class Player; // forward declaration
-
-
+#include "Board.hpp"
+#include "utils/Id.hpp"
+#include "player/Player.hpp"
+class Square;
+//ColorGroups should be registered here/store here a registry
+namespace monopoly{
 class Game { // Singleton class
 private:
     static std::unique_ptr<Game> instance;
@@ -16,15 +18,17 @@ private:
     bool game_started = false;
     bool game_over = false;
     int current_player_index = 0;
-    std::unique_ptr<Board> board;
+    Board* board;
     std::vector<std::unique_ptr<Player>> players;
-
+    std::unordered_map<ColorGroupID, std::vector<SquareID>, ColorGroupID::Hash>;
     // Random number generation fields
     std::random_device rd_;
     std::mt19937 gen_;
     std::uniform_int_distribution<> dice_dist;
 
-    Game() = default;  // Private constructor
+    Game() {
+        board = Board::getInstance();
+    }
 
 public:
     static Game& getInstance() {
@@ -51,8 +55,8 @@ public:
     struct Dice {
         int first;
         int second;
-        bool isDoubles() const { return first == second; }
-        int getTotal() const { return first + second; }
+        [[nodiscard]] bool isDoubles() const { return first == second; }
+        [[nodiscard]] int getTotal() const { return first + second; }
     };
     Dice rollDice();
 
@@ -81,8 +85,10 @@ public:
     [[nodiscard]] Board& getBoard() const {
         return *board;
     }
-
+    Square& getSquareAt(const int index) {
+        return board->getSquare(index);
+    }
     [[nodiscard]] const std::vector<std::unique_ptr<Player>>& getPlayers() const;
 
 };
-
+}

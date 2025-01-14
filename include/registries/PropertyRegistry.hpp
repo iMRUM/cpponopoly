@@ -43,7 +43,5 @@ namespace monopoly {
         // Override base class remove to handle all cleanup
         bool remove(PropertyID propertyId) override;
 
-        // Rent calculation
-        int calculateRent(PropertyID propertyId) const;
     };
 } // namespace monopoly

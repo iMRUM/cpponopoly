@@ -3,6 +3,7 @@
 #include <memory>
 #include <stdexcept>
 #include <string>
+#include "../include/utils/Id.hpp"
 #define BOARD_SIZE 40
 
 class Player;
