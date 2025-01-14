@@ -30,4 +30,5 @@ add_executable(model_tests
         src/controller/GameController.hpp
         src/controller/GameController.hpp
         src/controller/GameController.cpp
+        include/strategy/RentCalculator.hpp
 )

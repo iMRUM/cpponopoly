@@ -3,6 +3,7 @@
 #include <memory>
 #include <stdexcept>
 #include <string>
+#include <utility>
 #include "../include/utils/Id.hpp"
 #define BOARD_SIZE 40
 
@@ -12,8 +13,8 @@ private:
     std::string name;
     int position;
 public:
-    Square(const std::string& name, const int position)
-        : name(name), position(position) {
+    Square(std::string  name, const int position)
+        : name(std::move(name)), position(position) {
         if (position < 0 || position >= BOARD_SIZE) {
             throw std::invalid_argument("Invalid board position");
         }

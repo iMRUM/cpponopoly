@@ -14,9 +14,10 @@ class Board {
 
 public:
     static Board * getInstance();
-    Square& getSquare(const int index) {
-        return *(instance->squares.at(index));
+    Square* getSquare(const int index) {
+        return squares.at(index).get();
     }
+    size_t getSize(){return squares.size();}
     ~Board();
     Board(const Board&) = delete;
     Board& operator=(const Board&) = delete;

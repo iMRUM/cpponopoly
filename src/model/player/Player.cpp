@@ -1,5 +1,5 @@
 #include "Player.hpp"
-
+namespace monopoly{
 void Player::increaseBalance(const int amount) {
     if (amount < 0) {
         throw std::invalid_argument("Cannot increase balance by negative amount");
@@ -40,4 +40,5 @@ bool Player::incrementJailTurns() {
     }
     return false;
     //TO BE COMPLETED FOR FINE MANAGEMENT
+}
 }

@@ -4,9 +4,12 @@
 
 #include "Board.hpp"
 
-Board::Board() {
-    init();
-}
+#include "squares/Property.hpp"
+#include "squares/Street.hpp"
+
+Board* Board::instance = nullptr;
+
+Board::Board() = default;
 Board::~Board() {
     squares.clear();
 }
@@ -15,13 +18,15 @@ void Board::addSquare(std::unique_ptr<Square> square) {
 }
 
 void Board::init() {
-    //multiple addSquare for all squares on board, maybe use a squaresRegistry to provide dynamic add
+    addSquare(std::make_unique<monopoly::Street>("Broadway", 1, 500, 35,6, monopoly::PropertyID()));
+    addSquare(std::make_unique<monopoly::Street>("Broadway2", 2, 400, 35,6, monopoly::PropertyID()));
 
 }
 
 Board * Board::getInstance() {
     if (instance == nullptr) {
         instance = new Board();
+        instance->init();
     }
     return instance;
 }

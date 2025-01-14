@@ -47,7 +47,7 @@ public:
 
     // Basic Player and turn management
     void addPlayer(std::unique_ptr<Player> player);
-    size_t getPlayerCount() const { return players.size(); }
+    [[nodiscard]] size_t getPlayerCount() const { return players.size(); }
     Player& getCurrentPlayer();
     void nextTurn();
 
@@ -85,7 +85,7 @@ public:
     [[nodiscard]] Board& getBoard() const {
         return *board;
     }
-    Square& getSquareAt(const int index) {
+    Square* getSquareAt(const int index) {
         return board->getSquare(index);
     }
     [[nodiscard]] const std::vector<std::unique_ptr<Player>>& getPlayers() const;

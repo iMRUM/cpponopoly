@@ -1,8 +1,15 @@
 //
 // Created by imry on 1/13/25.
 //
+#pragma once
+#include "Registry.hpp"
+#include "../src/model/player/Player.hpp"
+namespace monopoly {
 
-#ifndef PLAYERREGISTRY_HPP
-#define PLAYERREGISTRY_HPP
-
-#endif //PLAYERREGISTRY_HPP
+    class PlayerRegistry : public Registry<Player, PlayerID> {
+    public:
+        PlayerID registerPlayer(const std::string& name) {
+            return registerObject(std::make_shared<Player>(name));
+        }
+    };
+}

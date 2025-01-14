@@ -13,7 +13,6 @@
 namespace monopoly {
     class Player {
     private:
-        int id;
         int balance;
         int position;
         int jail_turns;
@@ -23,8 +22,8 @@ namespace monopoly {
         std::string name;
 
     public:
-        explicit Player(const int id, std::string name)
-            : id(id), balance(1500), position(0), jail_turns(0), doubles(0), name(std::move(name)) {
+        explicit Player(std::string name)
+            : balance(1500), position(0), jail_turns(0), doubles(0), name(std::move(name)) {
             std::cout << "Player created" << std::endl;
         }
 
@@ -49,7 +48,6 @@ namespace monopoly {
         void increaseDoubles() { doubles++; }
 
         // Getters and Setters
-        [[nodiscard]] int getId() const { return id; }
         [[nodiscard]] int getBalance() const { return balance; }
         [[nodiscard]] int getPosition() const { return position; }
         [[nodiscard]] int getJailTurns() const { return jail_turns; }
