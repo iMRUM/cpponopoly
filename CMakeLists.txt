@@ -27,4 +27,5 @@ add_executable(model_tests
         include/registries/PlayerRegistry.hpp
         include/registries/BuildingRegistry.hpp
         src/model/squares/Railroad.hpp
+        src/model/squares/Utility.hpp
 )
