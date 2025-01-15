@@ -6,7 +6,7 @@
 namespace monopoly {
     class PropertyRegistry : public Registry<Property, PropertyID> {
     private:
-        // Ownership tracking (existing)
+        // Ownership tracking
         std::unordered_map<PlayerID, std::vector<PropertyID>, PlayerID::Hash> ownershipMap;
         std::unordered_map<PropertyID, PlayerID, PropertyID::Hash> propertyOwners;
 
@@ -20,7 +20,7 @@ namespace monopoly {
 
 
     public:
-        // Existing ownership methods
+        // Ownership methods
         void setOwner(PropertyID propertyId, PlayerID playerId);
 
         void removeOwner(PropertyID propertyId);
