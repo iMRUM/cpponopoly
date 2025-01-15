@@ -1,6 +1,7 @@
 #include "Game.hpp"
 
 #include <stdexcept>
+
 namespace monopoly {
     std::unique_ptr<Game> Game::instance = nullptr;
 
@@ -10,24 +11,19 @@ namespace monopoly {
         player_registry = std::make_unique<PlayerRegistry>();
     }
 
-    Game & Game::getInstance() {
+    Game &Game::getInstance() {
         if (!instance) {
             instance = std::unique_ptr<Game>(new Game());
         }
         return *instance;
     }
 
-    const std::vector<std::unique_ptr<Player>> & Game::getPlayers() const {
-        return players;
-    }
 
     bool Game::initializeGame(size_t size_players) {
         if (size_players < 2 || size_players > 8) {
             return false;
         }
         // Clear existing players if any
-        players.clear();
-        players.resize(size_players);
         state.reset();
         state.initialized = true;
         return isGameInitialized();
@@ -37,7 +33,7 @@ namespace monopoly {
         if (!isGameInitialized()) {
             return false;
         }
-        game_started = true;
+        state.started = true;
         return isGameStarted();
     }
 
@@ -45,19 +41,8 @@ namespace monopoly {
         if (!isGameStarted()) {
             return false;
         }
-        game_over = true;
+        state.over = true;
         return isGameOver();
-    }
-
-    void Game::addPlayer(const std::string& player) {
-        if (player_registry->getSize() >= 8) {
-            throw std::runtime_error("Maximum number of players reached");
-        }
-        player_registry->registerPlayer(player);
-    }
-
-    Player & Game::getCurrentPlayer() {
-        return *player_registry->get(PlayerID(state.current_player_index));
     }
 
     void Game::nextTurn() {
@@ -65,7 +50,57 @@ namespace monopoly {
         state.resetTurnState();
     }
 
+    void Game::addPlayer(const std::string &player) {
+        if (player_registry->getSize() >= 8) {
+            throw std::runtime_error("Maximum number of players reached");
+        }
+        player_registry->registerPlayer(player);
+    }
+
+    Player &Game::getCurrentPlayer() {
+        return *(player_registry->get(PlayerID(state.current_player_index)));
+    }
+
+    void Game::handleTurn() {
+    }
     Game::Dice Game::rollDice() {
         return Dice{dice_dist(gen_), dice_dist(gen_)};
+    }
+
+    void Game::handleDiceRoll(int result, bool isDoubles) {
+    }
+
+    void Game::handleDouble(int result) {
+    }
+
+    void Game::isGameWon() {
+    }
+
+    void Game::handleBankruptcy(Player& bankrupt_player) {
+        bankrupt_player.setBankrupt(true);
+        auto bankrupt_position = bankrupt_player.getPosition();
+
+        // Check if bankruptcy is from property rent
+        if (auto property = dynamic_cast<Property*>(getSquareAt(bankrupt_position).get())) {
+            if (auto owner = property_registry->getOwner(PropertyID(property->getId()))) {
+                // Transfer all properties to creditor
+                auto properties = property_registry->getProperties(PlayerID(bankrupt_player.getId()));
+                for (const auto& prop_id : properties) {
+                    property_registry->setOwner(prop_id, owner);
+                }
+                // Transfer remaining money
+                Player& creditor = *player_registry->get(owner);
+                creditor.increaseBalance(bankrupt_player.getBalance());
+            }
+        }
+
+        // Clear bankrupt player's assets
+        auto properties = property_registry->getProperties(PlayerID(bankrupt_player.getId()));
+        for (const auto& prop_id : properties) {
+            property_registry->removeOwner(prop_id);
+        }
+        bankrupt_player.setBalance(0);
+
+        isGameWon();
     }
 }
