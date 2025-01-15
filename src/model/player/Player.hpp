@@ -18,6 +18,7 @@ namespace monopoly {
         int jail_turns;
         int doubles;
         bool in_jail = false;
+        bool is_bankrupt = false;
         std::vector<PropertyID*> owned_properties;
         std::string name;
 
@@ -62,6 +63,18 @@ namespace monopoly {
 
         void addPropertyID(PropertyID &property_id) {
             owned_properties.push_back(&property_id);
+        }
+
+        void setBalance(int balance) {
+            this->balance = balance;
+        }
+
+        [[nodiscard]] bool isBankrupt() const {
+            return is_bankrupt;
+        }
+
+        void setBankrupt(bool is_bankrupt) {
+            this->is_bankrupt = is_bankrupt;
         }
     };
 }
