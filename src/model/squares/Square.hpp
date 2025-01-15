@@ -22,8 +22,6 @@ public:
     // Virtual destructor for proper inheritance
     virtual ~Square() = default;
 
-    // Called when a player lands on this square
-    virtual void onLanding(const std::shared_ptr<Player>& player) = 0;
 
     // Getters
     [[nodiscard]] const std::string& getName() const { return name; }
