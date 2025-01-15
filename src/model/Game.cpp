@@ -1,7 +1,7 @@
 #include "Game.hpp"
 
 #include <stdexcept>
-
+//deleteboard
 namespace monopoly {
     std::unique_ptr<Game> Game::instance = nullptr;
 

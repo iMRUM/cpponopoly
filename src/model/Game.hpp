@@ -21,6 +21,8 @@ class Square;
 namespace monopoly{
 class Game { // Singleton class
 private:
+    static std::unique_ptr<Game> instance;
+
     // Core components
     std::unique_ptr<PropertyRegistry> property_registry;
     std::unique_ptr<PlayerRegistry> player_registry;
