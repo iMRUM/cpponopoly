@@ -30,7 +30,7 @@ public:
         this->owner_id = owner_id;
     }
 
-    [[nodiscard]] PropertyID getPropertyId() const { return property_id; }  // Add getter
+    [[nodiscard]] const PropertyID& getPropertyId() const { return property_id; }  // Add getter
 
     [[nodiscard]] int getPrice() const { return price; }
 

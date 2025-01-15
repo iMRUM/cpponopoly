@@ -1,12 +1,10 @@
 #include "Game.hpp"
 
 #include <stdexcept>
-//deleteboard
 namespace monopoly {
     std::unique_ptr<Game> Game::instance = nullptr;
 
     Game::Game() {
-        board = Board::getInstance();
         property_registry = std::make_unique<PropertyRegistry>();
         player_registry = std::make_unique<PlayerRegistry>();
     }
@@ -81,7 +79,7 @@ namespace monopoly {
         auto bankrupt_position = bankrupt_player.getPosition();
 
         // Check if bankruptcy is from property rent
-        if (auto property = dynamic_cast<Property*>(getSquareAt(bankrupt_position).get())) {
+        if (auto property = dynamic_cast<Property*>(getSquareAt(bankrupt_position))) {
             if (auto owner = property_registry->getOwner(PropertyID(property->getId()))) {
                 // Transfer all properties to creditor
                 auto properties = property_registry->getProperties(PlayerID(bankrupt_player.getId()));

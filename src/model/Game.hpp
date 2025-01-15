@@ -5,7 +5,6 @@
 #include <string>
 #include <unordered_map>
 #include <vector>
-#include "Board.hpp"
 #include "utils/Id.hpp"
 #include "../include/registries/PropertyRegistry.hpp"
 #include "../include/registries/PlayerRegistry.hpp"
@@ -28,7 +27,6 @@ private:
     std::unique_ptr<PlayerRegistry> player_registry;
     std::vector<std::shared_ptr<Square>> squares;
     std::unordered_map<ColorGroupID, std::string, ColorGroupID::Hash> color_groups;
-    Board* board;
     /**
      * Encapsulates all game state information.
      * Helps track the current game situation and validate actions.
@@ -87,8 +85,6 @@ private:
     void addUtility();
     void addSpecialSquare();
     Player& getCurrentPlayer();
-    [[nodiscard]] size_t getPlayerCount() const { return player_registry->getSize(); }
-    Square* getSquareAt(const int index) {return board->getSquare(index);}
 
     //Turns management:
     void handleTurn();
@@ -111,7 +107,7 @@ private:
     void buyProperty(Property& property);
     void buildOnProperty(Property& property);
 
-    void landOnSpecialSquare(&SpecialSquare special_square);//TODO
+    void landOnSpecialSquare(SpecialSquare& special_square);//TODO
     void landOnFreeParking();
     void landOnInJailJustVisit();
     void landOnLuxuryTax();
@@ -120,16 +116,33 @@ private:
     void goToJail();//TODO
     void outOfJail();//TODO
 
-    // Getters
-    [[nodiscard]] bool isGameInitialized() const {return state.initialized;}
-    [[nodiscard]] bool isGameStarted() const {return state.started;}
-    [[nodiscard]] bool isGameOver() const {return state.over;}
-    [[nodiscard]] int currentPlayerIndex() const {return state.current_player_index;}
-    [[nodiscard]] Board& getBoard() const {return *board;}
+    //to be revised
+    void processCurrentTurn();  // Main turn processing logic
+    void setupColorGroups();    // Initialize color groups
+    void createProperties();    // Create and set up properties
+    void createSpecialSquares(); // Create special squares
 public:
     static Game& getInstance();
     // Delete copy/move operations
     Game(const Game&) = delete;
     Game& operator=(const Game&) = delete;
+
+    // Getters
+    [[nodiscard]] size_t getPlayerCount() const { return player_registry->getSize(); }
+    Square* getSquareAt(const int index) {return squares.at(index).get();}
+    [[nodiscard]] bool isGameInitialized() const {return state.initialized;}
+    [[nodiscard]] bool isGameStarted() const {return state.started;}
+    [[nodiscard]] bool isGameOver() const {return state.over;}
+    [[nodiscard]] int getCurrentPlayerIndex() const {return state.current_player_index;}
+    [[nodiscard]] size_t getBoardSize() const { return squares.size(); }
+
+    //to be revised:
+    [[nodiscard]] bool hasRolled() const { return state.has_rolled; }
+    [[nodiscard]] bool isAwaitingAction() const { return state.awaiting_action; }
+    [[nodiscard]] bool canBuyProperty() const;
+    [[nodiscard]] bool mustPayRent() const;
+    [[nodiscard]] int calculateCurrentRent() const;
+    [[nodiscard]] Property* getCurrentProperty() const;
+    [[nodiscard]] Player* getWinner() const { return state.winner; }
 };
 }
