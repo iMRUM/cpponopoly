@@ -2,6 +2,21 @@
 
 #include <stdexcept>
 namespace monopoly {
+    std::unique_ptr<Game> Game::instance = nullptr;
+
+    Game::Game() {
+        board = Board::getInstance();
+        property_registry = std::make_unique<PropertyRegistry>();
+        player_registry = std::make_unique<PlayerRegistry>();
+    }
+
+    Game & Game::getInstance() {
+        if (!instance) {
+            instance = std::unique_ptr<Game>(new Game());
+        }
+        return *instance;
+    }
+
     const std::vector<std::unique_ptr<Player>> & Game::getPlayers() const {
         return players;
     }
@@ -13,10 +28,8 @@ namespace monopoly {
         // Clear existing players if any
         players.clear();
         players.resize(size_players);
-        game_started = false;
-        game_over = false;
-        current_player_index = 0;
-        game_initialized = true;
+        state.reset();
+        state.initialized = true;
         return isGameInitialized();
     }
 
@@ -36,24 +49,20 @@ namespace monopoly {
         return isGameOver();
     }
 
-    void Game::addPlayer(std::unique_ptr<Player> player) {
-        if (players.size() >= 8) {
+    void Game::addPlayer(const std::string& player) {
+        if (player_registry->getSize() >= 8) {
             throw std::runtime_error("Maximum number of players reached");
         }
-        players.push_back(std::move(player));
+        player_registry->registerPlayer(player);
     }
 
     Player & Game::getCurrentPlayer() {
-        if (players.empty()) {
-            throw std::runtime_error("No players in game");
-        }
-        return *players[current_player_index];
+        return *player_registry->get(PlayerID(state.current_player_index));
     }
 
     void Game::nextTurn() {
-        if (++current_player_index >= players.size()) {
-            current_player_index = 0;
-        }
+        state.current_player_index = (state.current_player_index + 1) % static_cast<int>(player_registry->getSize());
+        state.resetTurnState();
     }
 
     Game::Dice Game::rollDice() {
