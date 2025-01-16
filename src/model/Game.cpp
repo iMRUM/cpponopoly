@@ -2,50 +2,15 @@
 
 #include <stdexcept>
 namespace monopoly {
-    std::unique_ptr<Game> Game::instance = nullptr;
-
     Game::Game() {
         property_registry = std::make_unique<PropertyRegistry>();
         player_registry = std::make_unique<PlayerRegistry>();
     }
-
-    Game &Game::getInstance() {
-        if (!instance) {
-            instance = std::unique_ptr<Game>(new Game());
+    // Basic Player and square management
+    void Game::addPlayers(size_t num_players) {
+        for (auto i = 0; i < num_players; ++i) {
+            addPlayer("Player" + std::to_string(i));
         }
-        return *instance;
-    }
-
-
-    bool Game::initializeGame(size_t size_players) {
-        if (size_players < 2 || size_players > 8) {
-            return false;
-        }
-        // Clear existing players if any
-        state.reset();
-        state.initialized = true;
-        return isGameInitialized();
-    }
-
-    bool Game::startGame() {
-        if (!isGameInitialized()) {
-            return false;
-        }
-        state.started = true;
-        return isGameStarted();
-    }
-
-    bool Game::endGame() {
-        if (!isGameStarted()) {
-            return false;
-        }
-        state.over = true;
-        return isGameOver();
-    }
-
-    void Game::nextTurn() {
-        state.current_player_index = (state.current_player_index + 1) % static_cast<int>(player_registry->getSize());
-        state.resetTurnState();
     }
 
     void Game::addPlayer(const std::string &player) {
@@ -55,12 +20,28 @@ namespace monopoly {
         player_registry->registerPlayer(player);
     }
 
-    Player &Game::getCurrentPlayer() {
-        return *(player_registry->get(PlayerID(state.current_player_index)));
+    void Game::addSquare() {
     }
 
+    void Game::addProperty() {
+    }
+
+    void Game::addRailroad() {
+    }
+
+    void Game::addStreet() {
+    }
+
+    void Game::addUtility() {
+    }
+
+    void Game::addSpecialSquare() {
+    }
+
+    //Turns management:
     void Game::handleTurn() {
     }
+
     Game::Dice Game::rollDice() {
         return Dice{dice_dist(gen_), dice_dist(gen_)};
     }
@@ -100,5 +81,102 @@ namespace monopoly {
         bankrupt_player.setBalance(0);
 
         isGameWon();
+    }
+
+    void Game::moveSteps(int steps) {
+    }
+
+    void Game::movedPastGo() {
+    }
+
+    void Game::landOn(int pos) {
+    }
+
+    void Game::landOnProperty(Property &property) {
+    }
+
+    void Game::payRent(Property &property) {
+    }
+
+    void Game::buyProperty(Property &property) {
+    }
+
+    void Game::buildOnProperty(Property &property) {
+    }
+
+    void Game::landOnSpecialSquare(SpecialSquare &special_square) {
+    }
+
+    void Game::landOnFreeParking() {
+    }
+
+    void Game::landOnInJailJustVisit() {
+    }
+
+    void Game::landOnLuxuryTax() {
+    }
+
+    void Game::landOnChance() {
+    }
+
+    void Game::landOnGoToJail() {
+    }
+
+    void Game::goToJail() {
+    }
+
+    void Game::outOfJail() {
+    }
+
+    void Game::processCurrentTurn() {
+    }
+
+    void Game::setupColorGroups() {
+    }
+
+    void Game::createProperties() {
+    }
+
+    void Game::createSpecialSquares() {
+    }
+
+    Game &Game::getInstance() {
+        if (!instance) {
+            instance = std::unique_ptr<Game>(new Game());
+        }
+        return *instance;
+    }
+
+    bool Game::initializeGame(size_t size_players) {
+        state.initialized = true;
+        return state.initialized;
+    }
+
+    bool Game::startGame() {
+        state.started = true;
+        return state.started;
+    }
+
+    bool Game::endGame() {
+        state.over = true;
+        return state.over;
+    }
+
+    void Game::nextTurn() {
+    }
+
+    bool Game::canBuyProperty() const {
+    }
+
+    bool Game::mustPayRent() const {
+    }
+
+    int Game::calculateCurrentRent() const {
+    }
+
+    Player & Game::getCurrentPlayer() {
+    }
+
+    Property * Game::getCurrentProperty() const {
     }
 }

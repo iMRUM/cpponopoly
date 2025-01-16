@@ -31,4 +31,13 @@ add_executable(model_tests
         src/controller/GameController.hpp
         src/controller/GameController.cpp
         include/strategy/RentCalculator.hpp
+        include/StreetRentCalculator.hpp
+        include/RailroadRentCalculator.hpp
+        include/UtilityRentCalculator.hpp
+        src/model/squares/SpecialSquare.cpp
+        src/model/squares/SpecialSquare.hpp
+        include/controller/Controller.hpp
+        include/view/Gui.hpp
+        include/view/SFMLGui.hpp
+        src/controller/Controller.cpp
 )

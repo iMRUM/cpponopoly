@@ -11,8 +11,6 @@ namespace monopoly {
         bool isGameOver;
 
 
-
-
         void startGame();
         void endGame();
         void nextTurn();

@@ -70,21 +70,16 @@ private:
 
     Game();
 
-    // Basic game initialization and states
-    bool initializeGame(size_t size_players);
-    bool startGame();
-    bool endGame();
-    void nextTurn();
-
     // Basic Player and square management
     void addPlayer(const std::string &player);
     // ReSharper disable once CppFunctionIsNotImplemented
     void addSquare(); //TODO
+    void addProperty();
     void addRailroad();
     void addStreet();
     void addUtility();
     void addSpecialSquare();
-    Player& getCurrentPlayer();
+
 
     //Turns management:
     void handleTurn();
@@ -127,6 +122,13 @@ public:
     Game(const Game&) = delete;
     Game& operator=(const Game&) = delete;
 
+    // Basic game initialization and states
+    bool initializeGame(size_t size_players);
+    void addPlayers(size_t num_players);
+    bool startGame();
+    bool endGame();
+    void nextTurn();
+
     // Getters
     [[nodiscard]] size_t getPlayerCount() const { return player_registry->getSize(); }
     Square* getSquareAt(const int index) {return squares.at(index).get();}
@@ -142,6 +144,7 @@ public:
     [[nodiscard]] bool canBuyProperty() const;
     [[nodiscard]] bool mustPayRent() const;
     [[nodiscard]] int calculateCurrentRent() const;
+    Player& getCurrentPlayer();
     [[nodiscard]] Property* getCurrentProperty() const;
     [[nodiscard]] Player* getWinner() const { return state.winner; }
 };
