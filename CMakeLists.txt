@@ -43,4 +43,8 @@ add_executable(model_tests
         include/patterns/Observer/IObserver.hpp
         include/patterns/Observer/IObservable.hpp
         include/patterns/Observer/IMultiObservable.hpp
+        include/view/MonopolyObserver.hpp
+        src/view/Gui.cpp
+        maeein.cpp
+        src/view/main.cpp
 )
