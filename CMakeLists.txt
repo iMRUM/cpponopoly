@@ -40,4 +40,7 @@ add_executable(model_tests
         include/view/Gui.hpp
         include/view/SFMLGui.hpp
         src/controller/Controller.cpp
+        include/patterns/Observer/IObserver.hpp
+        include/patterns/Observer/IObservable.hpp
+        include/patterns/Observer/IMultiObservable.hpp
 )
