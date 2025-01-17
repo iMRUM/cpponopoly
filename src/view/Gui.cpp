@@ -1,4 +1,6 @@
 #include "../../include/view/Gui.hpp"
+
+#include <chrono>
 #include <stdexcept>
 
 namespace monopoly {
@@ -9,7 +11,153 @@ Gui::~Gui() {
         window.close();
     }
 }
-    void Gui::initLabels() {
+
+void Gui::initDice() {
+    // Initialize dice position and size
+    const float diceSize = 40.f;
+    const float diceSpacing = 20.f;
+    const float startX = board.getPosition().x + (board.getSize().x - (2 * diceSize + diceSpacing)) / 2;
+    const float startY = board.getPosition().y + board.getSize().y / 2;
+
+    // Initialize first die
+    dice[0].setSize(sf::Vector2f(diceSize, diceSize));
+    dice[0].setPosition(startX, startY);
+    dice[0].setFillColor(sf::Color::White);
+    dice[0].setOutlineThickness(2.f);
+    dice[0].setOutlineColor(sf::Color::Black);
+
+    // Initialize second die
+    dice[1].setSize(sf::Vector2f(diceSize, diceSize));
+    dice[1].setPosition(startX + diceSize + diceSpacing, startY);
+    dice[1].setFillColor(sf::Color::White);
+    dice[1].setOutlineThickness(2.f);
+    dice[1].setOutlineColor(sf::Color::Black);
+
+    // Initialize dice values
+    diceValues[0] = 1;
+    diceValues[1] = 1;
+
+    diceRolling = false;
+    diceAnimationDuration = sf::seconds(1.0f);
+}
+
+void Gui::renderDiceDots(sf::RenderTarget& target, const sf::RectangleShape& die, int value) {
+    const float dieSize = die.getSize().x;
+    const float dotRadius = dieSize / 10.f;
+    const sf::Vector2f diePos = die.getPosition();
+
+    // Define dot positions relative to die position
+    std::vector<sf::Vector2f> dotPositions;
+
+    switch(value) {
+        case 1:
+            dotPositions.push_back(sf::Vector2f(0.5f, 0.5f));
+            break;
+        case 2:
+            dotPositions.push_back(sf::Vector2f(0.25f, 0.25f));
+            dotPositions.push_back(sf::Vector2f(0.75f, 0.75f));
+            break;
+        case 3:
+            dotPositions.push_back(sf::Vector2f(0.25f, 0.25f));
+            dotPositions.push_back(sf::Vector2f(0.5f, 0.5f));
+            dotPositions.push_back(sf::Vector2f(0.75f, 0.75f));
+            break;
+        case 4:
+            dotPositions.push_back(sf::Vector2f(0.25f, 0.25f));
+            dotPositions.push_back(sf::Vector2f(0.75f, 0.25f));
+            dotPositions.push_back(sf::Vector2f(0.25f, 0.75f));
+            dotPositions.push_back(sf::Vector2f(0.75f, 0.75f));
+            break;
+        case 5:
+            dotPositions.push_back(sf::Vector2f(0.25f, 0.25f));
+            dotPositions.push_back(sf::Vector2f(0.75f, 0.25f));
+            dotPositions.push_back(sf::Vector2f(0.5f, 0.5f));
+            dotPositions.push_back(sf::Vector2f(0.25f, 0.75f));
+            dotPositions.push_back(sf::Vector2f(0.75f, 0.75f));
+            break;
+        case 6:
+            dotPositions.push_back(sf::Vector2f(0.25f, 0.25f));
+            dotPositions.push_back(sf::Vector2f(0.75f, 0.25f));
+            dotPositions.push_back(sf::Vector2f(0.25f, 0.5f));
+            dotPositions.push_back(sf::Vector2f(0.75f, 0.5f));
+            dotPositions.push_back(sf::Vector2f(0.25f, 0.75f));
+            dotPositions.push_back(sf::Vector2f(0.75f, 0.75f));
+            break;
+    }
+
+    // Draw dots
+    sf::CircleShape dot(dotRadius);
+    dot.setFillColor(sf::Color::Black);
+
+    for (const auto& pos : dotPositions) {
+        dot.setPosition(
+            diePos.x + pos.x * dieSize - dotRadius,
+            diePos.y + pos.y * dieSize - dotRadius
+        );
+        target.draw(dot);
+    }
+}
+
+void Gui::rollDice() {
+    if (!diceRolling) {
+        diceRolling = true;
+        diceAnimationClock.restart();
+
+        // Generate random values
+        static std::random_device rd;
+        static std::mt19937 gen(rd());
+        static std::uniform_int_distribution<> dis(1, 6);
+
+        diceValues[0] = dis(gen);
+        diceValues[1] = dis(gen);
+    }
+}
+
+void Gui::updateDiceAnimation() {
+    if (diceRolling) {
+        sf::Time elapsed = diceAnimationClock.getElapsedTime();
+
+        if (elapsed >= diceAnimationDuration) {
+            diceRolling = false;
+        } else {
+            // Generate temporary random values during animation
+            static std::random_device rd;
+            static std::mt19937 gen(rd());
+            static std::uniform_int_distribution<> dis(1, 6);
+
+            // Update temporary dice values for animation
+            if (elapsed.asMilliseconds() % 100 < 50) {  // Change values every 100ms
+                diceValues[0] = dis(gen);
+                diceValues[1] = dis(gen);
+            }
+
+            // Add some rotation or bouncing animation here if desired
+            float progress = elapsed.asSeconds() / diceAnimationDuration.asSeconds();
+            float scale = 1.0f + sin(progress * 3.14159f) * 0.2f;
+
+            for (auto& die : dice) {
+                sf::Vector2f originalSize = die.getSize();
+                die.setSize(originalSize * scale);
+                die.setPosition(
+                    die.getPosition().x - (originalSize.x * (scale - 1.0f) / 2),
+                    die.getPosition().y - (originalSize.y * (scale - 1.0f) / 2)
+                );
+            }
+        }
+    }
+}
+
+void Gui::renderDice() {
+    window.draw(dice[0]);
+    window.draw(dice[1]);
+
+    // Only render dots if not currently rolling
+    if (!diceRolling) {
+        renderDiceDots(window, dice[0], diceValues[0]);
+        renderDiceDots(window, dice[1], diceValues[1]);
+    }
+}
+void Gui::initLabels() {
     const std::vector<std::string> labels = {
         "GO", "Mediterranean\nAvenue", "Community\nChest", "Baltic\nAvenue",
         "Income\nTax", "Reading\nRailroad", "Oriental\nAvenue", "Chance",

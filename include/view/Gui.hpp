@@ -1,6 +1,10 @@
 #pragma once
 #include "MonopolyObserver.hpp"
 #include <SFML/Graphics.hpp>
+#include <SFML/System/Clock.hpp>
+#include <SFML/System/Time.hpp>
+#include <random>
+#include <ctime>
 #include <array>
 
 // SFML type aliases
@@ -8,6 +12,12 @@ using Rectangle = sf::RectangleShape;
 using Circle = sf::CircleShape;
 using Font = sf::Font;
 using Text = sf::Text;
+using Clock = sf::Clock;
+using Time = sf::Time;
+
+using Vector2f = sf::Vector2f;
+using Color = sf::Color;
+using RenderTarget = sf::RenderTarget;
 using RenderWindow = sf::RenderWindow;
 
 namespace monopoly {
@@ -18,6 +28,13 @@ namespace monopoly {
         Font font;
 
         // SFML UI Elements
+        // In Gui.hpp, add these members to the Gui class:x
+        // Dice representation
+        Rectangle dice[2];  // Using rectangles for dice faces
+        int diceValues[2];       // Current values of dice
+        bool diceRolling;        // Animation state
+        Clock diceAnimationClock;
+        Time diceAnimationDuration;
         Rectangle board;
         Rectangle current_player_info;
         Rectangle buy_button;
@@ -31,7 +48,7 @@ namespace monopoly {
 
         // Helper function for text wrapping
         void setWrappedText(Text& text, const std::string& str, float width);
-        void initLabels();
+
         // Game state tracking
         bool isWindowOpen;
         std::string currentMessage;
@@ -41,6 +58,17 @@ namespace monopoly {
         void initBoard();
         void initPlayers();
         void initUI();
+        void initDice();
+
+        void renderDiceDots(RenderTarget &target, const Rectangle &die, int value);
+
+        void rollDice();
+
+        void updateDiceAnimation();
+
+        void renderDice();
+
+        void initLabels();
 
     public:
         Gui();
