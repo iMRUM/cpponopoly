@@ -1,6 +1,6 @@
 #pragma once
 #include "../view/Gui.hpp"
-#include "../src/model/Game.hpp"
+#include "../model/Game.hpp"
 
 class Gui;
 namespace monopoly {

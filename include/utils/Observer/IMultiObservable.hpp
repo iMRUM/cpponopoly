@@ -1,7 +1,4 @@
 #pragma once
-#include <vector>
-#include <algorithm>
-
 #include "IObservable.hpp"
 
 namespace monopoly {

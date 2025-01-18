@@ -2,10 +2,10 @@
 // Created by imry on 1/12/25.
 //
 
-#include "Board.hpp"
+#include "../include/model/Board.hpp"
 
-#include "squares/Property.hpp"
-#include "squares/Street.hpp"
+#include "../include/model/squares/Property.hpp"
+#include "../include/model/squares/Street.hpp"
 
 Board* Board::instance = nullptr;
 

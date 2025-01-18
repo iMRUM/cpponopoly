@@ -24,15 +24,23 @@ namespace monopoly {
 
     class Gui : public MonopolyObserver {
     private:
+        // Singleton implementation
+        static Gui* instance;
+
+        // Private constructor to prevent instantiation
+        Gui();
+
+        // Delete copy constructor and assignment operator
+        Gui(const Gui&) = delete;
+        Gui& operator=(const Gui&) = delete;
+
         RenderWindow window;
         Font font;
 
         // SFML UI Elements
-        // In Gui.hpp, add these members to the Gui class:x
-        // Dice representation
-        Rectangle dice[2];  // Using rectangles for dice faces
-        int diceValues[2];       // Current values of dice
-        bool diceRolling;        // Animation state
+        Rectangle dice[2];
+        int diceValues[2];
+        bool diceRolling;
         Clock diceAnimationClock;
         Time diceAnimationDuration;
         Rectangle board;
@@ -59,20 +67,30 @@ namespace monopoly {
         void initPlayers();
         void initUI();
         void initDice();
-
-        void renderDiceDots(RenderTarget &target, const Rectangle &die, int value);
-
-        void rollDice();
-
-        void updateDiceAnimation();
-
-        void renderDice();
-
         void initLabels();
 
+        void renderDiceDots(RenderTarget& target, const Rectangle& die, int value);
+        void rollDice();
+        void updateDiceAnimation();
+        void renderDice();
+
     public:
-        Gui();
+        // Singleton access method
+        static Gui& getInstance() {
+            if (instance == nullptr) {
+                instance = new Gui();
+            }
+            return *instance;
+        }
+
+        // Destructor
         ~Gui() override;
+
+        // Static cleanup method
+        static void cleanup() {
+            delete instance;
+            instance = nullptr;
+        }
 
         // Window management
         void render();

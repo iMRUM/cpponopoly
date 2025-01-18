@@ -3,7 +3,7 @@
 
 int main() {
     try {
-        monopoly::Gui gui;
+        monopoly::Gui &gui = monopoly::Gui::getInstance();
 
         // Main game loop
         while (gui.isOpen()) {

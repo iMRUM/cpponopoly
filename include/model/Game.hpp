@@ -6,9 +6,9 @@
 #include <unordered_map>
 #include <vector>
 #include "utils/Id.hpp"
-#include "../include/registries/PropertyRegistry.hpp"
-#include "../include/registries/PlayerRegistry.hpp"
-#include "player/Player.hpp"
+#include "../utils/registries/PropertyRegistry.hpp"
+#include "../utils/registries/PlayerRegistry.hpp"
+#include "Player.hpp"
 #include "squares/Property.hpp"
 #include "squares/Square.hpp"
 #include "squares/Railroad.hpp"

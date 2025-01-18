@@ -1,6 +1,6 @@
 #include "include/view/Gui.hpp"
 #include "view/Gui.hpp"
-#include "src/model/player/Player.hpp"
+#include "include/model/Player.hpp"
 #include <memory>
 #include <chrono>
 #include <thread>
@@ -44,11 +44,11 @@ public:
 
             int oldPosition = currentPlayer.getPosition();
             int spaces = dice1 + dice2;
-            currentPlayer.moveBy(spaces);
+            currentPlayer.moveSteps(spaces);
 
             // Notify GUI of movement
             PlayerMoveEvent moveEvent{
-                currentPlayer.getId(),
+                currentPlayer,
                 oldPosition,
                 currentPlayer.getPosition()
             };
@@ -105,7 +105,7 @@ public:
 
 int main() {
     try {
-        Gui gui;
+        Gui &gui = monopoly::Gui::getInstance();
         GameSimulator simulator(gui);
 
         while (gui.isOpen() && !simulator.isGameOver()) {

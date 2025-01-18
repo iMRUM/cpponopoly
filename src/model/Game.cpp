@@ -1,4 +1,4 @@
-#include "Game.hpp"
+#include "../include/model/Game.hpp"
 
 #include <stdexcept>
 namespace monopoly {
@@ -57,7 +57,7 @@ namespace monopoly {
 
     void Game::handleBankruptcy(Player& bankrupt_player) {
         bankrupt_player.setBankrupt(true);
-        auto bankrupt_position = bankrupt_player.getPosition();
+        /*auto bankrupt_position = bankrupt_player.getPosition();
 
         // Check if bankruptcy is from property rent
         if (auto property = dynamic_cast<Property*>(getSquareAt(bankrupt_position))) {
@@ -79,7 +79,7 @@ namespace monopoly {
             property_registry->removeOwner(prop_id);
         }
         bankrupt_player.setBalance(0);
-
+        *///TODO: Complete tomorrow!!
         isGameWon();
     }
 

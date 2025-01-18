@@ -1,7 +1,7 @@
 #pragma once
 #include <string>
 
-#include "../patterns/Observer/IObserver.hpp"
+#include "../include/utils/Observer/IObserver.hpp"
 
 namespace monopoly {
     // Forward declarations
