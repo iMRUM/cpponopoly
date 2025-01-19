@@ -37,4 +37,5 @@ add_executable(model_tests
         src/view/main.cpp
         tests/utils/Id_tests.cpp
         tests/model/squares/tests.cpp
+        tests/utils/Registry_test.cpp
 )
