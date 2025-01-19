@@ -1,7 +1,7 @@
 #pragma once
 #include <vector>
 #include "Registry.hpp"
-#include "../../model/squares/Property.hpp"
+#include"../../model/squares/Property.hpp"
 
 namespace monopoly {
     class PropertyRegistry : public Registry<Property, PropertyID> {

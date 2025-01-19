@@ -6,7 +6,7 @@
 #include <string>
 #include <vector>
 #include <stdexcept>
-#include "../include/utils/Id.hpp"
+#include "../utils/Id.hpp"
 #define BOARD_SIZE 40
 #define MAX_JAIL_TURNS 3
 
@@ -19,7 +19,6 @@ namespace monopoly {
         int doubles;
         bool in_jail = false;
         bool is_bankrupt = false;
-        std::vector<PropertyID*> owned_properties;
         std::string name;
 
     public:
@@ -61,9 +60,6 @@ namespace monopoly {
 
         void setJailState(const bool new_jail_state) { in_jail = new_jail_state; }
 
-        void addPropertyID(PropertyID &property_id) {
-            owned_properties.push_back(&property_id);
-        }
 
         void setBalance(int balance) {
             this->balance = balance;

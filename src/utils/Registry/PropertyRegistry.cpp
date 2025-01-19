@@ -1,4 +1,4 @@
-#include "../include/utils/registries/PropertyRegistry.hpp"
+#include "../../../include/utils/registries/PropertyRegistry.hpp"
 
 namespace monopoly {
     void PropertyRegistry::validateProperty(PropertyID propertyId) const {
@@ -98,11 +98,7 @@ namespace monopoly {
     }
 
     bool PropertyRegistry::remove(PropertyID propertyId) {
-        if (!Registry<Property, PropertyID>::remove(propertyId)) {
-            return false;
-        }
-
-        removeOwner(propertyId);
+        if (!exists(propertyId)) return false;
 
         if (propertyToGroup.contains(propertyId)) {
             ColorGroupID groupId = propertyToGroup[propertyId];
@@ -114,6 +110,7 @@ namespace monopoly {
             propertyToGroup.erase(propertyId);
         }
 
-        return true;
+        removeOwner(propertyId);
+        return Registry<Property, PropertyID>::remove(propertyId);
     }
 } // namespace monopoly
