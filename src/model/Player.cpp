@@ -1,4 +1,4 @@
-#include "../include/model/Player.hpp"
+#include "../../include/model/Player.hpp"
 namespace monopoly{
 void Player::increaseBalance(const int amount) {
     if (amount < 0) {

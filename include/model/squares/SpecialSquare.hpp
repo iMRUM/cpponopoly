@@ -2,6 +2,11 @@
 #include "Square.hpp"
 
 enum class SpecialSquareType {
+    GO,
+    COMMUNITY_CHEST,
+    INCOME_TAX,
+    LUXURY_TAX,
+    JAIL,
     GO_TO_JAIL,
     FREE_PARKING,
     TAX,

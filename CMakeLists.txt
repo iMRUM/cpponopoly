@@ -38,4 +38,6 @@ add_executable(model_tests
         tests/utils/Id_tests.cpp
         tests/model/squares/tests.cpp
         tests/utils/Registry_test.cpp
+        tests/model/Game_test.cpp
+        tests/view/Gui_test.cpp
 )

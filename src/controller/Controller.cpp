@@ -1,5 +1,5 @@
 #include "../include/controller/Controller.hpp"
-#define PLAYERS_COUNT 2
+#define PLAYERS_COUNT 8
 void monopoly::Controller::gameLoop() {
     model.initializeGame(PLAYERS_COUNT);
     while (!model.isGameOver()) {

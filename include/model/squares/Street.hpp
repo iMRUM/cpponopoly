@@ -9,7 +9,7 @@ namespace monopoly {
     public:
         Street(const std::string &name, const int position, const int price, const int baseRent, const
                int house_cost,
-               const PropertyID propertyId): Property(name, position, price, baseRent, propertyId),
+               const PropertyID propertyId): Property(name, position, price, baseRent),
                                              house_cost(house_cost) {
         }
         ~Street() override = default;

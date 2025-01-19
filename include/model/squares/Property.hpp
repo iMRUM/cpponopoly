@@ -14,11 +14,10 @@ namespace monopoly {
         Property(const std::string& name,
                 const int position,
                 const int price,
-                const int base_rent,
-                const PropertyID& property_id)
+                const int base_rent)
             : Square(name, position),
                 owner_id(PlayerID()),
-              property_id(property_id),
+              property_id(PropertyID()),
               price(price),
               base_rent(base_rent) {
             if (price < 0) throw std::invalid_argument("Price cannot be negative");
@@ -29,6 +28,7 @@ namespace monopoly {
 
         [[nodiscard]] const PlayerID& getOwnerId() const { return owner_id; }
         void setOwnerId(const PlayerID& new_owner_id) { owner_id = new_owner_id; }
+        void setPropertyId(const PropertyID& new_property_id) { property_id = new_property_id; }
         [[nodiscard]] bool isOwned() const { return owner_id != PlayerID(); }
         [[nodiscard]] const PropertyID& getPropertyId() const { return property_id; }
 

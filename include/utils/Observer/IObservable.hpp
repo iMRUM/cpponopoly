@@ -1,6 +1,7 @@
 #pragma once
 #include <vector>
 #include <algorithm>
+#include "IObserver.hpp"
 
 namespace monopoly {
     // Generic observable interface

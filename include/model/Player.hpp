@@ -24,8 +24,8 @@ namespace monopoly {
         std::string name;
 
     public:
-        explicit Player(std::string name, PlayerID id)
-            : balance(1500), position(0), jail_turns(0), doubles(0),jail_cards_amount(0), id(id), name(std::move(name)) {
+        explicit Player(std::string name)
+            : balance(1500), position(0), jail_turns(0), doubles(0),jail_cards_amount(0), id(PlayerID()), name(std::move(name)) {
             std::cout << "Player created" << std::endl;
         }
 
@@ -63,6 +63,7 @@ namespace monopoly {
         void addJailCard() { jail_cards_amount++; }
         [[nodiscard]] const std::string &getName() const { return name; }
         [[nodiscard]] PlayerID getId() const { return id; }
+        void setId(PlayerID& id) { this->id = id; }
         void setPosition(const int new_position) {
             position = new_position;
         }

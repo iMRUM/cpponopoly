@@ -175,7 +175,6 @@ namespace monopoly {
             return;
         }
         if (property.isOwned() && property.getOwnerId() != player.getId()) {
-            payRent(property, player);
             return;
         }
         if(canBuildOnProperty(property, player)) {
@@ -184,7 +183,6 @@ namespace monopoly {
     }
 
     void Game::payRent(Property &property, Player &player) {
-        /*
         std::unique_ptr<StrategyRentCalculator> calculator;
 
         if (auto* street = dynamic_cast<Street*>(&property)) {
@@ -201,8 +199,7 @@ namespace monopoly {
 
         if (!calculator) return;
 
-        int rent = calculator->calculateRent();*/
-        int rent = calculateCurrentRent();
+        int rent = calculator->calculateRent();
         if (!player.canAfford(rent)) {
             handleBankruptcy(player);
             return;
@@ -262,16 +259,6 @@ namespace monopoly {
     }
 
     void Game::setupColorGroups() {
-        color_groups = {
-            {ColorGroupID(1), "Brown"},
-            {ColorGroupID(2), "Light Blue"},
-            {ColorGroupID(3), "Pink"},
-            {ColorGroupID(4), "Orange"},
-            {ColorGroupID(5), "Red"},
-            {ColorGroupID(6), "Yellow"},
-            {ColorGroupID(7), "Green"},
-            {ColorGroupID(8), "Dark Blue"}
-        };
     }
 
     void Game::createProperties() {
@@ -308,14 +295,7 @@ namespace monopoly {
         }
     }
 
-    bool Game::canBuyProperty(Player& player){
-        if (auto* square = getSquareAt(player.getPosition())) {
-            if (auto* property = dynamic_cast<Property*>(square)) {
-                return !property->isOwned() &&
-                       getCurrentPlayer().canAfford(property->getPrice());
-            }
-        }
-        return false;
+    bool Game::canBuyProperty() const {
     }
 
     bool Game::canBuildOnProperty(Property& property, Player& player) {
@@ -351,49 +331,16 @@ namespace monopoly {
 
         return true;
     }
-    bool Game::mustPayRent(){
-        if (auto* square = getSquareAt(getCurrentPlayer().getPosition())) {
-            if (auto* property = dynamic_cast<Property*>(square)) {
-                return property->isOwned() &&
-                       property->getOwnerId() != getCurrentPlayer().getId();
-            }
-        }
-        return false;
+    bool Game::mustPayRent() const {
     }
 
-    int Game::calculateCurrentRent(){
-        if (auto* square = getSquareAt(getCurrentPlayer().getPosition())) {
-            if (auto* property = dynamic_cast<Property*>(square)) {
-                std::unique_ptr<StrategyRentCalculator> calculator;
-
-                if (auto* street = dynamic_cast<Street*>(property)) {
-                    calculator = std::make_unique<StreetRentCalculator>(
-                        property->getBaseRent(),
-                        street->getHouses()
-                    );
-                } else if (auto* railroad = dynamic_cast<Railroad*>(property)) {
-                    int railroad_count = property_registry->getProperties(property->getOwnerId()).size();
-                    calculator = std::make_unique<RailroadRentCalculator>(50, railroad_count);
-                } else if (auto* utility = dynamic_cast<Utility*>(property)) {
-                    calculator = std::make_unique<UtilityRentCalculator>(10, state.current_dice_result);
-                }
-
-                if (calculator) {
-                    return calculator->calculateRent();
-                }
-            }
-        }
-        return 0;
+    int Game::calculateCurrentRent() const {
     }
 
     Player &Game::getCurrentPlayer() {
         return *(player_registry->getObject(PlayerID(state.current_player_index)));
     }
 
-    Property *Game::getCurrentProperty(){
-        if (auto* square = getSquareAt(getCurrentPlayer().getPosition())) {
-            return dynamic_cast<Property*>(square);
-        }
-        return nullptr;
+    Property *Game::getCurrentProperty() const {
     }
 }
