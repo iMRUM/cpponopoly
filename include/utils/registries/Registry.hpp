@@ -3,7 +3,7 @@
 #include <algorithm>
 #include <memory>
 #include <stdexcept>
-#include "../utils/Id.hpp"
+#include "../Id.hpp"
 
 namespace monopoly {
     template<typename T, typename IDType>

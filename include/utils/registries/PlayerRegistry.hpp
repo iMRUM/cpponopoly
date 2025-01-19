@@ -3,7 +3,7 @@
 //
 #pragma once
 #include "Registry.hpp"
-#include "../src/model/player/Player.hpp"
+#include "../../model/Player.hpp"
 namespace monopoly {
 
     class PlayerRegistry : public Registry<Player, PlayerID> {

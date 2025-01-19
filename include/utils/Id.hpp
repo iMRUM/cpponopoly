@@ -15,6 +15,8 @@ namespace monopoly {
         }
         bool operator==(const ID& other) const { return value == other.getValue(); }
         bool operator!=(const ID& other) const { return value != other.getValue(); }
+        bool operator<(const ID& other) const { return value < other.value; }
+        bool operator>(const ID& other) const { return value > other.value; }
         [[nodiscard]] uint32_t getValue() const { return value; }
         // Make it hashable for use in containers
         struct Hash {

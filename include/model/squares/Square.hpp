@@ -3,7 +3,7 @@
 #include <stdexcept>
 #include <string>
 #include <utility>
-#include "../include/utils/Id.hpp"
+#include "../../utils/Id.hpp"
 #define BOARD_SIZE 40
 
 class Player;
@@ -12,8 +12,8 @@ private:
     std::string name;
     int position;
 public:
-    Square(std::string  name, const int position)
-        : name(std::move(name)), position(position) {
+    Square(const std::string& name, const int position)
+        : name(name), position(position) {
         if (position < 0 || position >= BOARD_SIZE) {
             throw std::invalid_argument("Invalid board position");
         }

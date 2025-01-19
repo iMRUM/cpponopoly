@@ -1,4 +1,3 @@
-#pragma once
 #include "../include/controller/Controller.hpp"
 #define PLAYERS_COUNT 2
 void monopoly::Controller::gameLoop() {

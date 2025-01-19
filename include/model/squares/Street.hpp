@@ -12,7 +12,7 @@ namespace monopoly {
                const PropertyID propertyId): Property(name, position, price, baseRent, propertyId),
                                              house_cost(house_cost) {
         }
-
+        ~Street() override = default;
         [[nodiscard]] int getHouseCost() const {
             return house_cost;
         }

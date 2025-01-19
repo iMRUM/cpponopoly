@@ -1,4 +1,4 @@
-#include "registries/PropertyRegistry.hpp"
+#include "../include/utils/registries/PropertyRegistry.hpp"
 
 namespace monopoly {
     void PropertyRegistry::validateProperty(PropertyID propertyId) const {

@@ -13,37 +13,29 @@ add_executable(model_tests
         include/model/Game.hpp
         src/model/Board.cpp
         include/model/Board.hpp
-        src/model/player/Player.cpp
-        src/model/squares/Square.cpp
-        src/model/squares/Square.hpp
-        src/model/squares/Property.cpp
-        src/model/squares/Property.hpp
+        src/model/Player.cpp
         include/utils/Strategy/StrategyRentCalculator.hpp
         include/utils/Id.hpp
         include/utils/registries/Registry.hpp
         include/utils/registries/PropertyRegistry.hpp
-        src/registries/PropertyRegistry.cpp
+        src/utils/Registry/PropertyRegistry.cpp
         include/utils/registries/PlayerRegistry.hpp
-        src/model/squares/Railroad.hpp
-        src/model/squares/Utility.hpp
-        src/model/squares/Street.hpp
-        src/controller/GameController.hpp
-        src/controller/GameController.hpp
-        src/controller/GameController.cpp
         include/utils/Strategy/strategy/RentCalculator.hpp
         include/utils/Strategy/StreetRentCalculator.hpp
         include/utils/Strategy/RailroadRentCalculator.hpp
         include/utils/Strategy/UtilityRentCalculator.hpp
-        src/model/squares/SpecialSquare.cpp
         include/controller/Controller.hpp
         include/view/Gui.hpp
         include/view/SFMLGui.hpp
         src/controller/Controller.cpp
-        include/patterns/Observer/IObserver.hpp
-        include/patterns/Observer/IObservable.hpp
-        include/patterns/Observer/IMultiObservable.hpp
+        include/utils/Observer/IObserver.hpp
+        include/utils/Observer/IObservable.hpp
+        include/utils/Observer/IMultiObservable.hpp
         include/view/MonopolyObserver.hpp
         src/view/Gui.cpp
         maeein.cpp
         src/view/main.cpp
+        tests/model/squares/SquareTest.cpp
+        tests/model/squares/PropertyTest.cpp
+        tests/model/squares/tests.cpp
 )
