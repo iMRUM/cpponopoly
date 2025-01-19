@@ -35,7 +35,6 @@ add_executable(model_tests
         src/view/Gui.cpp
         maeein.cpp
         src/view/main.cpp
-        tests/model/squares/SquareTest.cpp
-        tests/model/squares/PropertyTest.cpp
+        tests/utils/Id_tests.cpp
         tests/model/squares/tests.cpp
 )
