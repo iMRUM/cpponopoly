@@ -8,20 +8,20 @@ namespace monopoly {
     template<typename Tag>
     class ID {
     private:
-        uint32_t value;
+        int value;
     public:
-        explicit ID(const uint32_t v = 0) : value(v) {
+        explicit ID(const int v = 0) : value(v) {
             std::cout << "ID: " << value << std::endl;
         }
         bool operator==(const ID& other) const { return value == other.getValue(); }
         bool operator!=(const ID& other) const { return value != other.getValue(); }
         bool operator<(const ID& other) const { return value < other.value; }
         bool operator>(const ID& other) const { return value > other.value; }
-        [[nodiscard]] uint32_t getValue() const { return value; }
+        [[nodiscard]] int getValue() const { return value; }
         // Make it hashable for use in containers
         struct Hash {
             size_t operator()(const ID& id) const {
-                return std::hash<uint32_t>()(id.getValue());
+                return std::hash<int>()(id.getValue());
             }
         };
     };

@@ -29,7 +29,7 @@ namespace monopoly {
 
         [[nodiscard]] const PlayerID& getOwnerId() const { return owner_id; }
         void setOwnerId(const PlayerID& new_owner_id) { owner_id = new_owner_id; }
-
+        [[nodiscard]] bool isOwned() const { return owner_id != PlayerID(); }
         [[nodiscard]] const PropertyID& getPropertyId() const { return property_id; }
 
         [[nodiscard]] int getPrice() const { return price; }

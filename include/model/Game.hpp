@@ -15,8 +15,10 @@
 #include "squares/Utility.hpp"
 #include "squares/Street.hpp"
 #include "squares/SpecialSquare.hpp"
+#include "../../include/utils/Strategy/RailroadRentCalculator.hpp"
+#include "../../include/utils/Strategy/StreetRentCalculator.hpp"
+#include "../../include/utils/Strategy/UtilityRentCalculator.hpp"
 class Square;
-//ColorGroups should be registered here/store here a registry
 namespace monopoly{
 class Game { // Singleton class
 private:
@@ -41,6 +43,8 @@ private:
         // Turn-specific state
         bool has_rolled{false};
         bool awaiting_action{false};  // Indicates player needs to make a decision
+        bool has_another_turn{false};
+        int current_dice_result{0};
 
         void reset() {
             initialized = false;
@@ -54,6 +58,8 @@ private:
         void resetTurnState() {
             has_rolled = false;
             awaiting_action = false;
+            has_another_turn = false;
+            current_dice_result = 0;
         }
     } state{};
 
@@ -70,46 +76,47 @@ private:
 
     Game();
 
-    // Basic Player and square management
+    // Basic Player and square management TODO
     void addPlayer(const std::string &player);
-    // ReSharper disable once CppFunctionIsNotImplemented
-    void addSquare(); //TODO
+    void addSquare();
     void addProperty();
-    void addRailroad();
-    void addStreet();
-    void addUtility();
+    void addRailroad(const std::string &name, PropertyID propertyId, int position, int price, int baseRent);
+    void addStreet(const std::string &name, int position, int price, int baseRent, int house_cost, PropertyID propertyId);
+    void addUtility(const std::string &name, int position, PropertyID propertyId);
     void addSpecialSquare();
 
 
     //Turns management:
     void handleTurn();
     Dice rollDice();
-    void handleDiceRoll(int result, bool isDoubles);
-    void handleDouble(int result);
-    void isGameWon();//TODO
-    void handleBankruptcy(Player &bankrupt_player);//TODO
+
+    void handleDiceRoll();
+    void handleDouble();
+    void isGameWon();
+    void handleBankruptcy(Player &bankrupt_player);
 
     //Movement management:
-    void moveSteps(int steps);
-    void movedPastGo();
+    void moveSteps(int steps, Player &player);
+    void movedPastGo(Player &player);
 
 
     //Landing management:
-    void landOn(int pos);
+    void landOn(int pos, Player &player);
 
-    void landOnProperty(Property& property);
-    void payRent(Property& property);
-    void buyProperty(Property& property);
-    void buildOnProperty(Property& property);
+    void landOnProperty(Property &property, Player &player);
+    void payRent(Property &property, Player &player);
+    void buyProperty(Property &property, Player &player);
+    void buildOnProperty(Property &property, Player &player);
 
-    void landOnSpecialSquare(SpecialSquare& special_square);//TODO
+    void landOnSpecialSquare(SpecialSquare &special_square, Player &player);//TODO
     void landOnFreeParking();
     void landOnInJailJustVisit();
     void landOnLuxuryTax();
     void landOnChance(); //TODO void drawChanceCard();
     void landOnGoToJail();//TODO
-    void goToJail();//TODO
-    void outOfJail();//TODO
+    void goToJail(Player &player);//TODO
+    void outOfJail(Player &player);//TODO
+    void payFine(int amount, Player& player);
 
     //to be revised
     void processCurrentTurn();  // Main turn processing logic
@@ -142,10 +149,13 @@ public:
     [[nodiscard]] bool hasRolled() const { return state.has_rolled; }
     [[nodiscard]] bool isAwaitingAction() const { return state.awaiting_action; }
     [[nodiscard]] bool canBuyProperty() const;
-    [[nodiscard]] bool mustPayRent() const;
-    [[nodiscard]] int calculateCurrentRent() const;
+
+    bool canBuildOnProperty(Property &property, Player &player);
+
+     bool mustPayRent() const;
+    int calculateCurrentRent() const;
     Player& getCurrentPlayer();
-    [[nodiscard]] Property* getCurrentProperty() const;
-    [[nodiscard]] Player* getWinner() const { return state.winner; }
+    Property* getCurrentProperty() const;
+    Player* getWinner() const { return state.winner; }
 };
 }

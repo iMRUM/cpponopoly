@@ -19,8 +19,8 @@ TEST_CASE("Registry operations", "[registry]") {
 
     SECTION("Retrieval") {
         auto id = registry.registerObject(obj1);
-        REQUIRE(registry.get(id) == obj1);
-        REQUIRE_THROWS_AS(registry.get(monopoly::ID<struct TestTag>(999)), std::runtime_error);
+        REQUIRE(registry.getObject(id) == obj1);
+        REQUIRE_THROWS_AS(registry.getObject(monopoly::ID<struct TestTag>(999)), std::runtime_error);
     }
 
     SECTION("Removal") {
@@ -35,8 +35,8 @@ TEST_CASE("Registry operations", "[registry]") {
         auto id2 = registry.registerObject(obj2);
         REQUIRE(registry.getSize() == 2);
         REQUIRE(id1.getValue() != id2.getValue());
-        REQUIRE(registry.get(id1) == obj1);
-        REQUIRE(registry.get(id2) == obj2);
+        REQUIRE(registry.getObject(id1) == obj1);
+        REQUIRE(registry.getObject(id2) == obj2);
     }
 
     SECTION("Get all objects") {
@@ -54,7 +54,7 @@ TEST_CASE("PlayerRegistry", "[registry]") {
 
     SECTION("Player registration") {
         auto id = registry.registerPlayer("Alice");
-        auto player = registry.get(id);
+        auto player = registry.getObject(id);
         REQUIRE(player->getName() == "Alice");
     }
 }

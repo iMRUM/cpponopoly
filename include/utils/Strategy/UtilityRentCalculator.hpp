@@ -15,7 +15,6 @@ public:
         : base_rent_multiplier(base_rent_multiplier), dice_roll(dice_roll) {}
 
     [[nodiscard]] int calculateRent() const override {
-        // rent = baseRentMultiplier*diceRoll
         return base_rent_multiplier * dice_roll;
     }
 };

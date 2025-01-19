@@ -17,13 +17,15 @@ namespace monopoly {
         int position;
         int jail_turns;
         int doubles;
+        int jail_cards_amount;
         bool in_jail = false;
         bool is_bankrupt = false;
+        PlayerID id;
         std::string name;
 
     public:
-        explicit Player(std::string name)
-            : balance(1500), position(0), jail_turns(0), doubles(0), name(std::move(name)) {
+        explicit Player(std::string name, PlayerID id)
+            : balance(1500), position(0), jail_turns(0), doubles(0),jail_cards_amount(0), id(id), name(std::move(name)) {
             std::cout << "Player created" << std::endl;
         }
 
@@ -47,13 +49,20 @@ namespace monopoly {
 
         void increaseDoubles() { doubles++; }
 
+        void resetDoubles() { doubles = 0; }
+
+
         // Getters and Setters
         [[nodiscard]] int getBalance() const { return balance; }
         [[nodiscard]] int getPosition() const { return position; }
         [[nodiscard]] int getJailTurns() const { return jail_turns; }
         [[nodiscard]] bool isInJail() const { return in_jail; }
+        [[nodiscard]] bool hasThreeConsecutiveDoubles() const { return doubles >= 3; }
+        [[no_discard]] bool hasJailCard() const { return jail_cards_amount > 0; }
+        void useJailCard() { jail_cards_amount--; }
+        void addJailCard() { jail_cards_amount++; }
         [[nodiscard]] const std::string &getName() const { return name; }
-
+        [[nodiscard]] PlayerID getId() const { return id; }
         void setPosition(const int new_position) {
             position = new_position;
         }

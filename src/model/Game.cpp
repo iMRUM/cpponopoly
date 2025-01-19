@@ -1,11 +1,13 @@
 #include "../include/model/Game.hpp"
-
 #include <stdexcept>
+
+
 namespace monopoly {
     Game::Game() {
         property_registry = std::make_unique<PropertyRegistry>();
         player_registry = std::make_unique<PlayerRegistry>();
     }
+
     // Basic Player and square management
     void Game::addPlayers(size_t num_players) {
         for (auto i = 0; i < num_players; ++i) {
@@ -26,13 +28,18 @@ namespace monopoly {
     void Game::addProperty() {
     }
 
-    void Game::addRailroad() {
+    void Game::addRailroad(const std::string &name,const PropertyID propertyId, const int position, const int price = 200, const int baseRent= 50) {
+        property_registry->registerObject(std::make_shared<Railroad>(name, propertyId, position, price, baseRent));
     }
 
-    void Game::addStreet() {
+    void Game::addStreet(const std::string &name, const int position, const int price, const int baseRent, const
+               int house_cost,
+               const PropertyID propertyId) {
+        property_registry->registerObject(std::make_shared<Street>(name, position, price, baseRent, house_cost, propertyId));
     }
 
-    void Game::addUtility() {
+    void Game::addUtility(const std::string &name, const int position, const PropertyID propertyId) {
+        property_registry->registerObject(std::make_shared<Utility>(name, position, propertyId));
     }
 
     void Game::addSpecialSquare() {
@@ -40,71 +47,185 @@ namespace monopoly {
 
     //Turns management:
     void Game::handleTurn() {
+        state.resetTurnState();
+        Player &current_player = getCurrentPlayer();
+        handleDiceRoll();
+        if (!current_player.isInJail()) {
+            moveSteps(state.current_dice_result, current_player);
+        } else if (current_player.getJailTurns() >= 3) {
+            payFine(50, current_player);
+            outOfJail(current_player);
+        }
     }
 
     Game::Dice Game::rollDice() {
-        return Dice{dice_dist(gen_), dice_dist(gen_)};
+        state.has_rolled = true;
+        const auto dice = Dice{dice_dist(gen_), dice_dist(gen_)};
+        state.current_dice_result = dice.getTotal();
+        return dice;
     }
 
-    void Game::handleDiceRoll(int result, bool isDoubles) {
+    void Game::handleDiceRoll() {
+        Dice dice = rollDice();
+        if (dice.isDoubles()) {
+            handleDouble();
+        }
     }
 
-    void Game::handleDouble(int result) {
+    void Game::handleDouble() {
+        Player &current_player = getCurrentPlayer();
+        if (current_player.isInJail()) {
+            outOfJail(current_player);
+        }
+        current_player.increaseDoubles();
+        if (current_player.hasThreeConsecutiveDoubles()) {
+            goToJail(current_player);
+        }
+
+        if (!current_player.isInJail()) {
+            state.has_another_turn = true;
+        }
     }
 
     void Game::isGameWon() {
+        int active_players = 0;
+        Player* potential_winner = nullptr;
+
+        // Check active players and high balance
+        for (const auto& [_, player] : player_registry->getAllObjects()) {
+            if (!player->isBankrupt()) {
+                active_players++;
+                potential_winner = player.get();
+
+                // Check winning balance condition
+                if (player->getBalance() >= 4000) {
+                    state.winner = player.get();
+                    state.over = true;
+                    return;
+                }
+            }
+        }
+
+        // Check single player remaining
+        if (active_players == 1) {
+            state.winner = potential_winner;
+            state.over = true;
+        }
     }
 
-    void Game::handleBankruptcy(Player& bankrupt_player) {
+    void Game::handleBankruptcy(Player &bankrupt_player) {
         bankrupt_player.setBankrupt(true);
-        /*auto bankrupt_position = bankrupt_player.getPosition();
 
-        // Check if bankruptcy is from property rent
-        if (auto property = dynamic_cast<Property*>(getSquareAt(bankrupt_position))) {
-            if (auto owner = property_registry->getOwner(PropertyID(property->getId()))) {
+        // Get bankrupt player's position and check if bankruptcy is from property rent
+        auto bankrupt_position = bankrupt_player.getPosition();
+        if (auto* property = dynamic_cast<Property*>(getSquareAt(bankrupt_position))) {
+            if (property->isOwned()) {
+                auto creditor = player_registry->getObject(property->getOwnerId());
+
                 // Transfer all properties to creditor
-                auto properties = property_registry->getProperties(PlayerID(bankrupt_player.getId()));
+                auto properties = property_registry->getProperties(bankrupt_player.getId());
                 for (const auto& prop_id : properties) {
-                    property_registry->setOwner(prop_id, owner);
+                    property_registry->setOwner(prop_id, creditor->getId());
                 }
+
                 // Transfer remaining money
-                Player& creditor = *player_registry->get(owner);
-                creditor.increaseBalance(bankrupt_player.getBalance());
+                creditor->increaseBalance(bankrupt_player.getBalance());
             }
         }
 
         // Clear bankrupt player's assets
-        auto properties = property_registry->getProperties(PlayerID(bankrupt_player.getId()));
+        auto properties = property_registry->getProperties(bankrupt_player.getId());
         for (const auto& prop_id : properties) {
             property_registry->removeOwner(prop_id);
         }
         bankrupt_player.setBalance(0);
-        *///TODO: Complete tomorrow!!
+
         isGameWon();
     }
 
-    void Game::moveSteps(int steps) {
+    void Game::moveSteps(int steps, Player &player) {
+        int new_position = player.getPosition() + steps;
+        if (new_position >= squares.size()) {
+            new_position %= static_cast<int>(squares.size());
+        }
+        player.setPosition(new_position);
+        landOn(new_position, player);
     }
 
-    void Game::movedPastGo() {
+    void Game::movedPastGo(Player &player) {
+        player.increaseBalance(200);
     }
 
-    void Game::landOn(int pos) {
+    void Game::landOn(int pos, Player &player) {
+        Square *square = getSquareAt(pos);
+        if (!square) return;
+
+        if (auto *property = dynamic_cast<Property *>(square)) {
+            landOnProperty(*property, player);
+        } else if (auto *special = dynamic_cast<SpecialSquare *>(square)) {
+            landOnSpecialSquare(*special, player);
+        }
+        // Other square types can be handled here!
     }
 
-    void Game::landOnProperty(Property &property) {
+    void Game::landOnProperty(Property &property, Player &player) {
+
+        if (!property.isOwned() && player.canAfford(property.getPrice())) {
+            state.awaiting_action = true;
+            return;
+        }
+        if (property.isOwned() && property.getOwnerId() != player.getId()) {
+            return;
+        }
+        if(canBuildOnProperty(property, player)) {
+            state.awaiting_action = true;
+        }
     }
 
-    void Game::payRent(Property &property) {
+    void Game::payRent(Property &property, Player &player) {
+        std::unique_ptr<StrategyRentCalculator> calculator;
+
+        if (auto* street = dynamic_cast<Street*>(&property)) {
+            calculator = std::make_unique<StreetRentCalculator>(
+                property.getBaseRent(),
+                street->getHouses()
+            );
+        } else if (auto* railroad = dynamic_cast<Railroad*>(&property)) {
+            int railroad_count = static_cast<int>(property_registry->getProperties(property.getOwnerId()).size());
+            calculator = std::make_unique<RailroadRentCalculator>(50, railroad_count);
+        } else if (auto* utility = dynamic_cast<Utility*>(&property)) {
+            calculator = std::make_unique<UtilityRentCalculator>(10, state.current_dice_result);
+        }
+
+        if (!calculator) return;
+
+        int rent = calculator->calculateRent();
+        if (!player.canAfford(rent)) {
+            handleBankruptcy(player);
+            return;
+        }
+
+        auto owner = player_registry->getObject(property.getOwnerId());
+        player.decreaseBalance(rent);
+        owner->increaseBalance(rent);
     }
 
-    void Game::buyProperty(Property &property) {
+    void Game::buyProperty(Property &property, Player &player) {
+        if (property.isOwned() || !player.canAfford(property.getPrice())) {
+            return;
+        }
+
+        if (player.decreaseBalance(property.getPrice())) {
+            property_registry->setOwner(property.getPropertyId(), player.getId());
+            property.setOwnerId(player.getId());
+            state.awaiting_action = false;
+        }
     }
 
-    void Game::buildOnProperty(Property &property) {
+    void Game::buildOnProperty(Property &property, Player &player) {
     }
 
-    void Game::landOnSpecialSquare(SpecialSquare &special_square) {
+    void Game::landOnSpecialSquare(SpecialSquare &special_square, Player &player) {
     }
 
     void Game::landOnFreeParking() {
@@ -122,10 +243,16 @@ namespace monopoly {
     void Game::landOnGoToJail() {
     }
 
-    void Game::goToJail() {
+    void Game::goToJail(Player &player) {
+        player.toggleJailState();
     }
 
-    void Game::outOfJail() {
+    void Game::outOfJail(Player &player) {
+        player.toggleJailState();
+    }
+
+    void Game::payFine(int amount, Player &player) {
+        player.decreaseBalance(amount);
     }
 
     void Game::processCurrentTurn() {
@@ -163,20 +290,57 @@ namespace monopoly {
     }
 
     void Game::nextTurn() {
+        if (!state.has_another_turn) {
+            state.current_player_index = (state.current_player_index + 1) % static_cast<int>(getPlayerCount());
+        }
     }
 
     bool Game::canBuyProperty() const {
     }
 
+    bool Game::canBuildOnProperty(Property& property, Player& player) {
+        auto* street = dynamic_cast<Street*>(&property);
+        if (!street) return false;
+
+        // Check ownership and group completion
+        if (!property_registry->isGroupComplete(
+                property_registry->getPropertyGroup(property.getPropertyId()),
+                player.getId())) {
+            return false;
+                }
+
+        // Check if player can afford
+        if (!player.canAfford(street->getHouseCost())) {
+            return false;
+        }
+
+        // Check even development rule
+        auto group_properties = property_registry->getPropertiesInGroup(
+            property_registry->getPropertyGroup(property.getPropertyId())
+        );
+
+        int current_houses = street->getHouses();
+        for (const auto& group_property_id : group_properties) {
+            auto group_property = property_registry->getObject(group_property_id);
+            if (auto* other_street = dynamic_cast<Street*>(group_property.get())) {
+                if (other_street->getHouses() < current_houses) {
+                    return false;
+                }
+            }
+        }
+
+        return true;
+    }
     bool Game::mustPayRent() const {
     }
 
     int Game::calculateCurrentRent() const {
     }
 
-    Player & Game::getCurrentPlayer() {
+    Player &Game::getCurrentPlayer() {
+        return *(player_registry->getObject(PlayerID(state.current_player_index)));
     }
 
-    Property * Game::getCurrentProperty() const {
+    Property *Game::getCurrentProperty() const {
     }
 }

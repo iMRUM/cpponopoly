@@ -27,9 +27,7 @@ void Player::moveSteps(int steps) {
 
 void Player::toggleJailState() {
     const bool new_state = !isInJail();
-    if (new_state) {
-        resetJailTurns();
-    }
+    resetJailTurns();
     setJailState(new_state);
 }
 

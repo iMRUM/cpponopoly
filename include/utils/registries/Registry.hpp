@@ -9,8 +9,8 @@ namespace monopoly {
     template<typename T, typename IDType>
     class Registry {
     protected:
-        std::unordered_map<uint32_t, std::shared_ptr<T>> objects;
-        uint32_t nextId = 1;
+        std::unordered_map<int, std::shared_ptr<T>> objects;
+        int nextId = 1;
 
     public:
         // Only way to register objects
@@ -23,7 +23,7 @@ namespace monopoly {
             return id;
         }
 
-       std::shared_ptr<T> get(IDType id) {
+       std::shared_ptr<T> getObject(IDType id) {
             auto it = objects.find(id.getValue());
             if (it == objects.end()) {
                 throw std::runtime_error("Object not found");
