@@ -136,6 +136,8 @@ public:
     bool endGame();
     void nextTurn();
 
+    bool canBuyProperty(Player &player);
+
     // Getters
     [[nodiscard]] size_t getPlayerCount() const { return player_registry->getSize(); }
     Square* getSquareAt(const int index) {return squares.at(index).get();}
@@ -148,14 +150,13 @@ public:
     //to be revised:
     [[nodiscard]] bool hasRolled() const { return state.has_rolled; }
     [[nodiscard]] bool isAwaitingAction() const { return state.awaiting_action; }
-    [[nodiscard]] bool canBuyProperty() const;
 
     bool canBuildOnProperty(Property &property, Player &player);
 
-     bool mustPayRent() const;
-    int calculateCurrentRent() const;
+    bool mustPayRent();
+    int calculateCurrentRent();
     Player& getCurrentPlayer();
-    Property* getCurrentProperty() const;
+    Property* getCurrentProperty();
     Player* getWinner() const { return state.winner; }
 };
 }

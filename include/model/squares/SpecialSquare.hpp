@@ -1,16 +1,28 @@
-//
-// Created by imry on 1/15/25.
-//
+#pragma once
+#include "Square.hpp"
 
-#ifndef SPECIALSQUARE_HPP
-#define SPECIALSQUARE_HPP
-
-
-
-class SpecialSquare {
-
+enum class SpecialSquareType {
+    GO_TO_JAIL,
+    FREE_PARKING,
+    TAX,
+    CHANCE
 };
 
+class SpecialSquare : public Square {
+private:
+    SpecialSquareType type;
 
+public:
+    SpecialSquare(const std::string& name, const int position, 
+                  SpecialSquareType type)
+        : Square(name, position)
+        , type(type) {}
 
-#endif //SPECIALSQUARE_HPP
+    [[nodiscard]] SpecialSquareType getType() const { return type; }
+
+    // Prevent copying/moving
+    SpecialSquare(const SpecialSquare&) = delete;
+    SpecialSquare& operator=(const SpecialSquare&) = delete;
+    SpecialSquare(SpecialSquare&&) = delete;
+    SpecialSquare& operator=(SpecialSquare&&) = delete;
+};
