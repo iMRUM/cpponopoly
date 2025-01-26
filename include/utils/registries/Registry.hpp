@@ -4,7 +4,7 @@
 #include <memory>
 #include <stdexcept>
 #include "../Id.hpp"
-//something's off with registration
+
 namespace monopoly {
     template<typename T, typename IDType>
     class Registry {
