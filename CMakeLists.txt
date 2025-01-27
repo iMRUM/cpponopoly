@@ -49,4 +49,15 @@ add_executable(model_tests
         include/utils/factory/test.cpp
         include/view/Board.hpp
         include/view/Board.hpp
+        src/view/Board.cpp
+        include/view/components/UIComponent.hpp
+        include/view/components/Button.hpp
+        src/view/main_button.cpp
+        include/view/GameView.hpp
+        include/view/components/Button.hpp
+        src/view/components/Button.cpp
+        include/view/components/BoardSquare.hpp
+        src/view/components/BoardSquare.cpp
+        include/view/components/StreetSquare.hpp
+        src/view/components/StreetSquare.cpp
 )
