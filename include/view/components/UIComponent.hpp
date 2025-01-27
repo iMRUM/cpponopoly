@@ -1,4 +1,5 @@
 #pragma once
+#include <iostream>
 #include <SFML/Graphics.hpp>
 #include <SFML/System/Clock.hpp>
 #include <SFML/System/Time.hpp>
@@ -12,7 +13,9 @@ protected:
 public:
     UIComponent(const sf::Vector2f& pos, const sf::Vector2f& sz)
         : position(pos), size(sz) {}
-
+    explicit UIComponent(const sf::Vector2f& pos):position(pos) {
+        std::cout << "UIComponent constructor pos only" << std::endl;
+    }
     virtual ~UIComponent() = default;
 
     virtual void draw(sf::RenderWindow& window) = 0;

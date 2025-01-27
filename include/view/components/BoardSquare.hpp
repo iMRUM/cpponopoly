@@ -19,13 +19,13 @@ enum class BoardSide {
 // View component
 class BoardSquare : public UIComponent {
 protected:
-    static constexpr float REGULAR_WIDTH = 80.f;
-    static constexpr float REGULAR_HEIGHT = 120.f;
-    static constexpr float CORNER_SIZE = 120.f;
-    static constexpr float TEXT_PADDING = 10.f;
+    static constexpr float REGULAR_WIDTH = 160.f;
+    static constexpr float REGULAR_HEIGHT = 240.f;
+    static constexpr float CORNER_SIZE = 240.f;
+    static constexpr float TEXT_PADDING = 20.f;
 
     sf::RectangleShape background;
-    sf::Text text;
+    sf::Text name_text;
     BoardSide board_side;
     sf::Color background_color;
     sf::Font font;
@@ -33,7 +33,8 @@ protected:
     int square_id;  // To link with model
 
     bool isCornerSquare();
-    void initBoardSide();
+    void setupSize();
+    void setBackground();
     void initText();//TODO: perhaps should be virtual since they have different texts.
     void setTextRotation();
     void setTextPosition(); //TODO: should be virtual since positioning is different
@@ -42,8 +43,13 @@ public:
     BoardSquare(const sf::Vector2f &pos, const sf::Vector2f &size,
                 const std::string &squareName,
                 int id,
-                const sf::Color bg = sf::Color(210, 230, 210));
-
+                BoardSide side,
+                sf::Color bg = sf::Color(210, 230, 210));
+    BoardSquare(const sf::Vector2f &pos,
+                    const std::string &squareName,
+                    int id,
+                    BoardSide side,
+                    sf::Color bg = sf::Color(210, 230, 210));
     virtual ~BoardSquare() = default;
 
     // UI functions
@@ -52,7 +58,34 @@ public:
 
     // View-specific functionality
     void setBoardSide(const BoardSide side);
-    const std::string& getName() const;
-    int getSquareId() const;
+
+    [[nodiscard]] const sf::RectangleShape & getBackground() const {
+        return background;
+    }
+
+    [[nodiscard]] const sf::Text & getNameText() const {
+        return name_text;
+    }
+
+    [[nodiscard]] BoardSide getBoardSide() const {
+        return board_side;
+    }
+
+    [[nodiscard]] const sf::Color & getBackgroundColor() const {
+        return background_color;
+    }
+
+    [[nodiscard]] const sf::Font & getFont() const {
+        return font;
+    }
+
+    [[nodiscard]] const std::string & getName() const {
+        return name;
+    }
+
+    [[nodiscard]] int getSquareId() const {
+        return square_id;
+    }
+
     virtual void updateView() = 0;  // Called by controller when model changes
 };

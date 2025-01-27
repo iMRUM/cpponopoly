@@ -14,13 +14,17 @@ private:
     sf::Color owner_color;
     std::array<sf::RectangleShape, 4> house_shapes;
     sf::RectangleShape hotel_shape;
+    std::string price;
+    sf::Text price_text;
     int num_houses;
     void setColorBand();
+    void setTexts();
 public:
     StreetSquare(const sf::Vector2f &pos,
                  const std::string &name,
                  int id,
-                 const sf::Color &color);
+                 const std::string &cost,
+                 const sf::Color &color, BoardSide side);
 
     void setHouses(int houses);
     void draw(sf::RenderWindow& window) override;

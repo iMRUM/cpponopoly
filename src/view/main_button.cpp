@@ -4,46 +4,44 @@
 #include "../../include/view/components/StreetSquare.hpp"
 
 int main() {
-    sf::RenderWindow window(sf::VideoMode(800, 800), "Street Square Test");
-
+    sf::RenderWindow window(sf::VideoMode(2000, 1200), "Street Square Test");
     // Create street squares to test different board sides
     std::vector<std::unique_ptr<StreetSquare>> squares;
 
     // Bottom side street
     squares.push_back(std::make_unique<StreetSquare>(
-        sf::Vector2f(300, 680),
+        sf::Vector2f(310, 0),
         "Park Place",
         1,
-        sf::Color::Blue
-    ));
-    squares.back()->setBoardSide(BoardSide::Bottom);
+        "100",
+        sf::Color::Blue, BoardSide::Top));
 
     // Left side street
     squares.push_back(std::make_unique<StreetSquare>(
-        sf::Vector2f(0, 300),
+        sf::Vector2f(0, 250),
         "St. James Place",
         2,
-        sf::Color::Cyan
+        "150",
+        sf::Color::Cyan, BoardSide::Left
     ));
-    squares.back()->setBoardSide(BoardSide::Left);
 
     // Top side street
     squares.push_back(std::make_unique<StreetSquare>(
-        sf::Vector2f(300, 0),
+        sf::Vector2f(310, 500),
         "Kentucky Avenue",
         3,
-        sf::Color::Red
+        "200",
+        sf::Color::Red, BoardSide::Bottom
     ));
-    squares.back()->setBoardSide(BoardSide::Top);
 
     // Right side street
     squares.push_back(std::make_unique<StreetSquare>(
-        sf::Vector2f(680, 300),
+        sf::Vector2f(500, 250),
         "Ventnor Avenue",
         4,
-        sf::Color::Yellow
+        "250",
+        sf::Color::Yellow,BoardSide::Right
     ));
-    squares.back()->setBoardSide(BoardSide::Right);
 
     // Test variables
     int activeSquareIndex = 0;
