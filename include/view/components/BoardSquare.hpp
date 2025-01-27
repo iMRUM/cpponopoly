@@ -37,7 +37,6 @@ protected:
     void setBackground();
     void initText();//TODO: perhaps should be virtual since they have different texts.
     void setTextRotation();
-    void setTextPosition(); //TODO: should be virtual since positioning is different
 
 public:
     BoardSquare(const sf::Vector2f &pos, const sf::Vector2f &size,
