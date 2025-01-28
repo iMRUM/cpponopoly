@@ -7,18 +7,20 @@ ChanceSquare::ChanceSquare(const sf::Vector2f &pos, int id, BoardSide side, sf::
 }
 
 void ChanceSquare::setTexts() {
+    float nameCharSize = size.y * 0.10f;
     name_text.setString(name);
     name_text.setFont(font);
-    name_text.setCharacterSize(23);
+    name_text.setCharacterSize(static_cast<unsigned int>(nameCharSize));
     name_text.setFillColor(sf::Color::Black);
     name_text.setStyle(sf::Text::Bold);
 
+    float qmarkSize = size.y * 0.45f;
     lower_text.setString("?");
     lower_text.setFont(font);
-    lower_text.setCharacterSize(200);
+    lower_text.setCharacterSize(static_cast<unsigned int>(qmarkSize));
     lower_text.setFillColor(qmark_color);
     lower_text.setOutlineColor(sf::Color::Black);
-    lower_text.setOutlineThickness(2.0f);
+    lower_text.setOutlineThickness(1.0f);
 
     switch (board_side) {
         case BoardSide::Bottom:

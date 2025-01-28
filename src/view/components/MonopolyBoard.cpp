@@ -10,9 +10,9 @@ MonopolyBoard::MonopolyBoard(): UIComponent(sf::Vector2f(0,0),
     background.setSize(size);
 
     // Setup logo background
-    logo_background.setSize(sf::Vector2f(400.f, 100.f));
+    logo_background.setSize(sf::Vector2f(500.f, 100.f));
     logo_background.setPosition(sf::Vector2f(
-        position.x + (size.x - 400.f) / 2,
+        position.x + (size.x - 500.f) / 2,
         position.y + (size.y - 100.f) / 2
     ));
     logo_background.setFillColor(sf::Color::Red);
@@ -24,7 +24,7 @@ MonopolyBoard::MonopolyBoard(): UIComponent(sf::Vector2f(0,0),
         throw std::runtime_error("Failed to load font");
     }
     logo_text.setFont(font);
-    logo_text.setString("MONOPOLY");
+    logo_text.setString("M O N O P O L Y");
     logo_text.setCharacterSize(60);
     logo_text.setFillColor(sf::Color::White);
     logo_text.setStyle(sf::Text::Bold);
@@ -33,7 +33,7 @@ MonopolyBoard::MonopolyBoard(): UIComponent(sf::Vector2f(0,0),
     sf::FloatRect textBounds = logo_text.getLocalBounds();
     logo_text.setOrigin(textBounds.width/2, textBounds.height/2);
     logo_text.setPosition(
-        logo_background.getPosition().x + 200.f,
+        logo_background.getPosition().x + 250.f,
         logo_background.getPosition().y + 40.f
     );
 }

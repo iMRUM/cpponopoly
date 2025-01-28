@@ -48,52 +48,54 @@ void StreetSquare::setColorBand() {
 void StreetSquare::setTexts() {
     name_text.setString(name);
     name_text.setFont(font);
-    name_text.setCharacterSize(23);
+    float nameCharSize = size.y * 0.10f; // 10% of height
+    name_text.setCharacterSize(static_cast<unsigned int>(nameCharSize));
     name_text.setFillColor(sf::Color::Black);
     name_text.setStyle(sf::Text::Bold);
 
     lower_text.setString(price);
     lower_text.setFont(font);
-    lower_text.setCharacterSize(19);
+    float priceCharSize = size.y * 0.08f; // 8% of height
+    lower_text.setCharacterSize(static_cast<unsigned int>(priceCharSize));
     lower_text.setFillColor(sf::Color::Black);
 
     switch (board_side) {
         case BoardSide::Bottom:
-            name_text.setPosition(position.x + (size.x * 0.5f), position.y + (size.y * 0.35f));
+            name_text.setPosition(position.x + (size.x * 0.5f), position.y + (size.y * 0.32f));
             name_text.setRotation(0);
             name_text.setOrigin(name_text.getLocalBounds().width / 2, 0);
 
-            lower_text.setPosition(position.x + (size.x * 0.5f), position.y + (size.y * 0.85f));
+            lower_text.setPosition(position.x + (size.x * 0.5f), position.y + (size.y * 0.8f));
             lower_text.setRotation(0);
             lower_text.setOrigin(lower_text.getLocalBounds().width / 2, 0);
             break;
 
         case BoardSide::Left:
-            name_text.setPosition(position.x + (size.x * 0.65f), position.y + (size.y * 0.5f));
+            name_text.setPosition(position.x + (size.x * 0.68f), position.y + (size.y * 0.5f));
             name_text.setRotation(90);
             name_text.setOrigin(name_text.getLocalBounds().width / 2, 0);
 
-            lower_text.setPosition(position.x + (size.x * 0.15f), position.y + (size.y * 0.5f));
+            lower_text.setPosition(position.x + (size.x * 0.2f), position.y + (size.y * 0.5f));
             lower_text.setRotation(90);
             lower_text.setOrigin(lower_text.getLocalBounds().width / 2, 0);
             break;
 
         case BoardSide::Top:
-            name_text.setPosition(position.x + (size.x * 0.5f), position.y + (size.y * 0.65f));
+            name_text.setPosition(position.x + (size.x * 0.5f), position.y + (size.y * 0.68f));
             name_text.setRotation(180);
             name_text.setOrigin(name_text.getLocalBounds().width / 2, 0);
 
-            lower_text.setPosition(position.x + (size.x * 0.5f), position.y + (size.y * 0.15f));
+            lower_text.setPosition(position.x + (size.x * 0.5f), position.y + (size.y * 0.2f));
             lower_text.setRotation(180);
             lower_text.setOrigin(lower_text.getLocalBounds().width / 2, 0);
             break;
 
         case BoardSide::Right:
-            name_text.setPosition(position.x + (size.x * 0.35f), position.y + (size.y * 0.5f));
+            name_text.setPosition(position.x + (size.x * 0.32f), position.y + (size.y * 0.5f));
             name_text.setRotation(270);
-        name_text.setOrigin(name_text.getLocalBounds().width / 2, 0);
+            name_text.setOrigin(name_text.getLocalBounds().width / 2, 0);
 
-            lower_text.setPosition(position.x + (size.x * 0.85f), position.y + (size.y * 0.5f));
+            lower_text.setPosition(position.x + (size.x * 0.8f), position.y + (size.y * 0.5f));
             lower_text.setRotation(270);
             lower_text.setOrigin(lower_text.getLocalBounds().width / 2, 0);
             break;

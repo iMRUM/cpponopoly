@@ -1,15 +1,17 @@
 #include "../../../include/view/components/IncomeTaxSquare.hpp"
 
 void IncomeTaxSquare::setTexts() {
+    float nameCharSize = size.y * 0.10f;
     name_text.setString(name);
     name_text.setFont(font);
-    name_text.setCharacterSize(23);
+    name_text.setCharacterSize(static_cast<unsigned int>(nameCharSize));
     name_text.setFillColor(sf::Color::Black);
     name_text.setStyle(sf::Text::Bold);
 
+    float taxCharSize = size.y * 0.07f;
     lower_text.setString("PAY 10%\n   OR\n  $1200");
     lower_text.setFont(font);
-    lower_text.setCharacterSize(17);
+    lower_text.setCharacterSize(static_cast<unsigned int>(taxCharSize));
     lower_text.setFillColor(sf::Color::Black);
     switch (board_side) {
         case BoardSide::Bottom:

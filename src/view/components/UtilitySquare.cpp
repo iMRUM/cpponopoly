@@ -7,15 +7,17 @@ UtilitySquare::UtilitySquare(const sf::Vector2f &pos, const std::string &name, i
 
 
 void UtilitySquare::setTexts() {
+    float nameCharSize = size.y * 0.10f;
     name_text.setString(name);
     name_text.setFont(font);
-    name_text.setCharacterSize(23);
+    name_text.setCharacterSize(static_cast<unsigned int>(nameCharSize));
     name_text.setFillColor(sf::Color::Black);
     name_text.setStyle(sf::Text::Bold);
 
+    float priceCharSize = size.y * 0.08f;
     lower_text.setString("PRICE $150");
     lower_text.setFont(font);
-    lower_text.setCharacterSize(19);
+    lower_text.setCharacterSize(static_cast<unsigned int>(priceCharSize));
     lower_text.setFillColor(sf::Color::Black);
     switch (board_side) {
         case BoardSide::Bottom:
