@@ -75,4 +75,7 @@ add_executable(model_tests
         src/view/components/MonopolyBoard.cpp
         src/utils/registry/PlayerRegistry.cpp
         include/utils/registry/PlayerRegistry.hpp
+        tests/utils/player_registry_test.cpp
+        src/utils/registry/SquareRegistry.cpp
+        tests/utils/square_registry_test.cpp
 )

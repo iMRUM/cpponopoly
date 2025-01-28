@@ -9,7 +9,20 @@
 
 namespace monopoly {
     class SquareRegistry : public IRegistry<Square, int> {
-        //primary storage for squares
+    public:
+        explicit SquareRegistry();
+        void registerItem(std::unique_ptr<Square> square) override;
+        Square& getByPosition(int position) const;
+        Property& getPropertyByPosition(int position) const;
+        Street& getStreetByPosition(int position) const;
+        Railroad& getRailroadByPosition(int position) const;
+        Utility& getUtilityByPosition(int position) const;
+        SpecialSquare& getSpecialSquareByPosition(int position) const;
 
+        bool isProperty(int position) const;
+        bool isStreet(int position) const;
+        bool isRailroad(int position) const;
+        bool isUtility(int position) const;
+        bool isSpecialSquare(int position) const;
     };
 }

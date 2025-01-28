@@ -3,7 +3,7 @@
 #include "IRegistry.hpp"
 #include "../../model/Player.hpp"
 #include <stdexcept>
-
+//TESTED
 namespace monopoly {
     class PlayerRegistry : public IRegistry<Player, int> {
     public:

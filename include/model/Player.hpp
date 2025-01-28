@@ -6,7 +6,6 @@
 #include <string>
 #include <vector>
 #include <stdexcept>
-#include "../utils/Id.hpp"
 #define BOARD_SIZE 40
 #define MAX_JAIL_TURNS 3
 
@@ -58,7 +57,7 @@ namespace monopoly {
         [[nodiscard]] int getJailTurns() const { return jail_turns; }
         [[nodiscard]] bool isInJail() const { return in_jail; }
         [[nodiscard]] bool hasThreeConsecutiveDoubles() const { return doubles >= 3; }
-        [[no_discard]] bool hasJailCard() const { return jail_cards_amount > 0; }
+        [[nodiscard]] bool hasJailCard() const { return jail_cards_amount > 0; }
         void useJailCard() { jail_cards_amount--; }
         void addJailCard() { jail_cards_amount++; }
         [[nodiscard]] const std::string &getName() const { return name; }

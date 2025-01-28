@@ -1,7 +1,7 @@
 #include "../../../include/utils/registry/PlayerRegistry.hpp"
 
 namespace monopoly {
-    PlayerRegistry::PlayerRegistry() : IRegistry<Player, int>(8) {
+    PlayerRegistry::PlayerRegistry(): IRegistry<Player, int>() {
     }
 
     void PlayerRegistry::registerItem(std::unique_ptr<Player> player) {
