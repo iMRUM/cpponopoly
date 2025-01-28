@@ -75,4 +75,8 @@ add_executable(model_tests
         src/view/components/FreeParkingSquare.cpp
         include/view/components/GoToJailSquare.hpp
         src/view/components/GoToJailSquare.cpp
+        include/view/components/GoSquare.hpp
+        src/view/components/GoSquare.cpp
+        include/view/components/UtilitySquare.hpp
+        src/view/components/UtilitySquare.cpp
 )

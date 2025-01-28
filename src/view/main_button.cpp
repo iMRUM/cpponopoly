@@ -8,6 +8,9 @@
 #include "../../include/view/components/RailroadSquare.hpp"
 #include "../../include/view/components/JailSquare.hpp"
 #include "../../include/view/components/FreeParkingSquare.hpp"
+#include "../../include/view/components/GoToJailSquare.hpp"
+#include "../../include/view/components/GoSquare.hpp"
+#include "../../include/view/components/UtilitySquare.hpp"
 
 int main() {
     sf::RenderWindow window(sf::VideoMode(2000, 1200), "Street Square Test");
@@ -68,6 +71,14 @@ int main() {
     squares.push_back(std::make_unique<RailroadSquare>(sf::Vector2f(400, 240),"SHORT\n LINE", 5, BoardSide::Right));
     squares.push_back(std::make_unique<JailSquare>(sf::Vector2f(700, 700),10));
     squares.push_back(std::make_unique<FreeParkingSquare>(sf::Vector2f(700, 700),10));
+    squares.push_back(std::make_unique<GoToJailSquare>(sf::Vector2f(700, 700),10));
+    squares.push_back(std::make_unique<GoSquare>(sf::Vector2f(700, 700),10));
+    squares.push_back(std::make_unique<UtilitySquare>(sf::Vector2f(240, 0), "ELECTRIC\nCOMPANY", 5, BoardSide::Top));
+    squares.push_back(std::make_unique<UtilitySquare>(sf::Vector2f(0, 240),"  WATER\nCOMPANY", 5, BoardSide::Left));
+    squares.push_back(
+        std::make_unique<UtilitySquare>(sf::Vector2f(240, 400), "ELECTRIC\nCOMPANY", 6, BoardSide::Bottom));
+    squares.push_back(std::make_unique<UtilitySquare>(sf::Vector2f(400, 240),"  WATER\nCOMPANY", 5, BoardSide::Right));
+
     // Test variables
     int activeSquareIndex = 0;
     int houseCount = 0;
