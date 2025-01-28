@@ -15,7 +15,6 @@ private:
     std::array<sf::RectangleShape, 4> house_shapes;
     sf::RectangleShape hotel_shape;
     std::string price;
-    sf::Text price_text;
     int num_houses;
     void setColorBand();
     void setTexts();

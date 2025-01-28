@@ -4,7 +4,14 @@
 #include <string>
 #include "UIComponent.hpp"
 
+/*
+#pragma once
+#include "BoardSquare.hpp"
+class : public BoardSquare {
 
+};
+
+ */
 enum class BoardSide {
     Bottom, // Regular square, text reads upward
     Left, // Regular square, text reads rightward
@@ -26,6 +33,7 @@ protected:
 
     sf::RectangleShape background;
     sf::Text name_text;
+    sf::Text lower_text;
     BoardSide board_side;
     sf::Color background_color;
     sf::Font font;
@@ -39,11 +47,12 @@ protected:
     void setTextRotation();
 
 public:
+    //first constructor is not used, should be deleted
     BoardSquare(const sf::Vector2f &pos, const sf::Vector2f &size,
                 const std::string &squareName,
                 int id,
                 BoardSide side,
-                sf::Color bg = sf::Color(210, 230, 210));
+                sf::Color bg = sf::Color(210, 230, 210)); // to be deprecated
     BoardSquare(const sf::Vector2f &pos,
                     const std::string &squareName,
                     int id,

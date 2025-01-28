@@ -60,4 +60,19 @@ add_executable(model_tests
         src/view/components/BoardSquare.cpp
         include/view/components/StreetSquare.hpp
         src/view/components/StreetSquare.cpp
+        include/view/components/CornerSquare.hpp
+        include/view/components/CommunityChestSquare.hpp
+        include/view/components/IncomeTaxSquare.hpp
+        include/view/components/RailroadSquare.hpp
+        src/view/components/CommunityChestSquare.cpp
+        src/view/components/IncomeTaxSquare.cpp
+        include/view/components/ChanceSquare.hpp
+        src/view/components/ChanceSquare.cpp
+        src/view/components/RailroadSquare.cpp
+        include/view/components/JailSquare.hpp
+        src/view/components/JailSquare.cpp
+        include/view/components/FreeParkingSquare.hpp
+        src/view/components/FreeParkingSquare.cpp
+        include/view/components/GoToJailSquare.hpp
+        src/view/components/GoToJailSquare.cpp
 )
