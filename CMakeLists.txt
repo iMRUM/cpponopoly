@@ -79,4 +79,6 @@ add_executable(model_tests
         src/view/components/GoSquare.cpp
         include/view/components/UtilitySquare.hpp
         src/view/components/UtilitySquare.cpp
+        include/view/components/MonopolyBoard.hpp
+        src/view/components/MonopolyBoard.cpp
 )

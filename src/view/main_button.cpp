@@ -1,5 +1,6 @@
 #include <SFML/Graphics.hpp>
 #include <memory>
+#include <vector>
 #include "../../include/view/components/Button.hpp"
 #include "../../include/view/components/StreetSquare.hpp"
 #include "../../include/view/components/CommunityChestSquare.hpp"
@@ -11,77 +12,186 @@
 #include "../../include/view/components/GoToJailSquare.hpp"
 #include "../../include/view/components/GoSquare.hpp"
 #include "../../include/view/components/UtilitySquare.hpp"
+#include "../../include/view/components/MonopolyBoard.hpp"
+
+void createBottomSquares(std::vector<std::unique_ptr<BoardSquare>>& squares) {
+    float startX = 120.0f;  // Start after GO corner
+
+    // Bottom row squares (left to right)
+    squares.push_back(std::make_unique<StreetSquare>(
+        sf::Vector2f(startX, 840), "Mediterranean\nAvenue", 1, "60",
+        sf::Color(150, 83, 55), BoardSide::Bottom));  // Brown
+
+    squares.push_back(std::make_unique<CommunityChestSquare>(
+        sf::Vector2f(startX + 80, 840), 2, BoardSide::Bottom));
+
+    squares.push_back(std::make_unique<StreetSquare>(
+        sf::Vector2f(startX + 160, 840), "Baltic\nAvenue", 3, "60",
+        sf::Color(150, 83, 55), BoardSide::Bottom));  // Brown
+
+    squares.push_back(std::make_unique<IncomeTaxSquare>(
+        sf::Vector2f(startX + 240, 840), 4, BoardSide::Bottom));
+
+    squares.push_back(std::make_unique<RailroadSquare>(
+        sf::Vector2f(startX + 320, 840), "Reading\nRailroad", 5, BoardSide::Bottom));
+
+    squares.push_back(std::make_unique<StreetSquare>(
+        sf::Vector2f(startX + 400, 840), "Oriental\nAvenue", 6, "100",
+        sf::Color::Cyan, BoardSide::Bottom));
+
+    squares.push_back(std::make_unique<ChanceSquare>(
+        sf::Vector2f(startX + 480, 840), 7, BoardSide::Bottom, sf::Color::Blue));
+
+    squares.push_back(std::make_unique<StreetSquare>(
+        sf::Vector2f(startX + 560, 840), "Vermont\nAvenue", 8, "100",
+        sf::Color::Cyan, BoardSide::Bottom));
+
+    squares.push_back(std::make_unique<StreetSquare>(
+        sf::Vector2f(startX + 640, 840), "Connecticut\nAvenue", 9, "120",
+        sf::Color::Cyan, BoardSide::Bottom));
+}
+
+void createLeftSquares(std::vector<std::unique_ptr<BoardSquare>>& squares) {
+    float startY = 120.0f;  // Start after Jail
+
+    squares.push_back(std::make_unique<StreetSquare>(
+        sf::Vector2f(0, startY), "St. Charles\nPlace", 11, "140",
+        sf::Color::Magenta, BoardSide::Left));
+
+    squares.push_back(std::make_unique<UtilitySquare>(
+        sf::Vector2f(0, startY + 80), "Electric\nCompany", 12, BoardSide::Left));
+
+    squares.push_back(std::make_unique<StreetSquare>(
+        sf::Vector2f(0, startY + 160), "States\nAvenue", 13, "140",
+        sf::Color::Magenta, BoardSide::Left));
+
+    squares.push_back(std::make_unique<StreetSquare>(
+        sf::Vector2f(0, startY + 240), "Virginia\nAvenue", 14, "160",
+        sf::Color::Magenta, BoardSide::Left));
+
+    squares.push_back(std::make_unique<RailroadSquare>(
+        sf::Vector2f(0, startY + 320), "Pennsylvania\nRailroad", 15, BoardSide::Left));
+
+    squares.push_back(std::make_unique<StreetSquare>(
+        sf::Vector2f(0, startY + 400), "St. James\nPlace", 16, "180",
+        sf::Color::Black, BoardSide::Left));
+
+    squares.push_back(std::make_unique<CommunityChestSquare>(
+        sf::Vector2f(0, startY + 480), 17, BoardSide::Left));
+
+    squares.push_back(std::make_unique<StreetSquare>(
+        sf::Vector2f(0, startY + 560), "Tennessee\nAvenue", 18, "180",
+        sf::Color::Black, BoardSide::Left));
+
+    squares.push_back(std::make_unique<StreetSquare>(
+        sf::Vector2f(0, startY + 640), "New York\nAvenue", 19, "200",
+        sf::Color::Black, BoardSide::Left));
+}
+
+void createTopSquares(std::vector<std::unique_ptr<BoardSquare>>& squares) {
+    float startX = 120.0f;  // Start after Free Parking
+
+    squares.push_back(std::make_unique<StreetSquare>(
+        sf::Vector2f(startX, 0), "Kentucky\nAvenue", 21, "220",
+        sf::Color::Red, BoardSide::Top));
+
+    squares.push_back(std::make_unique<ChanceSquare>(
+        sf::Vector2f(startX + 80, 0), 22, BoardSide::Top, sf::Color::Blue));
+
+    squares.push_back(std::make_unique<StreetSquare>(
+        sf::Vector2f(startX + 160, 0), "Indiana\nAvenue", 23, "220",
+        sf::Color::Red, BoardSide::Top));
+
+    squares.push_back(std::make_unique<StreetSquare>(
+        sf::Vector2f(startX + 240, 0), "Illinois\nAvenue", 24, "240",
+        sf::Color::Red, BoardSide::Top));
+
+    squares.push_back(std::make_unique<RailroadSquare>(
+        sf::Vector2f(startX + 320, 0), "B. & O.\nRailroad", 25, BoardSide::Top));
+
+    squares.push_back(std::make_unique<StreetSquare>(
+        sf::Vector2f(startX + 400, 0), "Atlantic\nAvenue", 26, "260",
+        sf::Color::Yellow, BoardSide::Top));
+
+    squares.push_back(std::make_unique<StreetSquare>(
+        sf::Vector2f(startX + 480, 0), "Ventnor\nAvenue", 27, "260",
+        sf::Color::Yellow, BoardSide::Top));
+
+    squares.push_back(std::make_unique<UtilitySquare>(
+        sf::Vector2f(startX + 560, 0), "Water\nWorks", 28, BoardSide::Top));
+
+    squares.push_back(std::make_unique<StreetSquare>(
+        sf::Vector2f(startX + 640, 0), "Marvin\nGardens", 29, "280",
+        sf::Color::Yellow, BoardSide::Top));
+}
+
+void createRightSquares(std::vector<std::unique_ptr<BoardSquare>>& squares) {
+    float startY = 120.0f;  // Start after Go To Jail
+
+    squares.push_back(std::make_unique<StreetSquare>(
+        sf::Vector2f(840, startY), "Pacific\nAvenue", 31, "300",
+        sf::Color::Green, BoardSide::Right));
+
+    squares.push_back(std::make_unique<StreetSquare>(
+        sf::Vector2f(840, startY + 80), "North Carolina\nAvenue", 32, "300",
+        sf::Color::Green, BoardSide::Right));
+
+    squares.push_back(std::make_unique<CommunityChestSquare>(
+        sf::Vector2f(840, startY + 160), 33, BoardSide::Right));
+
+    squares.push_back(std::make_unique<StreetSquare>(
+        sf::Vector2f(840, startY + 240), "Pennsylvania\nAvenue", 34, "320",
+        sf::Color::Green, BoardSide::Right));
+
+    squares.push_back(std::make_unique<RailroadSquare>(
+        sf::Vector2f(840, startY + 320), "Short Line", 35, BoardSide::Right));
+
+    squares.push_back(std::make_unique<ChanceSquare>(
+        sf::Vector2f(840, startY + 400), 36, BoardSide::Right, sf::Color::Blue));
+
+    squares.push_back(std::make_unique<StreetSquare>(
+        sf::Vector2f(840, startY + 480), "Park Place", 37, "350",
+        sf::Color::Blue, BoardSide::Right));
+
+    squares.push_back(std::make_unique<IncomeTaxSquare>(
+        sf::Vector2f(840, startY + 560), 38, BoardSide::Right));
+
+    squares.push_back(std::make_unique<StreetSquare>(
+        sf::Vector2f(840, startY + 640), "Boardwalk", 39, "400",
+        sf::Color::Blue, BoardSide::Right));
+}
+
+void createCornerSquares(std::vector<std::unique_ptr<BoardSquare>>& squares) {
+    // GO (bottom right)
+    squares.push_back(std::make_unique<GoSquare>(
+        sf::Vector2f(840, 840), 0));
+
+    // Jail (bottom left)
+    squares.push_back(std::make_unique<JailSquare>(
+        sf::Vector2f(0, 840), 10));
+
+    // Free Parking (top left)
+    squares.push_back(std::make_unique<FreeParkingSquare>(
+        sf::Vector2f(0, 0), 20));
+
+    // Go To Jail (top right)
+    squares.push_back(std::make_unique<GoToJailSquare>(
+        sf::Vector2f(840, 0), 30));
+}
 
 int main() {
-    sf::RenderWindow window(sf::VideoMode(2000, 1200), "Street Square Test");
-    window.setFramerateLimit(30);
+    sf::RenderWindow window(sf::VideoMode(960, 960), "Monopoly Board");
+    window.setFramerateLimit(60);
 
+    std::vector<std::unique_ptr<BoardSquare>> squares;
+    auto m_board = std::make_unique<MonopolyBoard>();
 
-    //surely works from here:
-    // Create street squares to test different board sides
-    std::vector<std::unique_ptr<BoardSquare> > squares;
-
-    // Bottom side street
-    squares.push_back(std::make_unique<StreetSquare>(
-        sf::Vector2f(310, 0),
-        "Park Place",
-        1,
-        "100",
-        sf::Color::Blue, BoardSide::Top));
-
-    // Left side street
-    squares.push_back(std::make_unique<StreetSquare>(
-        sf::Vector2f(0, 250),
-        "St. James Place",
-        2,
-        "150",
-        sf::Color::Cyan, BoardSide::Left
-    ));
-
-    // Top side street
-    squares.push_back(std::make_unique<StreetSquare>(
-        sf::Vector2f(310, 500),
-        "Kentucky\n  Avenue",
-        3,
-        "200",
-        sf::Color::Red, BoardSide::Bottom
-    ));
-
-    // Right side street
-    squares.push_back(std::make_unique<StreetSquare>(
-        sf::Vector2f(500, 250),
-        "Ventnor Avenue",
-        4,
-        "250",
-        sf::Color::Yellow, BoardSide::Right
-    ));
-    squares.push_back(std::make_unique<CommunityChestSquare>(sf::Vector2f(240, 0), 5, BoardSide::Top));
-    squares.push_back(std::make_unique<CommunityChestSquare>(sf::Vector2f(0, 240), 5, BoardSide::Left));
-    squares.push_back(std::make_unique<CommunityChestSquare>(sf::Vector2f(240, 400), 6, BoardSide::Bottom));
-    squares.push_back(std::make_unique<CommunityChestSquare>(sf::Vector2f(400, 240), 5, BoardSide::Right));
-    squares.push_back(std::make_unique<IncomeTaxSquare>(sf::Vector2f(650, 0), 8));
-    squares.push_back(std::make_unique<ChanceSquare>(sf::Vector2f(240, 0), 5, BoardSide::Top, sf::Color::Green));
-    squares.push_back(std::make_unique<ChanceSquare>(sf::Vector2f(0, 240), 5, BoardSide::Left, sf::Color::Green));
-    squares.push_back(std::make_unique<ChanceSquare>(sf::Vector2f(240, 400), 6, BoardSide::Bottom, sf::Color::Green));
-    squares.push_back(std::make_unique<ChanceSquare>(sf::Vector2f(400, 240), 5, BoardSide::Right, sf::Color::Green));
-    squares.push_back(std::make_unique<RailroadSquare>(sf::Vector2f(240, 0), "  B. & O.\nRAILROAD", 5, BoardSide::Top));
-    squares.push_back(std::make_unique<RailroadSquare>(sf::Vector2f(0, 240)," PENNSYLVANIA\n  RAILROAD", 5, BoardSide::Left));
-    squares.push_back(
-        std::make_unique<RailroadSquare>(sf::Vector2f(240, 400), " READING\nRAILROAD", 6, BoardSide::Bottom));
-    squares.push_back(std::make_unique<RailroadSquare>(sf::Vector2f(400, 240),"SHORT\n LINE", 5, BoardSide::Right));
-    squares.push_back(std::make_unique<JailSquare>(sf::Vector2f(700, 700),10));
-    squares.push_back(std::make_unique<FreeParkingSquare>(sf::Vector2f(700, 700),10));
-    squares.push_back(std::make_unique<GoToJailSquare>(sf::Vector2f(700, 700),10));
-    squares.push_back(std::make_unique<GoSquare>(sf::Vector2f(700, 700),10));
-    squares.push_back(std::make_unique<UtilitySquare>(sf::Vector2f(240, 0), "ELECTRIC\nCOMPANY", 5, BoardSide::Top));
-    squares.push_back(std::make_unique<UtilitySquare>(sf::Vector2f(0, 240),"  WATER\nCOMPANY", 5, BoardSide::Left));
-    squares.push_back(
-        std::make_unique<UtilitySquare>(sf::Vector2f(240, 400), "ELECTRIC\nCOMPANY", 6, BoardSide::Bottom));
-    squares.push_back(std::make_unique<UtilitySquare>(sf::Vector2f(400, 240),"  WATER\nCOMPANY", 5, BoardSide::Right));
-
-    // Test variables
-    int activeSquareIndex = 0;
-    int houseCount = 0;
+    // Create all squares
+    createCornerSquares(squares);
+    createBottomSquares(squares);
+    createLeftSquares(squares);
+    createTopSquares(squares);
+    createRightSquares(squares);
 
     while (window.isOpen()) {
         sf::Event event;
@@ -90,60 +200,24 @@ int main() {
                 window.close();
             }
 
-            /*/ Handle keyboard events for testing
-            if (event.type == sf::Event::KeyPressed) {
-                switch (event.key.code) {
-                    case sf::Keyboard::Space:
-                        // Cycle through squares
-                        activeSquareIndex = (activeSquareIndex + 1) % squares.size();
-                        break;
-                    case sf::Keyboard::H:
-                        // Add/remove houses on active square
-                        houseCount = (houseCount + 1) % 6; // 0-4 houses, 5 = hotel
-                        squares[activeSquareIndex]->setHouses(houseCount);
-                        break;
-                }
-            }*/
-
             // Handle square events
-            for (auto &square: squares) {
+            for (auto& square : squares) {
                 square->handleEvent(event);
             }
         }
 
         window.clear(sf::Color::White);
-        /*Electric company logo:
-        // Draw all components
-        window.draw(bulb);
-        window.draw(base);
-        window.draw(thread1);
-        window.draw(thread2);
-        window.draw(filament1);
-        window.draw(filament2);
-*/
-        // Draw squares
-        for (auto &square: squares) {
+
+        // Draw board first (background)
+        m_board->draw(window);
+
+        // Draw all squares
+        for (auto& square : squares) {
             square->draw(window);
         }
 
-        /* Draw grid for reference
-        sf::RectangleShape line(sf::Vector2f(800, 1));
-        line.setFillColor(sf::Color(200, 200, 200));
-
-        for (int y = 0; y < 800; y += 80) {
-            line.setPosition(0, y);
-            window.draw(line);
-        }
-
-        line.setSize(sf::Vector2f(1, 800));
-        for (int x = 0; x < 800; x += 80) {
-            line.setPosition(x, 0);
-            window.draw(line);
-        }*/
-
         window.display();
     }
-
 
     return 0;
 }

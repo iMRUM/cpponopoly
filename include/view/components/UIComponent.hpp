@@ -9,7 +9,10 @@ protected:
     sf::Vector2f size;
     bool isVisible = true;
     bool isEnabled = true;
-
+    static constexpr float REGULAR_WIDTH = 80.f;
+    static constexpr float REGULAR_HEIGHT = 120.f;
+    static constexpr float CORNER_SIZE = 120.f;
+    static constexpr float TEXT_PADDING = 20.f;
 public:
     UIComponent(const sf::Vector2f& pos, const sf::Vector2f& sz)
         : position(pos), size(sz) {}

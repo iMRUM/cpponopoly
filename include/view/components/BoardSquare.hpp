@@ -26,10 +26,7 @@ enum class BoardSide {
 // View component
 class BoardSquare : public UIComponent {
 protected:
-    static constexpr float REGULAR_WIDTH = 160.f;
-    static constexpr float REGULAR_HEIGHT = 240.f;
-    static constexpr float CORNER_SIZE = 240.f;
-    static constexpr float TEXT_PADDING = 20.f;
+
 
     sf::RectangleShape background;
     sf::Text name_text;
