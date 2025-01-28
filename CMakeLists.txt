@@ -15,10 +15,6 @@ add_executable(model_tests
         src/model/Player.cpp
         include/utils/Strategy/StrategyRentCalculator.hpp
         include/utils/Id.hpp
-        include/utils/registries/Registry.hpp
-        include/utils/registries/PropertyRegistry.hpp
-        src/utils/Registry/PropertyRegistry.cpp
-        include/utils/registries/PlayerRegistry.hpp
         include/utils/Strategy/StreetRentCalculator.hpp
         include/utils/Strategy/RailroadRentCalculator.hpp
         include/utils/Strategy/UtilityRentCalculator.hpp
@@ -37,10 +33,6 @@ add_executable(model_tests
         tests/utils/Registry_test.cpp
         tests/model/Game_test.cpp
         tests/view/Gui_test.cpp
-        include/utils/repository/IRepository.hpp
-        include/utils/repository/IRepository.hpp
-        include/utils/repository/IRepository.hpp
-        src/utils/repository/PropertyRepository.cpp
         include/utils/ColorGroups.hpp
         include/utils/registry/IRegistry.hpp
         include/utils/registry/SquareRegistry.hpp
@@ -81,4 +73,6 @@ add_executable(model_tests
         src/view/components/UtilitySquare.cpp
         include/view/components/MonopolyBoard.hpp
         src/view/components/MonopolyBoard.cpp
+        src/utils/registry/PlayerRegistry.cpp
+        include/utils/registry/PlayerRegistry.hpp
 )

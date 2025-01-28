@@ -152,7 +152,7 @@ public:
 
     bool canBuildOnProperty(Property &property, Player &player);
 
-     bool mustPayRent() const;
+    bool mustPayRent() const;
     int calculateCurrentRent() const;
     Player& getCurrentPlayer();
     Property* getCurrentProperty() const;
