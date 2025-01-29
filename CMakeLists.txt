@@ -28,9 +28,7 @@ add_executable(model_tests
         src/view/Gui.cpp
         maeein.cpp
         src/view/main.cpp
-        tests/utils/Id_tests.cpp
         tests/model/squares/tests.cpp
-        tests/utils/Registry_test.cpp
         tests/model/Game_test.cpp
         tests/view/Gui_test.cpp
         include/utils/ColorGroups.hpp

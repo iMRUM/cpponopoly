@@ -4,6 +4,8 @@
 #include <vector>
 template<typename T, typename Id>
 class IRegistry {
+//private:
+
 public:
     virtual ~IRegistry() = default;
 
@@ -60,14 +62,72 @@ public:
     virtual bool empty() const {
         return objects.empty();
     }
+    class iterator {
+    private:
+        typename std::vector<std::unique_ptr<T>>::iterator it;
+    public:
+        using iterator_category = std::forward_iterator_tag;
+        using difference_type = std::ptrdiff_t;
+        using value_type = T;
+        using pointer = T*;
+        using reference = T&;
 
-    virtual auto begin() const -> typename std::vector<std::unique_ptr<T>>::const_iterator {
-        return objects.begin();
-    }
+        explicit iterator(typename std::vector<std::unique_ptr<T>>::iterator iterator)
+            : it(iterator) {}
 
-    virtual auto end() const -> typename std::vector<std::unique_ptr<T>>::const_iterator {
-        return objects.end();
-    }
+        reference operator*() const { return *it->get(); }
+        pointer operator->() const { return it->get(); }
+
+        iterator& operator++() {
+            ++it;
+            return *this;
+        }
+
+        iterator operator++(int) {
+            iterator tmp = *this;
+            ++it;
+            return tmp;
+        }
+
+        bool operator==(const iterator& other) const { return it == other.it; }
+        bool operator!=(const iterator& other) const { return it != other.it; }
+    };
+
+    class const_iterator {
+    private:
+        typename std::vector<std::unique_ptr<T>>::const_iterator it;
+    public:
+        using iterator_category = std::forward_iterator_tag;
+        using difference_type = std::ptrdiff_t;
+        using value_type = const T;
+        using pointer = const T*;
+        using reference = const T&;
+
+        explicit const_iterator(typename std::vector<std::unique_ptr<T>>::const_iterator iterator)
+            : it(iterator) {}
+
+        reference operator*() const { return *it->get(); }
+        pointer operator->() const { return it->get(); }
+
+        const_iterator& operator++() {
+            ++it;
+            return *this;
+        }
+
+        const_iterator operator++(int) {
+            const_iterator tmp = *this;
+            ++it;
+            return tmp;
+        }
+
+        bool operator==(const const_iterator& other) const { return it == other.it; }
+        bool operator!=(const const_iterator& other) const { return it != other.it; }
+    };
+
+    [[nodiscard]] const_iterator begin() const { return const_iterator(objects.begin()); }
+    [[nodiscard]] const_iterator end() const { return const_iterator(objects.end()); }
+    [[nodiscard]] const_iterator cbegin() const { return const_iterator(objects.cbegin()); }
+    [[nodiscard]] const_iterator cend() const { return const_iterator(objects.cend()); }
 
     // Prevent copying/moving
     IRegistry(const IRegistry&) = delete;

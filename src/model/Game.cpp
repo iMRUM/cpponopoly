@@ -4,45 +4,46 @@
 
 namespace monopoly {
     Game::Game() {
-        property_registry = std::make_unique<PropertyRegistry>();
+        square_registry = std::make_unique<SquareRegistry>();
         player_registry = std::make_unique<PlayerRegistry>();
     }
 
     // Basic Player and square management
-    void Game::addPlayers(size_t num_players) {
+    void Game::addPlayers(size_t num_players) {//NOT-TESTED
         for (auto i = 0; i < num_players; ++i) {
-            addPlayer("Player" + std::to_string(i));
+            addPlayer("Player" + std::to_string(i), i);
         }
     }
 
-    void Game::addPlayer(const std::string &player) {
-        if (player_registry->getSize() >= 8) {
+    void Game::addPlayer(const std::string &name, int id) {//NOT-TESTED
+        if (player_registry->size() >= 8) {
             throw std::runtime_error("Maximum number of players reached");
         }
-        player_registry->registerPlayer(player);
+        player_registry->registerItem(std::make_unique<Player>(name, id));
     }
 
-    void Game::addSquare() {
+    void Game::addSquare(std::unique_ptr<Square> square) {//NOT-TESTED
+        if (square_registry->size() >= board_size) {
+            throw std::runtime_error("Maximum number of squares reached");
+        }
+        square_registry->registerItem(std::move(square));
     }
 
-    void Game::addProperty() {
+
+    void Game::addRailroad(const std::string &name, int position, int price, int baseRent) {//NOT-TESTED
+        addSquare(std::make_unique<Railroad>(name, position, price, baseRent));
     }
 
-    void Game::addRailroad(const std::string &name,const PropertyID propertyId, const int position, const int price = 200, const int baseRent= 50) {
-        property_registry->registerObject(std::make_shared<Railroad>(name, propertyId, position, price, baseRent));
+    void Game::addStreet(const std::string &name, int position, int price, int baseRent, int house_cost) {//NOT-TESTED
+        addSquare(std::make_unique<Street>(name, position, price, baseRent, house_cost));
     }
 
-    void Game::addStreet(const std::string &name, const int position, const int price, const int baseRent, const
-               int house_cost,
-               const PropertyID propertyId) {
-        property_registry->registerObject(std::make_shared<Street>(name, position, price, baseRent, house_cost, propertyId));
+    void Game::addUtility(const std::string &name, int position) {//NOT-TESTED
+        addSquare(std::make_unique<Utility>(name, position));
     }
 
-    void Game::addUtility(const std::string &name, const int position, const PropertyID propertyId) {
-        property_registry->registerObject(std::make_shared<Utility>(name, position, propertyId));
-    }
-
-    void Game::addSpecialSquare() {
+    void Game::addSpecialSquare(const std::string &name, int position, SpecialSquareType type) {//NOT-TESTED
+        addSquare(std::make_unique<SpecialSquare>(name, position, type));
     }
 
     //Turns management:
@@ -87,29 +88,18 @@ namespace monopoly {
         }
     }
 
-    void Game::isGameWon() {
-        int active_players = 0;
-        Player* potential_winner = nullptr;
-
-        // Check active players and high balance
-        for (const auto& [_, player] : player_registry->getAllObjects()) {
-            if (!player->isBankrupt()) {
-                active_players++;
-                potential_winner = player.get();
-
-                // Check winning balance condition
-                if (player->getBalance() >= 4000) {
-                    state.winner = player.get();
-                    state.over = true;
-                    return;
-                }
+    void Game::isGameWon() { //NOT-TESTED
+        size_t active_players = player_registry->size();
+        for (const Player &player: *player_registry) {
+            if (player.isBankrupt()) {
+                active_players--;
+                continue;
             }
-        }
-
-        // Check single player remaining
-        if (active_players == 1) {
-            state.winner = potential_winner;
-            state.over = true;
+            state.winner = player.getId();
+            if (player.getBalance() > 3999 || active_players == 1) {
+                state.over = true;
+                return;
+            }
         }
     }
 
@@ -118,14 +108,14 @@ namespace monopoly {
 
         // Get bankrupt player's position and check if bankruptcy is from property rent
         auto bankrupt_position = bankrupt_player.getPosition();
-        if (auto* property = dynamic_cast<Property*>(getSquareAt(bankrupt_position))) {
+        if (auto *property = dynamic_cast<Property *>(getSquareAt(bankrupt_position))) {
             if (property->isOwned()) {
                 auto creditor = player_registry->getObject(property->getOwnerId());
 
                 // Transfer all properties to creditor
-                auto properties = property_registry->getProperties(bankrupt_player.getId());
-                for (const auto& prop_id : properties) {
-                    property_registry->setOwner(prop_id, creditor->getId());
+                auto properties = square_registry->getProperties(bankrupt_player.getId());
+                for (const auto &prop_id: properties) {
+                    square_registry->setOwner(prop_id, creditor->getId());
                 }
 
                 // Transfer remaining money
@@ -134,9 +124,9 @@ namespace monopoly {
         }
 
         // Clear bankrupt player's assets
-        auto properties = property_registry->getProperties(bankrupt_player.getId());
-        for (const auto& prop_id : properties) {
-            property_registry->removeOwner(prop_id);
+        auto properties = square_registry->getProperties(bankrupt_player.getId());
+        for (const auto &prop_id: properties) {
+            square_registry->removeOwner(prop_id);
         }
         bankrupt_player.setBalance(0);
 
@@ -169,7 +159,6 @@ namespace monopoly {
     }
 
     void Game::landOnProperty(Property &property, Player &player) {
-
         if (!property.isOwned() && player.canAfford(property.getPrice())) {
             state.awaiting_action = true;
             return;
@@ -177,7 +166,7 @@ namespace monopoly {
         if (property.isOwned() && property.getOwnerId() != player.getId()) {
             return;
         }
-        if(canBuildOnProperty(property, player)) {
+        if (canBuildOnProperty(property, player)) {
             state.awaiting_action = true;
         }
     }
@@ -185,15 +174,15 @@ namespace monopoly {
     void Game::payRent(Property &property, Player &player) {
         std::unique_ptr<StrategyRentCalculator> calculator;
 
-        if (auto* street = dynamic_cast<Street*>(&property)) {
+        if (auto *street = dynamic_cast<Street *>(&property)) {
             calculator = std::make_unique<StreetRentCalculator>(
                 property.getBaseRent(),
                 street->getHouses()
             );
-        } else if (auto* railroad = dynamic_cast<Railroad*>(&property)) {
-            int railroad_count = static_cast<int>(property_registry->getProperties(property.getOwnerId()).size());
+        } else if (auto *railroad = dynamic_cast<Railroad *>(&property)) {
+            int railroad_count = static_cast<int>(square_registry->getProperties(property.getOwnerId()).size());
             calculator = std::make_unique<RailroadRentCalculator>(50, railroad_count);
-        } else if (auto* utility = dynamic_cast<Utility*>(&property)) {
+        } else if (auto *utility = dynamic_cast<Utility *>(&property)) {
             calculator = std::make_unique<UtilityRentCalculator>(10, state.current_dice_result);
         }
 
@@ -216,13 +205,13 @@ namespace monopoly {
         }
 
         if (player.decreaseBalance(property.getPrice())) {
-            property_registry->setOwner(property.getPropertyId(), player.getId());
+            square_registry->setOwner(property.getPropertyId(), player.getId());
             property.setOwnerId(player.getId());
             state.awaiting_action = false;
         }
     }
 
-    void Game::buildOnProperty(Property &property, Player &player) {
+    void Game::buildOnStreet(int street_id, int player_id) {
     }
 
     void Game::landOnSpecialSquare(SpecialSquare &special_square, Player &player) {
@@ -255,17 +244,6 @@ namespace monopoly {
         player.decreaseBalance(amount);
     }
 
-    void Game::processCurrentTurn() {
-    }
-
-    void Game::setupColorGroups() {
-    }
-
-    void Game::createProperties() {
-    }
-
-    void Game::createSpecialSquares() {
-    }
 
     Game &Game::getInstance() {
         if (!instance) {
@@ -274,7 +252,7 @@ namespace monopoly {
         return *instance;
     }
 
-    bool Game::initializeGame(size_t size_players) {
+    bool Game::initializeGame(size_t size_players, size_t board_size) {
         state.initialized = true;
         return state.initialized;
     }
@@ -291,23 +269,23 @@ namespace monopoly {
 
     void Game::nextTurn() {
         if (!state.has_another_turn) {
-            state.current_player_index = (state.current_player_index + 1) % static_cast<int>(getPlayerCount());
+            state.current_player_index = (state.current_player_index + 1) % static_cast<int>(getPlayersCount());
         }
     }
 
     bool Game::canBuyProperty() const {
     }
 
-    bool Game::canBuildOnProperty(Property& property, Player& player) {
-        auto* street = dynamic_cast<Street*>(&property);
+    bool Game::canBuildOnProperty(Property &property, Player &player) {
+        auto *street = dynamic_cast<Street *>(&property);
         if (!street) return false;
 
         // Check ownership and group completion
-        if (!property_registry->isGroupComplete(
-                property_registry->getPropertyGroup(property.getPropertyId()),
-                player.getId())) {
+        if (!square_registry->isGroupComplete(
+            square_registry->getPropertyGroup(property.getPropertyId()),
+            player.getId())) {
             return false;
-                }
+        }
 
         // Check if player can afford
         if (!player.canAfford(street->getHouseCost())) {
@@ -315,14 +293,14 @@ namespace monopoly {
         }
 
         // Check even development rule
-        auto group_properties = property_registry->getPropertiesInGroup(
-            property_registry->getPropertyGroup(property.getPropertyId())
+        auto group_properties = square_registry->getPropertiesInGroup(
+            square_registry->getPropertyGroup(property.getPropertyId())
         );
 
         int current_houses = street->getHouses();
-        for (const auto& group_property_id : group_properties) {
-            auto group_property = property_registry->getObject(group_property_id);
-            if (auto* other_street = dynamic_cast<Street*>(group_property.get())) {
+        for (const auto &group_property_id: group_properties) {
+            auto group_property = square_registry->getObject(group_property_id);
+            if (auto *other_street = dynamic_cast<Street *>(group_property.get())) {
                 if (other_street->getHouses() < current_houses) {
                     return false;
                 }
@@ -331,6 +309,7 @@ namespace monopoly {
 
         return true;
     }
+
     bool Game::mustPayRent() const {
     }
 
@@ -338,9 +317,6 @@ namespace monopoly {
     }
 
     Player &Game::getCurrentPlayer() {
-        return *(player_registry->getObject(PlayerID(state.current_player_index)));
-    }
-
-    Property *Game::getCurrentProperty() const {
+        return player_registry->getByIndex(state.current_player_index);
     }
 }
