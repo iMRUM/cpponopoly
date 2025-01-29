@@ -21,7 +21,7 @@ void monopoly::Controller::handlePropertyDecision() {
 }
 
 void monopoly::Controller::gameLoop() {
-    model.initializeGame(PLAYERS_COUNT);
+    model.initializeGame(PLAYERS_COUNT, TODO);
     while (!model.isGameOver()) {
         model.nextTurn();
     }

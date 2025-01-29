@@ -14,7 +14,7 @@ private:
 public:
     Square(const std::string& name, const int position)
         : name(name), position(position), id(position) {
-        if (position < 0 || position >= BOARD_SIZE) {
+        if (position < 0) {
             throw std::invalid_argument("Invalid board position");
         }
     }

@@ -15,7 +15,7 @@ namespace monopoly {
 
         if (size() >= 8) {
             throw std::runtime_error("Maximum number of players (8) reached");
-        }
+        }//this if should be deprecated
 
         objects.push_back(std::move(player));
     }

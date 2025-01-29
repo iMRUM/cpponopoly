@@ -6,8 +6,6 @@
 #include <string>
 #include <vector>
 #include <stdexcept>
-#define BOARD_SIZE 40
-#define MAX_JAIL_TURNS 3
 
 namespace monopoly {
     class Player {
@@ -23,7 +21,7 @@ namespace monopoly {
         std::string name;
 
     public:
-        explicit Player(std::string name, int player_id)
+        explicit Player(const std::string& name, const int player_id)
             : balance(1500), position(0), jail_turns(0), doubles(0),jail_cards_amount(0), id(player_id), name(std::move(name)) {
             std::cout << "Player created" << std::endl;
         }
@@ -42,7 +40,7 @@ namespace monopoly {
         // ~Jail
         void toggleJailState();
 
-        bool incrementJailTurns();
+        void incrementJailTurns();
 
         void resetJailTurns() { jail_turns = 0; }
 

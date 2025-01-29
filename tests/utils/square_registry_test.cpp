@@ -27,12 +27,14 @@ TEST_CASE("SquareRegistry basic operations", "[SquareRegistry]") {
     }
     
     SECTION("Cannot register square at invalid position") {
+        auto street = std::make_unique<Street>("Boardwalk", 39, 400, 50, 200);
+        registry.registerItem(std::move(street));
         CHECK_THROWS_AS(
             registry.registerItem(std::make_unique<Street>("Invalid", -1, 100, 10, 50)),
             std::invalid_argument
         );
         CHECK_THROWS_AS(
-            registry.registerItem(std::make_unique<Street>("Invalid", BOARD_SIZE, 100, 10, 50)),
+            registry.registerItem(std::make_unique<Street>("Invalid", 39, 100, 10, 50)),
             std::invalid_argument
         );
     }
@@ -110,7 +112,7 @@ TEST_CASE("SquareRegistry complete board setup", "[SquareRegistry]") {
     SECTION("Invalid retrievals") {
         CHECK_THROWS_AS(registry.getStreetByPosition(5), std::runtime_error);  // Railroad position
         CHECK_THROWS_AS(registry.getRailroadByPosition(1), std::runtime_error); // Street position
-        CHECK_THROWS_AS(registry.getByPosition(40), std::invalid_argument);     // Invalid position
+        CHECK_THROWS_AS(registry.getByPosition(-1), std::invalid_argument);     // Invalid position
     }
 }
 
@@ -147,5 +149,33 @@ TEST_CASE("SquareRegistry utilities and special cases", "[SquareRegistry]") {
         auto& tax = registry.getSpecialSquareByPosition(4);
         CHECK(tax.getName() == "Income Tax");
         CHECK(tax.getType() == SpecialSquareType::INCOME_TAX);
+    }
+}
+TEST_CASE("SquareRegistry iterator operations", "[SquareRegistry]") {
+    SquareRegistry registry;
+
+    SECTION("Iterator over empty registry") {
+        CHECK(std::distance(registry.begin(), registry.end()) == 0);
+    }
+
+    SECTION("Iterator over squares") {
+        registry.registerItem(std::make_unique<Street>("Street1", 0, 100, 10, 50));
+        registry.registerItem(std::make_unique<Street>("Street2", 1, 120, 12, 60));
+
+        int count = 0;
+        for (const Square& square : registry) {
+            CHECK(square.getName() == "Street" + std::to_string(count + 1));
+            count++;
+        }
+        CHECK(count == 2);
+    }
+
+    SECTION("Const iterator") {
+        registry.registerItem(std::make_unique<Street>("Street1", 0, 100, 10, 50));
+        const SquareRegistry& const_registry = registry;
+
+        for (const Square& square : const_registry) {
+            CHECK(square.getName() == "Street1");
+        }
     }
 }

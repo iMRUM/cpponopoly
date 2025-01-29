@@ -18,8 +18,8 @@ private:
     SpecialSquareType type;
 
 public:
-    SpecialSquare(const std::string& name, const int position, 
-                  SpecialSquareType type)
+    SpecialSquare(const std::string& name, const int position,
+                  const SpecialSquareType type)
         : Square(name, position)
         , type(type) {}
 

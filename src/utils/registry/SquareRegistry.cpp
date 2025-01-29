@@ -3,7 +3,7 @@
 //TESTED
 namespace monopoly {
 
-SquareRegistry::SquareRegistry() : IRegistry<Square, int>(BOARD_SIZE) {}
+SquareRegistry::SquareRegistry(size_t capacity) : IRegistry<Square, int>(capacity) {}
 
 void SquareRegistry::registerItem(std::unique_ptr<Square> square) {
     if (square == nullptr) {
@@ -11,9 +11,9 @@ void SquareRegistry::registerItem(std::unique_ptr<Square> square) {
     }
 
     int position = square->getPosition();
-    if (position < 0 || position >= BOARD_SIZE) {
+    if (position < 0) {
         throw std::invalid_argument("Invalid square position");
-    }
+    } //this if should be deprecated
 
     for (const auto& existing : objects) {
         if (existing->getPosition() == position) {
@@ -25,7 +25,7 @@ void SquareRegistry::registerItem(std::unique_ptr<Square> square) {
 }
 
 Square& SquareRegistry::getByPosition(int position) const {
-    if (position < 0 || position >= BOARD_SIZE) {
+    if (position < 0) {
         throw std::invalid_argument("Invalid position");
     }
 
