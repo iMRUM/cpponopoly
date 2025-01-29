@@ -4,6 +4,7 @@
 #include <stdexcept>
 
 namespace monopoly {
+    Gui* Gui::instance = nullptr;
     Gui::Gui() : window(sf::VideoMode(1024, 768), "Monopoly"),
                  diceRolling(false),
                  diceAnimationDuration(sf::seconds(2.0f)),

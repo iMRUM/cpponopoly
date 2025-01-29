@@ -6,8 +6,8 @@
 #include <unordered_map>
 #include <vector>
 #include "utils/Id.hpp"
-#include "../utils/registries/PropertyRegistry.hpp"
-#include "../utils/registries/PlayerRegistry.hpp"
+#include "../utils/registry/SquareRegistry.hpp"
+#include "../utils/registry/PlayerRegistry.hpp"
 #include "Player.hpp"
 #include "squares/Property.hpp"
 #include "squares/Square.hpp"
@@ -18,17 +18,17 @@
 #include "../../include/utils/Strategy/RailroadRentCalculator.hpp"
 #include "../../include/utils/Strategy/StreetRentCalculator.hpp"
 #include "../../include/utils/Strategy/UtilityRentCalculator.hpp"
+
+
 class Square;
 namespace monopoly{
 class Game { // Singleton class
 private:
     static std::unique_ptr<Game> instance;
-
+    size_t board_size;
     // Core components
-    std::unique_ptr<PropertyRegistry> property_registry;
+    std::unique_ptr<SquareRegistry> square_registry;
     std::unique_ptr<PlayerRegistry> player_registry;
-    std::vector<std::shared_ptr<Square>> squares;
-    std::unordered_map<ColorGroupID, std::string, ColorGroupID::Hash> color_groups;
     /**
      * Encapsulates all game state information.
      * Helps track the current game situation and validate actions.
@@ -37,10 +37,10 @@ private:
         bool initialized{false};
         bool started{false};
         bool over{false};
-        int current_player_index{0};
-        Player* winner{nullptr};
+        int winner{-1};
 
         // Turn-specific state
+        int current_player_index{0};
         bool has_rolled{false};
         bool awaiting_action{false};  // Indicates player needs to make a decision
         bool has_another_turn{false};
@@ -51,7 +51,7 @@ private:
             started = false;
             over = false;
             current_player_index = 0;
-            winner = nullptr;
+            winner = -1;
             resetTurnState();
         }
 
@@ -77,13 +77,12 @@ private:
     Game();
 
     // Basic Player and square management TODO
-    void addPlayer(const std::string &player);
-    void addSquare();
-    void addProperty();
-    void addRailroad(const std::string &name, PropertyID propertyId, int position, int price, int baseRent);
-    void addStreet(const std::string &name, int position, int price, int baseRent, int house_cost, PropertyID propertyId);
-    void addUtility(const std::string &name, int position, PropertyID propertyId);
-    void addSpecialSquare();
+    void addPlayer(const std::string &name, int id);
+    void addSquare(std::unique_ptr<Square>);
+    void addRailroad(const std::string &name, int position, int price, int baseRent);
+    void addStreet(const std::string &name, int position, int price, int baseRent, int house_cost);
+    void addUtility(const std::string &name, int position);
+    void addSpecialSquare(const std::string &name, int position, SpecialSquareType type);
 
 
     //Turns management:
@@ -106,44 +105,38 @@ private:
     void landOnProperty(Property &property, Player &player);
     void payRent(Property &property, Player &player);
     void buyProperty(Property &property, Player &player);
-    void buildOnProperty(Property &property, Player &player);
+    void buildOnStreet(int street_id, int player_id);
 
     void landOnSpecialSquare(SpecialSquare &special_square, Player &player);//TODO
     void landOnFreeParking();
     void landOnInJailJustVisit();
     void landOnLuxuryTax();
-    void landOnChance(); //TODO void drawChanceCard();
+    void landOnChance(); //TODO
     void landOnGoToJail();//TODO
     void goToJail(Player &player);//TODO
     void outOfJail(Player &player);//TODO
     void payFine(int amount, Player& player);
 
-    //to be revised
-    void processCurrentTurn();  // Main turn processing logic
-    void setupColorGroups();    // Initialize color groups
-    void createProperties();    // Create and set up properties
-    void createSpecialSquares(); // Create special squares
 public:
     static Game& getInstance();
     // Delete copy/move operations
     Game(const Game&) = delete;
     Game& operator=(const Game&) = delete;
-
     // Basic game initialization and states
-    bool initializeGame(size_t size_players);
+    bool initializeGame(size_t size_players, size_t board_size = 40);
     void addPlayers(size_t num_players);
     bool startGame();
     bool endGame();
     void nextTurn();
 
     // Getters
-    [[nodiscard]] size_t getPlayerCount() const { return player_registry->getSize(); }
-    Square* getSquareAt(const int index) {return squares.at(index).get();}
+    [[nodiscard]] size_t getPlayersCount() const { return player_registry->size(); }
+    Square& getSquareAt(const int index) {return square_registry->getByIndex(index);}
     [[nodiscard]] bool isGameInitialized() const {return state.initialized;}
     [[nodiscard]] bool isGameStarted() const {return state.started;}
     [[nodiscard]] bool isGameOver() const {return state.over;}
     [[nodiscard]] int getCurrentPlayerIndex() const {return state.current_player_index;}
-    [[nodiscard]] size_t getBoardSize() const { return squares.size(); }
+    [[nodiscard]] size_t getBoardSize() const { return square_registry->size(); }
 
     //to be revised:
     [[nodiscard]] bool hasRolled() const { return state.has_rolled; }
@@ -152,10 +145,12 @@ public:
 
     bool canBuildOnProperty(Property &property, Player &player);
 
-     bool mustPayRent() const;
+    bool mustPayRent() const;
     int calculateCurrentRent() const;
-    Player& getCurrentPlayer();
-    Property* getCurrentProperty() const;
-    Player* getWinner() const { return state.winner; }
+
+    Player &getCurrentPlayer();
+
+
+    int getWinner() const { return state.winner; }
 };
 }

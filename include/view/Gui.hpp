@@ -14,7 +14,6 @@ using Font = sf::Font;
 using Text = sf::Text;
 using Clock = sf::Clock;
 using Time = sf::Time;
-
 using Vector2f = sf::Vector2f;
 using Color = sf::Color;
 using RenderTarget = sf::RenderTarget;

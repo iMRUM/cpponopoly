@@ -8,9 +8,6 @@ void Player::increaseBalance(const int amount) {
 }
 
 bool Player::decreaseBalance(int amount) { // will be used also for determining bankruptcy
-    if (amount < 0) {
-        throw std::invalid_argument("Cannot decrease balance by negative amount");
-    }
     if (balance < amount) {
         return false;
     }
@@ -19,10 +16,7 @@ bool Player::decreaseBalance(int amount) { // will be used also for determining 
 }
 
 void Player::moveSteps(int steps) {
-    if (steps < 0) {
-        throw std::invalid_argument("Cannot move negative steps");
-    }
-    setPosition((position + steps) % BOARD_SIZE);
+    setPosition((position + steps));
 }
 
 void Player::toggleJailState() {
@@ -31,12 +25,7 @@ void Player::toggleJailState() {
     setJailState(new_state);
 }
 
-bool Player::incrementJailTurns() {
-    if(getJailTurns()<MAX_JAIL_TURNS) {
-        jail_turns++;
-        return true;
-    }
-    return false;
-    //TO BE COMPLETED FOR FINE MANAGEMENT
+void Player::incrementJailTurns() {
+    jail_turns++;
 }
 }

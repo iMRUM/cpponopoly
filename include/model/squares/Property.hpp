@@ -5,8 +5,7 @@
 namespace monopoly {
     class Property : public Square {
     private:
-        PlayerID owner_id;
-        PropertyID property_id;
+        int owner_id;
         int price;
         int base_rent;
 
@@ -16,8 +15,7 @@ namespace monopoly {
                 const int price,
                 const int base_rent)
             : Square(name, position),
-                owner_id(PlayerID()),
-              property_id(PropertyID()),
+                owner_id(-1),
               price(price),
               base_rent(base_rent) {
             if (price < 0) throw std::invalid_argument("Price cannot be negative");
@@ -26,11 +24,9 @@ namespace monopoly {
 
         virtual ~Property() = default;
 
-        [[nodiscard]] const PlayerID& getOwnerId() const { return owner_id; }
-        void setOwnerId(const PlayerID& new_owner_id) { owner_id = new_owner_id; }
-        void setPropertyId(const PropertyID& new_property_id) { property_id = new_property_id; }
-        [[nodiscard]] bool isOwned() const { return owner_id != PlayerID(); }
-        [[nodiscard]] const PropertyID& getPropertyId() const { return property_id; }
+        [[nodiscard]] int getOwnerId() const { return owner_id; }
+        void setOwnerId(const int new_owner_id) { owner_id = new_owner_id; }
+        [[nodiscard]] bool isOwned() const { return owner_id != int(); }
 
         [[nodiscard]] int getPrice() const { return price; }
         void setPrice(const int new_price) {

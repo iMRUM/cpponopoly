@@ -6,9 +6,6 @@
 #include <string>
 #include <vector>
 #include <stdexcept>
-#include "../utils/Id.hpp"
-#define BOARD_SIZE 40
-#define MAX_JAIL_TURNS 3
 
 namespace monopoly {
     class Player {
@@ -20,12 +17,12 @@ namespace monopoly {
         int jail_cards_amount;
         bool in_jail = false;
         bool is_bankrupt = false;
-        PlayerID id;
+        int id;
         std::string name;
 
     public:
-        explicit Player(std::string name)
-            : balance(1500), position(0), jail_turns(0), doubles(0),jail_cards_amount(0), id(PlayerID()), name(std::move(name)) {
+        explicit Player(const std::string& name, const int player_id)
+            : balance(1500), position(0), jail_turns(0), doubles(0),jail_cards_amount(0), id(player_id), name(std::move(name)) {
             std::cout << "Player created" << std::endl;
         }
 
@@ -43,7 +40,7 @@ namespace monopoly {
         // ~Jail
         void toggleJailState();
 
-        bool incrementJailTurns();
+        void incrementJailTurns();
 
         void resetJailTurns() { jail_turns = 0; }
 
@@ -58,12 +55,12 @@ namespace monopoly {
         [[nodiscard]] int getJailTurns() const { return jail_turns; }
         [[nodiscard]] bool isInJail() const { return in_jail; }
         [[nodiscard]] bool hasThreeConsecutiveDoubles() const { return doubles >= 3; }
-        [[no_discard]] bool hasJailCard() const { return jail_cards_amount > 0; }
+        [[nodiscard]] bool hasJailCard() const { return jail_cards_amount > 0; }
         void useJailCard() { jail_cards_amount--; }
         void addJailCard() { jail_cards_amount++; }
         [[nodiscard]] const std::string &getName() const { return name; }
-        [[nodiscard]] PlayerID getId() const { return id; }
-        void setId(PlayerID& id) { this->id = id; }
+        [[nodiscard]] int getId() const { return id; }
+        void setId(const int id) { this->id = id; }
         void setPosition(const int new_position) {
             position = new_position;
         }
