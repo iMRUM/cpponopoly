@@ -6,8 +6,8 @@
 #include <unordered_map>
 #include <vector>
 #include "utils/Id.hpp"
-#include "../utils/registries/PropertyRegistry.hpp"
-#include "../utils/registries/PlayerRegistry.hpp"
+#include "../utils/registry/SquareRegistry.hpp"
+#include "../utils/registry/PlayerRegistry.hpp"
 #include "Player.hpp"
 #include "squares/Property.hpp"
 #include "squares/Square.hpp"
@@ -25,10 +25,9 @@ private:
     static std::unique_ptr<Game> instance;
 
     // Core components
-    std::unique_ptr<PropertyRegistry> property_registry;
+    std::unique_ptr<SquareRegistry> property_registry;
     std::unique_ptr<PlayerRegistry> player_registry;
     std::vector<std::shared_ptr<Square>> squares;
-    std::unordered_map<ColorGroupID, std::string, ColorGroupID::Hash> color_groups;
     /**
      * Encapsulates all game state information.
      * Helps track the current game situation and validate actions.
@@ -38,7 +37,7 @@ private:
         bool started{false};
         bool over{false};
         int current_player_index{0};
-        Player* winner{nullptr};
+        int winner{-1};
 
         // Turn-specific state
         bool has_rolled{false};
@@ -80,9 +79,9 @@ private:
     void addPlayer(const std::string &player);
     void addSquare();
     void addProperty();
-    void addRailroad(const std::string &name, PropertyID propertyId, int position, int price, int baseRent);
-    void addStreet(const std::string &name, int position, int price, int baseRent, int house_cost, PropertyID propertyId);
-    void addUtility(const std::string &name, int position, PropertyID propertyId);
+    void addRailroad(const std::string &name, int propertyId, int position, int price, int baseRent);
+    void addStreet(const std::string &name, int position, int price, int baseRent, int house_cost, int propertyId);
+    void addUtility(const std::string &name, int position, int propertyId);
     void addSpecialSquare();
 
 
