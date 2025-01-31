@@ -5,7 +5,7 @@ class GoToJailSquare : public BoardSquare {
 private:
     sf::Text GO_TO_text;
     sf::Text JAIL_text;
-    void setTexts();
+    void setTexts() override;
 
 public:
     GoToJailSquare(const sf::Vector2f &pos, int id, BoardSide side = BoardSide::TopRight)

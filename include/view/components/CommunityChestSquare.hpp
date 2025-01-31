@@ -3,7 +3,7 @@
 
 class CommunityChestSquare : public BoardSquare {
 private:
-    void setTexts();
+    void setTexts() override;
     //chest, apparently Sprite instance
 public:
     CommunityChestSquare(const sf::Vector2f &pos, int id, BoardSide side);

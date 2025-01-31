@@ -1,6 +1,6 @@
 #include "../../../include/view/components/MonopolyBoard.hpp"
 
-MonopolyBoard::MonopolyBoard(): UIComponent(sf::Vector2f(0,0),
+MonopolyBoard::MonopolyBoard(): SFComponent(sf::Vector2f(0,0),
                    sf::Vector2f(REGULAR_WIDTH*9.0f + 2.0f*CORNER_SIZE,
                                REGULAR_WIDTH*9.0f + 2.0f*CORNER_SIZE)) {
     background.setPosition(position);

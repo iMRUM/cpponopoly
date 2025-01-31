@@ -40,10 +40,9 @@ add_executable(model_tests
         include/view/Board.hpp
         include/view/Board.hpp
         src/view/Board.cpp
-        include/view/components/UIComponent.hpp
+        include/view/components/SFComponent.hpp
         include/view/components/Button.hpp
         src/view/main_button.cpp
-        include/view/GameView.hpp
         include/view/components/Button.hpp
         src/view/components/Button.cpp
         include/view/components/BoardSquare.hpp
@@ -76,4 +75,9 @@ add_executable(model_tests
         tests/utils/player_registry_test.cpp
         src/utils/registry/SquareRegistry.cpp
         tests/utils/square_registry_test.cpp
+        include/view/components/UIComponent.hpp
+        include/view/components/SFComposite.hpp
+        include/view/components/BoardView.hpp
+        src/view/components/BoardView.cpp
+        include/view/components/UserView.hpp
 )

@@ -17,7 +17,7 @@ private:
     std::string price;
     int num_houses;
     void setColorBand();
-    void setTexts();
+    void setTexts() override;
 public:
     StreetSquare(const sf::Vector2f &pos,
                  const std::string &name,

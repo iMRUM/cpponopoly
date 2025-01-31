@@ -2,9 +2,9 @@
 #include <functional>
 #include <memory>
 #include <string>
-#include "UIComponent.hpp"
+#include "SFComponent.hpp"
 
-class Button : public UIComponent {
+class Button : public SFComponent {
 private:
     sf::RectangleShape background;
     sf::Text text;

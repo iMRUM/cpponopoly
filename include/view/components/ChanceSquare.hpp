@@ -3,7 +3,7 @@
 
 class ChanceSquare : public BoardSquare {
 private:
-    void setTexts();
+    void setTexts() override;
     sf::Color qmark_color;
 public:
     ChanceSquare(const sf::Vector2f &pos, int id, BoardSide side, sf::Color color);

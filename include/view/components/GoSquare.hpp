@@ -7,7 +7,7 @@ private:
     sf::Text collect_text;
     sf::Text salary_text;
     sf::Text as_you_pass_text;
-    void setTexts();
+    void setTexts() override;
 
 public:
     GoSquare(const sf::Vector2f &pos, int id, BoardSide side = BoardSide::BottomRight)

@@ -3,7 +3,7 @@
 
 class IncomeTaxSquare : public BoardSquare {
 private:
-    void setTexts();
+    void setTexts() override;
 
 public:
     IncomeTaxSquare(const sf::Vector2f &pos, int id, BoardSide side = BoardSide::Bottom);

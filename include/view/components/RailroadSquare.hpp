@@ -3,7 +3,7 @@
 
 class RailroadSquare : public BoardSquare {
 private:
-    void setTexts();
+    void setTexts() override;
     //railroad, apparently Sprite instance
 public:
     RailroadSquare(const sf::Vector2f &pos, const std::string &name, int id, BoardSide side);
