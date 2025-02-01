@@ -14,24 +14,19 @@ add_executable(model_tests
         src/model/Board.cpp
         src/model/Player.cpp
         include/utils/Strategy/StrategyRentCalculator.hpp
-        include/utils/Id.hpp
         include/utils/Strategy/StreetRentCalculator.hpp
         include/utils/Strategy/RailroadRentCalculator.hpp
         include/utils/Strategy/UtilityRentCalculator.hpp
         include/controller/Controller.hpp
         include/view/Gui.hpp
         src/controller/Controller.cpp
-        include/utils/Observer/IObserver.hpp
-        include/utils/Observer/IObservable.hpp
-        include/utils/Observer/IMultiObservable.hpp
-        include/view/MonopolyObserver.hpp
+        include/utils/Observer/IMonopolyObserver.hpp
         src/view/Gui.cpp
         maeein.cpp
         src/view/main.cpp
         tests/model/squares/tests.cpp
         tests/model/Game_test.cpp
         tests/view/Gui_test.cpp
-        include/utils/ColorGroups.hpp
         include/utils/registry/IRegistry.hpp
         include/utils/registry/SquareRegistry.hpp
         include/utils/factory/IFactory.hpp
@@ -42,7 +37,7 @@ add_executable(model_tests
         src/view/Board.cpp
         include/view/components/SFComponent.hpp
         include/view/components/Button.hpp
-        src/view/main_button.cpp
+        src/view/main_button_.cpp
         include/view/components/Button.hpp
         src/view/components/Button.cpp
         include/view/components/BoardSquare.hpp
@@ -75,9 +70,13 @@ add_executable(model_tests
         tests/utils/player_registry_test.cpp
         src/utils/registry/SquareRegistry.cpp
         tests/utils/square_registry_test.cpp
-        include/view/components/UIComponent.hpp
         include/view/components/SFComposite.hpp
         include/view/components/BoardView.hpp
         src/view/components/BoardView.cpp
         include/view/components/UserView.hpp
+        include/view/components/Window.hpp
+        include/view/View.hpp
+        src/view/View.cpp
+        src/view/components/UserView.cpp
+        src/view/main_button.cpp
 )

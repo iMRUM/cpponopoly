@@ -84,6 +84,8 @@ public:
     [[nodiscard]] int getSquareId() const {
         return square_id;
     }
-
+    void testChange() {
+        std::cout << square_id + "WAS CHANGED" << std::endl;
+    }
     virtual void updateView() = 0;  // Called by controller when model changes
 };

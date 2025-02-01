@@ -34,7 +34,7 @@ namespace monopoly{
             registry.registerItem(std::move(player));
 
             CHECK(registry.getByIndex(0).getName() == "Player1");
-            CHECK_THROWS_AS(registry.getByIndex(1), std::out_of_range);
+            CHECK_THROWS_AS(registry.getByIdRef(1), std::out_of_range);
         }
     }
 

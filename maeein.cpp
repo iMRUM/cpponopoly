@@ -109,7 +109,7 @@ int main() {
         GameSimulator simulator(gui);
 
         while (gui.isOpen() && !simulator.isGameOver()) {
-            gui.processEvents();
+            gui.processSfmlEvents();
             simulator.simulateTurn();
             gui.render();
             std::this_thread::sleep_for(std::chrono::milliseconds(100));

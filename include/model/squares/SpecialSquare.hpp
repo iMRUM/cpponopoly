@@ -1,33 +1,39 @@
 #pragma once
 #include "Square.hpp"
 
-enum class SpecialSquareType {
-    GO,
-    COMMUNITY_CHEST,
-    INCOME_TAX,
-    LUXURY_TAX,
-    JAIL,
-    GO_TO_JAIL,
-    FREE_PARKING,
-    TAX,
-    CHANCE
-};
+namespace monopoly {
+    enum class SpecialSquareType {
+        GO,
+        COMMUNITY_CHEST,
+        INCOME_TAX,
+        LUXURY_TAX,
+        JAIL,
+        GO_TO_JAIL,
+        FREE_PARKING,
+        TAX,
+        CHANCE
+    };
 
-class SpecialSquare : public Square {
-private:
-    SpecialSquareType type;
+    class SpecialSquare : public Square {
+    private:
+        SpecialSquareType type;
 
-public:
-    SpecialSquare(const std::string& name, const int position,
-                  const SpecialSquareType type)
-        : Square(name, position)
-        , type(type) {}
+    public:
+        SpecialSquare(const std::string &name, const int position,
+                      const SpecialSquareType type)
+            : Square(name, position)
+              , type(type) {
+        }
 
-    [[nodiscard]] SpecialSquareType getType() const { return type; }
+        [[nodiscard]] SpecialSquareType getType() const { return type; }
 
-    // Prevent copying/moving
-    SpecialSquare(const SpecialSquare&) = delete;
-    SpecialSquare& operator=(const SpecialSquare&) = delete;
-    SpecialSquare(SpecialSquare&&) = delete;
-    SpecialSquare& operator=(SpecialSquare&&) = delete;
-};
+        // Prevent copying/moving
+        SpecialSquare(const SpecialSquare &) = delete;
+
+        SpecialSquare &operator=(const SpecialSquare &) = delete;
+
+        SpecialSquare(SpecialSquare &&) = delete;
+
+        SpecialSquare &operator=(SpecialSquare &&) = delete;
+    };
+}

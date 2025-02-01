@@ -442,7 +442,7 @@ namespace monopoly {
     }
 
 
-    void Gui::processEvents() {
+    void Gui::processSfmlEvents() {
         sf::Event event;
         while (window.pollEvent(event)) {
             switch (event.type) {
@@ -471,36 +471,5 @@ namespace monopoly {
         isWindowOpen = false;
     }
 
-    // Observer pattern implementations
-    void Gui::onEvent(const PlayerMoveEvent &event) {
-    }
 
-    void Gui::onEvent(const PropertyPurchaseEvent &event) {
-    }
-
-    void Gui::onEvent(const BankruptcyEvent &event) {
-    }
-
-    void Gui::onEvent(const DiceRollEvent &event) {
-    }
-
-    void Gui::onEvent(const MoneyChangeEvent &event) {
-    }
-
-    void Gui::onEvent(const GameOverEvent &event) {
-    }
-
-    // UI interaction methods
-    void Gui::showDialog(const std::string &message) {
-        messageText.setString(message);
-    }
-
-    bool Gui::getYesNoResponse(const std::string &question) {
-        // TODO: Implement proper dialog
-        return false;
-    }
-
-    void Gui::displayError(const std::string &error) {
-        messageText.setString("Error: " + error);
-    }
 } // namespace monopoly

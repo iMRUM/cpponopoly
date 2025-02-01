@@ -5,10 +5,10 @@ namespace monopoly {
     class Street : public Property {
         int house_cost;
         int houses = 0;
-
+        std::string color;
     public:
-        Street(const std::string &name, const int position, const int price, const int baseRent, const int house_cost): Property(name, position, price, baseRent),
-                                                                                                                        house_cost(house_cost) {
+        Street(const std::string &name, const int position, const int price, const int baseRent, const int house_cost, const std::string& group): Property(name, position, price, baseRent),
+                                                                                                                        house_cost(house_cost), color(group) {
         }
 
         ~Street() override = default;

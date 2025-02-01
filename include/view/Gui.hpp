@@ -1,5 +1,4 @@
 #pragma once
-#include "MonopolyObserver.hpp"
 #include <SFML/Graphics.hpp>
 #include <SFML/System/Clock.hpp>
 #include <SFML/System/Time.hpp>
@@ -21,7 +20,7 @@ using RenderWindow = sf::RenderWindow;
 
 namespace monopoly {
 
-    class Gui : public MonopolyObserver {
+    class Gui{
     private:
         // Singleton implementation
         static Gui* instance;
@@ -83,7 +82,7 @@ namespace monopoly {
         }
 
         // Destructor
-        ~Gui() override;
+        ~Gui();;
 
         // Static cleanup method
         static void cleanup() {
@@ -94,21 +93,10 @@ namespace monopoly {
         // Window management
         void render();
         bool isOpen() const;
-        void processEvents();
+        void processSfmlEvents();
         void close();
 
-        // Observer pattern implementation
-        void onEvent(const PlayerMoveEvent& event) override;
-        void onEvent(const PropertyPurchaseEvent& event) override;
-        void onEvent(const BankruptcyEvent& event) override;
-        void onEvent(const DiceRollEvent& event) override;
-        void onEvent(const MoneyChangeEvent& event) override;
-        void onEvent(const GameOverEvent& event) override;
 
-        // UI interaction methods
-        void showDialog(const std::string& message);
-        bool getYesNoResponse(const std::string& question);
-        void displayError(const std::string& error);
     };
 
 } // namespace monopoly

@@ -9,41 +9,57 @@ namespace monopoly {
     }
 
     // Basic Player and square management
-    void Game::addPlayers(size_t num_players) {//NOT-TESTED
+    void Game::addPlayers(size_t num_players) {
+        //NOT-TESTED
         for (auto i = 0; i < num_players; ++i) {
             addPlayer("Player" + std::to_string(i), i);
         }
     }
 
-    void Game::addPlayer(const std::string &name, int id) {//NOT-TESTED
+    void Game::addPlayer(const std::string &name, int id) {
+        //NOT-TESTED
         if (player_registry->size() >= 8) {
             throw std::runtime_error("Maximum number of players reached");
         }
         player_registry->registerItem(std::make_unique<Player>(name, id));
     }
 
-    void Game::addSquare(std::unique_ptr<Square> square) {//NOT-TESTED
+    void Game::addSquare(std::unique_ptr<Square> square) {
+        //NOT-TESTED
         if (square_registry->size() >= board_size) {
             throw std::runtime_error("Maximum number of squares reached");
         }
         square_registry->registerItem(std::move(square));
     }
 
+    void Game::addToSquareGroup(const std::string &name, const int square_id) {
+        square_groups[name].push_back(square_id);
+    }
 
-    void Game::addRailroad(const std::string &name, int position, int price, int baseRent) {//NOT-TESTED
+
+    void Game::addRailroad(const std::string &name, int position, int price, int baseRent) {
+        //NOT-TESTED
         addSquare(std::make_unique<Railroad>(name, position, price, baseRent));
+        addToSquareGroup("Railroad", position);
     }
 
-    void Game::addStreet(const std::string &name, int position, int price, int baseRent, int house_cost) {//NOT-TESTED
-        addSquare(std::make_unique<Street>(name, position, price, baseRent, house_cost));
+    void Game::addStreet(const std::string &name, int position, int price, int baseRent, int house_cost,
+                         const std::string &color) {
+        //NOT-TESTED
+        addSquare(std::make_unique<Street>(name, position, price, baseRent, house_cost, color));
+        addToSquareGroup(color, position);
     }
 
-    void Game::addUtility(const std::string &name, int position) {//NOT-TESTED
+    void Game::addUtility(const std::string &name, int position) {
+        //NOT-TESTED
         addSquare(std::make_unique<Utility>(name, position));
+        addToSquareGroup("Utility", position);
     }
 
-    void Game::addSpecialSquare(const std::string &name, int position, SpecialSquareType type) {//NOT-TESTED
+    void Game::addSpecialSquare(const std::string &name, int position, SpecialSquareType type) {
+        //NOT-TESTED
         addSquare(std::make_unique<SpecialSquare>(name, position, type));
+        addToSquareGroup("SpecialSquare", position);
     }
 
     //Turns management:
@@ -88,7 +104,8 @@ namespace monopoly {
         }
     }
 
-    void Game::isGameWon() { //NOT-TESTED
+    void Game::isGameWon() {
+        //NOT-TESTED
         size_t active_players = player_registry->size();
         for (const Player &player: *player_registry) {
             if (player.isBankrupt()) {
@@ -103,43 +120,27 @@ namespace monopoly {
         }
     }
 
-    void Game::handleBankruptcy(Player &bankrupt_player) {
-        bankrupt_player.setBankrupt(true);
-
-        // Get bankrupt player's position and check if bankruptcy is from property rent
-        auto bankrupt_position = bankrupt_player.getPosition();
-        if (auto *property = dynamic_cast<Property *>(getSquareAt(bankrupt_position))) {
-            if (property->isOwned()) {
-                auto creditor = player_registry->getObject(property->getOwnerId());
-
-                // Transfer all properties to creditor
-                auto properties = square_registry->getProperties(bankrupt_player.getId());
-                for (const auto &prop_id: properties) {
-                    square_registry->setOwner(prop_id, creditor->getId());
-                }
-
-                // Transfer remaining money
-                creditor->increaseBalance(bankrupt_player.getBalance());
+    void Game::handleBankruptcy(int player_id) {
+        Player &current_player = getCurrentPlayer();
+        current_player.setBankrupt(true);
+        int current_position = current_player.getPosition();
+        std::vector<int> &bankrupt_properties = ownership_map[player_id];
+        if (owned_by_map.contains(current_position)) {
+            ownership_map[owned_by_map[current_position]].insert(ownership_map[owned_by_map[current_position]].end(),
+                                                                 bankrupt_properties.begin(),
+                                                                 bankrupt_properties.end());
+        } else {
+            for (int property_id: bankrupt_properties) {
+                square_registry->getPropertyByPosition(property_id).setOwnerId(-1); //-1 for bank
             }
         }
-
-        // Clear bankrupt player's assets
-        auto properties = square_registry->getProperties(bankrupt_player.getId());
-        for (const auto &prop_id: properties) {
-            square_registry->removeOwner(prop_id);
-        }
-        bankrupt_player.setBalance(0);
-
+        ownership_map.erase(player_id);
         isGameWon();
     }
 
-    void Game::moveSteps(int steps, Player &player) {
-        int new_position = player.getPosition() + steps;
-        if (new_position >= squares.size()) {
-            new_position %= static_cast<int>(squares.size());
-        }
-        player.setPosition(new_position);
-        landOn(new_position, player);
+    void Game::moveSteps(int steps, int player_id) {
+        int new_position = (player_registry->getByIdRef(player_id).getPosition() + steps)%static_cast<int>(square_registry->size());
+        player_registry->getByIdRef(player_id).setPosition(new_position);
     }
 
     void Game::movedPastGo(Player &player) {
@@ -190,7 +191,7 @@ namespace monopoly {
 
         int rent = calculator->calculateRent();
         if (!player.canAfford(rent)) {
-            handleBankruptcy(player);
+            handleBankruptcy(TODO);
             return;
         }
 
@@ -269,7 +270,7 @@ namespace monopoly {
 
     void Game::nextTurn() {
         if (!state.has_another_turn) {
-            state.current_player_index = (state.current_player_index + 1) % static_cast<int>(getPlayersCount());
+            state.current_player_id = (state.current_player_id + 1) % static_cast<int>(getPlayersCount());
         }
     }
 
@@ -317,6 +318,27 @@ namespace monopoly {
     }
 
     Player &Game::getCurrentPlayer() {
-        return player_registry->getByIndex(state.current_player_index);
+        return player_registry->getByIdRef(state.current_player_id);
+    }
+
+    void Game::onEvent(const PlayerMoveEvent &event) {
+    }
+
+    void Game::onEvent(const PropertyPurchaseEvent &event) {
+    }
+
+    void Game::onEvent(const BankruptcyEvent &event) {
+    }
+
+    void Game::onEvent(const DiceRollEvent &event) {
+    }
+
+    void Game::onEvent(const MoneyChangeEvent &event) {
+    }
+
+    void Game::onEvent(const GameOverEvent &event) {
+    }
+
+    void Game::onEvent(const HouseBuiltEvent &event) {
     }
 }
