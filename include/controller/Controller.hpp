@@ -12,20 +12,23 @@ namespace monopoly {
     };
     class Controller {
     private:
-        Game &model = Game::getInstance();
-        View &view = View::getInstance(TODO, TODO, TODO);
+        std::unique_ptr<Game> model;
+        std::unique_ptr<View> view;
+        sf::RenderWindow window;
+
         void changeModel();
         void initModel(size_t num_of_players, size_t num_of_squares);
-
+        void initView();
         bool isKeyPressed(sf::Keyboard::Key key);
         void changeView();
         void handleUserInput();
 
-        ~Controller() = default;
+
 
     public:
+        ~Controller() = default;
         Controller() = default;
-
+        void init();
         void run();
     };
 }

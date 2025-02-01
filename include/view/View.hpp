@@ -11,29 +11,25 @@
 namespace monopoly {
     class View {
     private:
-        sf::RenderWindow& window;
-        BoardView& board;
-        UserView& panel;
-        // Singleton implementation
-        static View *instance;
+        sf::RenderWindow window;
+        BoardView board;
+        UserView panel;
+        static std::unique_ptr<View> instance;
 
-        // Private constructor to prevent instantiation
-        View(sf::RenderWindow &window, BoardView &board, UserView &panel);
-
-        // Delete copy constructor and assignment operator
-        View(const View &) = delete;
-
-        View &operator=(const View &) = delete;
+        View(sf::VideoMode mode, const std::string& title, float boardSize, const sf::Vector2f& panelPos, const sf::Vector2f& panelSize);
 
     public:
+        static std::unique_ptr<View> getInstance(sf::VideoMode mode, const std::string& title,
+            float boardSize, const sf::Vector2f& panelPos, const sf::Vector2f& panelSize) {
+            if (!instance) {
+                instance = std::unique_ptr<View>(new View(mode, title, boardSize, panelPos, panelSize));
+            }
+            return std::move(instance);
+        }
         void start();
         bool isKeyPressed(sf::Keyboard::Key key);
-        static View& getInstance(sf::RenderWindow &window, BoardView &board, UserView &panel) {
-            if (instance == nullptr) {
-                instance = new View(window, board, panel);
-            }
-            return *instance;
-        }
-
     };
-}
+
+        //
+    };
+

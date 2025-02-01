@@ -8,6 +8,9 @@ class SFComposite : public SFComponent {
 protected:
     std::vector<std::unique_ptr<SFComponent>> children;
 public:
+    explicit SFComposite(const sf::Vector2f& pos): SFComponent(pos) {
+        std::cout << "SFComposite::SFComposite" << std::endl;
+    }
     SFComposite(const sf::Vector2f& pos, const sf::Vector2f& sz): SFComponent(pos,sz) { std::cout << "SFComposite::SFComposite" << std::endl; };
     void draw(sf::RenderWindow &window) override {
         for (const auto &child : children) {

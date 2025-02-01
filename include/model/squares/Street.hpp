@@ -28,5 +28,9 @@ namespace monopoly {
         [[nodiscard]] bool hasHotel() const {
             return houses > 4;
         }
+
+        [[nodiscard]] const std::string &getColor() const {
+            return color;
+        }
     };
 }

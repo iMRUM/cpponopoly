@@ -1,8 +1,9 @@
-#include "../include/model/Game.hpp"
+#include "../../include/model/Game.hpp"
 #include <stdexcept>
 
 
 namespace monopoly {
+    std::unique_ptr<Game> monopoly::Game::instance = nullptr;
     Game::Game() {
         square_registry = std::make_unique<SquareRegistry>();
         player_registry = std::make_unique<PlayerRegistry>();
@@ -68,14 +69,14 @@ namespace monopoly {
         Player &current_player = getCurrentPlayer();
         handleDiceRoll();
         if (!current_player.isInJail()) {
-            moveSteps(state.current_dice_result, current_player);
+            moveSteps(state.current_dice_result, state.current_player_id);
         } else if (current_player.getJailTurns() >= 3) {
             payFine(50, current_player);
             outOfJail(current_player);
         }
     }
 
-    Game::Dice Game::rollDice() {
+    Dice Game::rollDice() {
         state.has_rolled = true;
         const auto dice = Dice{dice_dist(gen_), dice_dist(gen_)};
         state.current_dice_result = dice.getTotal();
@@ -148,7 +149,7 @@ namespace monopoly {
     }
 
     void Game::landOn(int pos, Player &player) {
-        Square *square = getSquareAt(pos);
+        Square *square = &getSquareAt(pos);
         if (!square) return;
 
         if (auto *property = dynamic_cast<Property *>(square)) {
@@ -167,7 +168,9 @@ namespace monopoly {
         if (property.isOwned() && property.getOwnerId() != player.getId()) {
             return;
         }
-        if (canBuildOnProperty(property, player)) {
+
+        auto* street = dynamic_cast<Street*>(&property);
+        if (street && canBuildOnStreet(*street, player)) {
             state.awaiting_action = true;
         }
     }
@@ -181,7 +184,7 @@ namespace monopoly {
                 street->getHouses()
             );
         } else if (auto *railroad = dynamic_cast<Railroad *>(&property)) {
-            int railroad_count = static_cast<int>(square_registry->getProperties(property.getOwnerId()).size());
+            int railroad_count = getRailroadCount(property.getOwnerId());
             calculator = std::make_unique<RailroadRentCalculator>(50, railroad_count);
         } else if (auto *utility = dynamic_cast<Utility *>(&property)) {
             calculator = std::make_unique<UtilityRentCalculator>(10, state.current_dice_result);
@@ -191,22 +194,32 @@ namespace monopoly {
 
         int rent = calculator->calculateRent();
         if (!player.canAfford(rent)) {
-            handleBankruptcy(TODO);
+            handleBankruptcy(player.getId());
             return;
         }
 
-        auto owner = player_registry->getObject(property.getOwnerId());
+        auto owner = player_registry->getById(property.getOwnerId());
         player.decreaseBalance(rent);
         owner->increaseBalance(rent);
     }
 
+    int Game::getRailroadCount(int player_id) {
+        int count = 0;
+        for (int railroad_id: square_groups["Railroad"]) {
+            if(owned_by_map.contains(railroad_id) && owned_by_map[railroad_id] == player_id) {
+                count++;
+            }
+        }
+        return count;
+    }
     void Game::buyProperty(Property &property, Player &player) {
         if (property.isOwned() || !player.canAfford(property.getPrice())) {
             return;
         }
 
         if (player.decreaseBalance(property.getPrice())) {
-            square_registry->setOwner(property.getPropertyId(), player.getId());
+            owned_by_map[property.getPropertyId()] =  player.getId();
+            ownership_map[player.getId()].push_back(property.getPropertyId());
             property.setOwnerId(player.getId());
             state.awaiting_action = false;
         }
@@ -246,11 +259,11 @@ namespace monopoly {
     }
 
 
-    Game &Game::getInstance() {
+    std::unique_ptr<Game> Game::getInstance() {
         if (!instance) {
             instance = std::unique_ptr<Game>(new Game());
         }
-        return *instance;
+        return std::move(instance);
     }
 
     bool Game::initializeGame(size_t size_players, size_t board_size) {
@@ -275,46 +288,62 @@ namespace monopoly {
     }
 
     bool Game::canBuyProperty() const {
+        return false;
     }
 
-    bool Game::canBuildOnProperty(Property &property, Player &player) {
-        auto *street = dynamic_cast<Street *>(&property);
-        if (!street) return false;
-
-        // Check ownership and group completion
-        if (!square_registry->isGroupComplete(
-            square_registry->getPropertyGroup(property.getPropertyId()),
-            player.getId())) {
+    bool Game::hasMonopoly(int player_id, const std::string& color) const {
+        auto colorGroup = square_groups.find(color);
+        if (colorGroup == square_groups.end()) {
             return false;
         }
 
-        // Check if player can afford
-        if (!player.canAfford(street->getHouseCost())) {
+        for (int square_id : colorGroup->second) {
+            auto owner = owned_by_map.find(square_id);
+            if (owner == owned_by_map.end() || owner->second != player_id) {
+                return false;
+            }
+        }
+        return true;
+    }
+    /*
+    * for (int railroad_id: square_groups["Railroad"]) {
+            if(owned_by_map.contains(railroad_id) && owned_by_map[railroad_id] == player_id) {
+                count++;
+            }
+        }
+     */
+
+    bool Game::canBuildOnStreet(Street &street, const Player &player) {
+        if (!hasMonopoly(player.getId(), street.getColor()) || !player.canAfford(street.getHouseCost())) {
             return false;
         }
 
-        // Check even development rule
-        auto group_properties = square_registry->getPropertiesInGroup(
-            square_registry->getPropertyGroup(property.getPropertyId())
-        );
+        auto color_group = square_groups.find(street.getColor());
+        if (color_group == square_groups.end()) {
+            return false;
+        }
 
-        int current_houses = street->getHouses();
-        for (const auto &group_property_id: group_properties) {
-            auto group_property = square_registry->getObject(group_property_id);
-            if (auto *other_street = dynamic_cast<Street *>(group_property.get())) {
+        int current_houses = street.getHouses();
+        for (int square_id : color_group->second) {
+            auto owner = owned_by_map.find(square_id);
+            if (auto *other_street = dynamic_cast<Street*>(&getSquareAt(square_id))) {
                 if (other_street->getHouses() < current_houses) {
                     return false;
                 }
             }
         }
-
         return true;
     }
 
-    bool Game::mustPayRent() const {
+    bool Game::mustPayRent(const int square_id) const {
+        if (owned_by_map.contains(square_id)) {
+            return owned_by_map.at(square_id) == state.current_player_id;
+        }
+        return false;
     }
 
     int Game::calculateCurrentRent() const {
+        return state.current_player_id;
     }
 
     Player &Game::getCurrentPlayer() {

@@ -19,13 +19,14 @@
 #include "../../include/utils/Strategy/StreetRentCalculator.hpp"
 #include "../../include/utils/Strategy/UtilityRentCalculator.hpp"
 
-struct Dice {
-    int first;
-    int second;
-    [[nodiscard]] bool isDoubles() const { return first == second; }
-    [[nodiscard]] int getTotal() const { return first + second; }
-};
+
 namespace monopoly{
+    struct Dice {
+        int first;
+        int second;
+        [[nodiscard]] bool isDoubles() const { return first == second; }
+        [[nodiscard]] int getTotal() const { return first + second; }
+    };
 class Game : IMonopolyObserver{ // Singleton class
 private:
     static std::unique_ptr<Game> instance;
@@ -108,6 +109,7 @@ private:
 
     void landOnProperty(Property &property, Player &player);
     void payRent(Property &property, Player &player);
+    int getRailroadCount(int player_id);
     void buyProperty(Property &property, Player &player);
     void buildOnStreet(int street_id, int player_id);
 
@@ -122,7 +124,7 @@ private:
     void payFine(int amount, Player& player);
 
 public:
-    static Game& getInstance();
+    static std::unique_ptr<Game> getInstance();
     // Delete copy/move operations
     Game(const Game&) = delete;
     Game& operator=(const Game&) = delete;
@@ -147,9 +149,9 @@ public:
     [[nodiscard]] bool isAwaitingAction() const { return state.awaiting_action; }
     [[nodiscard]] bool canBuyProperty() const;
 
-    bool canBuildOnProperty(Property &property, Player &player);
-
-    bool mustPayRent() const;
+    bool canBuildOnStreet(Street &street, const Player &player);
+    bool hasMonopoly(int player_id, const std::string &color) const;
+    bool mustPayRent(int square_id) const;
     int calculateCurrentRent() const;
 
     Player &getCurrentPlayer();

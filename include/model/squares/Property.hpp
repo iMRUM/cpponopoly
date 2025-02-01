@@ -27,7 +27,7 @@ namespace monopoly {
         [[nodiscard]] int getOwnerId() const { return owner_id; }
         void setOwnerId(const int new_owner_id) { owner_id = new_owner_id; }
         [[nodiscard]] bool isOwned() const { return owner_id != int(); }
-
+        [[nodiscard]] int getPropertyId() const { return getId(); }
         [[nodiscard]] int getPrice() const { return price; }
         void setPrice(const int new_price) {
             if (new_price < 0) throw std::invalid_argument("Price cannot be negative");

@@ -11,7 +11,6 @@ include_directories(include)
 add_executable(model_tests
         src/model/Game.cpp
         include/model/Game.hpp
-        src/model/Board.cpp
         src/model/Player.cpp
         include/utils/Strategy/StrategyRentCalculator.hpp
         include/utils/Strategy/StreetRentCalculator.hpp
@@ -32,9 +31,6 @@ add_executable(model_tests
         include/utils/factory/IFactory.hpp
         include/utils/factory/SquareFactory.hpp
         include/utils/factory/test.cpp
-        include/view/Board.hpp
-        include/view/Board.hpp
-        src/view/Board.cpp
         include/view/components/SFComponent.hpp
         include/view/components/Button.hpp
         src/view/main_button_.cpp
