@@ -1,11 +1,11 @@
 #define CATCH_CONFIG_MAIN
 #include <catch2/catch_test_macros.hpp>
-#include "../../include/model/Game.hpp"
+#include "../../include/model/GameModel.hpp"
 
 namespace monopoly {
     class GameTest {
     protected:
-        Game &game = Game::getInstance();
+        GameModel &game = GameModel::getInstance();
 
         void setup2Players() {
             game.resetGame();
@@ -20,8 +20,8 @@ namespace monopoly {
         }
     };
 
-    TEST_CASE_METHOD(GameTest, "Game Initialization") {
-        SECTION("Game starts with correct number of players") {
+    TEST_CASE_METHOD(GameTest, "GameModel Initialization") {
+        SECTION("GameModel starts with correct number of players") {
             REQUIRE_NOTHROW(game.initializeGame(2,TODO));
             REQUIRE(game.getPlayersCount() == 0);
 
@@ -37,8 +37,8 @@ namespace monopoly {
         }
     }
 
-    TEST_CASE_METHOD(GameTest, "Game State Management") {
-        SECTION("Game state transitions correctly") {
+    TEST_CASE_METHOD(GameTest, "GameModel State Management") {
+        SECTION("GameModel state transitions correctly") {
             REQUIRE(game.isGameInitialized());
             REQUIRE(!game.isGameStarted());
             REQUIRE(!game.isGameOver());

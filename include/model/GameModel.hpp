@@ -5,7 +5,8 @@
 #include <string>
 #include <unordered_map>
 #include <vector>
-#include "../utils/Observer/IMonopolyObserver.hpp"
+
+#include "Board.hpp"
 #include "../utils/registry/SquareRegistry.hpp"
 #include "../utils/registry/PlayerRegistry.hpp"
 #include "Player.hpp"
@@ -15,9 +16,9 @@
 #include "squares/Utility.hpp"
 #include "squares/Street.hpp"
 #include "squares/SpecialSquare.hpp"
-#include "../../include/utils/Strategy/RailroadRentCalculator.hpp"
-#include "../../include/utils/Strategy/StreetRentCalculator.hpp"
-#include "../../include/utils/Strategy/UtilityRentCalculator.hpp"
+#include "../../include/utils/strategy/RailroadRentCalculator.hpp"
+#include "../../include/utils/strategy/StreetRentCalculator.hpp"
+#include "../../include/utils/strategy/UtilityRentCalculator.hpp"
 
 
 namespace monopoly{
@@ -27,14 +28,11 @@ namespace monopoly{
         [[nodiscard]] bool isDoubles() const { return first == second; }
         [[nodiscard]] int getTotal() const { return first + second; }
     };
-class Game : IMonopolyObserver{ // Singleton class
+class GameModel{ // Singleton class
 private:
-    static std::unique_ptr<Game> instance;
-    size_t board_size;
-    // Core components
-    std::unique_ptr<SquareRegistry> square_registry;
-    std::unique_ptr<PlayerRegistry> player_registry;
-    std::unordered_map<std::string, std::vector<int>> square_groups; //name, square_ids
+    static std::unique_ptr<GameModel> instance;
+    std::unique_ptr<Board> board;
+    std::vector<std::unique_ptr<Player>> players;
     std::unordered_map<int, std::vector<int>> ownership_map; //player_id, owned properties square_ids
     std::unordered_map<int, int> owned_by_map; //square_id, owner
     /**
@@ -51,6 +49,7 @@ private:
 
         // Turn-specific state
         int current_player_id{0};
+        int current_square_id{0};
         bool has_rolled{false};
         bool awaiting_action{false};  // Indicates player needs to make a decision
         bool has_another_turn{false};
@@ -60,12 +59,13 @@ private:
             initialized = false;
             started = false;
             over = false;
-            current_player_id = 0;
             winner = -1;
             resetTurnState();
         }
 
         void resetTurnState() {
+            current_player_id = 0;
+            current_square_id = 0;
             has_rolled = false;
             awaiting_action = false;
             has_another_turn = false;
@@ -78,14 +78,13 @@ private:
     std::mt19937 gen_{rd_()};
     std::uniform_int_distribution<> dice_dist{1, 6};
 
-    Game();
+    GameModel();
 
     // Basic Player and square management
     void addPlayer(const std::string &name, int id);
     void addSquare(std::unique_ptr<Square>);
-    void addToSquareGroup(const std::string &name, int square_id);
     void addRailroad(const std::string &name, int position, int price, int baseRent);
-    void addStreet(const std::string &name, int position, int price, int baseRent, int house_cost, const std::string &color);
+    void addStreet(const std::string &name, int position, int price, int baseRent, int house_cost, SquareGroups color);
     void addUtility(const std::string &name, int position);
     void addSpecialSquare(const std::string &name, int position, SpecialSquareType type);
 
@@ -109,7 +108,7 @@ private:
 
     void landOnProperty(Property &property, Player &player);
     void payRent(Property &property, Player &player);
-    int getRailroadCount(int player_id);
+    int getRailroadCount(int property_id, int player_id);
     void buyProperty(Property &property, Player &player);
     void buildOnStreet(int street_id, int player_id);
 
@@ -124,10 +123,10 @@ private:
     void payFine(int amount, Player& player);
 
 public:
-    static std::unique_ptr<Game> getInstance();
+    static std::unique_ptr<GameModel> getInstance();
     // Delete copy/move operations
-    Game(const Game&) = delete;
-    Game& operator=(const Game&) = delete;
+    GameModel(const GameModel&) = delete;
+    GameModel& operator=(const GameModel&) = delete;
     // Basic game initialization and states
     bool initializeGame(size_t size_players, size_t board_size = 40);
     void addPlayers(size_t num_players);
@@ -136,13 +135,13 @@ public:
     void nextTurn();
 
     // Getters
-    [[nodiscard]] size_t getPlayersCount() const { return player_registry->size(); }
-    Square& getSquareAt(const int index) {return square_registry->getByIdRef(index);}
+    [[nodiscard]] size_t getPlayersCount() const { return players.size(); }
+    Square& getSquareAt(const int index) {return *(board->getSquare(index));}
     [[nodiscard]] bool isGameInitialized() const {return state.initialized;}
     [[nodiscard]] bool isGameStarted() const {return state.started;}
     [[nodiscard]] bool isGameOver() const {return state.over;}
     [[nodiscard]] int getCurrentPlayerIndex() const {return state.current_player_id;}
-    [[nodiscard]] size_t getBoardSize() const { return square_registry->size(); }
+    [[nodiscard]] size_t getBoardSize() const { return board->getSize(); }
 
     //to be revised:
     [[nodiscard]] bool hasRolled() const { return state.has_rolled; }
@@ -150,27 +149,12 @@ public:
     [[nodiscard]] bool canBuyProperty() const;
 
     bool canBuildOnStreet(Street &street, const Player &player);
-    bool hasMonopoly(int player_id, const std::string &color) const;
+    bool hasMonopoly(int player_id, int square_id) const;
     bool mustPayRent(int square_id) const;
     int calculateCurrentRent() const;
 
     Player &getCurrentPlayer();
 
     int getWinner() const { return state.winner; }
-
-    //Event handling methods:
-    void onEvent(const PlayerMoveEvent &event) override;
-
-    void onEvent(const PropertyPurchaseEvent &event) override;
-
-    void onEvent(const BankruptcyEvent &event) override;
-
-    void onEvent(const DiceRollEvent &event) override;
-
-    void onEvent(const MoneyChangeEvent &event) override;
-
-    void onEvent(const GameOverEvent &event) override;
-
-    void onEvent(const HouseBuiltEvent &event) override;
 };
 }

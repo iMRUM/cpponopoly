@@ -15,7 +15,7 @@ void monopoly::Controller::handleUserInput() {
 }
 
 void monopoly::Controller::initModel(size_t num_of_players, size_t num_of_squares) {
-    model = Game::getInstance();
+    model = GameModel::getInstance();
     model->initializeGame(num_of_players, num_of_squares);
 }
 

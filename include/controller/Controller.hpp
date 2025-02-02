@@ -1,6 +1,6 @@
 #pragma once
 #include "../view/View.hpp"
-#include "../model/Game.hpp"
+#include "../model/GameModel.hpp"
 
 namespace monopoly {
     struct UserInput {
@@ -12,7 +12,7 @@ namespace monopoly {
     };
     class Controller {
     private:
-        std::unique_ptr<Game> model;
+        std::unique_ptr<GameModel> model;
         std::unique_ptr<View> view;
         sf::RenderWindow window;
 

@@ -1,6 +1,6 @@
 #pragma once
 #include "Property.hpp"
-#include "model/Board.hpp"
+#include "../../utils/strategy/StreetRentCalculator.hpp"
 
 namespace monopoly {
     /**
@@ -30,6 +30,7 @@ namespace monopoly {
        : Property(name, position, price, base_rent, group),
          house_cost(house_cost){
             if (house_cost < 0) throw std::invalid_argument("House cost cannot be negative");
+            setRentCalculator(std::make_unique<StreetRentCalculator>(base_rent, houses));
         }
 
         ~Street() override = default;
@@ -59,6 +60,7 @@ namespace monopoly {
                 throw std::runtime_error("Cannot add more houses - hotel already exists");
             }
             houses++;
+            setRentCalculator(std::make_unique<StreetRentCalculator>(base_rent, houses));
         }
 
         /**

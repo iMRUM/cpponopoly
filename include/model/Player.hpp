@@ -48,11 +48,12 @@ namespace monopoly {
          * @param name Player's display name
          * @param player_id Unique identifier for the player
          */
-        explicit Player(const std::string& name, const int player_id)
+        explicit Player(const std::string &name, const int player_id)
             : balance(STARTING_BALANCE), position(STARTING_POSITION),
-              jail_turns(STARTING_POSITION), doubles(STARTING_POSITION),
-              jail_cards_amount(STARTING_POSITION), id(player_id),
-              name(std::move(name)) {}
+              jail_turns(STARTING_POSITION), jail_cards_amount(STARTING_POSITION),
+              doubles(STARTING_POSITION), id(player_id),
+              name(std::move(name)) {
+        }
 
         // Balance management
         /**
@@ -115,6 +116,7 @@ namespace monopoly {
         [[nodiscard]] int getJailTurns() const { return jail_turns; }
         [[nodiscard]] bool isInJail() const { return in_jail; }
         [[nodiscard]] bool hasMaxConsecutiveDoubles() const { return doubles >= MAX_DOUBLES; }
+        [[nodiscard]] bool hasRolledDouble() const { return doubles > 0; }
         [[nodiscard]] bool hasJailCard() const { return jail_cards_amount > 0; }
 
         /**
