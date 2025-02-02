@@ -5,20 +5,10 @@
 #include <string>
 #include <unordered_map>
 #include <vector>
-
+#include "MonopolyRules.hpp"
 #include "Board.hpp"
-#include "../utils/registry/SquareRegistry.hpp"
-#include "../utils/registry/PlayerRegistry.hpp"
 #include "Player.hpp"
-#include "squares/Property.hpp"
-#include "squares/Square.hpp"
-#include "squares/Railroad.hpp"
-#include "squares/Utility.hpp"
-#include "squares/Street.hpp"
-#include "squares/SpecialSquare.hpp"
-#include "../../include/utils/strategy/RailroadRentCalculator.hpp"
-#include "../../include/utils/strategy/StreetRentCalculator.hpp"
-#include "../../include/utils/strategy/UtilityRentCalculator.hpp"
+
 
 
 namespace monopoly{

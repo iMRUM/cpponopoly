@@ -2,6 +2,8 @@
 #include <stdexcept>
 
 
+
+
 namespace monopoly {
     std::unique_ptr<GameModel> monopoly::GameModel::instance = nullptr;
     GameModel::GameModel() {
@@ -216,7 +218,7 @@ namespace monopoly {
         }
     }
 
-    void GameModel::buildOnStreet(int street_id, int player_id) {
+    void GameModel::buildOnStreet(int street_id, int player_id){
     }
 
     void GameModel::landOnSpecialSquare(SpecialSquare &special_square, Player &player) {
@@ -229,6 +231,9 @@ namespace monopoly {
     }
 
     void GameModel::landOnLuxuryTax() {
+        if (!getCurrentPlayer().decreaseBalance(rules::LUXURY_TAX)) {
+            handleBankruptcy(state.current_player_id);
+        }
     }
 
     void GameModel::landOnChance() {
