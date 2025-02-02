@@ -1,5 +1,6 @@
 #pragma once
 #include "Property.hpp"
+#include "model/Board.hpp"
 
 namespace monopoly {
     /**
@@ -12,7 +13,6 @@ namespace monopoly {
         static constexpr int HOTEL = 5;  // Maximum number of houses (5 represents a hotel)
         int house_cost;                  // Cost to build each house
         int houses = 0;                  // Current number of houses (0-5, where 5 is a hotel)
-        std::string color;               // Color group this street belongs to
 
     public:
         /**
@@ -25,9 +25,10 @@ namespace monopoly {
          * @param group The color group this street belongs to
          * @throws std::invalid_argument if house_cost is negative
          */
-        Street(const std::string &name, const int position, const int price, const int base_rent, const int house_cost,
-               const std::string &group): Property(name, position, price, base_rent),
-                                          house_cost(house_cost), color(group) {
+        Street(const std::string &name, const int position, const int price,
+          const int base_rent, const int house_cost, const SquareGroups group)
+       : Property(name, position, price, base_rent, group),
+         house_cost(house_cost){
             if (house_cost < 0) throw std::invalid_argument("House cost cannot be negative");
         }
 
@@ -68,12 +69,5 @@ namespace monopoly {
             return houses == HOTEL;
         }
 
-        /**
-         * @brief Get the color group of this street
-         * @return The color group name
-         */
-        [[nodiscard]] const std::string &getColor() const {
-            return color;
-        }
     };
 }

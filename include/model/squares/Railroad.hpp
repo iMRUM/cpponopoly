@@ -35,7 +35,6 @@ namespace monopoly {
                 const int position,
                 const int price = DEFAULT_RAILROAD_PRICE,
                 const int base_rent = DEFAULT_RAILROAD_BASE_RENT)
-            : Property(name, position, price, base_rent) {
-        }
+            : Property(name, position, price, base_rent, SquareGroups::Railroad) {}
     };
 }

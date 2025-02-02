@@ -34,7 +34,6 @@ namespace monopoly {
                const int position,
                const int price = DEFAULT_UTILITY_PRICE,
                const int multiplier = DEFAULT_MULTIPLIER)
-            : Property(name, position, price, multiplier) {
-        }
+            : Property(name, position, price, multiplier, SquareGroups::Utility) {}
     };
 }
