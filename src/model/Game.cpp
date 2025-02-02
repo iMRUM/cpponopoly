@@ -96,7 +96,7 @@ namespace monopoly {
             outOfJail(current_player);
         }
         current_player.increaseDoubles();
-        if (current_player.hasThreeConsecutiveDoubles()) {
+        if (current_player.hasMaxConsecutiveDoubles()) {
             goToJail(current_player);
         }
 

@@ -74,4 +74,5 @@ add_executable(model_tests
         src/view/View.cpp
         src/view/components/UserView.cpp
         src/view/main_button.cpp
+        include/model/Rules.hpp
 )
