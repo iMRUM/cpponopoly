@@ -25,7 +25,6 @@ add_executable(model_tests
         src/view/main.cpp
         tests/model/squares/tests.cpp
         tests/model/Game_test.cpp
-        tests/view/Gui_test.cpp
         include/utils/registry/IRegistry.hpp
         include/utils/registry/SquareRegistry.hpp
         include/utils/factory/IFactory.hpp

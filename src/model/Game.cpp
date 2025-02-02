@@ -218,8 +218,8 @@ namespace monopoly {
         }
 
         if (player.decreaseBalance(property.getPrice())) {
-            owned_by_map[property.getPropertyId()] =  player.getId();
-            ownership_map[player.getId()].push_back(property.getPropertyId());
+            owned_by_map[property.getId()] =  player.getId();
+            ownership_map[player.getId()].push_back(property.getId());
             property.setOwnerId(player.getId());
             state.awaiting_action = false;
         }
