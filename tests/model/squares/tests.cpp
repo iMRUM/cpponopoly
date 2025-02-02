@@ -35,7 +35,7 @@ TEST_CASE("Property construction and basic operations", "[property]") {
         REQUIRE(property->getPosition() == 5);
         REQUIRE(property->getPrice() == 200);
         REQUIRE(property->getBaseRent() == 20);
-        REQUIRE(property->getPropertyId() == monopoly::PropertyID{1});
+        REQUIRE(property->getId() == monopoly::PropertyID{1});
         delete property;
     }
 

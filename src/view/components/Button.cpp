@@ -2,7 +2,7 @@
 
 Button::Button(const sf::Vector2f& pos, const sf::Vector2f& sz,
            const std::string& label, std::shared_ptr<sf::Font> font)
-        : UIComponent(pos, sz) {
+        : SFComponent(pos, sz) {
     background.setPosition(pos);
     background.setSize(sz);
     background.setFillColor(normalColor);

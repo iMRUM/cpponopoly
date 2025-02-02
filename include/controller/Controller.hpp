@@ -1,25 +1,34 @@
 #pragma once
-#include "../view/Gui.hpp"
+#include "../view/View.hpp"
 #include "../model/Game.hpp"
 
-class Gui;
 namespace monopoly {
-    class Controller {
-        Game& model = Game::getInstance();
-        Gui& view = Gui::getInstance();
-        ~Controller() = default;
-        bool initializeGame(size_t numPlayers);
-        void handleRollDice();
-        void handleBuyProperty();
-        void handleEndTurn();
-        void handleBuildProperty();
-        void handlePropertyDecision();
+    struct UserInput {
+        bool decision;
+    };
+    struct TurnViewData {
+        Dice dice;
 
-        void gameLoop();
+    };
+    class Controller {
+    private:
+        std::unique_ptr<Game> model;
+        std::unique_ptr<View> view;
+        sf::RenderWindow window;
+
+        void changeModel();
+        void initModel(size_t num_of_players, size_t num_of_squares);
+        void initView();
+        bool isKeyPressed(sf::Keyboard::Key key);
+        void changeView();
         void handleUserInput();
-        void updateView();
-        public:
+
+
+
+    public:
+        ~Controller() = default;
         Controller() = default;
+        void init();
         void run();
     };
 }

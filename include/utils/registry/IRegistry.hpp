@@ -11,16 +11,16 @@ public:
 
     virtual void registerItem(std::unique_ptr<T> item) = 0;
 
-    virtual T& getById(const Id& id) const {
+    virtual T *getById(const Id &id) const {
         for (const auto& item : objects) {
             if (item->getId() == id) {
-                return *item.get();
+                return item.get();
             }
         }
-        throw std::runtime_error("Item not found");
+        return nullptr;
     }
 
-    virtual T& getByIndex(int index) const {
+    virtual T& getByIdRef(int index) const {
         if (index < 0 || static_cast<size_t>(index) >= objects.size()) {
             throw std::out_of_range("Index out of bounds");
         }

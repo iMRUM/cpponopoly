@@ -2,7 +2,7 @@
 
 BoardSquare::BoardSquare(const sf::Vector2f &pos, const std::string &squareName, const int id,
                          const BoardSide side,
-                         const sf::Color bg): UIComponent(pos), board_side(side), background_color(bg),
+                         const sf::Color bg): SFComponent(pos), board_side(side), background_color(bg),
                                               name(squareName), square_id(id) {
     setupSize();
     initText();
@@ -41,16 +41,12 @@ void BoardSquare::setBackground() {
     background.setSize(getSize());
 }
 
-void BoardSquare::setBoardSide(const BoardSide side) {
-    board_side = side;
-}
 
 void BoardSquare::initText() {
     if (!font.loadFromFile("../../assets/arial.ttf")) {
         throw std::runtime_error("Failed to load font from ../../assets/arial.ttf");
     }
     name_text.setFont(font);
-    //text.setCharacterSize(12);
     name_text.setFillColor(sf::Color::Black);
     //set text rotation:
     setTextRotation();

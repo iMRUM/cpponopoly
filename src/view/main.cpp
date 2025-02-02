@@ -10,7 +10,7 @@ int main() {
         // Main game loop
         while (gui.isOpen()) {
             // Process window events (close button, etc.)
-            gui.processEvents();
+            gui.processSfmlEvents();
 
             // Render the GUI
             gui.render();

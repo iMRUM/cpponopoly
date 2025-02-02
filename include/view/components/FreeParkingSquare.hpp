@@ -5,7 +5,7 @@ class FreeParkingSquare : public BoardSquare {
 private:
     sf::Text FREE_text;
     sf::Text PARKING_text;
-    void setTexts();
+    void setTexts() override;
 
 public:
     FreeParkingSquare(const sf::Vector2f &pos, int id, BoardSide side = BoardSide::TopLeft)

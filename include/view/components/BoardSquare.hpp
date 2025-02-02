@@ -2,7 +2,7 @@
 #include <functional>
 #include <memory>
 #include <string>
-#include "UIComponent.hpp"
+#include "SFComponent.hpp"
 
 /*
 #pragma once
@@ -24,10 +24,10 @@ enum class BoardSide {
 };
 
 // View component
-class BoardSquare : public UIComponent {
+class BoardSquare : public SFComponent {
 protected:
 
-
+    int square_id;  // To link with model
     sf::RectangleShape background;
     sf::Text name_text;
     sf::Text lower_text;
@@ -35,7 +35,7 @@ protected:
     sf::Color background_color;
     sf::Font font;
     std::string name;
-    int square_id;  // To link with model
+
 
     bool isCornerSquare();
     void setupSize();
@@ -44,12 +44,7 @@ protected:
     void setTextRotation();
 
 public:
-    //first constructor is not used, should be deleted
-    BoardSquare(const sf::Vector2f &pos, const sf::Vector2f &size,
-                const std::string &squareName,
-                int id,
-                BoardSide side,
-                sf::Color bg = sf::Color(210, 230, 210)); // to be deprecated
+
     BoardSquare(const sf::Vector2f &pos,
                     const std::string &squareName,
                     int id,
@@ -60,9 +55,7 @@ public:
     // UI functions
     virtual void draw(sf::RenderWindow& window) override = 0;
     virtual bool handleEvent(const sf::Event& event) override = 0;
-
-    // View-specific functionality
-    void setBoardSide(const BoardSide side);
+    virtual void setTexts() = 0;
 
     [[nodiscard]] const sf::RectangleShape & getBackground() const {
         return background;
@@ -91,6 +84,8 @@ public:
     [[nodiscard]] int getSquareId() const {
         return square_id;
     }
-
+    void testChange() {
+        std::cout << square_id + "WAS CHANGED" << std::endl;
+    }
     virtual void updateView() = 0;  // Called by controller when model changes
 };

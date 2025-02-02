@@ -2,9 +2,9 @@
 #include <functional>
 #include <memory>
 #include <string>
-#include "UIComponent.hpp"
+#include "SFComponent.hpp"
 
-class MonopolyBoard : public UIComponent {
+class MonopolyBoard : public SFComponent {
     sf::RectangleShape background;
     sf::RectangleShape logo_background;
     sf::Text logo_text;
