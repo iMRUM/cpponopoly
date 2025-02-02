@@ -76,4 +76,5 @@ add_executable(model_tests
         src/view/main_button.cpp
         include/model/Rules.hpp
         include/model/Board.hpp
+        src/model/Board.cpp
 )
