@@ -11,6 +11,7 @@ namespace monopoly::rules {
     constexpr int PASSING_GO_REWARD = 200;
     constexpr int JAIL_FINE = 50;
     constexpr int LUXURY_TAX = 100;
+    constexpr int MAX_HOUSES = 5;
 
     // Movement & Turn Flow
     bool isJailRequired(Player& player);
@@ -18,9 +19,8 @@ namespace monopoly::rules {
     int calculateNewPosition(Player& player, Board& board);
 
     // Property Management
-    bool canBuyProperty(int player_money, int property_price);
-    bool canMortgageProperty(int property_owner_id);
-    int calculateMortgageValue(int property_price);
+    inline bool canBuyProperty(int player_money, int property_price){return player_money >= property_price;}
+
 
     // Money Handling
     bool isBankrupt(int player_money, int debt);

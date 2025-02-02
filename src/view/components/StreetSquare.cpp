@@ -110,10 +110,8 @@ void StreetSquare::setHouses(int houses) {
 void StreetSquare::draw(sf::RenderWindow &window) {
     if (!isVisible) return;
 
-    window.draw(background);
-    window.draw(color_band);
-    window.draw(name_text);
-    window.draw(lower_text);
+    BoardSquare::draw(window);  // Draw base elements (background, texts, player dots)
+    window.draw(color_band);    // Add street-specific elements
     if (num_houses == 5) {
         window.draw(hotel_shape);
     } else {
@@ -128,4 +126,5 @@ bool StreetSquare::handleEvent(const sf::Event &event) {
 }
 
 void StreetSquare::updateView() {
+    return;
 }

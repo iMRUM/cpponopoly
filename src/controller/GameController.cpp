@@ -13,29 +13,45 @@ namespace monopoly {
             sf::Vector2f(1000.f, 100.f),
             sf::Vector2f(640.f, 640.f)
         );
-        view->start();
     }
 
-    void GameController::initControllers() {
-        turn_controller = std::make_unique<TurnController>(model.get(), view.get());
-        property_controller = std::make_unique<PropertyController>(model.get(), view.get());
-    }
 
     void GameController::gameLoop() {
         view->start();
-
+        if (!model->isGameStarted() && handleUserInput("Press SPACEBAR to continue")) {
+            model->initializeGame(2);
+        }
         while (!isGameOver() && view->isOpen()) {
-            handleUserInput();
+            processTurn();
             view->update();
             view->render();
         }
     }
 
     void GameController::processTurn() {
-        auto& current_player = model->getCurrentPlayer();
-        turn_controller->executeTurn(current_player, *property_controller);
+        auto &current_player = model->getCurrentPlayer();
+        executeTurn(current_player);
         moveToNextPlayer();
     }
+
+    void GameController::executeTurn(Player &current_player) {
+            while (getAwaitedAction() != AwaitedAction::TURN_ENDED) {
+                switch (getAwaitedAction()) {
+                    case AwaitedAction::ROLL_DICE:
+                    case AwaitedAction::BUY_PROPERTY:
+                    case AwaitedAction::BUILD_HOUSE:
+                    case AwaitedAction::USE_JAIL_CARD:
+                    case AwaitedAction::PAY_JAIL_FINE:
+                        if (handleUserInput("Press SPACEBAR to continue")) {
+                            model->executeAction(getAwaitedAction());
+                        }
+                        break;
+                    case AwaitedAction::MOVE:
+                        model->executeAction(AwaitedAction::MOVE);
+                        break;
+                }
+            }
+        }
 
     void GameController::moveToNextPlayer() {
         do {
@@ -48,46 +64,66 @@ namespace monopoly {
         return model->isGameOver();
     }
 
-    void GameController::handleKeyRelease(sf::Keyboard::Key key) {
-        if (key == sf::Keyboard::Space && !model->isGameStarted()) {
-            std::cout << "starting game" << std::endl;
-            model->startGame();
-        } else if (key == sf::Keyboard::Up &&
-                   model->isGameStarted() &&
-                   !model->hasRolled()) {
-            processTurn();
-            model->setHasRolled(false);
+    bool GameController::handleKeyRelease(sf::Keyboard::Key key) {
+        if (key == sf::Keyboard::Space) {
+            std::cout << "Spacebar pressed" << std::endl;
+            return true;
         }
+        return false;
     }
 
 
-    void GameController::handleUserInput() {
+    bool GameController::handleUserInput(const std::string &message) {
         sf::Event event;
-        while (view->pollEvent(event)) {
+        if (view->pollEvent(event)) {
+            // Blocks until event occurs
             switch (event.type) {
                 case sf::Event::Closed:
                     view->close();
-                    break;
+                    return false;
                 case sf::Event::KeyReleased:
-                    handleKeyRelease(event.key.code);
-                    break;
-                default: view->handleEvent(event);
+                    return handleKeyRelease(event.key.code);
+                default:
+                    return false;
             }
         }
+        return false;
     }
 
 
     void GameController::init() {
         initModel(2);
         initView();
-        initControllers();
     }
-
     void GameController::run() {
-        while (!model->isGameOver() && view->isOpen()) {
-            handleUserInput();
-            view->update();
-            view->render();
+        view->start();
+
+        bool waiting_for_input = true;
+        sf::Clock frame_clock;
+        const float frame_time = 1.0f / 60.0f;  // 60 FPS
+
+        while (view->isOpen()) {
+            sf::Event event;
+            while (view->pollEvent(event)) {
+                if (event.type == sf::Event::Closed) {
+                    view->close();
+                } else if (event.type == sf::Event::KeyReleased && waiting_for_input) {
+                    if (event.key.code == sf::Keyboard::Space) {
+                        waiting_for_input = false;
+                    }
+                }
+            }
+
+            if (frame_clock.getElapsedTime().asSeconds() >= frame_time) {
+                if (!waiting_for_input && model->isGameStarted()) {
+                    processTurn();
+                    waiting_for_input = true;
+                }
+
+                view->update();
+                view->render();
+                frame_clock.restart();
+            }
         }
     }
 }

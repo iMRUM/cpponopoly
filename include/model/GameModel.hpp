@@ -18,6 +18,17 @@ namespace monopoly {
         [[nodiscard]] int getTotal() const { return first + second; }
     };
 
+    enum class AwaitedAction {
+        NONE,
+        ROLL_DICE,
+        MOVE,
+        BUY_PROPERTY,
+        BUILD_HOUSE,
+        USE_JAIL_CARD,
+        PAY_JAIL_FINE,
+        TURN_ENDED
+    };
+
     /**
  * @file GameModel.hpp
  * @brief Core game logic implementation for Monopoly board game
@@ -72,6 +83,7 @@ namespace monopoly {
             int current_square_id{0}; ///< Current square position
             bool has_rolled{false}; ///< True if dice have been rolled this turn
             bool awaiting_action{false}; ///< True if waiting for player decision
+            AwaitedAction awaited_action{AwaitedAction::NONE};
             bool has_another_turn{false}; ///< True if player gets another turn
             int current_dice_result{0}; ///< Sum of current dice roll
 
@@ -81,15 +93,15 @@ namespace monopoly {
                 started = false;
                 over = false;
                 winner = -1;
-                resetTurnState();
+                resetTurnState(0);
             }
 
             /** @brief Reset only turn-specific state values */
-            void resetTurnState() {
-                current_player_id = 0;
-                current_square_id = 0;
+            void resetTurnState(const int player_id) {
+                current_player_id = player_id;
                 has_rolled = false;
                 awaiting_action = false;
+                awaited_action = AwaitedAction::NONE;
                 has_another_turn = false;
                 current_dice_result = 0;
             }
@@ -154,6 +166,27 @@ namespace monopoly {
          */
         void addSpecialSquare(const std::string &name, int position, SpecialSquareType type);
 
+        /*
+             * NONE,
+                     ROLL_DICE,
+                     MOVE,
+                     BUY_PROPERTY,
+                     BUILD_HOUSE,
+                     USE_JAIL_CARD,
+                     PAY_JAIL_FINE
+         */
+
+        void executeRollDice();
+
+        void executeMove();
+
+        void executeBuyProperty();
+
+        void executeBuildHouse();
+
+        void executeUseJailCard();
+
+        void executePayJailFine();
 
         /**
      * @brief Process current player's turn
@@ -335,6 +368,13 @@ namespace monopoly {
          */
         void nextTurn();
 
+        void executeAction(AwaitedAction action);
+
+
+        int nextPlayerId();
+
+        int nextSquareId();
+
         // Getters
         [[nodiscard]] size_t getPlayersCount() const { return players.size(); }
         [[nodiscard]] int getCurrentPlayerIndex() const { return state.current_player_id; }
@@ -349,7 +389,7 @@ namespace monopoly {
         [[nodiscard]] bool hasRolled() const { return state.has_rolled; }
         void setHasRolled(bool value) { state.has_rolled = value; }
         [[nodiscard]] bool isAwaitingAction() const { return state.awaiting_action; }
-
+        AwaitedAction getAwaitedAction() const { return state.awaited_action; }
         /**
      * @brief Check if a property can be purchased
      * @return True if current square is purchasable property
