@@ -43,8 +43,8 @@ void BoardSquare::setBackground() {
 
 
 void BoardSquare::initText() {
-    if (!font.loadFromFile("../../assets/arial.ttf")) {
-        throw std::runtime_error("Failed to load font from ../../assets/arial.ttf");
+    if (!font.loadFromFile("assets/arial.ttf")) {
+        throw std::runtime_error("Failed to load font from assets/arial.ttf");
     }
     name_text.setFont(font);
     name_text.setFillColor(sf::Color::Black);

@@ -15,7 +15,7 @@ namespace monopoly {
         void handleSquareAction(Player& player, PropertyController& property_controller);
         void handleJailTurn(Player& player);
 
-        GameModel* model_;
-        GameView* view_;
+        GameModel* model;
+        GameView* view;
     };
 }

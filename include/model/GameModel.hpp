@@ -308,10 +308,9 @@ namespace monopoly {
         /**
      * @brief Initialize a new game
      * @param size_players Number of players
-     * @param board_size Board size (default 40)
      * @return True if initialization successful
      */
-        bool initializeGame(size_t size_players, size_t board_size = 40);
+        void initializeGame(size_t size_players);
 
         /**
     * @brief Add specified number of players to game
@@ -323,13 +322,13 @@ namespace monopoly {
      * @brief Start the game
      * @return True if game started successfully
      */
-        bool startGame();
+        void startGame();
 
         /**
          * @brief End the current game
          * @return True if game ended successfully
          */
-        bool endGame();
+        void endGame();
 
         /**
          * @brief Advance to next player's turn
@@ -338,14 +337,17 @@ namespace monopoly {
 
         // Getters
         [[nodiscard]] size_t getPlayersCount() const { return players.size(); }
+        [[nodiscard]] int getCurrentPlayerIndex() const { return state.current_player_id; }
+        [[nodiscard]] Player &getPlayer(int id) const { return *players[id]; }
         Square &getSquareAt(const int index) { return *(board->getSquare(index)); }
         [[nodiscard]] bool isGameInitialized() const { return state.initialized; }
         [[nodiscard]] bool isGameStarted() const { return state.started; }
         [[nodiscard]] bool isGameOver() const { return state.over; }
-        [[nodiscard]] int getCurrentPlayerIndex() const { return state.current_player_id; }
+
         [[nodiscard]] size_t getBoardSize() const { return board->getSize(); }
 
         [[nodiscard]] bool hasRolled() const { return state.has_rolled; }
+        void setHasRolled(bool value) { state.has_rolled = value; }
         [[nodiscard]] bool isAwaitingAction() const { return state.awaiting_action; }
 
         /**
@@ -369,6 +371,8 @@ namespace monopoly {
          * @return True if player owns all properties in group
          */
         bool hasMonopoly(int player_id, int square_id) const;
+
+        bool mustPayRent(const int square_id) const;
 
         /**
          * @brief Calculate rent due on current square

@@ -262,20 +262,18 @@ namespace monopoly {
         return std::move(instance);
     }
 
-    bool GameModel::initializeGame(size_t size_players, size_t board_size) {
+    void GameModel::initializeGame(size_t size_players) {
         board->initSquares();
+        addPlayers(size_players);
         state.initialized = true;
-        return state.initialized;
     }
 
-    bool GameModel::startGame() {
+    void GameModel::startGame() {
         state.started = true;
-        return state.started;
     }
 
-    bool GameModel::endGame() {
+    void GameModel::endGame() {
         state.over = true;
-        return state.over;
     }
 
     void GameModel::nextTurn() {

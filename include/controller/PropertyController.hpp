@@ -14,7 +14,7 @@ namespace monopoly {
         int calculateRent(const Property& property) const;
         Player* getPlayerById(int id) const;
 
-        GameModel* model_;
-        GameView* view_;
+        GameModel* model;
+        GameView* view;
     };
 }

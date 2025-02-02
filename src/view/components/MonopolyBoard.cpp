@@ -20,7 +20,7 @@ MonopolyBoard::MonopolyBoard(): SFComponent(sf::Vector2f(0,0),
     logo_background.setOutlineColor(sf::Color::White);
 
     // Setup logo text
-    if (!font.loadFromFile("../../assets/arial.ttf")) {
+    if (!font.loadFromFile("assets/arial.ttf")) {
         throw std::runtime_error("Failed to load font");
     }
     logo_text.setFont(font);

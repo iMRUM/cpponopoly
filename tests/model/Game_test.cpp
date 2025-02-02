@@ -9,20 +9,20 @@ namespace monopoly {
 
         void setup2Players() {
             game.resetGame();
-            game.initializeGame(2, TODO);
+            game.initializeGame(2);
             game.addPlayers(2);
             game.startGame();
         }
 
         void resetGame() {
             game.endGame();
-            REQUIRE_NOTHROW(game.initializeGame(2,TODO));
+            REQUIRE_NOTHROW(game.initializeGame(2));
         }
     };
 
     TEST_CASE_METHOD(GameTest, "GameModel Initialization") {
         SECTION("GameModel starts with correct number of players") {
-            REQUIRE_NOTHROW(game.initializeGame(2,TODO));
+            REQUIRE_NOTHROW(game.initializeGame(2));
             REQUIRE(game.getPlayersCount() == 0);
 
             REQUIRE_NOTHROW(game.addPlayers(2));
@@ -31,7 +31,7 @@ namespace monopoly {
 
         SECTION("Cannot add more than 8 players") {
             game.resetGame();
-            REQUIRE_NOTHROW(game.initializeGame(8,TODO));
+            REQUIRE_NOTHROW(game.initializeGame(8));
             REQUIRE_NOTHROW(game.addPlayers(8));
             REQUIRE_THROWS_AS(game.addPlayers(1), std::runtime_error);
         }
@@ -43,7 +43,7 @@ namespace monopoly {
             REQUIRE(!game.isGameStarted());
             REQUIRE(!game.isGameOver());
 
-            game.initializeGame(2, TODO);
+            game.initializeGame(2);
             REQUIRE(game.isGameInitialized());
 
             game.startGame();

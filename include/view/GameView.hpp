@@ -1,10 +1,5 @@
 #pragma once
 #include <SFML/Graphics.hpp>
-#include <SFML/System/Clock.hpp>
-#include <SFML/System/Time.hpp>
-#include <random>
-#include <ctime>
-#include <array>
 #include "components/BoardView.hpp"
 #include "components/UserView.hpp"
 
@@ -16,20 +11,31 @@ namespace monopoly {
         UserView panel;
         static std::unique_ptr<GameView> instance;
 
-        GameView(sf::VideoMode mode, const std::string& title, float boardSize, const sf::Vector2f& panelPos, const sf::Vector2f& panelSize);
+        GameView(sf::VideoMode mode, const std::string &title, float boardSize,
+                 const sf::Vector2f &panelPos, const sf::Vector2f &panelSize);
 
     public:
-        static std::unique_ptr<GameView> getInstance(sf::VideoMode mode, const std::string& title,
-            float boardSize, const sf::Vector2f& panelPos, const sf::Vector2f& panelSize) {
-            if (!instance) {
-                instance = std::unique_ptr<GameView>(new GameView(mode, title, boardSize, panelPos, panelSize));
-            }
-            return std::move(instance);
-        }
+        static std::unique_ptr<GameView> getInstance(sf::VideoMode mode,
+                                                     const std::string &title, float boardSize,
+                                                     const sf::Vector2f &panelPos, const sf::Vector2f &panelSize);
+
         void start();
-        bool isKeyPressed(sf::Keyboard::Key key);
-    };
+        void close() { window.close(); }
+        bool isOpen() const { return window.isOpen(); }
+        bool pollEvent(sf::Event &event) { return window.pollEvent(event); }
 
-        //
-    };
+        void update();
 
+        void render();
+
+        void updateBoardDisplay();
+
+        void showDiceRoll(int value);
+
+        void displayPropertyCard(int propertyId);
+
+        void askPurchaseDecision(int propertyId, int price);
+
+        void handleEvent(const sf::Event & event);
+    };
+}

@@ -200,6 +200,5 @@ bool monopoly::BoardView::handleEvent(const sf::Event &event) {
 }
 
 void monopoly::BoardView::updateView() {
-    std::cout << "BoardView::updateView()" << std::endl;
 }
 

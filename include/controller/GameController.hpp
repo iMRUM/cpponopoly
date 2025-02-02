@@ -21,6 +21,9 @@ namespace monopoly {
         void processTurn();
         void moveToNextPlayer();
         bool isGameOver() const;
+
+        void handleKeyRelease(sf::Keyboard::Key key);
+
         void handleUserInput();
 
     public:
