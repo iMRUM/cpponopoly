@@ -16,9 +16,9 @@ add_executable(model_tests
         include/utils/strategy/StreetRentCalculator.hpp
         include/utils/strategy/RailroadRentCalculator.hpp
         include/utils/strategy/UtilityRentCalculator.hpp
-        include/controller/Controller.hpp
+        include/controller/GameController.hpp
         include/view/Gui.hpp
-        src/controller/Controller.cpp
+        src/controller/GameController.cpp
         include/utils/Observer/IMonopolyObserver.hpp
         src/view/Gui.cpp
         maeein.cpp
@@ -70,11 +70,13 @@ add_executable(model_tests
         src/view/components/BoardView.cpp
         include/view/components/UserView.hpp
         include/view/components/Window.hpp
-        include/view/View.hpp
-        src/view/View.cpp
+        include/view/GameView.hpp
+        src/view/GameView.cpp
         src/view/components/UserView.cpp
         src/view/main_button.cpp
         include/model/MonopolyRules.hpp
         include/model/Board.hpp
         src/model/Board.cpp
+        include/controller/TurnController.hpp
+        include/controller/PropertyController.hpp
 )

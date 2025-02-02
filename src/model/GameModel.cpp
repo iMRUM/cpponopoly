@@ -263,6 +263,7 @@ namespace monopoly {
     }
 
     bool GameModel::initializeGame(size_t size_players, size_t board_size) {
+        board->initSquares();
         state.initialized = true;
         return state.initialized;
     }

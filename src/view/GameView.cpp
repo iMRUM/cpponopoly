@@ -1,13 +1,13 @@
-#include "../../include/view/View.hpp"
-std::unique_ptr<monopoly::View> monopoly::View::instance = nullptr;
-monopoly::View::View(sf::VideoMode mode, const std::string& title, float boardSize,
+#include "../../include/view/GameView.hpp"
+std::unique_ptr<monopoly::GameView> monopoly::GameView::instance = nullptr;
+monopoly::GameView::GameView(sf::VideoMode mode, const std::string& title, float boardSize,
     const sf::Vector2f& panelPos, const sf::Vector2f& panelSize)
     : window(mode, title),
       board(boardSize, boardSize),
       panel(panelPos, panelSize) {
 }
 
-void monopoly::View::start() {
+void monopoly::GameView::start() {
     if (!window.isOpen()) {
         std::cerr << "Window failed to open" << std::endl;
         return;

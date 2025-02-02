@@ -1,11 +1,11 @@
-#include "../../include/controller/Controller.hpp"
+#include "../../include/controller/GameController.hpp"
 
-bool monopoly::Controller::isKeyPressed(sf::Keyboard::Key key) {
+bool monopoly::GameController::isKeyPressed(sf::Keyboard::Key key) {
     std::cout << key + "WAS PRESSED" << std::endl;
     return sf::Keyboard::isKeyPressed(key);
 }
 
-void monopoly::Controller::handleUserInput() {
+void monopoly::GameController::handleUserInput() {
     if (isKeyPressed(sf::Keyboard::Up)) {
         std::cout << "buy/use jail card" << std::endl;
     }
@@ -14,13 +14,13 @@ void monopoly::Controller::handleUserInput() {
     }
 }
 
-void monopoly::Controller::initModel(size_t num_of_players, size_t num_of_squares) {
+void monopoly::GameController::initModel(size_t num_of_players, size_t num_of_squares) {
     model = GameModel::getInstance();
     model->initializeGame(num_of_players, num_of_squares);
 }
 
-void monopoly::Controller::initView() {
-    view = View::getInstance(
+void monopoly::GameController::initView() {
+    view = GameView::getInstance(
     sf::VideoMode(1920, 1080), "Monopoly",
     960.f,
     sf::Vector2f(1000.f, 100.f),
@@ -28,12 +28,12 @@ void monopoly::Controller::initView() {
 );
 }
 
-void monopoly::Controller::init() {
+void monopoly::GameController::init() {
     initView();
     initModel(2, 40);
 }
 
-void monopoly::Controller::run() {
+void monopoly::GameController::run() {
     view->start();
     handleUserInput();
 }

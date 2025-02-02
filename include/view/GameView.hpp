@@ -9,20 +9,20 @@
 #include "components/UserView.hpp"
 
 namespace monopoly {
-    class View {
+    class GameView {
     private:
         sf::RenderWindow window;
         BoardView board;
         UserView panel;
-        static std::unique_ptr<View> instance;
+        static std::unique_ptr<GameView> instance;
 
-        View(sf::VideoMode mode, const std::string& title, float boardSize, const sf::Vector2f& panelPos, const sf::Vector2f& panelSize);
+        GameView(sf::VideoMode mode, const std::string& title, float boardSize, const sf::Vector2f& panelPos, const sf::Vector2f& panelSize);
 
     public:
-        static std::unique_ptr<View> getInstance(sf::VideoMode mode, const std::string& title,
+        static std::unique_ptr<GameView> getInstance(sf::VideoMode mode, const std::string& title,
             float boardSize, const sf::Vector2f& panelPos, const sf::Vector2f& panelSize) {
             if (!instance) {
-                instance = std::unique_ptr<View>(new View(mode, title, boardSize, panelPos, panelSize));
+                instance = std::unique_ptr<GameView>(new GameView(mode, title, boardSize, panelPos, panelSize));
             }
             return std::move(instance);
         }

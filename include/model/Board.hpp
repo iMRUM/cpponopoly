@@ -16,6 +16,7 @@ namespace monopoly {
 
     public:
         explicit Board(const size_t size = 40) : board_size(size) { squares.reserve(size); }
+        void initSquares();
         void addSquare(std::unique_ptr<Square> square);
         Square* getSquare(const size_t position);
         const Square* getSquare(const size_t position) const;
