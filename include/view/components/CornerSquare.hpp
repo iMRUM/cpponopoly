@@ -1,6 +1,6 @@
 #pragma once
-#include "BoardSquare.hpp"
+#include "BoardSquareComponent.hpp"
 //should be completed
-class CornerSquare : public BoardSquare {
+class CornerSquare : public BoardSquareComponent {
 
 };

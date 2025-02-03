@@ -1,6 +1,6 @@
 #include "../../../include/view/components/UtilitySquare.hpp"
 
-UtilitySquare::UtilitySquare(const sf::Vector2f &pos, const std::string &name, int id, BoardSide side): BoardSquare(
+UtilitySquare::UtilitySquare(const sf::Vector2f &pos, const std::string &name, int id, BoardSide side): BoardSquareComponent(
     pos, name, id, side) {
     setTexts();
 }
@@ -69,6 +69,7 @@ void UtilitySquare::draw(sf::RenderWindow &window) {
     window.draw(background);
     window.draw(name_text);
     window.draw(lower_text);
+    BoardSquareComponent::draw(window);
 }
 
 bool UtilitySquare::handleEvent(const sf::Event &event) {

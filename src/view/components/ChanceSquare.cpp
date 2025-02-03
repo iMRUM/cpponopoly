@@ -1,7 +1,7 @@
 #include "../../../include/view/components/ChanceSquare.hpp"
 
 
-ChanceSquare::ChanceSquare(const sf::Vector2f &pos, int id, BoardSide side, sf::Color color): BoardSquare(
+ChanceSquare::ChanceSquare(const sf::Vector2f &pos, int id, BoardSide side, sf::Color color): BoardSquareComponent(
     pos, "CHANCE", id, side), qmark_color(color) {
     setTexts();
 }
@@ -72,6 +72,7 @@ void ChanceSquare::draw(sf::RenderWindow &window) {
     window.draw(background);
     window.draw(name_text);
     window.draw(lower_text);
+    BoardSquareComponent::draw(window);
 }
 
 bool ChanceSquare::handleEvent(const sf::Event &event) {

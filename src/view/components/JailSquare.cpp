@@ -57,6 +57,7 @@ void JailSquare::draw(sf::RenderWindow& window) {
     window.draw(name_text);
     window.draw(JUST_text);
     window.draw(VISITING_text);
+    BoardSquareComponent::draw(window);
 }
 
 bool JailSquare::handleEvent(const sf::Event& event) {

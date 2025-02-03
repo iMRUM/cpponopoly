@@ -1,7 +1,7 @@
 #pragma once
-#include "BoardSquare.hpp"
+#include "BoardSquareComponent.hpp"
 
-class GoSquare : public BoardSquare {
+class GoSquare : public BoardSquareComponent {
 private:
     sf::Text GO_text;
     sf::Text collect_text;
@@ -11,7 +11,7 @@ private:
 
 public:
     GoSquare(const sf::Vector2f &pos, int id, BoardSide side = BoardSide::BottomRight)
-        : BoardSquare(pos, "GO", id, side) {
+        : BoardSquareComponent(pos, "GO", id, side) {
         setTexts();
     }
 

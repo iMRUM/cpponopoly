@@ -32,8 +32,8 @@ add_executable(model_tests
         include/view/components/Button.hpp
         include/view/components/Button.hpp
         src/view/components/Button.cpp
-        include/view/components/BoardSquare.hpp
-        src/view/components/BoardSquare.cpp
+        include/view/components/BoardSquareComponent.hpp
+        src/view/components/BoardSquareComponent.cpp
         include/view/components/StreetSquare.hpp
         src/view/components/StreetSquare.cpp
         include/view/components/CornerSquare.hpp
@@ -77,4 +77,7 @@ add_executable(model_tests
         include/controller/PropertyController.hpp
         src/controller/TurnController.cpp
         src/controller/PropertyController.cpp
+        include/view/components/BoardSquareComposite.hpp
+        include/view/components/PlayerTokenComponent.hpp
+        src/view/components/PlayerTokenComponent.cpp
 )

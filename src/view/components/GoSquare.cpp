@@ -82,6 +82,7 @@ void GoSquare::draw(sf::RenderWindow& window) {
     window.draw(collect_text);
     window.draw(salary_text);
     window.draw(as_you_pass_text);
+    BoardSquareComponent::draw(window);
 }
 
 bool GoSquare::handleEvent(const sf::Event& event) {

@@ -1,7 +1,7 @@
 #pragma once
-#include "BoardSquare.hpp"
+#include "BoardSquareComponent.hpp"
 
-class IncomeTaxSquare : public BoardSquare {
+class IncomeTaxSquare : public BoardSquareComponent {
 private:
     void setTexts() override;
 

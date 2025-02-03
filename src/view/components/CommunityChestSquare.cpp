@@ -1,6 +1,6 @@
 #include "../../../include/view/components/CommunityChestSquare.hpp"
 
-CommunityChestSquare::CommunityChestSquare(const sf::Vector2f &pos,  int id, BoardSide side): BoardSquare(
+CommunityChestSquare::CommunityChestSquare(const sf::Vector2f &pos,  int id, BoardSide side): BoardSquareComponent(
     pos, "Community\n    Chest", id, side) {
     setTexts();
 }
@@ -69,6 +69,7 @@ void CommunityChestSquare::draw(sf::RenderWindow &window) {
     window.draw(background);
     window.draw(name_text);
     window.draw(lower_text);
+    BoardSquareComponent::draw(window);
 }
 
 bool CommunityChestSquare::handleEvent(const sf::Event &event) {

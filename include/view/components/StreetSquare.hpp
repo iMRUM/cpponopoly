@@ -1,5 +1,5 @@
 #pragma once
-#include "BoardSquare.hpp"
+#include "BoardSquareComponent.hpp"
 #include <array>
 
 enum class StreetEvents {
@@ -7,7 +7,7 @@ enum class StreetEvents {
     Acquired,
     HouseBuilt
 };
-class StreetSquare : public BoardSquare {
+class StreetSquare : public BoardSquareComponent {
 private:
     sf::RectangleShape color_band;
     sf::Color group_color;
