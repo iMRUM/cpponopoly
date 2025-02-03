@@ -70,10 +70,11 @@ namespace monopoly {
             // Turn-specific state
             int current_player_id{0}; ///< ID of player whose turn it is
             int current_square_id{0}; ///< Current square position
+            int current_dice_result{0}; ///< Sum of current dice roll
             bool has_rolled{false}; ///< True if dice have been rolled this turn
             bool awaiting_action{false}; ///< True if waiting for player decision
             bool has_another_turn{false}; ///< True if player gets another turn
-            int current_dice_result{0}; ///< Sum of current dice roll
+
 
             /** @brief Reset all game state to initial values */
             void reset() {
@@ -88,10 +89,10 @@ namespace monopoly {
             void resetTurnState() {
                 current_player_id = 0;
                 current_square_id = 0;
+                current_dice_result = 0;
                 has_rolled = false;
                 awaiting_action = false;
                 has_another_turn = false;
-                current_dice_result = 0;
             }
         } state{};
 
@@ -158,13 +159,8 @@ namespace monopoly {
         /**
      * @brief Process current player's turn
      */
-        void handleTurn();
+        /*void handleTurn();*/
 
-        /**
-         * @brief Roll two dice and return their values
-         * @return Dice structure containing both die values
-         */
-        Dice rollDice();
 
         /**
          * @brief Handle consequences of current dice roll
@@ -188,18 +184,12 @@ namespace monopoly {
         void handleBankruptcy(int player_id);
 
         //Movement management:
-        /**
-       * @brief Move player specified number of steps
-       * @param steps Number of steps to move
-       * @param player_id Player to move
-       */
-        void moveSteps(int steps, int player_id);
+
 
         /**
          * @brief Handle player passing GO square
-         * @param player Player who passed GO
          */
-        void movedPastGo(Player &player);
+        void movedPastGo();
 
 
         //Landing management:
@@ -304,7 +294,12 @@ namespace monopoly {
         GameModel(const GameModel &) = delete;
 
         GameModel &operator=(const GameModel &) = delete;
-
+     /**
+            * @brief Move player specified number of steps
+            * @param steps Number of steps to move
+            * @param player_id Player to move
+            */
+     void moveSteps(int steps, int player_id);
         /**
      * @brief Initialize a new game
      * @param size_players Number of players
@@ -334,6 +329,14 @@ namespace monopoly {
          * @brief Advance to next player's turn
          */
         void nextTurn();
+
+        /**
+        * @brief Roll two dice and return their values
+        * @return Dice structure containing both die values
+        */
+        const Dice &rollDice();
+
+        bool hasAnotherTurn();
 
         // Getters
         [[nodiscard]] size_t getPlayersCount() const { return players.size(); }

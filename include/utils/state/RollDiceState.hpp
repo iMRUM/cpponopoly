@@ -1,35 +1,17 @@
 #pragma once
+#include "GameState.hpp"
 #include "LandState.hpp"
 
 namespace monopoly {
     class RollDiceState : public GameState {
+    private:
+        static RollDiceState* instance;
+        RollDiceState() = default;
     public:
-        static GameState *Instance() {
-            static RollDiceState instance;
-            return &instance;
-        }
+        static GameState *getInstance();
 
-        void onEnter(GameController *controller) override {
-            auto currentPlayer = controller->getCurrentPlayerIndex();
-            controller->getView()->showRollDicePrompt(currentPlayer);
-        }
+        void onEnter(GameController *controller) override;
 
-        void handleKeyRelease(GameController *controller, sf::Keyboard::Key key) override {
-            if (key == sf::Keyboard::Space) {
-                auto model = controller->getModel();
-                auto currentPlayer = controller->getCurrentPlayerIndex();
-
-                // Roll dice and move player
-                int steps = model->rollDice();
-                model->movePlayer(currentPlayer, steps);
-
-                // Update view
-                controller->getView()->updateDiceRoll(steps);
-                controller->getView()->updatePlayerPosition(currentPlayer);
-
-                // Transition to LandState
-                changeState(controller, LandState::Instance());
-            }
-        }
+        void handleKeyRelease(GameController *controller, sf::Keyboard::Key key) override;
     };
 }

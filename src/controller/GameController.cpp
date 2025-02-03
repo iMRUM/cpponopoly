@@ -4,7 +4,7 @@ namespace monopoly {
     GameController::GameController() : model(GameModel::getInstance()), view(GameView::getInstance(
                                sf::VideoMode(1920, 1080), "Monopoly",
                                960.f,
-                               sf::Vector2f(1000.f, 100.f),
+                               sf::Vector2f(330.f, 200.f),
                                sf::Vector2f(640.f, 640.f)
                            )) {
         changeState(StartState::getInstance());

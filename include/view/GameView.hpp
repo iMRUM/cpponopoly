@@ -20,11 +20,17 @@ namespace monopoly {
                                                      const sf::Vector2f &panelPos, const sf::Vector2f &panelSize);
 
         void start();
+
+        void updatePlayerAtBoardSquare(int player_id, int new_square_id, int old_square_id);
+
         void close() { window.close(); }
         bool isOpen() const { return window.isOpen(); }
         bool pollEvent(sf::Event &event) { return window.pollEvent(event); }
 
-        void showPrompt(std::string &prompt);
+        void updateBalanceBox(int balance);
+        void updateNameBox(std::string &name);
+        void updatePlayerName(const std::string &name);
+        void updatePanelMessage(std::string &prompt);
 
         void update();
 
