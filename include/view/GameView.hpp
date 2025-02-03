@@ -24,6 +24,8 @@ namespace monopoly {
         bool isOpen() const { return window.isOpen(); }
         bool pollEvent(sf::Event &event) { return window.pollEvent(event); }
 
+        void showPrompt(std::string &prompt);
+
         void update();
 
         void render();

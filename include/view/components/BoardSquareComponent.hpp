@@ -2,12 +2,13 @@
 #include <functional>
 #include <memory>
 #include <string>
-#include "SFComponent.hpp"
+
+#include "PlayerTokenComponent.hpp"
 
 /*
 #pragma once
-#include "BoardSquare.hpp"
-class : public BoardSquare {
+#include "BoardSquareComponent.hpp"
+class : public BoardSquareComponent {
 
 };
 
@@ -24,7 +25,7 @@ enum class BoardSide {
 };
 
 // View component
-class BoardSquare : public SFComponent {
+class BoardSquareComponent : public SFComponent {
 protected:
 
     int square_id;  // To link with model
@@ -35,28 +36,36 @@ protected:
     sf::Color background_color;
     sf::Font font;
     std::string name;
+    std::vector<std::unique_ptr<PlayerTokenComponent>> player_tokens;
 
 
     bool isCornerSquare();
     void setupSize();
     void setBackground();
-    void initText();//TODO: perhaps should be virtual since they have different texts.
+    void initText();
     void setTextRotation();
 
 public:
+    static constexpr float TOKEN_SPACING = 5.0f;  // Space between tokens
+    static constexpr float TOKEN_PADDING = 10.0f;  // Padding from square edges
 
-    BoardSquare(const sf::Vector2f &pos,
+
+    BoardSquareComponent(const sf::Vector2f &pos,
                     const std::string &squareName,
                     int id,
                     BoardSide side,
                     sf::Color bg = sf::Color(210, 230, 210));
-    virtual ~BoardSquare() = default;
+    virtual ~BoardSquareComponent() = default;
 
     // UI functions
-    virtual void draw(sf::RenderWindow& window) override = 0;
-    virtual bool handleEvent(const sf::Event& event) override = 0;
+    void draw(sf::RenderWindow& window) override;
+    void drawPlayers(sf::RenderWindow &window);
+    bool handleEvent(const sf::Event& event) override = 0;
     virtual void setTexts() = 0;
-
+    void addPlayer(int player_id);
+    void removePlayer(int player_id);
+    void clearPlayers();
+    void repositionTokens();  // Helper to update token positions
     [[nodiscard]] const sf::RectangleShape & getBackground() const {
         return background;
     }

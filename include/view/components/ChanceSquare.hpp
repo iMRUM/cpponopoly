@@ -1,7 +1,7 @@
 #pragma once
-#include "BoardSquare.hpp"
+#include "BoardSquareComponent.hpp"
 
-class ChanceSquare : public BoardSquare {
+class ChanceSquare : public BoardSquareComponent {
 private:
     void setTexts() override;
     sf::Color qmark_color;

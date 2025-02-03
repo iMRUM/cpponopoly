@@ -19,21 +19,15 @@ add_executable(model_tests
         include/controller/GameController.hpp
         include/view/Gui.hpp
         src/controller/GameController.cpp
-        include/utils/Observer/IMonopolyObserver.hpp
         main.cpp
         tests/model/squares/tests.cpp
         tests/model/Game_test.cpp
-        include/utils/registry/IRegistry.hpp
-        include/utils/registry/SquareRegistry.hpp
-        include/utils/factory/IFactory.hpp
-        include/utils/factory/SquareFactory.hpp
-        include/utils/factory/test.cpp
         include/view/components/SFComponent.hpp
         include/view/components/Button.hpp
         include/view/components/Button.hpp
         src/view/components/Button.cpp
-        include/view/components/BoardSquare.hpp
-        src/view/components/BoardSquare.cpp
+        include/view/components/BoardSquareComponent.hpp
+        src/view/components/BoardSquareComponent.cpp
         include/view/components/StreetSquare.hpp
         src/view/components/StreetSquare.cpp
         include/view/components/CornerSquare.hpp
@@ -57,11 +51,6 @@ add_executable(model_tests
         src/view/components/UtilitySquare.cpp
         include/view/components/MonopolyBoard.hpp
         src/view/components/MonopolyBoard.cpp
-        src/utils/registry/PlayerRegistry.cpp
-        include/utils/registry/PlayerRegistry.hpp
-        tests/utils/player_registry_test.cpp
-        src/utils/registry/SquareRegistry.cpp
-        tests/utils/square_registry_test.cpp
         include/view/components/SFComposite.hpp
         include/view/components/BoardView.hpp
         src/view/components/BoardView.cpp
@@ -73,8 +62,15 @@ add_executable(model_tests
         include/model/MonopolyRules.hpp
         include/model/Board.hpp
         src/model/Board.cpp
-        include/controller/TurnController.hpp
-        include/controller/PropertyController.hpp
-        src/controller/TurnController.cpp
-        src/controller/PropertyController.cpp
+        include/view/components/BoardSquareComposite.hpp
+        include/view/components/PlayerTokenComponent.hpp
+        src/view/components/PlayerTokenComponent.cpp
+        include/utils/state/GameState.hpp
+        src/view/components/PlayerTokenComponent.cpp
+        include/utils/state/StartState.hpp
+        include/utils/state/RollDiceState.hpp
+        include/utils/state/LandOnSquareState.hpp
+        include/utils/state/LandState.hpp
+        src/controller/states/StartState.cpp
+        src/controller/states/GameState.cpp
 )

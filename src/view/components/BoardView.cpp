@@ -15,11 +15,12 @@
 monopoly::BoardView::BoardView(float width, float height): SFComposite(sf::Vector2f(0.f, 0.f), sf::Vector2f(width, height)) {
     add(std::make_unique<MonopolyBoard>());
     // Create all squares
+    createCornerSquares();
     createBottomSquares();
     createLeftSquares();
     createTopSquares();
     createRightSquares();
-    createCornerSquares();
+
 }
 
 void monopoly::BoardView::createBottomSquares() {

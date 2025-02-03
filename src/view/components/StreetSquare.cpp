@@ -1,7 +1,7 @@
 #include "../../../include/view/components/StreetSquare.hpp"
 
 StreetSquare::StreetSquare(const sf::Vector2f &pos, const std::string &name, int id, const std::string &cost,
-                           const sf::Color &color, BoardSide side): BoardSquare(
+                           const sf::Color &color, BoardSide side): BoardSquareComponent(
                                                                         pos,
                                                                         name, id, side), group_color(color),
                                                                     price("price: " + cost + "$"),
@@ -121,6 +121,7 @@ void StreetSquare::draw(sf::RenderWindow &window) {
             window.draw(house_shapes[i]);
         }
     }
+    BoardSquareComponent::draw(window);
 }
 
 bool StreetSquare::handleEvent(const sf::Event &event) {

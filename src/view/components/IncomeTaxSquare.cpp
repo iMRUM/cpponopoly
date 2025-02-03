@@ -56,7 +56,7 @@ void IncomeTaxSquare::setTexts() {
     }
 }
 
-IncomeTaxSquare::IncomeTaxSquare(const sf::Vector2f &pos, int id, BoardSide side): BoardSquare(
+IncomeTaxSquare::IncomeTaxSquare(const sf::Vector2f &pos, int id, BoardSide side): BoardSquareComponent(
     pos, "INCOME\n   TAX", id, side) {
     setTexts();
 }
@@ -67,6 +67,7 @@ void IncomeTaxSquare::draw(sf::RenderWindow &window) {
     window.draw(background);
     window.draw(name_text);
     window.draw(lower_text);
+    BoardSquareComponent::draw(window);
 }
 
 bool IncomeTaxSquare::handleEvent(const sf::Event &event) {

@@ -1,7 +1,7 @@
 #pragma once
-#include "BoardSquare.hpp"
+#include "BoardSquareComponent.hpp"
 
-class UtilitySquare : public BoardSquare {
+class UtilitySquare : public BoardSquareComponent {
 private:
     void setTexts() override;
     //railroad, apparently Sprite instance

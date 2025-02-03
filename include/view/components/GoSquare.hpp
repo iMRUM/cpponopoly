@@ -1,7 +1,7 @@
 #pragma once
-#include "BoardSquare.hpp"
+#include "BoardSquareComponent.hpp"
 
-class GoSquare : public BoardSquare {
+class GoSquare : public BoardSquareComponent {
 private:
     sf::Text GO_text;
     sf::Text collect_text;
@@ -11,8 +11,16 @@ private:
 
 public:
     GoSquare(const sf::Vector2f &pos, int id, BoardSide side = BoardSide::BottomRight)
-        : BoardSquare(pos, "GO", id, side) {
+        : BoardSquareComponent(pos, "GO", id, side) {
         setTexts();
+        addPlayer(1);
+        addPlayer(2);
+        addPlayer(3);
+        addPlayer(4);
+        addPlayer(5);
+        addPlayer(6);
+        addPlayer(7);
+        addPlayer(8);
     }
 
     void draw(sf::RenderWindow &window) override;

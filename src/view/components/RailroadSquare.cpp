@@ -1,6 +1,6 @@
 #include "../../../include/view/components/RailroadSquare.hpp"
 
-RailroadSquare::RailroadSquare(const sf::Vector2f &pos, const std::string &name, int id, BoardSide side): BoardSquare(
+RailroadSquare::RailroadSquare(const sf::Vector2f &pos, const std::string &name, int id, BoardSide side): BoardSquareComponent(
     pos, name, id, side) {
     setTexts();
 }
@@ -69,6 +69,7 @@ void RailroadSquare::draw(sf::RenderWindow &window) {
     window.draw(background);
     window.draw(name_text);
     window.draw(lower_text);
+    BoardSquareComponent::draw(window);
 }
 
 bool RailroadSquare::handleEvent(const sf::Event &event) {

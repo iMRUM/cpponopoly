@@ -1,7 +1,7 @@
 #pragma once
-#include "BoardSquare.hpp"
+#include "BoardSquareComponent.hpp"
 
-class CommunityChestSquare : public BoardSquare {
+class CommunityChestSquare : public BoardSquareComponent {
 private:
     void setTexts() override;
     //chest, apparently Sprite instance

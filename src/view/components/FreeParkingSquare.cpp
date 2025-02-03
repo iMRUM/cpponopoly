@@ -51,6 +51,7 @@ void FreeParkingSquare::draw(sf::RenderWindow& window) {
     // Draw the texts
     window.draw(FREE_text);
     window.draw(PARKING_text);
+    BoardSquareComponent::draw(window);
 }
 
 bool FreeParkingSquare::handleEvent(const sf::Event& event) {
