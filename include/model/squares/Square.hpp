@@ -5,6 +5,19 @@
 #include <utility>
 
 namespace monopoly {
+    enum class SquareGroups {
+        Brown,
+        LightBlue,
+        Pink,
+        Orange,
+        Red,
+        Yellow,
+        Green,
+        Blue,
+        Railroad,
+        Utility,
+        Special
+    };
     /**
      * @brief Base class for all squares on the Monopoly board
      *
@@ -58,7 +71,7 @@ namespace monopoly {
          */
         [[nodiscard]] int getId() const noexcept { return id; }
 
-        // Disable copying and moving to prevent duplicate squares
+        // Disable copying and moving and prevent object slicing
         Square(const Square &) = delete;
         Square &operator=(const Square &) = delete;
         Square(Square &&) = delete;

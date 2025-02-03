@@ -9,20 +9,18 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 include_directories(include)
 
 add_executable(model_tests
-        src/model/Game.cpp
-        include/model/Game.hpp
+        src/model/GameModel.cpp
+        include/model/GameModel.hpp
         src/model/Player.cpp
-        include/utils/Strategy/StrategyRentCalculator.hpp
-        include/utils/Strategy/StreetRentCalculator.hpp
-        include/utils/Strategy/RailroadRentCalculator.hpp
-        include/utils/Strategy/UtilityRentCalculator.hpp
-        include/controller/Controller.hpp
+        include/utils/strategy/StrategyRentCalculator.hpp
+        include/utils/strategy/StreetRentCalculator.hpp
+        include/utils/strategy/RailroadRentCalculator.hpp
+        include/utils/strategy/UtilityRentCalculator.hpp
+        include/controller/GameController.hpp
         include/view/Gui.hpp
-        src/controller/Controller.cpp
+        src/controller/GameController.cpp
         include/utils/Observer/IMonopolyObserver.hpp
-        src/view/Gui.cpp
-        maeein.cpp
-        src/view/main.cpp
+        main.cpp
         tests/model/squares/tests.cpp
         tests/model/Game_test.cpp
         include/utils/registry/IRegistry.hpp
@@ -32,7 +30,6 @@ add_executable(model_tests
         include/utils/factory/test.cpp
         include/view/components/SFComponent.hpp
         include/view/components/Button.hpp
-        src/view/main_button_.cpp
         include/view/components/Button.hpp
         src/view/components/Button.cpp
         include/view/components/BoardSquare.hpp
@@ -70,8 +67,14 @@ add_executable(model_tests
         src/view/components/BoardView.cpp
         include/view/components/UserView.hpp
         include/view/components/Window.hpp
-        include/view/View.hpp
-        src/view/View.cpp
+        include/view/GameView.hpp
+        src/view/GameView.cpp
         src/view/components/UserView.cpp
-        src/view/main_button.cpp
+        include/model/MonopolyRules.hpp
+        include/model/Board.hpp
+        src/model/Board.cpp
+        include/controller/TurnController.hpp
+        include/controller/PropertyController.hpp
+        src/controller/TurnController.cpp
+        src/controller/PropertyController.cpp
 )

@@ -2,6 +2,8 @@
 #include "Square.hpp"
 #include <stdexcept>
 
+#include "../../utils/strategy/StrategyRentCalculator.hpp"
+
 namespace monopoly {
     /**
      * @brief Base class for all purchasable properties in Monopoly
@@ -11,7 +13,7 @@ namespace monopoly {
      * Properties start owned by the bank (BANK_ID) and can be purchased by players.
      */
     class Property : public Square {
-    private:
+    protected:
         /** @brief Identifier for bank ownership of properties */
         static constexpr int BANK_ID = -1;
 
@@ -24,6 +26,9 @@ namespace monopoly {
         /** @brief Base rent amount when property is unimproved */
         int base_rent;
 
+        SquareGroups group;
+        std::unique_ptr<StrategyRentCalculator> rentCalculator;
+
     public:
         /**
          * @brief Constructs a Property with given attributes
@@ -34,14 +39,10 @@ namespace monopoly {
          * @param base_rent Basic rent amount (must be non-negative)
          * @throws std::invalid_argument if price or base_rent is negative
          */
-        Property(const std::string& name,
-                const int position,
-                const int price,
-                const int base_rent)
-            : Square(name, position),
-                owner_id(BANK_ID),
-              price(price),
-              base_rent(base_rent) {
+        Property(const std::string &name, int position, int price,
+                 int base_rent, SquareGroups group)
+            : Square(name, position), owner_id(BANK_ID),
+              price(price), base_rent(base_rent), group(group) {
             if (price < 0) throw std::invalid_argument("Price cannot be negative");
             if (base_rent < 0) throw std::invalid_argument("Base rent cannot be negative");
         }
@@ -84,10 +85,23 @@ namespace monopoly {
             base_rent = new_base_rent;
         }
 
+        [[nodiscard]] virtual SquareGroups getGroup() const { return group; }
+
+        void setRentCalculator(std::unique_ptr<StrategyRentCalculator> calculator) {
+            rentCalculator = std::move(calculator);
+        }
+
+        [[nodiscard]] int calculateRent() const {
+            return rentCalculator ? rentCalculator->calculateRent() : base_rent;
+        }
+
         // Prevent copying/moving
-        Property(const Property&) = delete;
-        Property& operator=(const Property&) = delete;
-        Property(Property&&) = delete;
-        Property& operator=(Property&&) = delete;
+        Property(const Property &) = delete;
+
+        Property &operator=(const Property &) = delete;
+
+        Property(Property &&) = delete;
+
+        Property &operator=(Property &&) = delete;
     };
 }

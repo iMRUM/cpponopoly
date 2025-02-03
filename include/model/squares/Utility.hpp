@@ -1,5 +1,6 @@
 #pragma once
 #include "Property.hpp"
+#include "../../utils/strategy/UtilityRentCalculator.hpp"
 
 namespace monopoly {
     /**
@@ -34,7 +35,11 @@ namespace monopoly {
                const int position,
                const int price = DEFAULT_UTILITY_PRICE,
                const int multiplier = DEFAULT_MULTIPLIER)
-            : Property(name, position, price, multiplier) {
+            : Property(name, position, price, multiplier, SquareGroups::Utility) {
+            setRentCalculator(std::make_unique<UtilityRentCalculator>(base_rent, 0)); // No dice roll initially
+        }
+        void updateRent(int diceRoll) {
+            setRentCalculator(std::make_unique<UtilityRentCalculator>(base_rent, diceRoll));
         }
     };
 }

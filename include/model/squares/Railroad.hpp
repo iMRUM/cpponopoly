@@ -1,5 +1,6 @@
 #pragma once
 #include "Property.hpp"
+#include "../../utils/strategy/RailroadRentCalculator.hpp"
 
 namespace monopoly {
     /**
@@ -35,7 +36,11 @@ namespace monopoly {
                 const int position,
                 const int price = DEFAULT_RAILROAD_PRICE,
                 const int base_rent = DEFAULT_RAILROAD_BASE_RENT)
-            : Property(name, position, price, base_rent) {
+            : Property(name, position, price, base_rent, SquareGroups::Railroad) {
+            setRentCalculator(std::make_unique<RailroadRentCalculator>(base_rent, 1));
+        }
+        void updateOwnedCount(int count) {
+            setRentCalculator(std::make_unique<RailroadRentCalculator>(base_rent, count));
         }
     };
 }
