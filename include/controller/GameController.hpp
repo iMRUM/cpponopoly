@@ -2,21 +2,27 @@
 #include <memory>
 #include "../model/GameModel.hpp"
 #include "../view/GameView.hpp"
-#include "TurnController.hpp"
-#include "PropertyController.hpp"
+#include "../utils/state/GameState.hpp"
+#include "../utils/state/StartState.hpp"
 
 namespace monopoly {
+    class GameState;
+    class StartState;
+
     class GameController {
     private:
+        friend GameState;
+        friend StartState;
+
         std::unique_ptr<GameModel> model;
         std::unique_ptr<GameView> view;
+        std::unique_ptr<GameState> state;
         size_t current_player_index{0};
 
         void initModel(size_t num_of_players);
+
         void initView();
-        void gameLoop();
-        void processTurn();
-        void moveToNextPlayer();
+
         bool isGameOver() const;
 
         void handleKeyRelease(sf::Keyboard::Key key);
@@ -24,9 +30,21 @@ namespace monopoly {
         void handleUserInput();
 
     public:
-        GameController() = default;
+        GameController();
+
         ~GameController() = default;
-        void init();
+
         void run();
+
+        void update();
+
+
+        void changeState(GameState *newState);
+
+        // Accessors for states
+        GameModel *getModel() const { return model.get(); }
+        GameView *getView() const { return view.get(); }
+        size_t getCurrentPlayerIndex() const { return current_player_index; }
+        void setCurrentPlayerIndex(const size_t index) { current_player_index = index; }
     };
 }

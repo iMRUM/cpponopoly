@@ -25,6 +25,9 @@ namespace monopoly {
         window.setFramerateLimit(60);
     }
 
+    void GameView::showPrompt(std::string &prompt) {
+    }
+
     void GameView::update() {
         board.updateView();
         panel.updateView();

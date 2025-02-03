@@ -13,6 +13,8 @@ namespace monopoly {
 
         bool handleEvent(const sf::Event &event) override;
 
+        void updatePrompt(std::string& prompt);
+
         void updateView() override;
     };
 }

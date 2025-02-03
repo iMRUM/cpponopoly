@@ -62,13 +62,15 @@ add_executable(model_tests
         include/model/MonopolyRules.hpp
         include/model/Board.hpp
         src/model/Board.cpp
-        include/controller/TurnController.hpp
-        include/controller/PropertyController.hpp
-        src/controller/TurnController.cpp
-        src/controller/PropertyController.cpp
         include/view/components/BoardSquareComposite.hpp
         include/view/components/PlayerTokenComponent.hpp
         src/view/components/PlayerTokenComponent.cpp
-        include/utils/state/IMonopolyState.hpp
+        include/utils/state/GameState.hpp
         src/view/components/PlayerTokenComponent.cpp
+        include/utils/state/StartState.hpp
+        include/utils/state/RollDiceState.hpp
+        include/utils/state/LandOnSquareState.hpp
+        include/utils/state/LandState.hpp
+        src/controller/states/StartState.cpp
+        src/controller/states/GameState.cpp
 )
