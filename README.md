@@ -43,20 +43,21 @@ Players can roll dice by pressing SPACE, determining their movement on the board
 - `Player`: Handles player state and actions
 
 ### Building Requirements
-
+- Ubuntu-based Linux (works on Mint 20)
 - C++17 or higher
 - SFML 2.5.1+
-- CMake 3.10+
+## Get SFML Here:
 
 ### Build Instructions
 
 ```bash
-mkdir build
-cd build
-cmake ..
-make
-```
+git clone https://github.com/iMRUM/cpponopoly && cd cpponopoly && g++ -std=c++20 main.cpp src/view/components/*.cpp src/controller/*.cpp src/model/*.cpp src/view/*.cpp src/controller/states/*.cpp -o monopoly -lsfml-graphics -lsfml-window -lsfml-system
 
+```
+### Run
+```bash
+./monopoly
+```
 ### Code Structure
 
 ```
