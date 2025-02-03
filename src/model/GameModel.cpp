@@ -2,13 +2,12 @@
 #include <stdexcept>
 
 
-
-
 namespace monopoly {
-    std::unique_ptr<GameModel> monopoly::GameModel::instance = nullptr;
+    std::unique_ptr<GameModel> GameModel::instance = nullptr;
+
     GameModel::GameModel() {
         board = std::make_unique<Board>();
-        std::cout<<"GameModel Created"<<std::endl;
+        std::cout << "GameModel Created" << std::endl;
     }
 
     // Basic Player and square management
@@ -29,12 +28,12 @@ namespace monopoly {
 
     void GameModel::addSquare(std::unique_ptr<Square> square) {
         //NOT-TESTED
-        if (board->getSize() >= 40) { //MAGIC NUMBER WILL BE SOLVED
+        if (board->getSize() >= 40) {
+            //MAGIC NUMBER WILL BE SOLVED
             throw std::runtime_error("Maximum number of squares reached");
         }
         board->addSquare(std::move(square));
     }
-
 
 
     void GameModel::addRailroad(const std::string &name, int position, int price, int baseRent) {
@@ -43,7 +42,7 @@ namespace monopoly {
     }
 
     void GameModel::addStreet(const std::string &name, int position, int price, int baseRent, int house_cost,
-                         SquareGroups color) {
+                              SquareGroups color) {
         //NOT-TESTED
         addSquare(std::make_unique<Street>(name, position, price, baseRent, house_cost, color));
     }
@@ -59,7 +58,7 @@ namespace monopoly {
     }
 
     //Turns management:
-    void GameModel::handleTurn() {
+   /* void GameModel::handleTurn() {
         state.resetTurnState();
         Player &current_player = getCurrentPlayer();
         handleDiceRoll();
@@ -69,24 +68,24 @@ namespace monopoly {
             payFine(50, current_player);
             outOfJail(current_player);
         }
-    }
+    }*/
 
-    Dice GameModel::rollDice() {
+    const Dice &GameModel::rollDice() {
         state.has_rolled = true;
-        const auto dice = Dice{dice_dist(gen_), dice_dist(gen_)};
+        const auto &dice = Dice{dice_dist(gen_), dice_dist(gen_)};
         state.current_dice_result = dice.getTotal();
-        return dice;
-    }
-
-    void GameModel::handleDiceRoll() {
-        Dice dice = rollDice();
         if (dice.isDoubles()) {
             handleDouble();
         }
+        return dice;
     }
 
     void GameModel::handleDouble() {
         Player &current_player = getCurrentPlayer();
+        if (!current_player.isInJail()) {
+            state.has_another_turn = true;
+            return;
+        }
         if (current_player.isInJail()) {
             outOfJail(current_player);
         }
@@ -94,10 +93,10 @@ namespace monopoly {
         if (current_player.hasMaxConsecutiveDoubles()) {
             goToJail(current_player);
         }
+    }
 
-        if (!current_player.isInJail()) {
-            state.has_another_turn = true;
-        }
+    bool GameModel::hasAnotherTurn() {
+        return state.has_another_turn;
     }
 
     void GameModel::isGameWon() {
@@ -118,11 +117,11 @@ namespace monopoly {
 
     void GameModel::handleBankruptcy(int player_id) {
         int owner_id = owned_by_map[state.current_square_id];
-        Player& bankrupt_player = *players[player_id];
+        Player &bankrupt_player = *players[player_id];
 
         // Transfer properties to owner who bankrupted the player
         if (ownership_map.count(player_id)) {
-            for (int square_id : ownership_map[player_id]) {
+            for (int square_id: ownership_map[player_id]) {
                 owned_by_map[square_id] = owner_id;
                 ownership_map[owner_id].push_back(square_id);
             }
@@ -134,7 +133,7 @@ namespace monopoly {
     }
 
     void GameModel::moveSteps(int steps, int player_id) {
-        int new_position = (players[player_id]->getPosition() + steps)%static_cast<int>(board->getSize());
+        int new_position = (players[player_id]->getPosition() + steps) % static_cast<int>(board->getSize());
         players[player_id]->setPosition(new_position);
     }
 
@@ -163,7 +162,7 @@ namespace monopoly {
             return;
         }
 
-        auto* street = dynamic_cast<Street*>(&property);
+        auto *street = dynamic_cast<Street *>(&property);
         if (street && canBuildOnStreet(*street, player)) {
             state.awaiting_action = true;
         }
@@ -192,7 +191,7 @@ namespace monopoly {
             return;
         }
 
-        auto& owner = players[property.getOwnerId()];
+        auto &owner = players[property.getOwnerId()];
         player.decreaseBalance(rent);
         owner->increaseBalance(rent);
     }
@@ -200,26 +199,27 @@ namespace monopoly {
     int GameModel::getRailroadCount(const int property_id, const int player_id) {
         int count = 0;
         for (int railroad_id: board->getPropertyIdsInGroup(property_id)) {
-            if(owned_by_map.contains(railroad_id) && owned_by_map[railroad_id] == player_id) {
+            if (owned_by_map.contains(railroad_id) && owned_by_map[railroad_id] == player_id) {
                 count++;
             }
         }
         return count;
     }
+
     void GameModel::buyProperty(Property &property, Player &player) {
         if (property.isOwned() || !player.canAfford(property.getPrice())) {
             return;
         }
 
         if (player.decreaseBalance(property.getPrice())) {
-            owned_by_map[property.getId()] =  player.getId();
+            owned_by_map[property.getId()] = player.getId();
             ownership_map[player.getId()].push_back(property.getId());
             property.setOwnerId(player.getId());
             state.awaiting_action = false;
         }
     }
 
-    void GameModel::buildOnStreet(int street_id, int player_id){
+    void GameModel::buildOnStreet(int street_id, int player_id) {
     }
 
     void GameModel::landOnSpecialSquare(SpecialSquare &special_square, Player &player) {
@@ -284,7 +284,7 @@ namespace monopoly {
     }
 
     bool GameModel::canBuyProperty() const {
-        if (auto property = dynamic_cast<Property*>(board->getSquare(state.current_square_id))) {
+        if (auto property = dynamic_cast<Property *>(board->getSquare(state.current_square_id))) {
             return players[state.current_player_id]->canAfford(property->getPrice());
         }
         return false;
@@ -298,10 +298,10 @@ namespace monopoly {
         }
         //"even houses amount rule"
         int current_houses = street.getHouses();
-        for (auto* other_street : board->getPropertiesInGroup(street.getId())) {
+        for (auto *other_street: board->getPropertiesInGroup(street.getId())) {
             if (!other_street) continue;
 
-            if (auto* street_ptr = dynamic_cast<Street*>(other_street)) {
+            if (auto *street_ptr = dynamic_cast<Street *>(other_street)) {
                 if (street_ptr->getHouses() < current_houses) {
                     return false;
                 }
@@ -309,15 +309,17 @@ namespace monopoly {
         }
         return true;
     }
+
     bool GameModel::hasMonopoly(int player_id, int square_id) const {
-        std::vector<Property*> group_properties = board->getPropertiesInGroup(square_id);
+        std::vector<Property *> group_properties = board->getPropertiesInGroup(square_id);
 
         // Check if all properties in group are owned by same player
         return std::all_of(group_properties.begin(), group_properties.end(),
-            [player_id](const Property* prop) {
-                return prop->getOwnerId() == player_id;
-            });
+                           [player_id](const Property *prop) {
+                               return prop->getOwnerId() == player_id;
+                           });
     }
+
     bool GameModel::mustPayRent(const int square_id) const {
         if (owned_by_map.contains(square_id)) {
             return owned_by_map.at(square_id) == state.current_player_id;

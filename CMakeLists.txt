@@ -73,4 +73,7 @@ add_executable(model_tests
         include/utils/state/LandState.hpp
         src/controller/states/StartState.cpp
         src/controller/states/GameState.cpp
+        src/controller/states/RollDiceState.cpp
+        include/utils/state/TurnState.hpp
+        src/controller/states/TurnState.cpp
 )

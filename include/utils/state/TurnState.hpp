@@ -1,11 +1,13 @@
 #pragma once
-#include "RollDiceState.hpp"
+#include "GameState.hpp"
 
 namespace monopoly {
-    class StartState : public GameState {
+    class TurnState : public GameState {
     private:
-        static StartState* instance;
-        StartState() = default;
+        static TurnState *instance;
+
+        TurnState() = default;
+
     public:
         static GameState *getInstance();
 

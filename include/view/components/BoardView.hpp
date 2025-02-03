@@ -1,4 +1,5 @@
 #pragma once
+#include "BoardSquareComponent.hpp"
 #include "SFComposite.hpp"
 // holds squares and players
 namespace monopoly {
@@ -13,8 +14,11 @@ namespace monopoly {
 
         bool handleEvent(const sf::Event &event) override;
 
-        void updatePlayerAtSquare(int square, int player_id);
-        void updateHouseOnStreet(int square);
+        void updatePlayerAtSquare(int square_id, int player_id);
+        void updateHouseOnStreet(int square_id);
+
+        BoardSquareComponent *findSquareById(int square_id);
+
         void updateView() override;
     };
 }

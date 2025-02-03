@@ -1,6 +1,6 @@
 #pragma once
 #include "GameState.hpp"
-
+/*
 namespace monopoly {
     class LandState : public GameState {
     public:
@@ -52,4 +52,4 @@ namespace monopoly {
             }
         }
     };
-}
+}*/
