@@ -5,8 +5,8 @@
 #include "SFComponent.hpp"
 class PlayerTokenComponent : public SFComponent {
 private:
-    static constexpr float TOKEN_RADIUS = 15.0f;  // Size of player token
-    static constexpr float TOKEN_TEXT_SIZE = 12.0f;  // Size of player ID text
+    static constexpr float TOKEN_RADIUS = 7.5f;  // Size of player token
+    static constexpr float TOKEN_TEXT_SIZE = 11.0f;  // Size of player ID text
 
     sf::CircleShape token;
     sf::Text id_text;
@@ -58,16 +58,7 @@ public:
         return false;
     }
 
-    void updateView() override {
-        // Update token and text positions if needed
-        token.setPosition(position);
-
-        sf::FloatRect textBounds = id_text.getLocalBounds();
-        id_text.setPosition(
-            position.x + TOKEN_RADIUS - textBounds.width/2,
-            position.y + TOKEN_RADIUS - textBounds.height/2
-        );
-    }
+    void updateView() override;
 
 
     static float getTokenDiameter() { return TOKEN_RADIUS * 2; }

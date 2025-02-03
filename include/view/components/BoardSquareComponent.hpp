@@ -47,7 +47,8 @@ protected:
 
 public:
     static constexpr float TOKEN_SPACING = 5.0f;  // Space between tokens
-    static constexpr float TOKEN_BOTTOM_PADDING = 10.0f;  // Space from bottom of square
+    static constexpr float TOKEN_PADDING = 10.0f;  // Padding from square edges
+
 
     BoardSquareComponent(const sf::Vector2f &pos,
                     const std::string &squareName,

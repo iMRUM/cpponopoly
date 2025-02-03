@@ -16,10 +16,6 @@ namespace monopoly {
         view->start();
     }
 
-    void GameController::initControllers() {
-        turn_controller = std::make_unique<TurnController>(model.get(), view.get());
-        property_controller = std::make_unique<PropertyController>(model.get(), view.get());
-    }
 
     void GameController::gameLoop() {
         view->start();
@@ -33,7 +29,6 @@ namespace monopoly {
 
     void GameController::processTurn() {
         auto& current_player = model->getCurrentPlayer();
-        turn_controller->executeTurn(current_player, *property_controller);
         moveToNextPlayer();
     }
 

@@ -31,7 +31,10 @@ public:
 
     virtual void updateView() = 0;
 
-    void setPosition(const sf::Vector2f &pos) { position = pos; }
+    void setPosition(const sf::Vector2f &pos) {
+        position = pos;
+        std::cout << position.x << ", " << position.y << std::endl;
+    }
     void setSize(const sf::Vector2f &sz) { size = sz; }
 
     const sf::Vector2f &getPosition() const { return position; }

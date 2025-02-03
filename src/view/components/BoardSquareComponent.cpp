@@ -12,12 +12,13 @@ void BoardSquareComponent::drawPlayers(sf::RenderWindow &window) {
 
 BoardSquareComponent::BoardSquareComponent(const sf::Vector2f &pos, const std::string &squareName, const int id,
                                            const BoardSide side,
-                                           const sf::Color bg): SFComponent(pos), board_side(side),
-                                                                background_color(bg),
-                                                                name(squareName), square_id(id) {
+                                           const sf::Color bg): SFComponent(pos), square_id(id),
+                                                                board_side(side),
+                                                                background_color(bg), name(squareName) {
     setupSize();
     initText();
     setBackground();
+
 }
 
 bool BoardSquareComponent::isCornerSquare() {
@@ -117,22 +118,20 @@ void BoardSquareComponent::clearPlayers() {
 
 void BoardSquareComponent::repositionTokens() {
     if (player_tokens.empty()) return;
-
+    std::cout << "Repositioning tokens" << std::endl;
     // Calculate total width needed for all tokens
     float token_diameter = PlayerTokenComponent::getTokenDiameter();
-    float totalWidth = player_tokens.size() * token_diameter +
-                       (player_tokens.size() - 1) * TOKEN_SPACING;
-
     // Calculate starting X position to center the tokens
-    float startX = position.x + (getSize().x - totalWidth) / 2;
+    float startX = position.x;
     // Y position is at bottom of square with padding
-    float tokenY = position.y + getSize().y - token_diameter - TOKEN_BOTTOM_PADDING;
+    float startY = position.y + 72.5f;
 
     // Update positions of all tokens
     for (size_t i = 0; i < player_tokens.size(); ++i) {
         player_tokens[i]->setPosition(sf::Vector2f(
-            startX + i * (token_diameter + TOKEN_SPACING),
-            tokenY
+            startX + i * (token_diameter) + TOKEN_SPACING,
+            startY
         ));
+        player_tokens[i]->updateView();
     }
 }
