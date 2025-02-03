@@ -7,6 +7,7 @@ namespace monopoly {
                        const sf::Vector2f &panelPos, const sf::Vector2f &panelSize)
         : board(boardSize, boardSize)
           , panel(panelPos, panelSize) {
+        std::cout<<"GameView Created"<<std::endl;
     }
 
     std::unique_ptr<GameView> GameView::getInstance(sf::VideoMode mode,

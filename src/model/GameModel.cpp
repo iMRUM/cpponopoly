@@ -8,6 +8,7 @@ namespace monopoly {
     std::unique_ptr<GameModel> monopoly::GameModel::instance = nullptr;
     GameModel::GameModel() {
         board = std::make_unique<Board>();
+        std::cout<<"GameModel Created"<<std::endl;
     }
 
     // Basic Player and square management

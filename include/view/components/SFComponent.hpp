@@ -21,8 +21,6 @@ public:
     }
 
     explicit SFComponent(const sf::Vector2f &pos): position(pos), size(sf::Vector2f(REGULAR_WIDTH, REGULAR_HEIGHT)) {
-        std::cout << "SFComponent pos:" << pos.x << "," << pos.y
-              << " size:" << size.x << "," << size.y << std::endl;
     }
 
     virtual ~SFComponent() = default;
