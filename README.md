@@ -4,7 +4,7 @@ A C++ implementation of the classic Monopoly board game using SFML for graphics.
 
 ## Architecture
 
-The game follows the Model-View-Controller (MVC) architectural pattern:
+The game follows the Cocoa Model-View-Controller (MVC) architectural pattern as seen in Cocoa documentation:
 
 ![alt text](https://developer.apple.com/library/archive/documentation/General/Conceptual/DevPedia-CocoaCore/Art/model_view_controller_2x.png)
 
