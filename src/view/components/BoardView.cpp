@@ -201,9 +201,11 @@ namespace monopoly {
         return false;
     }
 
-    void BoardView::updatePlayerAtSquare(int square_id, int player_id) {
-        auto* square = findSquareById(square_id);
+    void BoardView::updatePlayerAtSquare(int player_id, int new_square_id, int old_square_id) {
+        auto* square = findSquareById(new_square_id);
+        auto* oldSquare = findSquareById(old_square_id);
         if (square) {
+            oldSquare->removePlayer(player_id);
             square->addPlayer(player_id);
         }
     }

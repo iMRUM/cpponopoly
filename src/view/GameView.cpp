@@ -25,10 +25,23 @@ namespace monopoly {
         window.setFramerateLimit(60);
     }
 
-    void GameView::updatePlayerAtBoardSquare(int player_id, int square_id) {
-        board.updatePlayerAtSquare(square_id, player_id);
+    void GameView::updatePlayerAtBoardSquare(int player_id, int new_square_id, int old_square_id) {
+        board.updatePlayerAtSquare(player_id, new_square_id, old_square_id);
     }
+
+    void GameView::updateBalanceBox(int balance) {
+        panel.updateBalance(balance);
+    }
+
+    void GameView::updateNameBox(std::string &name) {
+        panel.updateNameBox(name);
+    }
+
+    void GameView::updatePlayerName(const std::string &name) {
+    }
+
     void GameView::updatePanelMessage(std::string &prompt) {
+        panel.updatePromptText(prompt);
     }
 
     void GameView::update() {

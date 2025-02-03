@@ -112,7 +112,7 @@ namespace monopoly {
 
         // Getters and Setters
         [[nodiscard]] int getBalance() const { return balance; }
-        [[nodiscard]] int getPosition() const { return position; }
+        [[nodiscard]] const size_t getPosition() const { return position; }
         [[nodiscard]] int getJailTurns() const { return jail_turns; }
         [[nodiscard]] bool isInJail() const { return in_jail; }
         [[nodiscard]] bool hasMaxConsecutiveDoubles() const { return doubles >= MAX_DOUBLES; }
@@ -132,6 +132,8 @@ namespace monopoly {
 
         void addJailCard() { jail_cards_amount++; }
         [[nodiscard]] const std::string &getName() const { return name; }
+     [[nodiscard]] const std::string &getName() { return name; }
+     [[nodiscard]] std::string &getNamenc() { return name; }
         [[nodiscard]] int getId() const { return id; }
         void setId(const int id) { this->id = id; }
         void setPosition(const int new_position) { position = new_position; }

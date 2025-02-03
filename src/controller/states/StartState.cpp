@@ -22,7 +22,7 @@ namespace monopoly {
             controller->initModel(numPlayers);
             GameView *view = controller->getView();
             for (int i = 0; i < numPlayers; ++i) {
-                controller->getView()->updatePlayerAtBoardSquare(i, 0);
+                controller->getView()->updatePlayerAtBoardSquare(i, 0, 0);
             }
             std::cout << "changeState(controller, RollDiceState::Instance());" << std::endl;
             changeState(controller, RollDiceState::getInstance());

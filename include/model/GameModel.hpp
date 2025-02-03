@@ -184,18 +184,12 @@ namespace monopoly {
         void handleBankruptcy(int player_id);
 
         //Movement management:
-        /**
-       * @brief Move player specified number of steps
-       * @param steps Number of steps to move
-       * @param player_id Player to move
-       */
-        void moveSteps(int steps, int player_id);
+
 
         /**
          * @brief Handle player passing GO square
-         * @param player Player who passed GO
          */
-        void movedPastGo(Player &player);
+        void movedPastGo();
 
 
         //Landing management:
@@ -300,7 +294,12 @@ namespace monopoly {
         GameModel(const GameModel &) = delete;
 
         GameModel &operator=(const GameModel &) = delete;
-
+     /**
+            * @brief Move player specified number of steps
+            * @param steps Number of steps to move
+            * @param player_id Player to move
+            */
+     void moveSteps(int steps, int player_id);
         /**
      * @brief Initialize a new game
      * @param size_players Number of players

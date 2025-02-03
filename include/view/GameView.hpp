@@ -21,12 +21,15 @@ namespace monopoly {
 
         void start();
 
-        void updatePlayerAtBoardSquare(int player_id, int square_id);
+        void updatePlayerAtBoardSquare(int player_id, int new_square_id, int old_square_id);
 
         void close() { window.close(); }
         bool isOpen() const { return window.isOpen(); }
         bool pollEvent(sf::Event &event) { return window.pollEvent(event); }
 
+        void updateBalanceBox(int balance);
+        void updateNameBox(std::string &name);
+        void updatePlayerName(const std::string &name);
         void updatePanelMessage(std::string &prompt);
 
         void update();

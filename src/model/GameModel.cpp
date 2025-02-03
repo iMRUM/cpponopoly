@@ -135,10 +135,14 @@ namespace monopoly {
     void GameModel::moveSteps(int steps, int player_id) {
         int new_position = (players[player_id]->getPosition() + steps) % static_cast<int>(board->getSize());
         players[player_id]->setPosition(new_position);
+        if (new_position <= state.current_square_id) {
+            movedPastGo();
+        }
+        state.current_square_id = new_position;
     }
 
-    void GameModel::movedPastGo(Player &player) {
-        player.increaseBalance(200);
+    void GameModel::movedPastGo() {
+        getCurrentPlayer().increaseBalance(200);
     }
 
     void GameModel::landOn(int pos, Player &player) {
@@ -245,6 +249,7 @@ namespace monopoly {
 
     void GameModel::goToJail(Player &player) {
         player.toggleJailState();
+        player.setPosition(10);
     }
 
     void GameModel::outOfJail(Player &player) {
@@ -281,6 +286,27 @@ namespace monopoly {
         if (!state.has_another_turn) {
             state.current_player_id = (state.current_player_id + 1) % static_cast<int>(getPlayersCount());
         }
+        /*void GameModel::nextTurn() {
+        if (!state.has_another_turn) {
+            const int player_count = static_cast<int>(getPlayersCount());
+            int next_player = state.current_player_id;
+            int checked_players = 0;
+
+            // Keep looking for next valid player until we've checked everyone
+            do {
+                next_player = (next_player + 1) % player_count;
+                checked_players++;
+
+                // If we've checked all players, the game should be over
+                if (checked_players >= player_count) {
+                    state.over = true;
+                    return;
+                }
+            } while (players[next_player]->isBankrupt());
+
+            state.current_player_id = next_player;
+        }
+    }*/
     }
 
     bool GameModel::canBuyProperty() const {

@@ -1,5 +1,7 @@
 #include "../../../include/utils/state/RollDiceState.hpp"
 #include "../../../include/controller/GameController.hpp"
+#include "../../../include/utils/state/TurnState.hpp"
+
 namespace monopoly{
     RollDiceState* RollDiceState::instance = nullptr;
 GameState * RollDiceState::getInstance() {
@@ -22,7 +24,8 @@ void RollDiceState::handleKeyRelease(GameController *controller, sf::Keyboard::K
         const Dice& dice = model->rollDice();
         if (dice.isDoubles()) {
             if (current_player.isInJail()) {
-                view->updatePlayerAtBoardSquare(current_player.getId(),10);
+                std::string message = "CONGRATS! Go To Jail.";
+                view->updatePlayerAtBoardSquare(current_player.getId(),current_player.getPosition(), current_player.getPosition()-dice.getTotal());
                 return;
             }
             if (!current_player.isInJail()) {
@@ -31,7 +34,10 @@ void RollDiceState::handleKeyRelease(GameController *controller, sf::Keyboard::K
                 return;
             }
         }
-        std::cout << "changeState(controller, MoveState::getInstance())"<< std::endl;
+        model->moveSteps(dice.getTotal(), current_player.getId());
+        view->updatePlayerAtBoardSquare(current_player.getId(),current_player.getPosition(), current_player.getPosition()-dice.getTotal());
+        model->nextTurn();
+        changeState(controller, TurnState::getInstance());
     }
 }
 }

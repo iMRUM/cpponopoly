@@ -14,7 +14,7 @@ namespace monopoly {
 
         bool handleEvent(const sf::Event &event) override;
 
-        void updatePlayerAtSquare(int square_id, int player_id);
+        void updatePlayerAtSquare(int player_id, int new_square_id, int old_square_id);
         void updateHouseOnStreet(int square_id);
 
         BoardSquareComponent *findSquareById(int square_id);
