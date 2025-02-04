@@ -17,7 +17,7 @@ namespace monopoly {
         std::unique_ptr<GameModel> model;
         std::unique_ptr<GameView> view;
         std::unique_ptr<GameState> state;
-        size_t current_player_index{0};
+
 
         void initModel(size_t num_of_players);
 
