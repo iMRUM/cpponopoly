@@ -1,9 +1,15 @@
+#pragma once
+#include <memory>
+#include "../model/GameModel.hpp"
+#include "../view/GameView.hpp"
+#include "../utils/state/GameState.hpp"
+#include "../utils/state/StartState.hpp"
 /**
  * @file GameController.hpp
  * @brief Main controller class for the Monopoly game implementation
  *
- * The GameController class serves as the central coordinator in the MVC (Model-View-Controller) 
- * architecture of the Monopoly game. It manages game flow, handles user input, and orchestrates 
+ * The GameController class serves as the central coordinator in the MVC (Model-View-Controller)
+ * architecture of the Monopoly game. It manages game flow, handles user input, and orchestrates
  * communication between the GameModel and GameView components.
  *
  * Key responsibilities:
@@ -71,7 +77,7 @@ private:
 public:
     /**
      * @brief Constructor for GameController
-     * 
+     *
      * Initializes the controller with default state and empty model/view components
      */
     GameController();
