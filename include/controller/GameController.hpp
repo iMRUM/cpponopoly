@@ -1,50 +1,135 @@
-#pragma once
-#include <memory>
-#include "../model/GameModel.hpp"
-#include "../view/GameView.hpp"
-#include "../utils/state/GameState.hpp"
-#include "../utils/state/StartState.hpp"
-
+/**
+ * @file GameController.hpp
+ * @brief Main controller class for the Monopoly game implementation
+ *
+ * The GameController class serves as the central coordinator in the MVC (Model-View-Controller) 
+ * architecture of the Monopoly game. It manages game flow, handles user input, and orchestrates 
+ * communication between the GameModel and GameView components.
+ *
+ * Key responsibilities:
+ * - Initializes and manages the game model and view components
+ * - Processes user input and triggers appropriate model updates
+ * - Manages game state transitions
+ * - Controls game flow and turn progression
+ * - Updates the view based on model changes
+ */
 namespace monopoly {
-    class GameState;
-    class StartState;
 
-    class GameController {
-    private:
-        friend GameState;
-        friend StartState;
+/**
+ * @class GameController
+ * @brief Primary controller class coordinating game logic and user interface
+ *
+ * The GameController implements the Controller part of the MVC pattern, managing:
+ * - Game initialization and setup
+ * - State transitions
+ * - User input processing
+ * - View updates
+ * - Game loop control
+ */
+class GameController {
+private:
+    /** @brief Friendship declaration for GameState base class */
+    friend GameState;
+    /** @brief Friendship declaration for StartState class */
+    friend StartState;
 
-        std::unique_ptr<GameModel> model;
-        std::unique_ptr<GameView> view;
-        std::unique_ptr<GameState> state;
+    /** @brief Pointer to the game's model component */
+    std::unique_ptr<GameModel> model;
+    /** @brief Pointer to the game's view component */
+    std::unique_ptr<GameView> view;
+    /** @brief Pointer to the current game state */
+    std::unique_ptr<GameState> state;
 
+    /**
+     * @brief Initialize the game model with specified number of players
+     * @param num_of_players Number of players to participate in the game
+     */
+    void initModel(size_t num_of_players);
 
-        void initModel(size_t num_of_players);
+    /**
+     * @brief Initialize the game view component
+     */
+    void initView();
 
-        void initView();
+    /**
+     * @brief Check if the game has reached its end condition
+     * @return true if game is over, false otherwise
+     */
+    bool isGameOver() const;
 
-        bool isGameOver() const;
+    /**
+     * @brief Process keyboard input events
+     * @param key The keyboard key that was released
+     */
+    void handleKeyRelease(sf::Keyboard::Key key);
 
-        void handleKeyRelease(sf::Keyboard::Key key);
+    /**
+     * @brief Process all user input events
+     */
+    void handleUserInput();
 
-        void handleUserInput();
+public:
+    /**
+     * @brief Constructor for GameController
+     * 
+     * Initializes the controller with default state and empty model/view components
+     */
+    GameController();
 
-    public:
-        GameController();
+    /**
+     * @brief Virtual destructor
+     */
+    ~GameController() = default;
 
-        ~GameController() = default;
+    /**
+     * @brief Start and run the main game loop
+     *
+     * This method initiates the primary game loop that:
+     * - Processes user input
+     * - Updates game state
+     * - Renders the view
+     */
+    void run();
 
-        void run();
+    /**
+     * @brief Update game state and view
+     *
+     * Processes one frame of game logic including:
+     * - State updates
+     * - Model changes
+     * - View refreshes
+     */
+    void update();
 
-        void update();
+    /**
+     * @brief Change the current game state
+     * @param newState Pointer to the new state to transition to
+     */
+    void changeState(GameState *newState);
 
+    /**
+     * @brief Get the current game model
+     * @return Pointer to the current GameModel instance
+     */
+    GameModel *getModel() const { return model.get(); }
 
-        void changeState(GameState *newState);
+    /**
+     * @brief Get the current game view
+     * @return Pointer to the current GameView instance
+     */
+    GameView *getView() const { return view.get(); }
 
-        // Accessors for states
-        GameModel *getModel() const { return model.get(); }
-        GameView *getView() const { return view.get(); }
-        size_t getCurrentPlayerIndex() const { return current_player_index; }
-        void setCurrentPlayerIndex(const size_t index) { current_player_index = index; }
-    };
-}
+    /**
+     * @brief Get the index of the current player
+     * @return Current player's index
+     */
+    size_t getCurrentPlayerIndex() const { return current_player_index; }
+
+    /**
+     * @brief Set the current player's index
+     * @param index New current player index
+     */
+    void setCurrentPlayerIndex(const size_t index) { current_player_index = index; }
+};
+
+} // namespace monopoly
