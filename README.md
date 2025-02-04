@@ -21,15 +21,15 @@ The game follows the Cocoa Model-View-Controller (MVC) architectural pattern as 
 ## Game Screenshots
 
 ### Game Start
-![Game Start](Image3)
+![Game Start](Image1)
 The initial screen where players can enter the number of participants (2-8 players).
 
 ### Player Turn
-![Player Turn](Image1)
+![Dice Roll](Image2)
 Shows the current player's turn with their balance and available actions.
 
 ### Dice Rolling
-![Dice Roll](Image2)
+![Player Turn](Image3)
 Players can roll dice by pressing SPACE, determining their movement on the board.
 
 ## Technical Details
