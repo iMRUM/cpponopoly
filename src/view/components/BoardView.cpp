@@ -204,9 +204,12 @@ namespace monopoly {
     void BoardView::updatePlayerAtSquare(int player_id, int new_square_id, int old_square_id) {
         auto* square = findSquareById(new_square_id);
         auto* oldSquare = findSquareById(old_square_id);
-        if (square) {
+        if (square && oldSquare) {
             oldSquare->removePlayer(player_id);
             square->addPlayer(player_id);
+        } else {
+            std::cerr << "Error: Could not find square "
+                      << (square ? "old" : "new") << std::endl;
         }
     }
 

@@ -23,6 +23,7 @@ namespace monopoly {
 
     void TurnState::handleKeyRelease(GameController *controller, sf::Keyboard::Key key) {
         if (key == sf::Keyboard::Space) {
+            std::cout << "space Released" << std::endl;
             GameModel *model = controller->getModel();
             if (model->isGameOver()) {
                 std::cout << "changeState(controller, GameOverState::getInstance())" << std::endl;
@@ -33,6 +34,7 @@ namespace monopoly {
                 std::cout << "changeState(controller, JailState::getInstance())" << std::endl;
                 return;
             }
+            std::cout << "changing to rolldice" << std::endl;
             changeState(controller, RollDiceState::getInstance());
         }
     }
