@@ -1,0 +1,5 @@
+<map id="monopoly::GameState::update" name="monopoly::GameState::update">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,157,45"/>
+<area shape="rect" id="Node000002" href="$classmonopoly_1_1GameController.html#a65a3318ec89d3ad8017c2d512986de8b" title="Update game state and view." alt="" coords="205,5,383,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="158,23,191,23,191,28,158,28"/>
+</map>

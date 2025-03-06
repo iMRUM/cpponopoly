@@ -1,0 +1,5 @@
+<map id="monopoly::GameModel::nextTurn" name="monopoly::GameModel::nextTurn">
+<area shape="rect" id="Node000001" title="Advance to next player&#39;s turn." alt="" coords="220,5,376,45"/>
+<area shape="rect" id="Node000002" href="$classmonopoly_1_1RollDiceState.html#a262a6a32b9cacaa7561f81a55ec1c1f3" title=" " alt="" coords="5,5,172,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="206,28,172,28,172,23,206,23"/>
+</map>

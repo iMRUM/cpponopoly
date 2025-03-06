@@ -1,0 +1,9 @@
+<map id="monopoly::Player::setBankrupt" name="monopoly::Player::setBankrupt">
+<area shape="rect" id="Node000001" title=" " alt="" coords="413,45,615,70"/>
+<area shape="rect" id="Node000002" href="$classmonopoly_1_1GameModel.html#a2c5accb7c47990bf66995aa466813674" title="Handle player bankruptcy process." alt="" coords="209,37,365,77"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="400,60,365,60,365,55,400,55"/>
+<area shape="rect" id="Node000003" href="$classmonopoly_1_1GameModel.html#a1736688c5316fecd6f1c7a12b3c4cdb6" title="Process Luxury Tax payment." alt="" coords="5,5,161,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="196,46,161,40,162,35,196,40"/>
+<area shape="rect" id="Node000004" href="$classmonopoly_1_1GameModel.html#afa6e92bce1bc86814a13ee3466def16a" title="Process rent payment." alt="" coords="5,69,161,109"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="196,74,162,80,161,74,196,69"/>
+</map>

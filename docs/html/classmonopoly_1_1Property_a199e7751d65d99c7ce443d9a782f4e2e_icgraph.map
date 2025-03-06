@@ -1,0 +1,9 @@
+<map id="monopoly::Property::getPrice" name="monopoly::Property::getPrice">
+<area shape="rect" id="Node000001" title="Gets the property&#39;s purchase price." alt="" coords="413,37,548,77"/>
+<area shape="rect" id="Node000002" href="$classmonopoly_1_1GameModel.html#aa29755bb0580af0466b18483e7e7175b" title="Process property purchase." alt="" coords="209,5,365,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="399,47,365,41,366,36,400,41"/>
+<area shape="rect" id="Node000003" href="$classmonopoly_1_1GameModel.html#ac72ba97e17895b069ea84f783709e9e3" title="Handle landing on property square." alt="" coords="209,69,365,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="400,73,366,79,365,74,399,68"/>
+<area shape="rect" id="Node000004" href="$classmonopoly_1_1GameModel.html#a5ee956b08d9a835512ea1dda80d2cca9" title="Process landing on a square." alt="" coords="5,69,161,109"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="196,92,161,92,161,87,196,87"/>
+</map>

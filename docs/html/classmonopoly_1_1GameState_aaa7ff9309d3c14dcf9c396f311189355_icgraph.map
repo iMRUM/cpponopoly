@@ -1,0 +1,9 @@
+<map id="monopoly::GameState::changeState" name="monopoly::GameState::changeState">
+<area shape="rect" id="Node000001" title=" " alt="" coords="220,69,372,109"/>
+<area shape="rect" id="Node000002" href="$classmonopoly_1_1RollDiceState.html#a262a6a32b9cacaa7561f81a55ec1c1f3" title=" " alt="" coords="5,5,172,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="217,68,153,48,155,43,218,63"/>
+<area shape="rect" id="Node000003" href="$classmonopoly_1_1StartState.html#a29dd8b5f385dd7a7dc08ab50c262f4b5" title=" " alt="" coords="16,69,161,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="206,92,162,92,162,87,206,87"/>
+<area shape="rect" id="Node000004" href="$classmonopoly_1_1TurnState.html#a402f9df8d45636a59abb1e3e75cd0650" title=" " alt="" coords="17,133,160,173"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="218,116,155,136,153,131,217,111"/>
+</map>

@@ -1,0 +1,11 @@
+<map id="monopoly::BoardView::findSquareById" name="monopoly::BoardView::findSquareById">
+<area shape="rect" id="Node000001" title=" " alt="" coords="671,37,820,77"/>
+<area shape="rect" id="Node000002" href="$classmonopoly_1_1BoardView.html#a5cee04a1b7079bfba08a1bfb51764072" title=" " alt="" coords="463,37,623,77"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="657,60,623,60,623,55,657,55"/>
+<area shape="rect" id="Node000003" href="$classmonopoly_1_1GameView.html#a6c393c83839219855841d5426496d281" title="Update player token position on board." alt="" coords="220,37,415,77"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="449,60,415,60,415,55,449,55"/>
+<area shape="rect" id="Node000004" href="$classmonopoly_1_1RollDiceState.html#a262a6a32b9cacaa7561f81a55ec1c1f3" title=" " alt="" coords="5,5,172,45"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="206,44,172,40,173,34,207,39"/>
+<area shape="rect" id="Node000005" href="$classmonopoly_1_1StartState.html#a29dd8b5f385dd7a7dc08ab50c262f4b5" title=" " alt="" coords="16,69,161,109"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="207,76,162,82,161,77,206,70"/>
+</map>

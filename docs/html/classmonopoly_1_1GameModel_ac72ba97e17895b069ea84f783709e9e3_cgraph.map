@@ -1,0 +1,25 @@
+<map id="monopoly::GameModel::landOnProperty" name="monopoly::GameModel::landOnProperty">
+<area shape="rect" id="Node000001" title="Handle landing on property square." alt="" coords="5,210,161,250"/>
+<area shape="rect" id="Node000002" href="$classmonopoly_1_1Player.html#a3ac4e53730a8d5f12ee3f9ffd1d9e528" title="Checks if player can afford a payment." alt="" coords="427,5,613,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="99,208,145,159,175,132,208,109,261,82,317,60,424,31,426,36,319,65,263,87,211,114,178,136,149,163,103,211"/>
+<area shape="rect" id="Node000003" href="$classmonopoly_1_1GameModel.html#ad2cc951c35bb0f9d412e79adb790d510" title="Check if houses can be built on street." alt="" coords="209,123,365,163"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="130,207,226,166,228,171,132,212"/>
+<area shape="rect" id="Node000006" href="$classmonopoly_1_1Player.html#a25b1794379aa66e656ba1ba9632ff76e" title=" " alt="" coords="440,268,600,293"/>
+<area shape="poly" id="edge9_Node000001_Node000006" title=" " alt="" coords="162,224,209,223,253,220,288,216,323,215,366,223,381,230,391,237,415,253,440,262,438,267,412,258,388,242,378,234,365,229,322,221,288,221,254,226,209,229,162,230"/>
+<area shape="rect" id="Node000009" href="$classmonopoly_1_1Property.html#ac6c0069d0c07e7da36ed18d62e1d23b5" title="Gets the current owner&#39;s ID." alt="" coords="220,238,355,278"/>
+<area shape="poly" id="edge10_Node000001_Node000009" title=" " alt="" coords="162,238,206,244,206,250,161,243"/>
+<area shape="rect" id="Node000010" href="$classmonopoly_1_1Property.html#a199e7751d65d99c7ce443d9a782f4e2e" title="Gets the property&#39;s purchase price." alt="" coords="220,302,355,342"/>
+<area shape="poly" id="edge11_Node000001_Node000010" title=" " alt="" coords="126,248,210,288,225,294,223,299,208,292,124,252"/>
+<area shape="rect" id="Node000011" href="$classmonopoly_1_1Property.html#a431be9f07f9cc274ffa2c686bb1eb55e" title="Checks if property is owned by a player (not the bank)" alt="" coords="220,366,355,406"/>
+<area shape="poly" id="edge12_Node000001_Node000011" title=" " alt="" coords="102,248,148,299,178,327,211,352,220,357,217,362,208,356,175,331,145,303,99,252"/>
+<area shape="poly" id="edge3_Node000003_Node000002" title=" " alt="" coords="306,121,351,80,381,58,412,40,429,33,431,37,415,44,384,62,355,84,309,125"/>
+<area shape="rect" id="Node000004" href="$classmonopoly_1_1Street.html#a285ac818e3b1b75df0458c3928eddf7f" title="Get the cost to build a house." alt="" coords="413,55,627,80"/>
+<area shape="poly" id="edge4_Node000003_Node000004" title=" " alt="" coords="331,121,412,89,441,81,442,86,414,94,333,126"/>
+<area shape="rect" id="Node000005" href="$classmonopoly_1_1Street.html#a5457f695453457b85a54bb83ca8a2597" title="Get the number of houses." alt="" coords="424,104,616,129"/>
+<area shape="poly" id="edge5_Node000003_Node000005" title=" " alt="" coords="366,132,410,127,410,132,366,137"/>
+<area shape="poly" id="edge6_Node000003_Node000006" title=" " alt="" coords="340,161,367,180,383,200,391,219,399,237,415,253,429,261,426,266,412,257,394,240,386,221,378,203,364,184,337,166"/>
+<area shape="rect" id="Node000007" href="$classmonopoly_1_1Square.html#a6245251a3e881d9066cf7558d8b0d793" title="Gets the unique identifier of the square." alt="" coords="438,153,602,179"/>
+<area shape="poly" id="edge7_Node000003_Node000007" title=" " alt="" coords="366,148,425,154,424,159,366,154"/>
+<area shape="rect" id="Node000008" href="$classmonopoly_1_1GameModel.html#aa5cb7ec7c6c8ba1f993594ed2d33f9dc" title="Check if player has monopoly on property group." alt="" coords="442,203,598,243"/>
+<area shape="poly" id="edge8_Node000003_Node000008" title=" " alt="" coords="342,161,414,187,441,196,439,201,412,193,340,166"/>
+</map>

@@ -1,0 +1,11 @@
+<map id="monopoly::GameModel::addSquare" name="monopoly::GameModel::addSquare">
+<area shape="rect" id="Node000001" title="Add a square to the board." alt="" coords="209,101,365,141"/>
+<area shape="rect" id="Node000002" href="$classmonopoly_1_1GameModel.html#a6c0849b7832903cac7ae19786d0e3380" title="Add a railroad square to the board." alt="" coords="5,5,161,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="235,97,160,60,133,48,135,43,162,55,238,92"/>
+<area shape="rect" id="Node000003" href="$classmonopoly_1_1GameModel.html#aacd11872765fd84042fadcbb7fc7bc49" title="Add a special square to the board." alt="" coords="5,69,161,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="196,110,161,104,162,99,196,104"/>
+<area shape="rect" id="Node000004" href="$classmonopoly_1_1GameModel.html#a36a2f7de18641bd9b947aed6a1442b5a" title="Add a street square to the board." alt="" coords="5,133,161,173"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="196,138,162,144,161,138,196,133"/>
+<area shape="rect" id="Node000005" href="$classmonopoly_1_1GameModel.html#aa2bc9f6438ca20ce1061eb3330911165" title="Add a utility square to the board." alt="" coords="5,197,161,237"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="238,150,162,188,135,200,133,195,160,183,235,145"/>
+</map>

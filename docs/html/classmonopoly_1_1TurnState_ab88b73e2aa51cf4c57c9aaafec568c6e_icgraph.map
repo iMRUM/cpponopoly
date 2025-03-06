@@ -1,0 +1,7 @@
+<map id="monopoly::TurnState::TurnState" name="monopoly::TurnState::TurnState">
+<area shape="rect" id="Node000001" title=" " alt="" coords="411,5,553,45"/>
+<area shape="rect" id="Node000002" href="$classmonopoly_1_1TurnState.html#aa41bd3873c0b0862c43cbc550144c028" title=" " alt="" coords="220,5,363,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="397,28,363,28,363,23,397,23"/>
+<area shape="rect" id="Node000003" href="$classmonopoly_1_1RollDiceState.html#a262a6a32b9cacaa7561f81a55ec1c1f3" title=" " alt="" coords="5,5,172,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="206,28,172,28,172,23,206,23"/>
+</map>

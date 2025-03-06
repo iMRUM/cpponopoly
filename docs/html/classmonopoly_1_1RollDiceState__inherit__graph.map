@@ -1,0 +1,5 @@
+<map id="monopoly::RollDiceState" name="monopoly::RollDiceState">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,279,164,404"/>
+<area shape="rect" id="Node000002" href="$classmonopoly_1_1GameState.html" title=" " alt="" coords="13,5,157,231"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="87,245,87,278,82,278,82,245"/>
+</map>

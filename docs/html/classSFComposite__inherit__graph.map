@@ -1,0 +1,11 @@
+<map id="SFComposite" name="SFComposite">
+<area shape="rect" id="Node000001" title=" " alt="" coords="165,539,280,684"/>
+<area shape="rect" id="Node000003" href="$classBoardSquareComposite.html" title=" " alt="" coords="5,832,157,897"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="178,697,102,833,97,830,173,694"/>
+<area shape="rect" id="Node000004" href="$classWindow.html" title=" " alt="" coords="182,832,263,897"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="225,698,225,832,220,832,220,698"/>
+<area shape="rect" id="Node000005" href="$classmonopoly_1_1BoardView.html" title=" " alt="" coords="287,732,451,997"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="274,695,295,730,290,733,269,697"/>
+<area shape="rect" id="Node000002" href="$classSFComponent.html" title=" " alt="" coords="143,5,302,491"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="225,505,225,539,220,539,220,505"/>
+</map>

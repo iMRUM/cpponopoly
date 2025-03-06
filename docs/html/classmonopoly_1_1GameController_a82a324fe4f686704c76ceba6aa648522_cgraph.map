@@ -1,0 +1,5 @@
+<map id="monopoly::GameController::run" name="monopoly::GameController::run">
+<area shape="rect" id="Node000001" title="Start and run the main game loop." alt="" coords="5,13,208,38"/>
+<area shape="rect" id="Node000002" href="$classmonopoly_1_1GameController.html#a60ccf0e24819ac30a7b041652a55596f" title="Process all user input events." alt="" coords="256,5,433,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="208,23,242,23,242,28,208,28"/>
+</map>

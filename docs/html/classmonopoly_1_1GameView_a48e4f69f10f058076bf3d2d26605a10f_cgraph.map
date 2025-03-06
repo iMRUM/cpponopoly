@@ -1,0 +1,5 @@
+<map id="monopoly::GameView::updatePanelMessage" name="monopoly::GameView::updatePanelMessage">
+<area shape="rect" id="Node000001" title="Update message in panel." alt="" coords="5,5,160,45"/>
+<area shape="rect" id="Node000002" href="$classmonopoly_1_1UserView.html#a7300107e0cdf354ac3b45413c8e818e2" title=" " alt="" coords="208,5,351,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="160,23,194,23,194,28,160,28"/>
+</map>

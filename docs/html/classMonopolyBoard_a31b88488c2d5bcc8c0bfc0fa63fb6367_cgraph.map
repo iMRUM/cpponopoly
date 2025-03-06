@@ -1,0 +1,5 @@
+<map id="MonopolyBoard::MonopolyBoard" name="MonopolyBoard::MonopolyBoard">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,216,31"/>
+<area shape="rect" id="Node000002" href="$classSFComponent.html#a67ffc5d4523dcb637519d2b6a8b55981" title=" " alt="" coords="264,5,443,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="216,15,250,15,250,21,216,21"/>
+</map>

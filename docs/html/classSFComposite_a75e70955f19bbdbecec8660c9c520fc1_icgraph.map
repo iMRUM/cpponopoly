@@ -1,0 +1,20 @@
+<map id="SFComposite::add" name="SFComposite::add">
+<area shape="rect" id="Node000001" title=" " alt="" coords="407,142,537,167"/>
+<area shape="rect" id="Node000002" href="$classmonopoly_1_1BoardView.html#a5401ce445dc9d980a7d24df814321f4a" title=" " alt="" coords="5,134,155,174"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="456,131,417,76,390,49,357,29,316,13,281,8,246,13,204,29,168,50,138,79,113,109,95,136,91,133,109,106,134,75,165,46,202,24,244,8,281,3,317,8,360,24,393,45,421,73,460,128"/>
+<area shape="rect" id="Node000003" href="$classmonopoly_1_1BoardView.html#acd1028c0e8619c9c356f77fe41d27c64" title=" " alt="" coords="203,38,359,78"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="437,137,357,93,332,81,334,76,360,88,439,132"/>
+<area shape="rect" id="Node000004" href="$classmonopoly_1_1BoardView.html#ab54a3957d804fc63231d741694d16506" title=" " alt="" coords="204,102,357,142"/>
+<area shape="poly" id="edge4_Node000001_Node000004" title=" " alt="" coords="392,144,357,138,358,133,393,139"/>
+<area shape="rect" id="Node000005" href="$classmonopoly_1_1BoardView.html#ae59176912107d91cf66d0a108ec55e9a" title=" " alt="" coords="206,166,355,206"/>
+<area shape="poly" id="edge6_Node000001_Node000005" title=" " alt="" coords="394,170,356,177,355,171,393,165"/>
+<area shape="rect" id="Node000006" href="$classmonopoly_1_1BoardView.html#a4ee5f8efad8b261898ba695e9fd56937" title=" " alt="" coords="206,230,355,270"/>
+<area shape="poly" id="edge8_Node000001_Node000006" title=" " alt="" coords="439,177,360,221,334,233,332,228,357,216,437,172"/>
+<area shape="rect" id="Node000007" href="$classmonopoly_1_1BoardView.html#a2cf446703b924e79d21b56d07454cf4a" title=" " alt="" coords="206,294,355,334"/>
+<area shape="poly" id="edge10_Node000001_Node000007" title=" " alt="" coords="457,180,417,232,390,260,360,285,340,297,337,292,357,280,386,256,412,228,453,177"/>
+<area shape="poly" id="edge3_Node000003_Node000002" title=" " alt="" coords="218,86,204,93,119,137,116,132,202,88,216,81"/>
+<area shape="poly" id="edge5_Node000004_Node000002" title=" " alt="" coords="191,139,156,145,155,140,190,134"/>
+<area shape="poly" id="edge7_Node000005_Node000002" title=" " alt="" coords="192,175,155,169,156,164,193,170"/>
+<area shape="poly" id="edge9_Node000006_Node000002" title=" " alt="" coords="216,227,202,221,116,177,119,172,204,216,218,223"/>
+<area shape="poly" id="edge11_Node000007_Node000002" title=" " alt="" coords="210,290,201,285,168,258,139,229,94,176,98,173,142,226,172,254,204,280,213,286"/>
+</map>

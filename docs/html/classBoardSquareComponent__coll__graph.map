@@ -1,0 +1,5 @@
+<map id="BoardSquareComponent" name="BoardSquareComponent">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,539,189,1104"/>
+<area shape="rect" id="Node000002" href="$classSFComponent.html" title=" " alt="" coords="18,5,177,491"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="100,505,100,538,95,538,95,505"/>
+</map>

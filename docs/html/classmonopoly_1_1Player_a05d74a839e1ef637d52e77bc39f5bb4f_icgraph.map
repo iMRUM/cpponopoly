@@ -1,0 +1,9 @@
+<map id="monopoly::Player::decreaseBalance" name="monopoly::Player::decreaseBalance">
+<area shape="rect" id="Node000001" title="Attempts to decrease player&#39;s balance." alt="" coords="209,69,393,109"/>
+<area shape="rect" id="Node000002" href="$classmonopoly_1_1GameModel.html#aa29755bb0580af0466b18483e7e7175b" title="Process property purchase." alt="" coords="5,5,161,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="219,68,151,48,153,43,220,63"/>
+<area shape="rect" id="Node000003" href="$classmonopoly_1_1GameModel.html#ac7a033e7a528dba369173c3d53addbbe" title="Process fine payment." alt="" coords="5,69,161,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="196,92,162,92,162,87,196,87"/>
+<area shape="rect" id="Node000004" href="$classmonopoly_1_1GameModel.html#afa6e92bce1bc86814a13ee3466def16a" title="Process rent payment." alt="" coords="5,133,161,173"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="220,116,153,136,151,131,219,111"/>
+</map>

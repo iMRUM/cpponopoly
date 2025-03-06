@@ -1,0 +1,9 @@
+<map id="monopoly::Player::increaseBalance" name="monopoly::Player::increaseBalance">
+<area shape="rect" id="Node000001" title="Increases player&#39;s balance." alt="" coords="628,5,808,45"/>
+<area shape="rect" id="Node000002" href="$classmonopoly_1_1GameModel.html#adabd6c38f7b55f9d2dbc7ec2af30d410" title="Handle player passing GO square." alt="" coords="424,5,580,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="614,28,580,28,580,23,614,23"/>
+<area shape="rect" id="Node000003" href="$classmonopoly_1_1GameModel.html#ac99a34cf6476bb5d92da4c5d44800017" title="Move player specified number of steps." alt="" coords="220,5,376,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="411,28,376,28,376,23,411,23"/>
+<area shape="rect" id="Node000004" href="$classmonopoly_1_1RollDiceState.html#a262a6a32b9cacaa7561f81a55ec1c1f3" title=" " alt="" coords="5,5,172,45"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="206,28,172,28,172,23,206,23"/>
+</map>

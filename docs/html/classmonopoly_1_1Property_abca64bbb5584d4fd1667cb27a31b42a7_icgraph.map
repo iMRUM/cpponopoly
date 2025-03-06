@@ -1,0 +1,5 @@
+<map id="monopoly::Property::getBaseRent" name="monopoly::Property::getBaseRent">
+<area shape="rect" id="Node000001" title="Gets the property&#39;s base rent amount." alt="" coords="209,5,344,45"/>
+<area shape="rect" id="Node000002" href="$classmonopoly_1_1GameModel.html#afa6e92bce1bc86814a13ee3466def16a" title="Process rent payment." alt="" coords="5,5,161,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="196,28,162,28,162,23,196,23"/>
+</map>

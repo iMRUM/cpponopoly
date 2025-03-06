@@ -1,0 +1,5 @@
+<map id="monopoly::Board::initSquares" name="monopoly::Board::initSquares">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,199,31"/>
+<area shape="rect" id="Node000002" href="$classmonopoly_1_1Board.html#aa239acae0ff3baccb46c6f83893a4100" title=" " alt="" coords="247,5,437,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="199,15,233,15,233,21,199,21"/>
+</map>

@@ -1,0 +1,5 @@
+<map id="monopoly::SpecialSquare" name="monopoly::SpecialSquare">
+<area shape="rect" id="Node000001" title="Represents special squares on the Monopoly board that trigger specific actions." alt="" coords="5,319,168,524"/>
+<area shape="rect" id="Node000002" href="$classmonopoly_1_1Square.html" title="Base class for all squares on the Monopoly board." alt="" coords="27,5,146,271"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="89,285,89,319,84,319,84,285"/>
+</map>

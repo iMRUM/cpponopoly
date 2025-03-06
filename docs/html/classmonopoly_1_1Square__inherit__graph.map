@@ -1,0 +1,13 @@
+<map id="monopoly::Square" name="monopoly::Square">
+<area shape="rect" id="Node000001" title="Base class for all squares on the Monopoly board." alt="" coords="365,5,483,271"/>
+<area shape="rect" id="Node000002" href="$classmonopoly_1_1Property.html" title="Base class for all purchasable properties in Monopoly." alt="" coords="277,319,403,684"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="393,285,385,319,380,318,388,284"/>
+<area shape="rect" id="Node000006" href="$classmonopoly_1_1SpecialSquare.html" title="Represents special squares on the Monopoly board that trigger specific actions." alt="" coords="428,399,591,604"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="461,284,488,398,483,399,456,285"/>
+<area shape="rect" id="Node000003" href="$classmonopoly_1_1Railroad.html" title="Represents a railroad property in Monopoly." alt="" coords="5,782,256,887"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="272,616,165,783,161,781,267,613"/>
+<area shape="rect" id="Node000004" href="$classmonopoly_1_1Street.html" title="Represents a street property in Monopoly." alt="" coords="281,732,399,937"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="343,698,343,732,337,732,337,698"/>
+<area shape="rect" id="Node000005" href="$classmonopoly_1_1Utility.html" title="Represents a utility property (Electric Company or Water Works) in Monopoly." alt="" coords="423,782,617,887"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="412,671,418,683,450,734,482,780,478,783,445,737,414,685,407,673"/>
+</map>

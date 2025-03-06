@@ -1,0 +1,7 @@
+<map id="monopoly::GameModel::initializeGame" name="monopoly::GameModel::initializeGame">
+<area shape="rect" id="Node000001" title="Initialize a new game." alt="" coords="5,5,161,45"/>
+<area shape="rect" id="Node000002" href="$classmonopoly_1_1GameModel.html#ad674a98626c30028f1b6c9f2d73b72e4" title="Add specified number of players to game." alt="" coords="209,5,365,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="161,23,196,23,196,28,161,28"/>
+<area shape="rect" id="Node000003" href="$classmonopoly_1_1GameModel.html#a82a583ba26eaa8eb8b61ca57dac11644" title="Add a new player to the game." alt="" coords="413,5,569,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="365,23,400,23,400,28,365,28"/>
+</map>

@@ -1,0 +1,7 @@
+<map id="monopoly::StartState::StartState" name="monopoly::StartState::StartState">
+<area shape="rect" id="Node000001" title=" " alt="" coords="424,5,569,45"/>
+<area shape="rect" id="Node000002" href="$classmonopoly_1_1StartState.html#af54b3a9411ce1d1e9c3c7b3b1ce4a7a5" title=" " alt="" coords="231,5,376,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="410,28,377,28,377,23,410,23"/>
+<area shape="rect" id="Node000003" href="$classmonopoly_1_1GameController.html#af789a6daae5794f97dd01f4f0f7f9a3e" title="Constructor for GameController." alt="" coords="5,5,183,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="217,28,183,28,183,23,217,23"/>
+</map>

@@ -1,0 +1,5 @@
+<map id="monopoly::BoardView::createRightSquares" name="monopoly::BoardView::createRightSquares">
+<area shape="rect" id="Node000001" title=" " alt="" coords="203,5,352,45"/>
+<area shape="rect" id="Node000002" href="$classmonopoly_1_1BoardView.html#a5401ce445dc9d980a7d24df814321f4a" title=" " alt="" coords="5,5,155,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="189,28,155,28,155,23,189,23"/>
+</map>

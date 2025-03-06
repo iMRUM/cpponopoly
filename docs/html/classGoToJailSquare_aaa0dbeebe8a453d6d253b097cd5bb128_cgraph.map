@@ -1,0 +1,5 @@
+<map id="GoToJailSquare::draw" name="GoToJailSquare::draw">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,13,156,38"/>
+<area shape="rect" id="Node000002" href="$classSFComponent.html#a8eeeb1155f2882153ed22b1f624b72ff" title=" " alt="" coords="204,5,395,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="156,23,190,23,190,28,156,28"/>
+</map>

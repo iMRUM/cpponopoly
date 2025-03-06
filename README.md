@@ -24,15 +24,15 @@ The game follows the Cocoa Model-View-Controller (MVC) architectural pattern as 
 ## Game Screenshots
 
 ### Game Start
-![Game Start](GameStart)
+![Game Start](https://github.com/iMRUM/cpponopoly/raw/refs/heads/master/GameStart)
 The initial screen where players can enter the number of participants (2-8 players).
 
 ### Player Turn
-![Dice Roll](PlayerTurn)
+![Dice Roll](https://github.com/iMRUM/cpponopoly/raw/refs/heads/master/PlayerTurn)
 Shows the current player's turn with their balance and available actions.
 
 ### Dice Rolling
-![Player Turn](DiceRolling)
+![Player Turn](https://github.com/iMRUM/cpponopoly/raw/refs/heads/master/DiceRolling)
 Players can roll dice by pressing SPACE, determining their movement on the board.
 
 ## Technical Details

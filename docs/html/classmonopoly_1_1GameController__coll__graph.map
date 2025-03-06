@@ -1,0 +1,3 @@
+<map id="monopoly::GameController" name="monopoly::GameController">
+<area shape="rect" id="Node000001" title="Primary controller class coordinating game logic and user interface." alt="" coords="5,5,175,371"/>
+</map>

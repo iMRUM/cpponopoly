@@ -1,0 +1,17 @@
+<map id="BoardSquareComponent::BoardSquareComponent" name="BoardSquareComponent::BoardSquareComponent">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,69,177,109"/>
+<area shape="rect" id="Node000002" href="$classBoardSquareComponent.html#af1a807d6ff29b854a848e63eedfe217a" title=" " alt="" coords="225,5,389,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="159,67,225,47,227,52,160,72"/>
+<area shape="rect" id="Node000004" href="$classBoardSquareComponent.html#aa75ecb2aa6b636624eadaedd800fd97d" title=" " alt="" coords="225,69,389,109"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="178,87,212,87,212,92,178,92"/>
+<area shape="rect" id="Node000006" href="$classBoardSquareComponent.html#a149c154bb38b3ac75e5ad1ed1ada21dc" title=" " alt="" coords="225,133,389,173"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="160,107,227,127,225,132,159,112"/>
+<area shape="rect" id="Node000003" href="$classBoardSquareComponent.html#a469e93f48caf7c57cae3ab72ec459aea" title=" " alt="" coords="437,5,601,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="390,23,424,23,424,28,390,28"/>
+<area shape="rect" id="Node000005" href="$classSFComponent.html#a922478ab30206f8a668d90f9398b0c82" title=" " alt="" coords="440,77,599,102"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="390,87,426,87,426,92,390,92"/>
+<area shape="rect" id="Node000007" href="$classBoardSquareComponent.html#abe7822e12514e6eb6621f2301627745f" title=" " alt="" coords="437,129,601,169"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="390,149,424,148,424,154,390,154"/>
+<area shape="rect" id="Node000008" href="$classSFComponent.html#aece377bb9879eec90e8d919f810b8b75" title=" " alt="" coords="440,194,599,219"/>
+<area shape="poly" id="edge7_Node000006_Node000008" title=" " alt="" coords="388,171,455,188,454,193,387,176"/>
+</map>

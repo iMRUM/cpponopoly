@@ -1,0 +1,21 @@
+<map id="include/view/components/Window.hpp" name="include/view/components/Window.hpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="101,5,271,45"/>
+<area shape="rect" id="Node000002" href="$SFComposite_8hpp.html" title=" " alt="" coords="123,93,249,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="189,46,189,79,183,79,183,46"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,167,84,192"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="164,121,81,163,79,158,162,116"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="109,167,178,192"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="181,120,159,156,155,154,177,118"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="203,167,257,192"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="196,118,218,154,213,156,191,120"/>
+<area shape="rect" id="Node000006" href="$SFComponent_8hpp.html" title=" " alt="" coords="282,167,413,192"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="213,116,310,159,307,163,211,121"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="93,240,165,265"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="313,195,178,238,176,233,311,189"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="189,240,327,265"/>
+<area shape="poly" id="edge7_Node000006_Node000008" title=" " alt="" coords="335,194,285,233,282,229,331,190"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="352,240,521,265"/>
+<area shape="poly" id="edge8_Node000006_Node000009" title=" " alt="" coords="363,190,413,229,410,233,360,194"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="545,240,709,265"/>
+<area shape="poly" id="edge9_Node000006_Node000010" title=" " alt="" coords="393,189,569,234,568,239,392,195"/>
+</map>

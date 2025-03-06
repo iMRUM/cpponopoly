@@ -1,0 +1,7 @@
+<map id="CommunityChestSquare::draw" name="CommunityChestSquare::draw">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,171,45"/>
+<area shape="rect" id="Node000002" href="$classBoardSquareComponent.html#a881195405144e0c5ed22e5c3a9deaf1b" title=" " alt="" coords="219,5,383,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="171,23,205,23,205,28,171,28"/>
+<area shape="rect" id="Node000003" href="$classBoardSquareComponent.html#a9fff7f24accf46ae4c0db14173d3079c" title=" " alt="" coords="431,5,595,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="383,23,417,23,417,28,383,28"/>
+</map>

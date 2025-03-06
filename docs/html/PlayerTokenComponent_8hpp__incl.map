@@ -1,0 +1,19 @@
+<map id="include/view/components/PlayerTokenComponent.hpp" name="include/view/components/PlayerTokenComponent.hpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="91,5,281,45"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,93,84,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="153,48,79,89,77,84,151,43"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="109,93,178,119"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="178,47,158,83,154,80,173,44"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="203,93,257,119"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="199,44,219,80,214,83,194,47"/>
+<area shape="rect" id="Node000005" href="$SFComponent_8hpp.html" title=" " alt="" coords="282,93,413,119"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="226,43,312,85,310,90,223,48"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="93,167,165,192"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="313,121,178,165,176,160,311,116"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="189,167,327,192"/>
+<area shape="poly" id="edge6_Node000005_Node000007" title=" " alt="" coords="335,121,285,160,282,156,331,117"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="352,167,521,192"/>
+<area shape="poly" id="edge7_Node000005_Node000008" title=" " alt="" coords="363,117,413,156,410,160,360,121"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="545,167,709,192"/>
+<area shape="poly" id="edge8_Node000005_Node000009" title=" " alt="" coords="393,116,569,161,568,166,392,121"/>
+</map>

@@ -1,0 +1,9 @@
+<map id="FreeParkingSquare::draw" name="FreeParkingSquare::draw">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,45,175,70"/>
+<area shape="rect" id="Node000002" href="$classBoardSquareComponent.html#a881195405144e0c5ed22e5c3a9deaf1b" title=" " alt="" coords="236,5,400,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="175,43,222,36,223,41,176,48"/>
+<area shape="rect" id="Node000004" href="$classSFComponent.html#a8eeeb1155f2882153ed22b1f624b72ff" title=" " alt="" coords="223,69,413,109"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="176,67,210,71,209,77,175,72"/>
+<area shape="rect" id="Node000003" href="$classBoardSquareComponent.html#a9fff7f24accf46ae4c0db14173d3079c" title=" " alt="" coords="461,5,625,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="400,23,447,23,447,28,400,28"/>
+</map>

@@ -1,0 +1,9 @@
+<map id="StreetSquare::StreetSquare" name="StreetSquare::StreetSquare">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,55,188,80"/>
+<area shape="rect" id="Node000002" href="$classStreetSquare.html#a8edae5d9cf681aabac55bf6ff4ec2d09" title=" " alt="" coords="236,5,421,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="156,52,254,31,255,36,158,57"/>
+<area shape="rect" id="Node000003" href="$classStreetSquare.html#a672dd0bb650b742d4f46c8226f286f63" title=" " alt="" coords="251,55,407,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="189,65,237,65,237,70,189,70"/>
+<area shape="rect" id="Node000004" href="$classStreetSquare.html#a5f54f96384449907d327890b42eacdc2" title=" " alt="" coords="241,104,416,129"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="158,77,255,98,254,104,156,83"/>
+</map>

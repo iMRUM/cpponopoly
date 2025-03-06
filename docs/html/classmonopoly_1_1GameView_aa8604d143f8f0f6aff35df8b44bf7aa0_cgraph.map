@@ -1,0 +1,7 @@
+<map id="monopoly::GameView::render" name="monopoly::GameView::render">
+<area shape="rect" id="Node000001" title="Render frame to window." alt="" coords="5,27,156,67"/>
+<area shape="rect" id="Node000002" href="$classSFComposite.html#a00ddaba32bec37c47d65ff7e8be8a317" title=" " alt="" coords="206,5,345,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="156,33,192,28,193,33,157,39"/>
+<area shape="rect" id="Node000003" href="$classmonopoly_1_1UserView.html#a1087dcade2c12ab3f0459a9c1129c18c" title=" " alt="" coords="204,55,347,95"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="157,56,191,61,190,66,156,61"/>
+</map>

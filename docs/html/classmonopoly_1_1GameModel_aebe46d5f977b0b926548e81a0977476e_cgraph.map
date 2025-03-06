@@ -1,0 +1,9 @@
+<map id="monopoly::GameModel::goToJail" name="monopoly::GameModel::goToJail">
+<area shape="rect" id="Node000001" title="Send player to jail." alt="" coords="5,27,161,67"/>
+<area shape="rect" id="Node000002" href="$classmonopoly_1_1Player.html#a17f8a21fc65696c4832bb8d50508424b" title=" " alt="" coords="209,5,405,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="161,35,196,30,197,35,162,40"/>
+<area shape="rect" id="Node000003" href="$classmonopoly_1_1Player.html#a7000d4fac178a4d138f51d23626a8184" title="Toggles player&#39;s jail status and resets jail turns if freed." alt="" coords="224,55,391,95"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="162,54,210,61,210,66,161,60"/>
+<area shape="rect" id="Node000004" href="$classmonopoly_1_1Player.html#a953651fa4828e09ef52d39277c6de5f2" title="Resets jail turn counter to 0." alt="" coords="453,55,633,95"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="391,73,439,73,439,78,391,78"/>
+</map>

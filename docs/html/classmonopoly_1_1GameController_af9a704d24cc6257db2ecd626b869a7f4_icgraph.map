@@ -1,0 +1,13 @@
+<map id="monopoly::GameController::changeState" name="monopoly::GameController::changeState">
+<area shape="rect" id="Node000001" title="Change the current game state." alt="" coords="445,101,623,141"/>
+<area shape="rect" id="Node000002" href="$classmonopoly_1_1GameState.html#aaa7ff9309d3c14dcf9c396f311189355" title=" " alt="" coords="233,69,385,109"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="432,110,384,103,385,97,432,104"/>
+<area shape="rect" id="Node000006" href="$classmonopoly_1_1GameController.html#af789a6daae5794f97dd01f4f0f7f9a3e" title="Constructor for GameController." alt="" coords="220,133,397,173"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="432,138,398,143,397,138,432,133"/>
+<area shape="rect" id="Node000003" href="$classmonopoly_1_1RollDiceState.html#a262a6a32b9cacaa7561f81a55ec1c1f3" title=" " alt="" coords="5,5,172,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="225,68,157,48,159,43,227,63"/>
+<area shape="rect" id="Node000004" href="$classmonopoly_1_1StartState.html#a29dd8b5f385dd7a7dc08ab50c262f4b5" title=" " alt="" coords="16,69,161,109"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="219,92,162,92,162,87,219,87"/>
+<area shape="rect" id="Node000005" href="$classmonopoly_1_1TurnState.html#a402f9df8d45636a59abb1e3e75cd0650" title=" " alt="" coords="17,133,160,173"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="227,116,159,136,157,131,225,111"/>
+</map>

@@ -1,0 +1,12 @@
+<map id="monopoly::GameView" name="monopoly::GameView">
+<area shape="rect" id="Node000001" title="Primary view class managing game visualization and UI components." alt="" coords="53,1387,252,1712"/>
+<area shape="rect" id="Node000002" href="$classmonopoly_1_1BoardView.html" title=" " alt="" coords="5,1059,169,1324"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="114,1324,123,1370,117,1371,109,1325"/>
+<area shape="rect" id="Node000003" href="$classSFComposite.html" title=" " alt="" coords="57,540,171,685"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="113,699,96,1059,91,1058,107,699"/>
+<area shape="rect" id="Node000004" href="$classSFComponent.html" title=" " alt="" coords="85,5,244,491"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="132,505,127,540,121,540,126,504"/>
+<area shape="rect" id="Node000005" href="$classmonopoly_1_1UserView.html" title=" " alt="" coords="145,709,285,1035"/>
+<area shape="poly" id="edge5_Node000005_Node000004" title=" " alt="" coords="188,504,205,709,199,709,183,504"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="207,1035,183,1324,178,1371,173,1370,178,1324,202,1035"/>
+</map>

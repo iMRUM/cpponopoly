@@ -1,0 +1,13 @@
+<map id="include/utils/state/TurnState.hpp" name="include/utils/state/TurnState.hpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="58,5,182,45"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,93,67,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="101,48,60,86,57,82,98,44"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="91,93,149,119"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="123,46,123,79,117,79,117,46"/>
+<area shape="rect" id="Node000004" href="$GameState_8hpp.html" title=" " alt="" coords="174,93,287,119"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="148,43,205,83,202,87,145,48"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="111,167,190,192"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="220,121,176,160,172,156,216,117"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="215,167,407,192"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="245,117,289,156,286,160,242,121"/>
+</map>
