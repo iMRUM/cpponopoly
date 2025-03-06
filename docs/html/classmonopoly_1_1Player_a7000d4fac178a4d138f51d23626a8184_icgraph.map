@@ -1,0 +1,14 @@
+<map id="monopoly::Player::toggleJailState" name="monopoly::Player::toggleJailState">
+<area shape="rect" id="Node000001" title="Toggles player&#39;s jail status and resets jail turns if freed." alt="" coords="832,37,999,77"/>
+<area shape="rect" id="Node000002" href="$classmonopoly_1_1GameModel.html#aebe46d5f977b0b926548e81a0977476e" title="Send player to jail." alt="" coords="628,5,784,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="818,45,784,40,785,35,819,40"/>
+<area shape="rect" id="Node000006" href="$classmonopoly_1_1GameModel.html#a6f2af19f816ef3c47b501967bf52cbfe" title="Release player from jail." alt="" coords="628,69,784,109"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="819,75,785,80,784,75,818,70"/>
+<area shape="rect" id="Node000003" href="$classmonopoly_1_1GameModel.html#a235817e4a0e8aae94e261ecc3f561b67" title="Process doubles roll consequences." alt="" coords="424,37,580,77"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="615,42,581,48,580,42,614,37"/>
+<area shape="rect" id="Node000004" href="$classmonopoly_1_1GameModel.html#ad53cf6f13f83ba2408a6bbcffda3a99e" title="Roll two dice and return their values." alt="" coords="220,37,376,77"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="411,60,376,60,376,55,411,55"/>
+<area shape="rect" id="Node000005" href="$classmonopoly_1_1RollDiceState.html#a262a6a32b9cacaa7561f81a55ec1c1f3" title=" " alt="" coords="5,37,172,77"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="206,60,172,60,172,55,206,55"/>
+<area shape="poly" id="edge6_Node000006_Node000003" title=" " alt="" coords="614,78,580,72,581,67,615,72"/>
+</map>

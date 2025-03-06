@@ -1,0 +1,5 @@
+<map id="RailroadSquare::RailroadSquare" name="RailroadSquare::RailroadSquare">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,172,45"/>
+<area shape="rect" id="Node000002" href="$classRailroadSquare.html#a2ea3547ee3596f0d0e589c8c06b98b6d" title=" " alt="" coords="220,13,389,38"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="172,23,206,23,206,28,172,28"/>
+</map>

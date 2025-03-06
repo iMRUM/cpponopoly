@@ -1,0 +1,7 @@
+<map id="monopoly::UserView::updateBalance" name="monopoly::UserView::updateBalance">
+<area shape="rect" id="Node000001" title=" " alt="" coords="395,5,537,45"/>
+<area shape="rect" id="Node000002" href="$classmonopoly_1_1GameView.html#a12425d355bc9bce2ad724e03b7f7d144" title="Update player&#39;s balance display." alt="" coords="196,5,347,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="381,28,347,28,347,23,381,23"/>
+<area shape="rect" id="Node000003" href="$classmonopoly_1_1TurnState.html#aac8caaca7b62cb944a7082b6b68c6ac9" title=" " alt="" coords="5,5,148,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="182,28,148,28,148,23,182,23"/>
+</map>

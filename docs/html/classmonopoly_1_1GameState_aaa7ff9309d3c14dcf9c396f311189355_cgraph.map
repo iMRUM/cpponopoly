@@ -1,0 +1,5 @@
+<map id="monopoly::GameState::changeState" name="monopoly::GameState::changeState">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,157,45"/>
+<area shape="rect" id="Node000002" href="$classmonopoly_1_1GameController.html#af9a704d24cc6257db2ecd626b869a7f4" title="Change the current game state." alt="" coords="205,5,383,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="158,23,191,23,191,28,158,28"/>
+</map>

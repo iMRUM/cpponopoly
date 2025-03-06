@@ -1,0 +1,7 @@
+<map id="RailroadSquare::draw" name="RailroadSquare::draw">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,13,152,38"/>
+<area shape="rect" id="Node000002" href="$classBoardSquareComponent.html#a881195405144e0c5ed22e5c3a9deaf1b" title=" " alt="" coords="200,5,364,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="152,23,186,23,186,28,152,28"/>
+<area shape="rect" id="Node000003" href="$classBoardSquareComponent.html#a9fff7f24accf46ae4c0db14173d3079c" title=" " alt="" coords="412,5,576,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="364,23,399,23,399,28,364,28"/>
+</map>

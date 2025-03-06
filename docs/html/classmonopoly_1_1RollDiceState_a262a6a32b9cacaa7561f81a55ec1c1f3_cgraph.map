@@ -1,0 +1,69 @@
+<map id="monopoly::RollDiceState::handleKeyRelease" name="monopoly::RollDiceState::handleKeyRelease">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,413,172,453"/>
+<area shape="rect" id="Node000002" href="$classmonopoly_1_1GameState.html#aaa7ff9309d3c14dcf9c396f311189355" title=" " alt="" coords="242,5,394,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="88,413,96,345,115,250,132,198,154,146,183,98,218,55,229,47,232,51,222,59,187,101,159,149,137,200,121,251,101,346,94,413"/>
+<area shape="rect" id="Node000004" href="$classmonopoly_1_1GameModel.html#a61c4fbccfe0fd1f1870bfd4df55571f1" title=" " alt="" coords="701,120,857,160"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="91,412,104,364,128,302,145,269,165,238,190,209,219,186,255,169,305,156,430,141,567,135,688,135,688,140,567,140,430,146,306,162,257,174,221,190,193,213,169,241,149,272,133,304,109,366,96,414"/>
+<area shape="rect" id="Node000005" href="$classmonopoly_1_1Player.html#a25b1794379aa66e656ba1ba9632ff76e" title=" " alt="" coords="238,299,398,325"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="110,411,158,372,219,335,240,326,242,331,221,340,161,377,113,415"/>
+<area shape="rect" id="Node000006" href="$classmonopoly_1_1TurnState.html#aa41bd3873c0b0862c43cbc550144c028" title=" " alt="" coords="247,349,389,389"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="160,411,233,390,234,395,162,416"/>
+<area shape="rect" id="Node000008" href="$classmonopoly_1_1GameController.html#ae6b73b1fe95e80ea943e403b578a72bc" title="Get the current game model." alt="" coords="229,413,407,453"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="172,431,216,431,216,436,172,436"/>
+<area shape="rect" id="Node000009" href="$classmonopoly_1_1Player.html#aa70410d6ab59457f3cdbee1f2b052036" title=" " alt="" coords="220,478,416,503"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="170,451,254,472,253,477,169,456"/>
+<area shape="rect" id="Node000010" href="$structmonopoly_1_1Dice.html#a36a5e0b7d53485b0cffdebf8700a0f1a" title=" " alt="" coords="235,527,401,553"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="119,451,165,483,221,512,244,521,242,526,219,517,162,487,116,456"/>
+<area shape="rect" id="Node000011" href="$classmonopoly_1_1GameController.html#a6aea9478f70668e36b6e93d21beb4e3f" title="Get the current game view." alt="" coords="229,577,407,617"/>
+<area shape="poly" id="edge10_Node000001_Node000011" title=" " alt="" coords="107,452,155,506,186,536,221,562,235,569,232,574,219,566,183,540,151,510,103,455"/>
+<area shape="rect" id="Node000012" href="$structmonopoly_1_1Dice.html#a154d6d32e5e31fe7171671f0a2d55ab6" title=" " alt="" coords="229,642,407,667"/>
+<area shape="poly" id="edge11_Node000001_Node000012" title=" " alt="" coords="100,452,117,490,143,538,178,586,222,627,233,634,230,639,218,631,174,590,138,540,112,493,95,455"/>
+<area shape="rect" id="Node000013" href="$classmonopoly_1_1Player.html#a53a8859bb9ad558e3d1d27635c513884" title=" " alt="" coords="693,185,865,210"/>
+<area shape="poly" id="edge12_Node000001_Node000013" title=" " alt="" coords="93,412,108,370,133,316,169,263,192,239,219,220,255,206,304,195,426,185,560,184,680,188,679,194,560,189,426,190,304,201,256,211,221,225,196,244,173,266,137,319,113,372,98,414"/>
+<area shape="rect" id="Node000014" href="$classmonopoly_1_1GameModel.html#ac99a34cf6476bb5d92da4c5d44800017" title="Move player specified number of steps." alt="" coords="240,69,396,109"/>
+<area shape="poly" id="edge13_Node000001_Node000014" title=" " alt="" coords="90,413,102,357,126,281,142,240,163,199,188,160,218,126,233,114,236,118,222,130,193,164,168,202,147,242,131,283,107,358,96,414"/>
+<area shape="rect" id="Node000017" href="$classmonopoly_1_1GameModel.html#ac183b64523c4925453b1eeaa9ba3e6b4" title="Advance to next player&#39;s turn." alt="" coords="240,692,396,732"/>
+<area shape="poly" id="edge17_Node000001_Node000017" title=" " alt="" coords="98,453,112,498,137,559,173,622,196,651,222,677,230,683,227,687,218,681,192,655,169,625,132,561,107,500,93,454"/>
+<area shape="rect" id="Node000019" href="$classmonopoly_1_1GameModel.html#ad53cf6f13f83ba2408a6bbcffda3a99e" title="Roll two dice and return their values." alt="" coords="240,235,396,275"/>
+<area shape="poly" id="edge19_Node000001_Node000019" title=" " alt="" coords="101,412,147,349,181,315,218,284,229,278,232,283,222,289,184,319,152,353,105,415"/>
+<area shape="rect" id="Node000028" href="$classmonopoly_1_1GameView.html#a48e4f69f10f058076bf3d2d26605a10f" title="Update message in panel." alt="" coords="241,756,395,796"/>
+<area shape="poly" id="edge31_Node000001_Node000028" title=" " alt="" coords="95,453,106,510,129,588,145,629,166,670,191,708,222,742,230,749,227,753,218,746,187,712,161,673,140,632,124,589,101,511,90,454"/>
+<area shape="rect" id="Node000030" href="$classmonopoly_1_1GameView.html#a6c393c83839219855841d5426496d281" title="Update player token position on board." alt="" coords="221,820,415,860"/>
+<area shape="poly" id="edge33_Node000001_Node000030" title=" " alt="" coords="94,453,101,520,121,615,137,666,159,717,187,764,222,806,226,810,223,814,218,810,183,767,154,719,132,668,115,616,96,521,88,454"/>
+<area shape="rect" id="Node000003" href="$classmonopoly_1_1GameController.html#af9a704d24cc6257db2ecd626b869a7f4" title="Change the current game state." alt="" coords="464,5,641,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="394,23,450,23,450,28,394,28"/>
+<area shape="rect" id="Node000007" href="$classmonopoly_1_1TurnState.html#ab88b73e2aa51cf4c57c9aaafec568c6e" title=" " alt="" coords="481,349,624,389"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="390,367,467,367,467,372,390,372"/>
+<area shape="rect" id="Node000015" href="$classmonopoly_1_1GameModel.html#adabd6c38f7b55f9d2dbc7ec2af30d410" title="Handle player passing GO square." alt="" coords="475,69,631,109"/>
+<area shape="poly" id="edge14_Node000014_Node000015" title=" " alt="" coords="397,87,461,87,461,92,397,92"/>
+<area shape="poly" id="edge15_Node000015_Node000004" title=" " alt="" coords="632,104,688,117,687,122,630,109"/>
+<area shape="rect" id="Node000016" href="$classmonopoly_1_1Player.html#a52406d42e3118433d33a69fbf2e0381a" title="Increases player&#39;s balance." alt="" coords="689,56,869,96"/>
+<area shape="poly" id="edge16_Node000015_Node000016" title=" " alt="" coords="631,82,675,79,676,85,631,87"/>
+<area shape="rect" id="Node000018" href="$classmonopoly_1_1GameModel.html#a348d6c7713c2274b2a0ef5a531c49616" title=" " alt="" coords="475,692,631,732"/>
+<area shape="poly" id="edge18_Node000017_Node000018" title=" " alt="" coords="397,709,461,709,461,715,397,715"/>
+<area shape="rect" id="Node000020" href="$classmonopoly_1_1GameModel.html#a235817e4a0e8aae94e261ecc3f561b67" title="Process doubles roll consequences." alt="" coords="475,235,631,275"/>
+<area shape="poly" id="edge20_Node000019_Node000020" title=" " alt="" coords="397,252,461,252,461,257,397,257"/>
+<area shape="poly" id="edge21_Node000020_Node000004" title=" " alt="" coords="582,232,631,201,688,170,704,163,706,168,691,174,633,206,585,237"/>
+<area shape="poly" id="edge28_Node000020_Node000013" title=" " alt="" coords="630,232,715,211,716,216,632,238"/>
+<area shape="rect" id="Node000021" href="$classmonopoly_1_1GameModel.html#aebe46d5f977b0b926548e81a0977476e" title="Send player to jail." alt="" coords="701,235,857,275"/>
+<area shape="poly" id="edge22_Node000020_Node000021" title=" " alt="" coords="631,252,688,252,688,257,631,257"/>
+<area shape="rect" id="Node000025" href="$classmonopoly_1_1Player.html#acc8d1f7bc1137f75c14fdad5990657bc" title=" " alt="" coords="691,363,868,403"/>
+<area shape="poly" id="edge26_Node000020_Node000025" title=" " alt="" coords="580,273,629,310,691,348,704,355,702,360,688,353,626,315,577,277"/>
+<area shape="rect" id="Node000026" href="$classmonopoly_1_1Player.html#aa3ba1169f3a92d4587f935cfda5165e0" title="Increments number of consecutive doubles rolled." alt="" coords="689,427,869,467"/>
+<area shape="poly" id="edge27_Node000020_Node000026" title=" " alt="" coords="580,273,612,301,643,336,658,358,666,377,674,395,691,413,697,417,694,422,688,417,670,398,661,379,653,360,639,339,608,305,577,277"/>
+<area shape="rect" id="Node000027" href="$classmonopoly_1_1GameModel.html#a6f2af19f816ef3c47b501967bf52cbfe" title="Release player from jail." alt="" coords="701,299,857,339"/>
+<area shape="poly" id="edge29_Node000020_Node000027" title=" " alt="" coords="625,272,695,292,694,297,624,277"/>
+<area shape="rect" id="Node000022" href="$classmonopoly_1_1Player.html#a17f8a21fc65696c4832bb8d50508424b" title=" " alt="" coords="917,242,1113,267"/>
+<area shape="poly" id="edge23_Node000021_Node000022" title=" " alt="" coords="858,252,904,252,904,257,858,257"/>
+<area shape="rect" id="Node000023" href="$classmonopoly_1_1Player.html#a7000d4fac178a4d138f51d23626a8184" title="Toggles player&#39;s jail status and resets jail turns if freed." alt="" coords="932,295,1099,335"/>
+<area shape="poly" id="edge24_Node000021_Node000023" title=" " alt="" coords="858,272,923,289,922,294,857,277"/>
+<area shape="rect" id="Node000024" href="$classmonopoly_1_1Player.html#a953651fa4828e09ef52d39277c6de5f2" title="Resets jail turn counter to 0." alt="" coords="1161,295,1341,335"/>
+<area shape="poly" id="edge25_Node000023_Node000024" title=" " alt="" coords="1099,312,1147,312,1147,317,1099,317"/>
+<area shape="poly" id="edge30_Node000027_Node000023" title=" " alt="" coords="858,315,918,314,918,319,858,320"/>
+<area shape="rect" id="Node000029" href="$classmonopoly_1_1UserView.html#a7300107e0cdf354ac3b45413c8e818e2" title=" " alt="" coords="481,756,624,796"/>
+<area shape="poly" id="edge32_Node000028_Node000029" title=" " alt="" coords="396,773,468,773,468,779,396,779"/>
+<area shape="rect" id="Node000031" href="$classmonopoly_1_1BoardView.html#a5cee04a1b7079bfba08a1bfb51764072" title=" " alt="" coords="473,820,633,860"/>
+<area shape="poly" id="edge34_Node000030_Node000031" title=" " alt="" coords="415,837,459,837,459,843,415,843"/>
+<area shape="rect" id="Node000032" href="$classmonopoly_1_1BoardView.html#ac72680e18182f00258d6c1bce4b89e74" title=" " alt="" coords="705,820,854,860"/>
+<area shape="poly" id="edge35_Node000031_Node000032" title=" " alt="" coords="633,837,691,837,691,843,633,843"/>
+</map>

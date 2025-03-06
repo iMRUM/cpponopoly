@@ -1,0 +1,19 @@
+<map id="monopoly::TurnState::handleKeyRelease" name="monopoly::TurnState::handleKeyRelease">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,165,148,205"/>
+<area shape="rect" id="Node000002" href="$classmonopoly_1_1GameState.html#aaa7ff9309d3c14dcf9c396f311189355" title=" " alt="" coords="209,5,361,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="90,164,133,110,162,81,194,55,204,49,207,54,198,60,165,85,137,114,94,167"/>
+<area shape="rect" id="Node000004" href="$classmonopoly_1_1GameModel.html#a61c4fbccfe0fd1f1870bfd4df55571f1" title=" " alt="" coords="207,69,363,109"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="111,163,195,119,212,112,214,117,197,124,113,168"/>
+<area shape="rect" id="Node000005" href="$classmonopoly_1_1RollDiceState.html#a770af9ae84cdcd7089e6e89d4eb5d13f" title=" " alt="" coords="201,133,368,173"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="148,172,187,166,188,171,149,177"/>
+<area shape="rect" id="Node000007" href="$classmonopoly_1_1GameController.html#ae6b73b1fe95e80ea943e403b578a72bc" title="Get the current game model." alt="" coords="196,197,373,237"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="149,194,183,199,182,204,148,199"/>
+<area shape="rect" id="Node000008" href="$classmonopoly_1_1GameModel.html#acc512c58d9496ef6c91bfe093026ff36" title=" " alt="" coords="207,261,363,301"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="113,203,197,247,214,254,212,259,195,252,111,208"/>
+<area shape="rect" id="Node000009" href="$classmonopoly_1_1Player.html#a53a8859bb9ad558e3d1d27635c513884" title=" " alt="" coords="199,326,371,351"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="93,204,136,257,165,286,197,311,212,319,209,323,195,316,161,290,132,261,89,207"/>
+<area shape="rect" id="Node000003" href="$classmonopoly_1_1GameController.html#af9a704d24cc6257db2ecd626b869a7f4" title="Change the current game state." alt="" coords="421,5,599,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="361,23,407,23,407,28,361,28"/>
+<area shape="rect" id="Node000006" href="$classmonopoly_1_1RollDiceState.html#a90c5ebd8e157aaba80daed38981af146" title=" " alt="" coords="427,133,593,173"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="368,151,413,151,413,156,368,156"/>
+</map>

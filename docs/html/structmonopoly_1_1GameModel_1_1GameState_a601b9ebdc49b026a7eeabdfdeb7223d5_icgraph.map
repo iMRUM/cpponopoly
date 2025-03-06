@@ -1,0 +1,5 @@
+<map id="monopoly::GameModel::GameState::resetTurnState" name="monopoly::GameModel::GameState::resetTurnState">
+<area shape="rect" id="Node000001" title="Reset only turn&#45;specific state values." alt="" coords="209,5,400,45"/>
+<area shape="rect" id="Node000002" href="$structmonopoly_1_1GameModel_1_1GameState.html#aee4d7eab6109d8a1cbbc4ed2847be511" title="Reset all game state to initial values." alt="" coords="5,5,161,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="196,28,161,28,161,23,196,23"/>
+</map>

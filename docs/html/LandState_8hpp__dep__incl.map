@@ -1,0 +1,21 @@
+<map id="include/utils/state/LandState.hpp" name="include/utils/state/LandState.hpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="428,5,552,45"/>
+<area shape="rect" id="Node000002" href="$RollDiceState_8hpp.html" title=" " alt="" coords="424,93,556,133"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="493,59,493,93,487,93,487,59"/>
+<area shape="rect" id="Node000003" href="$StartState_8hpp.html" title=" " alt="" coords="375,181,499,221"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="473,146,451,183,446,180,469,144"/>
+<area shape="rect" id="Node000007" href="$RollDiceState_8cpp.html" title=" " alt="" coords="731,357,868,397"/>
+<area shape="poly" id="edge10_Node000002_Node000007" title=" " alt="" coords="525,140,779,355,775,359,521,144"/>
+<area shape="rect" id="Node000004" href="$GameController_8hpp.html" title="Main controller class for the Monopoly game implementation." alt="" coords="366,269,507,309"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="439,235,439,269,434,269,434,235"/>
+<area shape="rect" id="Node000008" href="$StartState_8cpp.html" title=" " alt="" coords="5,357,143,397"/>
+<area shape="poly" id="edge9_Node000003_Node000008" title=" " alt="" coords="387,230,115,360,112,355,384,225"/>
+<area shape="rect" id="Node000005" href="$GameController_8cpp.html" title=" " alt="" coords="329,365,545,390"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="439,323,439,364,434,364,434,323"/>
+<area shape="rect" id="Node000006" href="$GameState_8cpp.html" title=" " alt="" coords="569,357,707,397"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="495,312,595,355,593,360,493,317"/>
+<area shape="poly" id="edge6_Node000004_Node000007" title=" " alt="" coords="521,308,731,357,730,362,520,313"/>
+<area shape="poly" id="edge7_Node000004_Node000008" title=" " alt="" coords="353,313,143,362,142,357,352,308"/>
+<area shape="rect" id="Node000009" href="$TurnState_8cpp.html" title=" " alt="" coords="167,357,304,397"/>
+<area shape="poly" id="edge8_Node000004_Node000009" title=" " alt="" coords="381,317,280,360,278,355,379,312"/>
+</map>

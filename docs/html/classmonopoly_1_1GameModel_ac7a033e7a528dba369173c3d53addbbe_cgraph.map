@@ -1,0 +1,5 @@
+<map id="monopoly::GameModel::payFine" name="monopoly::GameModel::payFine">
+<area shape="rect" id="Node000001" title="Process fine payment." alt="" coords="5,5,161,45"/>
+<area shape="rect" id="Node000002" href="$classmonopoly_1_1Player.html#a05d74a839e1ef637d52e77bc39f5bb4f" title="Attempts to decrease player&#39;s balance." alt="" coords="209,5,393,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="162,23,196,23,196,28,162,28"/>
+</map>

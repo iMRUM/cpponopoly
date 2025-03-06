@@ -1,0 +1,5 @@
+<map id="monopoly::GameModel" name="monopoly::GameModel">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,348,153,993"/>
+<area shape="rect" id="Node000002" href="$structmonopoly_1_1GameModel_1_1GameState.html" title="Internal game state tracking structure." alt="" coords="5,5,153,285"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="82,285,82,332,77,332,77,285"/>
+</map>

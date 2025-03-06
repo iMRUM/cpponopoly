@@ -1,0 +1,15 @@
+<map id="monopoly::Property::setRentCalculator" name="monopoly::Property::setRentCalculator">
+<area shape="rect" id="Node000001" title=" " alt="" coords="241,142,376,182"/>
+<area shape="rect" id="Node000002" href="$classmonopoly_1_1Street.html#a636cc07dc5fa05cfb9d3e476ea1aa843" title="Add a house to this street." alt="" coords="5,5,193,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="283,132,244,87,219,65,192,46,164,33,166,28,195,41,222,61,247,83,287,129"/>
+<area shape="rect" id="Node000003" href="$classmonopoly_1_1Railroad.html#a789f7ce812154d8efbfe0714077de5a5" title="Constructs a new Railroad property." alt="" coords="32,55,167,95"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="255,138,192,110,161,98,163,93,194,105,257,133"/>
+<area shape="rect" id="Node000004" href="$classmonopoly_1_1Street.html#a432fa683a35c422a19478d7f81f36712" title="Constructs a new Street." alt="" coords="17,120,181,145"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="227,153,181,147,182,142,228,148"/>
+<area shape="rect" id="Node000005" href="$classmonopoly_1_1Railroad.html#a95e2cc982606941120cd999187d26bba" title=" " alt="" coords="27,170,172,210"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="228,176,172,183,172,178,227,170"/>
+<area shape="rect" id="Node000006" href="$classmonopoly_1_1Utility.html#a9d36d9661d2e25005975164ed4b3f649" title=" " alt="" coords="35,234,163,274"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="262,191,194,224,164,236,162,231,192,220,259,186"/>
+<area shape="rect" id="Node000007" href="$classmonopoly_1_1Utility.html#a8797328aaee5e0a8e7e71978ca36bb6b" title="Constructs a Utility property." alt="" coords="35,298,163,338"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="288,195,248,243,223,267,195,288,165,303,162,299,192,284,219,263,244,239,284,191"/>
+</map>

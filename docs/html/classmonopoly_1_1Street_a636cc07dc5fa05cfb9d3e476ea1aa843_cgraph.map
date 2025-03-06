@@ -1,0 +1,5 @@
+<map id="monopoly::Street::addHouse" name="monopoly::Street::addHouse">
+<area shape="rect" id="Node000001" title="Add a house to this street." alt="" coords="5,13,193,38"/>
+<area shape="rect" id="Node000002" href="$classmonopoly_1_1Property.html#a0da26e027b3f29b3b59d5aeb63651d09" title=" " alt="" coords="241,5,376,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="194,23,227,23,227,28,194,28"/>
+</map>

@@ -1,0 +1,16 @@
+<map id="monopoly::Player::getId" name="monopoly::Player::getId">
+<area shape="rect" id="Node000001" title=" " alt="" coords="628,134,788,159"/>
+<area shape="rect" id="Node000002" href="$classmonopoly_1_1GameModel.html#aa29755bb0580af0466b18483e7e7175b" title="Process property purchase." alt="" coords="419,5,575,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="679,127,633,94,579,60,554,48,556,43,581,55,636,89,682,123"/>
+<area shape="rect" id="Node000003" href="$classmonopoly_1_1GameModel.html#ad2cc951c35bb0f9d412e79adb790d510" title="Check if houses can be built on street." alt="" coords="419,69,575,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="646,133,570,112,572,107,648,128"/>
+<area shape="rect" id="Node000004" href="$classmonopoly_1_1GameModel.html#ac72ba97e17895b069ea84f783709e9e3" title="Handle landing on property square." alt="" coords="209,99,365,139"/>
+<area shape="poly" id="edge6_Node000001_Node000004" title=" " alt="" coords="614,143,365,126,366,121,614,138"/>
+<area shape="rect" id="Node000006" href="$classmonopoly_1_1RollDiceState.html#a262a6a32b9cacaa7561f81a55ec1c1f3" title=" " alt="" coords="413,184,580,224"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="648,166,572,187,570,181,646,161"/>
+<area shape="rect" id="Node000007" href="$classmonopoly_1_1GameModel.html#afa6e92bce1bc86814a13ee3466def16a" title="Process rent payment." alt="" coords="419,248,575,288"/>
+<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="682,170,636,204,581,238,556,250,554,245,579,234,633,200,679,166"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="405,105,366,110,365,105,404,100"/>
+<area shape="rect" id="Node000005" href="$classmonopoly_1_1GameModel.html#a5ee956b08d9a835512ea1dda80d2cca9" title="Process landing on a square." alt="" coords="5,99,161,139"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="196,121,161,121,161,116,196,116"/>
+</map>

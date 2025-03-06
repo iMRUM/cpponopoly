@@ -1,0 +1,9 @@
+<map id="GoSquare::draw" name="GoSquare::draw">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,45,121,70"/>
+<area shape="rect" id="Node000002" href="$classBoardSquareComponent.html#a881195405144e0c5ed22e5c3a9deaf1b" title=" " alt="" coords="183,5,347,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="121,46,168,38,169,43,122,51"/>
+<area shape="rect" id="Node000004" href="$classSFComponent.html#a8eeeb1155f2882153ed22b1f624b72ff" title=" " alt="" coords="169,69,360,109"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="122,64,156,69,155,75,121,69"/>
+<area shape="rect" id="Node000003" href="$classBoardSquareComponent.html#a9fff7f24accf46ae4c0db14173d3079c" title=" " alt="" coords="408,5,572,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="347,23,394,23,394,28,347,28"/>
+</map>

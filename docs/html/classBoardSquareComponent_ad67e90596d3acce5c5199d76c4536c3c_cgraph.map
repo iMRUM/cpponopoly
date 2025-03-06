@@ -1,0 +1,7 @@
+<map id="BoardSquareComponent::removePlayer" name="BoardSquareComponent::removePlayer">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,169,45"/>
+<area shape="rect" id="Node000002" href="$classBoardSquareComponent.html#a847205df1d1b75a93b47ef2db6338c1e" title=" " alt="" coords="217,5,381,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="170,23,204,23,204,28,170,28"/>
+<area shape="rect" id="Node000003" href="$classPlayerTokenComponent.html#ada8e03aa2a3bef54352210d148c7fe54" title=" " alt="" coords="429,5,591,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="382,23,416,23,416,28,382,28"/>
+</map>

@@ -1,0 +1,11 @@
+<map id="monopoly::StartState::onEnter" name="monopoly::StartState::onEnter">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,69,151,109"/>
+<area shape="rect" id="Node000002" href="$classmonopoly_1_1GameController.html#a6aea9478f70668e36b6e93d21beb4e3f" title="Get the current game view." alt="" coords="199,5,376,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="143,67,208,47,209,52,145,72"/>
+<area shape="rect" id="Node000003" href="$classmonopoly_1_1GameController.html#ad94ed6ee7cce2cbe9de12ec8240d17d4" title="Initialize the game view component." alt="" coords="199,69,376,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="151,87,185,87,185,92,151,92"/>
+<area shape="rect" id="Node000004" href="$classmonopoly_1_1GameView.html#a48e4f69f10f058076bf3d2d26605a10f" title="Update message in panel." alt="" coords="210,133,365,173"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="145,107,209,127,208,132,143,112"/>
+<area shape="rect" id="Node000005" href="$classmonopoly_1_1UserView.html#a7300107e0cdf354ac3b45413c8e818e2" title=" " alt="" coords="424,133,567,173"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="365,151,410,151,410,156,365,156"/>
+</map>

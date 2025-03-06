@@ -1,0 +1,22 @@
+<map id="monopoly::GameModel::handleDouble" name="monopoly::GameModel::handleDouble">
+<area shape="rect" id="Node000001" title="Process doubles roll consequences." alt="" coords="5,165,161,205"/>
+<area shape="rect" id="Node000002" href="$classmonopoly_1_1GameModel.html#a61c4fbccfe0fd1f1870bfd4df55571f1" title=" " alt="" coords="221,5,377,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="97,164,143,110,174,81,208,55,218,49,221,54,211,60,177,85,147,114,101,167"/>
+<area shape="rect" id="Node000003" href="$classmonopoly_1_1GameModel.html#aebe46d5f977b0b926548e81a0977476e" title="Send player to jail." alt="" coords="221,69,377,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="119,163,208,119,225,112,227,117,210,124,122,168"/>
+<area shape="rect" id="Node000007" href="$classmonopoly_1_1Player.html#acc8d1f7bc1137f75c14fdad5990657bc" title=" " alt="" coords="211,133,388,173"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="161,171,197,166,198,171,162,176"/>
+<area shape="rect" id="Node000008" href="$classmonopoly_1_1Player.html#aa3ba1169f3a92d4587f935cfda5165e0" title="Increments number of consecutive doubles rolled." alt="" coords="209,197,389,237"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="162,194,196,199,195,205,161,200"/>
+<area shape="rect" id="Node000009" href="$classmonopoly_1_1Player.html#a53a8859bb9ad558e3d1d27635c513884" title=" " alt="" coords="213,262,385,287"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="120,203,210,247,235,255,233,260,208,252,118,208"/>
+<area shape="rect" id="Node000010" href="$classmonopoly_1_1GameModel.html#a6f2af19f816ef3c47b501967bf52cbfe" title="Release player from jail." alt="" coords="221,312,377,352"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="104,203,149,250,179,276,211,298,222,304,219,308,208,302,176,280,146,254,100,207"/>
+<area shape="rect" id="Node000004" href="$classmonopoly_1_1Player.html#a17f8a21fc65696c4832bb8d50508424b" title=" " alt="" coords="437,77,633,102"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="378,87,424,87,424,92,378,92"/>
+<area shape="rect" id="Node000005" href="$classmonopoly_1_1Player.html#a7000d4fac178a4d138f51d23626a8184" title="Toggles player&#39;s jail status and resets jail turns if freed." alt="" coords="452,219,619,259"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="365,107,391,119,454,162,505,207,502,211,451,167,388,124,363,112"/>
+<area shape="rect" id="Node000006" href="$classmonopoly_1_1Player.html#a953651fa4828e09ef52d39277c6de5f2" title="Resets jail turn counter to 0." alt="" coords="681,219,861,259"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="619,236,667,236,667,241,619,241"/>
+<area shape="poly" id="edge10_Node000010_Node000005" title=" " alt="" coords="357,309,388,298,475,262,477,267,390,302,359,314"/>
+</map>

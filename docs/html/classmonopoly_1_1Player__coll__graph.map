@@ -1,0 +1,3 @@
+<map id="monopoly::Player" name="monopoly::Player">
+<area shape="rect" id="Node000001" title="Represents a player in the Monopoly game." alt="" coords="5,5,169,491"/>
+</map>

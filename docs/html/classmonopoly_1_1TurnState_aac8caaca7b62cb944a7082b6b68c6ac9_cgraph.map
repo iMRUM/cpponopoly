@@ -1,0 +1,27 @@
+<map id="monopoly::TurnState::onEnter" name="monopoly::TurnState::onEnter">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,226,148,266"/>
+<area shape="rect" id="Node000002" href="$classmonopoly_1_1Player.html#a3e658ec00d3c18f509d2bb0eb0ba9a87" title=" " alt="" coords="197,5,393,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="81,225,96,186,119,136,151,85,172,61,194,41,205,34,208,39,198,45,175,65,156,88,123,139,100,188,86,227"/>
+<area shape="rect" id="Node000003" href="$classmonopoly_1_1GameModel.html#a61c4fbccfe0fd1f1870bfd4df55571f1" title=" " alt="" coords="217,55,373,95"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="88,224,130,166,160,133,194,105,205,99,207,104,198,110,164,137,134,169,92,228"/>
+<area shape="rect" id="Node000004" href="$classmonopoly_1_1GameController.html#ae6b73b1fe95e80ea943e403b578a72bc" title="Get the current game model." alt="" coords="207,119,384,159"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="104,224,146,196,195,169,212,162,214,167,197,174,149,201,107,228"/>
+<area shape="rect" id="Node000005" href="$classmonopoly_1_1Player.html#a171ff8a761c112087dba41222ea8ec03" title=" " alt="" coords="203,184,387,209"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="148,227,224,210,226,215,149,233"/>
+<area shape="rect" id="Node000006" href="$classmonopoly_1_1Player.html#a1ec975f6957b670a7c13060a8ac95aaa" title=" " alt="" coords="196,233,395,259"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="148,243,182,243,182,249,148,249"/>
+<area shape="rect" id="Node000007" href="$classmonopoly_1_1GameController.html#a6aea9478f70668e36b6e93d21beb4e3f" title="Get the current game view." alt="" coords="207,283,384,323"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="149,262,206,277,205,282,147,267"/>
+<area shape="rect" id="Node000008" href="$classmonopoly_1_1GameView.html#a12425d355bc9bce2ad724e03b7f7d144" title="Update player&#39;s balance display." alt="" coords="220,347,371,387"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="102,264,144,299,197,333,211,340,209,345,195,338,141,303,98,268"/>
+<area shape="rect" id="Node000010" href="$classmonopoly_1_1GameView.html#aa69d50f90ef60a56665c668ed9942195" title="Update player name display." alt="" coords="220,411,371,451"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="90,265,132,330,162,366,198,397,209,404,207,409,194,401,158,370,127,333,86,267"/>
+<area shape="rect" id="Node000012" href="$classmonopoly_1_1GameView.html#a48e4f69f10f058076bf3d2d26605a10f" title="Update message in panel." alt="" coords="218,475,373,515"/>
+<area shape="poly" id="edge11_Node000001_Node000012" title=" " alt="" coords="86,265,100,306,122,359,155,414,175,439,198,461,207,468,204,472,194,465,171,443,150,417,117,361,95,308,81,267"/>
+<area shape="rect" id="Node000009" href="$classmonopoly_1_1UserView.html#a01629cc5b326761ec81c6ab2a12ec70e" title=" " alt="" coords="443,347,585,387"/>
+<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="371,365,429,365,429,370,371,370"/>
+<area shape="rect" id="Node000011" href="$classmonopoly_1_1UserView.html#a8f202525be103466e4a8d565c5f52c9d" title=" " alt="" coords="443,411,585,451"/>
+<area shape="poly" id="edge10_Node000010_Node000011" title=" " alt="" coords="371,429,429,429,429,434,371,434"/>
+<area shape="rect" id="Node000013" href="$classmonopoly_1_1UserView.html#a7300107e0cdf354ac3b45413c8e818e2" title=" " alt="" coords="443,475,585,515"/>
+<area shape="poly" id="edge12_Node000012_Node000013" title=" " alt="" coords="373,493,429,493,429,498,373,498"/>
+</map>

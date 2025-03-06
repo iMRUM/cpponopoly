@@ -1,0 +1,9 @@
+<map id="JailSquare::draw" name="JailSquare::draw">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,45,124,70"/>
+<area shape="rect" id="Node000002" href="$classBoardSquareComponent.html#a881195405144e0c5ed22e5c3a9deaf1b" title=" " alt="" coords="185,5,349,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="124,45,171,38,172,43,125,51"/>
+<area shape="rect" id="Node000004" href="$classSFComponent.html#a8eeeb1155f2882153ed22b1f624b72ff" title=" " alt="" coords="172,69,363,109"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="125,64,159,70,158,75,124,69"/>
+<area shape="rect" id="Node000003" href="$classBoardSquareComponent.html#a9fff7f24accf46ae4c0db14173d3079c" title=" " alt="" coords="411,5,575,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="350,23,397,23,397,28,350,28"/>
+</map>

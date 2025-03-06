@@ -1,0 +1,7 @@
+<map id="monopoly::Railroad" name="monopoly::Railroad">
+<area shape="rect" id="Node000001" title="Represents a railroad property in Monopoly." alt="" coords="5,732,256,837"/>
+<area shape="rect" id="Node000002" href="$classmonopoly_1_1Property.html" title="Base class for all purchasable properties in Monopoly." alt="" coords="67,319,194,684"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="133,698,133,732,128,732,128,698"/>
+<area shape="rect" id="Node000003" href="$classmonopoly_1_1Square.html" title="Base class for all squares on the Monopoly board." alt="" coords="71,5,190,271"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="133,285,133,319,128,319,128,285"/>
+</map>

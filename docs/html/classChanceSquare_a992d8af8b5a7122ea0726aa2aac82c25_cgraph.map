@@ -1,0 +1,7 @@
+<map id="ChanceSquare::draw" name="ChanceSquare::draw">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,13,149,38"/>
+<area shape="rect" id="Node000002" href="$classBoardSquareComponent.html#a881195405144e0c5ed22e5c3a9deaf1b" title=" " alt="" coords="197,5,361,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="150,23,184,23,184,28,150,28"/>
+<area shape="rect" id="Node000003" href="$classBoardSquareComponent.html#a9fff7f24accf46ae4c0db14173d3079c" title=" " alt="" coords="409,5,573,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="362,23,396,23,396,28,362,28"/>
+</map>

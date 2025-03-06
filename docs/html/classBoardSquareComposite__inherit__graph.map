@@ -1,0 +1,7 @@
+<map id="BoardSquareComposite" name="BoardSquareComposite">
+<area shape="rect" id="Node000001" title=" " alt="" coords="9,732,161,797"/>
+<area shape="rect" id="Node000002" href="$classSFComposite.html" title=" " alt="" coords="27,539,142,684"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="87,698,87,732,82,732,82,698"/>
+<area shape="rect" id="Node000003" href="$classSFComponent.html" title=" " alt="" coords="5,5,164,491"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="87,505,87,539,82,539,82,505"/>
+</map>

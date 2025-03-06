@@ -1,0 +1,3 @@
+<map id="monopoly::Square" name="monopoly::Square">
+<area shape="rect" id="Node000001" title="Base class for all squares on the Monopoly board." alt="" coords="5,5,124,271"/>
+</map>

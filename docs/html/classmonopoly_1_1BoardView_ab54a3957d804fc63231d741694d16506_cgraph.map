@@ -1,0 +1,5 @@
+<map id="monopoly::BoardView::createCornerSquares" name="monopoly::BoardView::createCornerSquares">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,159,45"/>
+<area shape="rect" id="Node000002" href="$classSFComposite.html#a75e70955f19bbdbecec8660c9c520fc1" title=" " alt="" coords="207,13,337,38"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="159,23,193,23,193,28,159,28"/>
+</map>

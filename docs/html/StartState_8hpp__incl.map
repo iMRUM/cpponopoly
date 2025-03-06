@@ -1,0 +1,14 @@
+<map id="include/utils/state/StartState.hpp" name="include/utils/state/StartState.hpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="63,5,187,45"/>
+<area shape="rect" id="Node000002" href="$RollDiceState_8hpp.html" title=" " alt="" coords="61,93,189,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="127,46,127,79,122,79,122,46"/>
+<area shape="rect" id="Node000003" href="$GameState_8hpp.html" title=" " alt="" coords="68,240,181,265"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="122,120,110,152,107,172,107,192,117,227,112,228,102,192,101,171,105,151,117,118"/>
+<area shape="rect" id="Node000006" href="$LandState_8hpp.html" title=" " alt="" coords="117,167,223,192"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="134,118,158,154,153,157,130,120"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="5,313,84,339"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="114,267,70,306,66,302,110,263"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="109,313,301,339"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="139,263,183,302,180,306,136,267"/>
+<area shape="poly" id="edge6_Node000006_Node000003" title=" " alt="" coords="165,194,142,230,137,227,160,191"/>
+</map>

@@ -1,0 +1,32 @@
+<map id="include/view/components/BoardView.hpp" name="include/view/components/BoardView.hpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="119,5,289,45"/>
+<area shape="rect" id="Node000002" href="$BoardSquareComponent_8hpp.html" title=" " alt="" coords="44,93,233,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="190,47,159,84,155,81,186,44"/>
+<area shape="rect" id="Node000012" href="$SFComposite_8hpp.html" title=" " alt="" coords="257,167,383,192"/>
+<area shape="poly" id="edge14_Node000001_Node000012" title=" " alt="" coords="221,44,305,154,301,157,217,47"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="99,240,178,265"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="100,121,64,139,48,152,36,168,32,178,32,187,43,205,64,220,90,233,88,237,62,225,39,208,27,189,27,177,31,165,44,148,61,135,97,116"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="5,240,75,265"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="93,121,56,139,39,152,26,168,21,182,21,197,30,227,24,228,16,197,16,181,22,165,35,148,53,135,91,116"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="358,240,413,265"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="234,114,332,133,372,147,398,165,405,180,407,196,400,227,395,226,402,196,400,181,394,168,370,152,331,138,233,120"/>
+<area shape="rect" id="Node000006" href="$PlayerTokenComponent_8hpp.html" title=" " alt="" coords="45,167,232,192"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="141,119,141,153,136,153,136,119"/>
+<area shape="poly" id="edge6_Node000006_Node000003" title=" " alt="" coords="141,192,141,226,136,226,136,192"/>
+<area shape="poly" id="edge7_Node000006_Node000004" title=" " alt="" coords="124,194,69,234,66,230,121,190"/>
+<area shape="poly" id="edge8_Node000006_Node000005" title=" " alt="" coords="179,189,345,237,344,242,178,195"/>
+<area shape="rect" id="Node000007" href="$SFComponent_8hpp.html" title=" " alt="" coords="203,240,333,265"/>
+<area shape="poly" id="edge9_Node000006_Node000007" title=" " alt="" coords="161,190,236,231,233,235,158,194"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="13,313,85,339"/>
+<area shape="poly" id="edge10_Node000007_Node000008" title=" " alt="" coords="234,268,99,312,97,306,232,263"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="109,313,248,339"/>
+<area shape="poly" id="edge11_Node000007_Node000009" title=" " alt="" coords="255,267,206,307,202,302,252,263"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="273,313,442,339"/>
+<area shape="poly" id="edge12_Node000007_Node000010" title=" " alt="" coords="284,263,334,302,330,307,281,267"/>
+<area shape="rect" id="Node000011" title=" " alt="" coords="466,313,630,339"/>
+<area shape="poly" id="edge13_Node000007_Node000011" title=" " alt="" coords="314,263,490,307,489,312,312,268"/>
+<area shape="poly" id="edge15_Node000012_Node000003" title=" " alt="" coords="292,195,182,237,180,232,290,190"/>
+<area shape="poly" id="edge16_Node000012_Node000004" title=" " alt="" coords="276,195,88,242,87,237,274,189"/>
+<area shape="poly" id="edge17_Node000012_Node000005" title=" " alt="" coords="333,191,367,228,364,232,329,194"/>
+<area shape="poly" id="edge18_Node000012_Node000007" title=" " alt="" coords="314,194,287,230,282,227,309,191"/>
+</map>

@@ -1,0 +1,13 @@
+<map id="monopoly::GameController::getView" name="monopoly::GameController::getView">
+<area shape="rect" id="Node000001" title="Get the current game view." alt="" coords="220,133,397,173"/>
+<area shape="rect" id="Node000002" href="$classmonopoly_1_1RollDiceState.html#a262a6a32b9cacaa7561f81a55ec1c1f3" title=" " alt="" coords="5,5,172,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="270,127,224,93,171,60,146,48,148,43,173,55,227,88,274,122"/>
+<area shape="rect" id="Node000003" href="$classmonopoly_1_1StartState.html#a29dd8b5f385dd7a7dc08ab50c262f4b5" title=" " alt="" coords="16,69,161,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="225,132,157,112,159,107,227,127"/>
+<area shape="rect" id="Node000004" href="$classmonopoly_1_1RollDiceState.html#aa019c88fa3b0386fd17cbbc1390f6d1c" title=" " alt="" coords="5,133,172,173"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="206,156,172,156,172,151,206,151"/>
+<area shape="rect" id="Node000005" href="$classmonopoly_1_1StartState.html#af99a09db63676be6c4f4996c9e757b89" title=" " alt="" coords="16,197,161,237"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="227,180,159,200,157,195,225,175"/>
+<area shape="rect" id="Node000006" href="$classmonopoly_1_1TurnState.html#aac8caaca7b62cb944a7082b6b68c6ac9" title=" " alt="" coords="17,261,160,301"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="274,184,227,218,173,252,148,264,146,259,171,247,224,214,270,180"/>
+</map>

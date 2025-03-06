@@ -1,0 +1,13 @@
+<map id="SFComponent::isComponentVisible" name="SFComponent::isComponentVisible">
+<area shape="rect" id="Node000001" title=" " alt="" coords="223,97,413,137"/>
+<area shape="rect" id="Node000002" href="$classFreeParkingSquare.html#a1419bf5a1c5f75dd4d027c90410c5dee" title=" " alt="" coords="5,5,175,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="270,92,224,68,174,44,141,33,143,28,176,40,226,63,273,87"/>
+<area shape="rect" id="Node000003" href="$classGoSquare.html#a69ca418c54c2edc40dd707f3e636274a" title=" " alt="" coords="32,55,148,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="211,96,148,82,149,77,212,91"/>
+<area shape="rect" id="Node000004" href="$classGoToJailSquare.html#aaa0dbeebe8a453d6d253b097cd5bb128" title=" " alt="" coords="15,104,165,129"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="209,119,165,119,165,114,209,114"/>
+<area shape="rect" id="Node000005" href="$classJailSquare.html#a535fb26faf8a018ac2600aa2fc6b73f3" title=" " alt="" coords="31,153,149,179"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="212,142,150,156,149,151,211,137"/>
+<area shape="rect" id="Node000006" href="$classPlayerTokenComponent.html#a785be00633a3dcdc2b89ab1eccd56d0a" title=" " alt="" coords="9,203,171,243"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="269,146,176,192,145,206,143,201,174,188,267,141"/>
+</map>

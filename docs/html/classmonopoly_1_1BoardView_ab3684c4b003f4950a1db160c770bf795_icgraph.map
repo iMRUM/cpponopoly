@@ -1,0 +1,7 @@
+<map id="monopoly::BoardView::updateView" name="monopoly::BoardView::updateView">
+<area shape="rect" id="Node000001" title=" " alt="" coords="204,37,353,77"/>
+<area shape="rect" id="Node000002" href="$classmonopoly_1_1GameView.html#a02aa9ec9dee19425ff3c001b2aba1d2c" title="Update visual state of all components." alt="" coords="5,5,156,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="190,46,156,40,157,35,190,40"/>
+<area shape="rect" id="Node000003" href="$classmonopoly_1_1GameView.html#aa6d4cd6b55df3be0cc5305623b4e135a" title="Update board display." alt="" coords="5,69,156,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="190,74,157,80,156,74,190,69"/>
+</map>

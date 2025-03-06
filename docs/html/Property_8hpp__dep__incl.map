@@ -1,0 +1,37 @@
+<map id="include/model/squares/Property.hpp" name="include/model/squares/Property.hpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="681,5,833,45"/>
+<area shape="rect" id="Node000002" href="$Board_8hpp.html" title=" " alt="" coords="675,181,840,207"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="669,49,627,64,593,83,583,93,577,105,577,118,584,132,602,151,624,165,675,183,673,188,622,170,598,155,579,135,572,119,572,104,578,90,590,78,625,59,667,44"/>
+<area shape="rect" id="Node000014" href="$Railroad_8hpp.html" title=" " alt="" coords="593,93,745,133"/>
+<area shape="poly" id="edge14_Node000001_Node000014" title=" " alt="" coords="730,57,691,95,687,91,726,53"/>
+<area shape="rect" id="Node000015" href="$Street_8hpp.html" title=" " alt="" coords="769,93,921,133"/>
+<area shape="poly" id="edge16_Node000001_Node000015" title=" " alt="" coords="789,53,828,91,824,95,785,57"/>
+<area shape="rect" id="Node000016" href="$Utility_8hpp.html" title=" " alt="" coords="945,93,1097,133"/>
+<area shape="poly" id="edge18_Node000001_Node000016" title=" " alt="" coords="829,47,964,91,963,96,827,52"/>
+<area shape="rect" id="Node000003" href="$GameModel_8hpp.html" title="Core game logic implementation for Monopoly board game." alt="" coords="467,343,669,368"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="661,210,576,229,543,241,522,256,517,266,516,277,524,301,539,323,557,341,553,344,535,326,519,303,511,278,512,265,518,253,540,237,575,223,660,205"/>
+<area shape="rect" id="Node000011" href="$MonopolyRules_8hpp.html" title=" " alt="" coords="532,262,753,287"/>
+<area shape="poly" id="edge10_Node000002_Node000011" title=" " alt="" coords="731,217,661,264,658,260,728,212"/>
+<area shape="rect" id="Node000012" href="$BoardSquareComposite_8hpp.html" title=" " alt="" coords="777,255,967,295"/>
+<area shape="poly" id="edge12_Node000002_Node000012" title=" " alt="" coords="787,212,846,252,843,257,784,217"/>
+<area shape="rect" id="Node000013" href="$Board_8cpp.html" title=" " alt="" coords="991,262,1134,287"/>
+<area shape="poly" id="edge13_Node000002_Node000013" title=" " alt="" coords="816,207,1019,259,1018,265,814,213"/>
+<area shape="rect" id="Node000004" href="$GameController_8hpp.html" title="Main controller class for the Monopoly game implementation." alt="" coords="405,416,547,456"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="546,379,500,418,496,414,542,375"/>
+<area shape="rect" id="Node000010" href="$GameModel_8cpp.html" title=" " alt="" coords="571,423,749,449"/>
+<area shape="poly" id="edge9_Node000003_Node000010" title=" " alt="" coords="594,375,648,421,645,425,590,379"/>
+<area shape="rect" id="Node000005" href="$GameController_8cpp.html" title=" " alt="" coords="5,511,221,537"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="392,460,163,514,161,509,391,455"/>
+<area shape="rect" id="Node000006" href="$GameState_8cpp.html" title=" " alt="" coords="246,504,383,544"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="430,465,351,506,349,502,427,460"/>
+<area shape="rect" id="Node000007" href="$RollDiceState_8cpp.html" title=" " alt="" coords="407,504,545,544"/>
+<area shape="poly" id="edge6_Node000004_Node000007" title=" " alt="" coords="479,470,479,504,473,504,473,470"/>
+<area shape="rect" id="Node000008" href="$StartState_8cpp.html" title=" " alt="" coords="569,504,706,544"/>
+<area shape="poly" id="edge7_Node000004_Node000008" title=" " alt="" coords="525,460,603,502,601,506,522,465"/>
+<area shape="rect" id="Node000009" href="$TurnState_8cpp.html" title=" " alt="" coords="730,504,867,544"/>
+<area shape="poly" id="edge8_Node000004_Node000009" title=" " alt="" coords="561,457,730,502,729,507,559,462"/>
+<area shape="poly" id="edge11_Node000011_Node000003" title=" " alt="" coords="624,299,581,344,577,341,620,295"/>
+<area shape="poly" id="edge15_Node000014_Node000002" title=" " alt="" coords="703,141,746,179,742,183,699,145"/>
+<area shape="poly" id="edge17_Node000015_Node000002" title=" " alt="" coords="815,145,772,183,769,179,812,141"/>
+<area shape="poly" id="edge19_Node000016_Node000002" title=" " alt="" coords="945,140,797,184,795,179,944,135"/>
+</map>

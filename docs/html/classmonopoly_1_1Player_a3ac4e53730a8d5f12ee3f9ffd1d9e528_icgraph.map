@@ -1,0 +1,14 @@
+<map id="monopoly::Player::canAfford" name="monopoly::Player::canAfford">
+<area shape="rect" id="Node000001" title="Checks if player can afford a payment." alt="" coords="617,106,804,131"/>
+<area shape="rect" id="Node000002" href="$classmonopoly_1_1GameModel.html#aa29755bb0580af0466b18483e7e7175b" title="Process property purchase." alt="" coords="413,5,569,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="667,103,568,60,540,48,542,43,570,55,669,98"/>
+<area shape="rect" id="Node000003" href="$classmonopoly_1_1GameModel.html#ad2cc951c35bb0f9d412e79adb790d510" title="Check if houses can be built on street." alt="" coords="413,69,569,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="603,107,569,102,570,97,604,102"/>
+<area shape="rect" id="Node000004" href="$classmonopoly_1_1GameModel.html#ac72ba97e17895b069ea84f783709e9e3" title="Handle landing on property square." alt="" coords="209,99,365,139"/>
+<area shape="poly" id="edge5_Node000001_Node000004" title=" " alt="" coords="604,124,569,124,413,124,366,123,366,118,413,119,569,119,604,118"/>
+<area shape="rect" id="Node000006" href="$classmonopoly_1_1GameModel.html#afa6e92bce1bc86814a13ee3466def16a" title="Process rent payment." alt="" coords="413,184,569,224"/>
+<area shape="poly" id="edge6_Node000001_Node000006" title=" " alt="" coords="665,139,544,186,542,182,663,134"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="400,105,366,110,365,105,400,100"/>
+<area shape="rect" id="Node000005" href="$classmonopoly_1_1GameModel.html#a5ee956b08d9a835512ea1dda80d2cca9" title="Process landing on a square." alt="" coords="5,99,161,139"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="196,121,161,121,161,116,196,116"/>
+</map>

@@ -1,0 +1,9 @@
+<map id="monopoly::Street::getHouses" name="monopoly::Street::getHouses">
+<area shape="rect" id="Node000001" title="Get the number of houses." alt="" coords="617,13,809,38"/>
+<area shape="rect" id="Node000002" href="$classmonopoly_1_1GameModel.html#ad2cc951c35bb0f9d412e79adb790d510" title="Check if houses can be built on street." alt="" coords="413,5,569,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="604,28,570,28,570,23,604,23"/>
+<area shape="rect" id="Node000003" href="$classmonopoly_1_1GameModel.html#ac72ba97e17895b069ea84f783709e9e3" title="Handle landing on property square." alt="" coords="209,5,365,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="400,28,365,28,365,23,400,23"/>
+<area shape="rect" id="Node000004" href="$classmonopoly_1_1GameModel.html#a5ee956b08d9a835512ea1dda80d2cca9" title="Process landing on a square." alt="" coords="5,5,161,45"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="196,28,161,28,161,23,196,23"/>
+</map>

@@ -1,0 +1,7 @@
+<map id="monopoly::GameModel::handleBankruptcy" name="monopoly::GameModel::handleBankruptcy">
+<area shape="rect" id="Node000001" title="Handle player bankruptcy process." alt="" coords="5,35,161,75"/>
+<area shape="rect" id="Node000002" href="$classmonopoly_1_1GameModel.html#a66f0223a16582dab7e8a7224df23a380" title="Check if game has been won." alt="" coords="232,5,388,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="161,42,218,35,219,40,162,47"/>
+<area shape="rect" id="Node000003" href="$classmonopoly_1_1Player.html#a7b6118b0ebe2e5ac2effeda0847e298a" title=" " alt="" coords="209,70,411,95"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="162,62,196,66,195,71,161,67"/>
+</map>

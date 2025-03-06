@@ -1,0 +1,5 @@
+<map id="monopoly::GameController::initView" name="monopoly::GameController::initView">
+<area shape="rect" id="Node000001" title="Initialize the game view component." alt="" coords="199,5,376,45"/>
+<area shape="rect" id="Node000002" href="$classmonopoly_1_1StartState.html#af99a09db63676be6c4f4996c9e757b89" title=" " alt="" coords="5,5,151,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="185,28,151,28,151,23,185,23"/>
+</map>

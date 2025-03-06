@@ -1,0 +1,5 @@
+<map id="monopoly::Player::hasJailCard" name="monopoly::Player::hasJailCard">
+<area shape="rect" id="Node000001" title=" " alt="" coords="253,5,453,31"/>
+<area shape="rect" id="Node000002" href="$classmonopoly_1_1Player.html#a85b0431874f37e51c3feb43c980854d6" title="Uses a get out of jail free card." alt="" coords="5,5,205,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="240,21,206,21,206,15,240,15"/>
+</map>

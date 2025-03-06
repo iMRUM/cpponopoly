@@ -1,0 +1,7 @@
+<map id="GoToJailSquare" name="GoToJailSquare">
+<area shape="rect" id="Node000001" title=" " alt="" coords="34,1152,161,1317"/>
+<area shape="rect" id="Node000002" href="$classBoardSquareComponent.html" title=" " alt="" coords="5,539,189,1104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="100,1118,100,1152,95,1152,95,1118"/>
+<area shape="rect" id="Node000003" href="$classSFComponent.html" title=" " alt="" coords="18,5,177,491"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="100,505,100,538,95,538,95,505"/>
+</map>

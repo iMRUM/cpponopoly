@@ -1,0 +1,7 @@
+<map id="Button::Button" name="Button::Button">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,31,112,56"/>
+<area shape="rect" id="Node000002" href="$classButton.html#a7a2b10d82714939215ed1c10bdb1dc50" title=" " alt="" coords="185,5,314,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="112,34,171,26,171,31,113,39"/>
+<area shape="rect" id="Node000003" href="$classSFComponent.html#a67ffc5d4523dcb637519d2b6a8b55981" title=" " alt="" coords="160,55,339,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="113,47,147,52,146,57,112,53"/>
+</map>

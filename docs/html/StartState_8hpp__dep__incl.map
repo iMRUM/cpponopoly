@@ -1,0 +1,16 @@
+<map id="include/utils/state/StartState.hpp" name="include/utils/state/StartState.hpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="547,5,671,45"/>
+<area shape="rect" id="Node000002" href="$GameController_8hpp.html" title="Main controller class for the Monopoly game implementation." alt="" coords="485,93,627,133"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="593,58,570,95,566,92,588,56"/>
+<area shape="rect" id="Node000006" href="$StartState_8cpp.html" title=" " alt="" coords="730,181,867,221"/>
+<area shape="poly" id="edge7_Node000001_Node000006" title=" " alt="" coords="642,53,780,179,776,183,638,57"/>
+<area shape="rect" id="Node000003" href="$GameController_8cpp.html" title=" " alt="" coords="5,189,221,214"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="472,134,173,191,172,186,471,128"/>
+<area shape="rect" id="Node000004" href="$GameState_8cpp.html" title=" " alt="" coords="246,181,383,221"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="491,140,368,184,367,179,489,135"/>
+<area shape="rect" id="Node000005" href="$RollDiceState_8cpp.html" title=" " alt="" coords="407,181,545,221"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="531,145,496,183,492,179,527,142"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="623,135,746,179,745,184,621,140"/>
+<area shape="rect" id="Node000007" href="$TurnState_8cpp.html" title=" " alt="" coords="569,181,706,221"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="585,142,621,179,617,183,582,145"/>
+</map>

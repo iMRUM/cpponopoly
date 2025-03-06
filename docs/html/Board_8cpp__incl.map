@@ -1,0 +1,50 @@
+<map id="src/model/Board.cpp" name="src/model/Board.cpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="671,5,814,31"/>
+<area shape="rect" id="Node000002" href="$Board_8hpp.html" title=" " alt="" coords="350,79,476,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="695,33,491,82,489,77,694,28"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="322,416,400,441"/>
+<area shape="poly" id="edge30_Node000001_Node000007" title=" " alt="" coords="814,20,896,32,939,43,981,59,1018,79,1048,105,1068,138,1076,178,1076,262,1070,287,1053,309,1028,329,994,346,909,374,806,395,696,410,587,420,415,429,414,424,587,415,695,405,805,390,908,369,992,341,1025,324,1050,305,1065,284,1070,261,1070,178,1063,140,1044,109,1015,83,979,63,938,48,895,37,813,25"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="510,167,569,192"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="445,117,511,157,508,162,442,121"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="17,416,86,441"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="350,104,270,112,225,121,179,134,134,152,91,175,54,205,23,241,14,261,10,282,12,326,25,368,40,402,36,405,20,370,7,327,4,281,9,259,19,239,50,201,88,171,131,147,177,129,224,116,269,107,349,98"/>
+<area shape="rect" id="Node000005" href="$Property_8hpp.html" title=" " alt="" coords="289,247,433,273"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="378,121,352,141,331,168,328,185,330,202,346,235,341,237,325,203,322,184,327,166,348,137,375,117"/>
+<area shape="rect" id="Node000006" href="$Square_8hpp.html" title=" " alt="" coords="208,335,296,361"/>
+<area shape="poly" id="edge12_Node000002_Node000006" title=" " alt="" coords="381,121,350,142,320,168,295,206,276,248,264,288,258,322,252,321,259,287,271,246,290,203,316,165,346,138,378,117"/>
+<area shape="rect" id="Node000011" href="$Railroad_8hpp.html" title=" " alt="" coords="340,167,486,192"/>
+<area shape="poly" id="edge13_Node000002_Node000011" title=" " alt="" coords="416,119,416,153,410,153,410,119"/>
+<area shape="rect" id="Node000014" href="$Utility_8hpp.html" title=" " alt="" coords="594,167,723,192"/>
+<area shape="poly" id="edge18_Node000002_Node000014" title=" " alt="" coords="473,116,611,160,609,165,471,121"/>
+<area shape="rect" id="Node000016" href="$Street_8hpp.html" title=" " alt="" coords="747,167,879,192"/>
+<area shape="poly" id="edge23_Node000002_Node000016" title=" " alt="" coords="477,110,742,161,741,167,476,115"/>
+<area shape="rect" id="Node000018" href="$SpecialSquare_8hpp.html" title=" " alt="" coords="33,247,214,273"/>
+<area shape="poly" id="edge28_Node000002_Node000018" title=" " alt="" coords="350,120,293,141,234,169,186,204,146,239,143,235,182,200,232,164,291,136,349,115"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="348,275,279,329,276,324,345,271"/>
+<area shape="poly" id="edge10_Node000005_Node000007" title=" " alt="" coords="364,273,364,402,358,402,358,273"/>
+<area shape="rect" id="Node000010" href="$StrategyRentCalculator_8hpp.html" title=" " alt="" coords="485,328,672,368"/>
+<area shape="poly" id="edge11_Node000005_Node000010" title=" " alt="" coords="391,270,519,320,517,325,389,275"/>
+<area shape="poly" id="edge6_Node000006_Node000004" title=" " alt="" coords="224,363,95,413,93,408,222,358"/>
+<area shape="poly" id="edge7_Node000006_Node000007" title=" " alt="" coords="269,359,335,406,332,410,266,363"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="234,416,288,441"/>
+<area shape="poly" id="edge8_Node000006_Node000008" title=" " alt="" coords="256,361,261,402,255,402,250,361"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="156,416,209,441"/>
+<area shape="poly" id="edge9_Node000006_Node000009" title=" " alt="" coords="244,363,204,407,200,404,240,359"/>
+<area shape="poly" id="edge14_Node000011_Node000005" title=" " alt="" coords="408,194,379,237,374,234,403,191"/>
+<area shape="rect" id="Node000012" href="$RailroadRentCalculator_8hpp.html" title=" " alt="" coords="458,240,643,280"/>
+<area shape="poly" id="edge15_Node000011_Node000012" title=" " alt="" coords="435,190,506,231,504,235,432,194"/>
+<area shape="poly" id="edge16_Node000012_Node000010" title=" " alt="" coords="559,279,571,314,565,316,554,281"/>
+<area shape="rect" id="Node000013" title=" " alt="" coords="724,335,782,361"/>
+<area shape="poly" id="edge17_Node000012_Node000013" title=" " alt="" coords="596,278,714,328,712,332,594,283"/>
+<area shape="poly" id="edge19_Node000014_Node000005" title=" " alt="" coords="616,195,418,246,417,241,615,189"/>
+<area shape="rect" id="Node000015" href="$UtilityRentCalculator_8hpp.html" title=" " alt="" coords="668,240,838,280"/>
+<area shape="poly" id="edge20_Node000014_Node000015" title=" " alt="" coords="674,190,721,229,718,233,671,194"/>
+<area shape="poly" id="edge21_Node000015_Node000010" title=" " alt="" coords="716,282,630,324,628,320,714,278"/>
+<area shape="poly" id="edge22_Node000015_Node000013" title=" " alt="" coords="756,280,756,321,750,321,750,280"/>
+<area shape="poly" id="edge24_Node000016_Node000005" title=" " alt="" coords="747,194,447,243,425,247,424,242,446,237,747,188"/>
+<area shape="rect" id="Node000017" href="$StreetRentCalculator_8hpp.html" title=" " alt="" coords="863,240,1035,280"/>
+<area shape="poly" id="edge25_Node000016_Node000017" title=" " alt="" coords="834,190,906,231,903,235,832,194"/>
+<area shape="poly" id="edge26_Node000017_Node000010" title=" " alt="" coords="868,283,674,328,672,322,867,277"/>
+<area shape="poly" id="edge27_Node000017_Node000013" title=" " alt="" coords="907,283,793,332,790,328,905,278"/>
+<area shape="poly" id="edge29_Node000018_Node000006" title=" " alt="" coords="142,271,224,325,221,330,140,275"/>
+</map>

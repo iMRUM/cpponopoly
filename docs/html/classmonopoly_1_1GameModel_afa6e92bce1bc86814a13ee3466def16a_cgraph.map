@@ -1,0 +1,21 @@
+<map id="monopoly::GameModel::payRent" name="monopoly::GameModel::payRent">
+<area shape="rect" id="Node000001" title="Process rent payment." alt="" coords="5,177,161,217"/>
+<area shape="rect" id="Node000002" href="$classmonopoly_1_1Player.html#a3ac4e53730a8d5f12ee3f9ffd1d9e528" title="Checks if player can afford a payment." alt="" coords="209,5,396,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="93,175,137,109,170,72,208,41,221,34,224,38,211,46,173,76,142,112,98,178"/>
+<area shape="rect" id="Node000003" href="$classmonopoly_1_1Player.html#a05d74a839e1ef637d52e77bc39f5bb4f" title="Attempts to decrease player&#39;s balance." alt="" coords="211,55,395,95"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="107,174,152,140,208,105,223,98,225,103,211,110,155,144,110,178"/>
+<area shape="rect" id="Node000004" href="$classmonopoly_1_1Property.html#abca64bbb5584d4fd1667cb27a31b42a7" title="Gets the property&#39;s base rent amount." alt="" coords="235,119,370,159"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="160,174,222,158,223,163,161,179"/>
+<area shape="rect" id="Node000005" href="$classmonopoly_1_1Player.html#a25b1794379aa66e656ba1ba9632ff76e" title=" " alt="" coords="223,184,383,209"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="162,194,209,194,209,199,162,199"/>
+<area shape="rect" id="Node000006" href="$classmonopoly_1_1Square.html#a6245251a3e881d9066cf7558d8b0d793" title="Gets the unique identifier of the square." alt="" coords="221,233,385,259"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="162,212,233,228,231,233,161,217"/>
+<area shape="rect" id="Node000007" href="$classmonopoly_1_1GameModel.html#a9517bcebc3159212d90ea38b6d23aeb9" title="Count railroads owned by player." alt="" coords="225,283,381,323"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="116,214,160,241,210,268,229,276,227,281,208,272,158,246,114,219"/>
+<area shape="rect" id="Node000008" href="$classmonopoly_1_1GameModel.html#a2c5accb7c47990bf66995aa466813674" title="Handle player bankruptcy process." alt="" coords="225,347,381,387"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="100,215,145,274,176,305,211,333,221,339,218,344,208,338,172,309,141,277,96,219"/>
+<area shape="rect" id="Node000009" href="$classmonopoly_1_1GameModel.html#a66f0223a16582dab7e8a7224df23a380" title="Check if game has been won." alt="" coords="467,318,623,358"/>
+<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="381,355,452,346,453,352,381,361"/>
+<area shape="rect" id="Node000010" href="$classmonopoly_1_1Player.html#a7b6118b0ebe2e5ac2effeda0847e298a" title=" " alt="" coords="444,383,645,408"/>
+<area shape="poly" id="edge9_Node000008_Node000010" title=" " alt="" coords="381,374,431,379,430,385,381,379"/>
+</map>
