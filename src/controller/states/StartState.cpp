@@ -20,7 +20,6 @@ namespace monopoly {
         if (key >= sf::Keyboard::Num2 && key <= sf::Keyboard::Num8) {
             const size_t numPlayers = static_cast<size_t>(key - sf::Keyboard::Num0);
             controller->initModel(numPlayers);
-            GameView *view = controller->getView();
             for (int i = 0; i < numPlayers; ++i) {
                 controller->getView()->updatePlayerAtBoardSquare(i, 0, 0);
             }

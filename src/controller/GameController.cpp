@@ -22,17 +22,6 @@ namespace monopoly {
         return model->isGameOver();
     }
 
-    void GameController::handleKeyRelease(sf::Keyboard::Key key) {
-        if (key == sf::Keyboard::Space && !model->isGameStarted()) {
-            std::cout << "starting game" << std::endl;
-            model->startGame();
-        } else if (key == sf::Keyboard::Up &&
-                   model->isGameStarted() &&
-                   !model->hasRolled()) {
-            model->setHasRolled(false);
-        }
-    }
-
 
     void GameController::handleUserInput() {
         sf::Event event;
@@ -57,12 +46,16 @@ namespace monopoly {
         }
     }
 
+    void GameController::updatePanelMessage(std::string& message) {
+        view->updatePanelMessage(message);
+    }
     void GameController::update() {
         view->update();
     }
 
     void GameController::changeState(GameState *newState) {
-        state = std::unique_ptr<GameState>(newState);
+        state.release();
+        state.reset(newState);
         state->onEnter(this);
     }
 }

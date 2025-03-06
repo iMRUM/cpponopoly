@@ -36,7 +36,9 @@ void RollDiceState::handleKeyRelease(GameController *controller, sf::Keyboard::K
         }
         model->moveSteps(dice.getTotal(), current_player.getId());
         view->updatePlayerAtBoardSquare(current_player.getId(),current_player.getPosition(), current_player.getPosition()-dice.getTotal());
+        std::cout << "position updated" << std::endl;
         model->nextTurn();
+        std::cout << "turn changed" << std::endl;
         changeState(controller, TurnState::getInstance());
     }
 }

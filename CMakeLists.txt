@@ -17,7 +17,6 @@ add_executable(model_tests
         include/utils/strategy/RailroadRentCalculator.hpp
         include/utils/strategy/UtilityRentCalculator.hpp
         include/controller/GameController.hpp
-        include/view/Gui.hpp
         src/controller/GameController.cpp
         main.cpp
         tests/model/squares/tests.cpp

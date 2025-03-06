@@ -64,12 +64,6 @@ private:
     bool isGameOver() const;
 
     /**
-     * @brief Process keyboard input events
-     * @param key The keyboard key that was released
-     */
-    void handleKeyRelease(sf::Keyboard::Key key);
-
-    /**
      * @brief Process all user input events
      */
     void handleUserInput();
@@ -96,6 +90,8 @@ public:
      * - Renders the view
      */
     void run();
+
+    void updatePanelMessage(std::string &message);
 
     /**
      * @brief Update game state and view
@@ -124,18 +120,6 @@ public:
      * @return Pointer to the current GameView instance
      */
     GameView *getView() const { return view.get(); }
-
-    /**
-     * @brief Get the index of the current player
-     * @return Current player's index
-     */
-    size_t getCurrentPlayerIndex() const { return current_player_index; }
-
-    /**
-     * @brief Set the current player's index
-     * @param index New current player index
-     */
-    void setCurrentPlayerIndex(const size_t index) { current_player_index = index; }
 };
 
 } // namespace monopoly
